@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180731 08:00:00.976" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/test/automation/All_repo/SDNC-FUNC/HAPPIEST_FRAMEWORK/Tests/Robot_Tests/SNMP_TEST1.robot" id="s1" name="SNMP TEST1">
+<test id="s1-t1" name="Bringup The Opendaylight Controller and Config plugins">
+<kw name="Start Karaf" library="CNTRLROBJ">
+<doc>To start Karaf from provided path</doc>
+<arguments>
+<arg>clean=${True}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180731 08:00:04.602" level="INFO">   sudo /home/test/oxygen/karaf-0.8.2/bin/stop
+karaf: JAVA_HOME not set; results may vary
+Can't connect to the container. The container is not running.
+root@controller:/home/test
+</msg>
+<msg timestamp="20180731 08:00:04.603" level="INFO">  ****** ODL KARAF stopped Successfully ******
+</msg>
+<msg timestamp="20180731 08:00:15.439" level="INFO">  sudo /home/test/oxygen/karaf-0.8.2/bin/karaf clea&lt; sudo /home/test/oxygen/karaf-0.8.2/bin/karaf clean                         
+karaf: JAVA_HOME not set; results may vary
+Apache Karaf starting up. Press Enter to open the shell now...
+  7% [=====&gt;                                                                  ] 15% [==========&gt;                                                             ] 23% [================&gt;                                                       ] 30% [=====================&gt;                                                  ] 38% [===========================&gt;                                            ] 46% [=================================&gt;                                      ] 53% [======================================&gt;                                 ] 61% [===========================================&gt;                            ] 69% [=================================================&gt;                      ] 76% [======================================================&gt;                 ] 84% [============================================================&gt;           ] 92% [==================================================================&gt;     ]100% [========================================================================]
+
+Karaf started in 0s. Bundle stats: 13 active, 13 total
+[33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+Error in initialization script: /home/test/oxygen/karaf-0.8.2/etc/shell.init.script: String index out of range: 0
+[?2004h
+</msg>
+<msg timestamp="20180731 08:00:15.440" level="INFO">  ****** ODL KARAF started Successfully ******
+</msg>
+<msg timestamp="20180731 08:00:15.441" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180731 08:00:15.441" starttime="20180731 08:00:02.549"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180731 08:00:15.442" starttime="20180731 08:00:15.441"></status>
+</kw>
+<kw name="Configure Plugins" library="CNTRLROBJ">
+<doc>To install Plugins</doc>
+<arguments>
+<arg>config_flag=install</arg>
+<arg>plugins=${SNMP_PLUGINS}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180731 08:00:17.496" level="INFO">  feature:install odl-restconf odl-mdsal-all odl-snmp-plugi n 
+[?2004l[31mCommand not found: [1mfeature:install[22m[39m
+[?2004h
+</msg>
+<msg timestamp="20180731 08:00:17.496" level="INFO">  ****** INSTALLED Plugins in ODL KARAF Successfully******
+</msg>
+<msg timestamp="20180731 08:00:17.497" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180731 08:00:17.497" starttime="20180731 08:00:15.443"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180731 08:00:17.498" starttime="20180731 08:00:17.497"></status>
+</kw>
+<kw name="Verify Installed Plugins" library="CNTRLROBJ">
+<doc>To verify the installed plugins in karaf</doc>
+<arguments>
+<arg>plugins=${SNMP_PLUGINS}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180731 08:00:19.553" level="INFO">  feature:list -r
+[?2004lName                                 \xe2\x94\x82 Version \xe2\x94\x82 Required \xe2\x94\x82 State   \xe2\x94\x82 Repository                           \xe2\x94\x82 Description
+\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80
+b8b5047f-c696-4a9c-9c49-d21ea2c16986 \xe2\x94\x82 0.0.0   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 74b1c666-2254-4fab-a51b-4f69a038ece6 \xe2\x94\x82
+[?2004h
+</msg>
+<msg timestamp="20180731 08:00:19.553" level="ERROR">  ****** PLUGIN:odl-restconf is NOT INSTALLED Properly, Verification FAILED ******
+</msg>
+<msg timestamp="20180731 08:00:19.554" level="ERROR">  ****** PLUGIN:odl-mdsal-all is NOT INSTALLED Properly, Verification FAILED ******
+</msg>
+<msg timestamp="20180731 08:00:19.555" level="ERROR">  ****** PLUGIN:odl-snmp-plugin is NOT INSTALLED Properly, Verification FAILED ******
+</msg>
+<msg timestamp="20180731 08:00:19.556" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180731 08:00:19.556" starttime="20180731 08:00:17.498"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180731 08:00:19.557" starttime="20180731 08:00:19.556"></status>
+</kw>
+<doc>CONFIGURE CONTROLLER</doc>
+<status status="PASS" endtime="20180731 08:00:19.557" critical="yes" starttime="20180731 08:00:02.548"></status>
+</test>
+<test id="s1-t2" name="Verify SNMP SET operation">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20180731 08:00:29.558" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20180731 08:00:29.559" starttime="20180731 08:00:19.557"></status>
+</kw>
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.1.5.0</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>VALUE=${SYS_NAME}</arg>
+</arguments>
+<msg timestamp="20180731 08:00:29.565" level="FAIL">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-set (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f53637f3c50&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" endtime="20180731 08:00:29.565" starttime="20180731 08:00:29.559"></status>
+</kw>
+<doc>SNMP SET OPERATION AND VERIFICATION</doc>
+<status status="FAIL" endtime="20180731 08:00:29.565" critical="yes" starttime="20180731 08:00:19.557">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-set (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f53637f3c50&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-t3" name="Verify SNMP GET operation">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.25.1.2.0</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180731 08:00:29.568" level="FAIL">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f53637b6e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" endtime="20180731 08:00:29.568" starttime="20180731 08:00:29.566"></status>
+</kw>
+<doc>SNMP GET OPERATION AND VERIFICATION</doc>
+<status status="FAIL" endtime="20180731 08:00:29.568" critical="yes" starttime="20180731 08:00:29.566">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f53637b6e50&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-t4" name="Verify SNMP SET operation on READ-ONLY MIB">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.1.1.0</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>VALUE='Ubuntu'</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180731 08:00:29.571" level="FAIL">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-set (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29a510&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" endtime="20180731 08:00:29.571" starttime="20180731 08:00:29.569"></status>
+</kw>
+<doc>SNMP SET OPERATION on READ-ONLY MIB</doc>
+<status status="FAIL" endtime="20180731 08:00:29.571" critical="yes" starttime="20180731 08:00:29.568">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-set (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29a510&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-t5" name="Verify SNMP GET-BULK operation">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.2.2.1.7</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET-BULK</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180731 08:00:29.574" level="FAIL">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29ab90&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" endtime="20180731 08:00:29.574" starttime="20180731 08:00:29.572"></status>
+</kw>
+<doc>SNMP GET BULK OPERATION</doc>
+<status status="FAIL" endtime="20180731 08:00:29.574" critical="yes" starttime="20180731 08:00:29.571">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29ab90&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-t6" name="Verify SNMP GET-NEXT operation">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.1</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET-NEXT</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180731 08:00:29.577" level="FAIL">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29f250&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" endtime="20180731 08:00:29.577" starttime="20180731 08:00:29.575"></status>
+</kw>
+<doc>SNMP GET NEXT OPERATION</doc>
+<status status="FAIL" endtime="20180731 08:00:29.577" critical="yes" starttime="20180731 08:00:29.575">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29f250&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-t7" name="Verify SNMP GET-WALK operation">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.3.1.1.2</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET-WALK</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180731 08:00:29.581" level="FAIL">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29f910&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" endtime="20180731 08:00:29.581" starttime="20180731 08:00:29.578"></status>
+</kw>
+<doc>SNMP GET WALK OPERATION</doc>
+<status status="FAIL" endtime="20180731 08:00:29.581" critical="yes" starttime="20180731 08:00:29.578">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29f910&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-t8" name="Access unavailable SNMP MIB">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.4.21</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180731 08:00:29.585" level="FAIL">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29ffd0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" endtime="20180731 08:00:29.585" starttime="20180731 08:00:29.582"></status>
+</kw>
+<doc>Accessing the SNMP MIB that does not exist</doc>
+<status status="FAIL" endtime="20180731 08:00:29.585" critical="yes" starttime="20180731 08:00:29.582">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29ffd0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<test id="s1-t9" name="Verify Multiple SNMP GET operation">
+<kw type="for" name="${GET_OID} IN [ @{GET_OIDs} ]">
+<kw type="foritem" name="${GET_OID} = 1.3.6.1.2.1.1.4.0">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=${GET_OID}</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180731 08:00:29.592" level="FAIL">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29f7d0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</msg>
+<status status="FAIL" endtime="20180731 08:00:29.592" starttime="20180731 08:00:29.587"></status>
+</kw>
+<status status="FAIL" endtime="20180731 08:00:29.592" starttime="20180731 08:00:29.587"></status>
+</kw>
+<status status="FAIL" endtime="20180731 08:00:29.592" starttime="20180731 08:00:29.587"></status>
+</kw>
+<doc>SNMP GET operation for MIBs System Contact person, UP time and location</doc>
+<status status="FAIL" endtime="20180731 08:00:29.593" critical="yes" starttime="20180731 08:00:29.586">ConnectionError: HTTPConnectionPool(host='192.168.203.7', port=8181): Max retries exceeded with url: /restconf/operations/snmp:snmp-get (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x7f535f29f7d0&gt;: Failed to establish a new connection: [Errno 111] Connection refused',))</status>
+</test>
+<doc>Test Suite for SNMP-FUNCTIONAL Test Scenarios</doc>
+<status status="FAIL" endtime="20180731 08:00:29.594" starttime="20180731 08:00:00.978"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="8" pass="1">Critical Tests</stat>
+<stat fail="8" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="8" id="s1" name="SNMP TEST1" pass="1">SNMP TEST1</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180731 08:00:19.553" level="ERROR">  ****** PLUGIN:odl-restconf is NOT INSTALLED Properly, Verification FAILED ******
+</msg>
+<msg timestamp="20180731 08:00:19.554" level="ERROR">  ****** PLUGIN:odl-mdsal-all is NOT INSTALLED Properly, Verification FAILED ******
+</msg>
+<msg timestamp="20180731 08:00:19.555" level="ERROR">  ****** PLUGIN:odl-snmp-plugin is NOT INSTALLED Properly, Verification FAILED ******
+</msg>
+</errors>
+</robot>

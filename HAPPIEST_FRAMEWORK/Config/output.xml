@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180530 13:06:10.363" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/test/automation/All_repo/SDNC-FUNC/HAPPIEST_FRAMEWORK/Tests/Robot_Tests/OVS_ODL_FUNC_TESTS.robot" id="s1" name="OVS ODL FUNC TESTS">
+<test id="s1-t1" name="Verify If All Devices Are Powered Up">
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>OVSOBJ</arg>
+</arguments>
+<assign>
+<var>${ovs_obj}</var>
+</assign>
+<msg timestamp="20180530 13:06:27.485" level="INFO">${ovs_obj} = &lt;Supporting_Libs.ovs.ovs object at 0x7f1b7f34cc90&gt;</msg>
+<status status="PASS" endtime="20180530 13:06:27.485" starttime="20180530 13:06:27.485"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>CNTRLROBJ</arg>
+</arguments>
+<assign>
+<var>${cntrl_obj}</var>
+</assign>
+<msg timestamp="20180530 13:06:27.486" level="INFO">${cntrl_obj} = &lt;Supporting_Libs.Karaf.Karaf object at 0x7f1b7f390850&gt;</msg>
+<status status="PASS" endtime="20180530 13:06:27.486" starttime="20180530 13:06:27.486"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>HOST1</arg>
+</arguments>
+<assign>
+<var>${host1_obj}</var>
+</assign>
+<msg timestamp="20180530 13:06:27.486" level="INFO">${host1_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f1b7ad84e90&gt;</msg>
+<status status="PASS" endtime="20180530 13:06:27.486" starttime="20180530 13:06:27.486"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>HOST2</arg>
+</arguments>
+<assign>
+<var>${host2_obj}</var>
+</assign>
+<msg timestamp="20180530 13:06:27.487" level="INFO">${host2_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f1b7ad9a8d0&gt;</msg>
+<status status="PASS" endtime="20180530 13:06:27.487" starttime="20180530 13:06:27.487"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${ovs_obj}</arg>
+</arguments>
+<msg timestamp="20180530 13:06:27.488" level="INFO">${ovs_obj} = &lt;Supporting_Libs.ovs.ovs object at 0x7f1b7f34cc90&gt;</msg>
+<status status="PASS" endtime="20180530 13:06:27.488" starttime="20180530 13:06:27.487"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${cntrl_obj}</arg>
+</arguments>
+<msg timestamp="20180530 13:06:27.488" level="INFO">${cntrl_obj} = &lt;Supporting_Libs.Karaf.Karaf object at 0x7f1b7f390850&gt;</msg>
+<status status="PASS" endtime="20180530 13:06:27.488" starttime="20180530 13:06:27.488"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${host1_obj}</arg>
+</arguments>
+<msg timestamp="20180530 13:06:27.489" level="INFO">${host1_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f1b7ad84e90&gt;</msg>
+<status status="PASS" endtime="20180530 13:06:27.489" starttime="20180530 13:06:27.489"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${host2_obj}</arg>
+</arguments>
+<msg timestamp="20180530 13:06:27.490" level="INFO">${host2_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f1b7ad9a8d0&gt;</msg>
+<status status="PASS" endtime="20180530 13:06:27.490" starttime="20180530 13:06:27.489"></status>
+</kw>
+<doc>login to switch,host1 &amp; host2</doc>
+<status status="PASS" endtime="20180530 13:06:27.490" critical="yes" starttime="20180530 13:06:27.484"></status>
+</test>
+<test id="s1-t2" name="Configure OVS bridge">
+<kw name="Create Validate Bridge" library="OVSOBJ">
+<doc>Date: 15/06/2017  Author: Sirish</doc>
+<arguments>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${Cntrlr_data}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180530 13:06:29.544" level="INFO">   ovs-vsctl show
+fe84fc38-119e-4581-8f0c-496380f1081a
+    Bridge br-int
+        fail_mode: secure
+        Port "tap9ebc8336-11"
+            Interface "tap9ebc8336-11"
+                type: internal
+        Port br-int
+            Interface br-int
+                type: internal
+        Port "tap688446f1-62"
+            Interface "tap688446f1-62"
+                type: internal
+        Port "qr-65862c60-7e"
+            Interface "qr-65862c60-7e"
+                type: internal
+        Port "qg-37a98acc-de"
+            Interface "qg-37a98acc-de"
+                type: internal
+        Port "qr-3d578422-46"
+            Interface "qr-3d578422-46"
+                type: internal
+    Bridge "s1"
+        Controller "tcp:192.168.203.62:6653"
+            is_connected: true
+        Port "s1"
+            Interface "s1"
+                type: internal
+    Bridge "ovstest1"
+        Port "ovstest1"
+            Interface "ovstest1"
+                type: internal
+    Bridge cntrl_br
+        Controller "tcp:192.168.203.31:6653"
+            is_connected: true
+        Port "vnet1"
+            Interface "vnet1"
+        Port "vnet3"
+            Interface "vnet3"
+        Port cntrl_br
+            Interface cntrl_br
+                type: internal
+    Bridge "ovstest2"
+        Port "ovstest2"
+            Interface "ovstest2"
+                type: internal
+    ovs_version: "2.6.1"
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:06:29.546" level="INFO">  Bridge and Controller configured properly
+</msg>
+<msg timestamp="20180530 13:06:29.546" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180530 13:06:29.547" starttime="20180530 13:06:27.491"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${status} != ${True}</arg>
+<arg>Run Keywords</arg>
+<arg>Debug Controller Failure</arg>
+<arg>${ovs_obj}</arg>
+<arg>${cntrl_obj}</arg>
+<arg>AND</arg>
+<arg>Fail</arg>
+</arguments>
+<status status="PASS" endtime="20180530 13:06:29.548" starttime="20180530 13:06:29.547"></status>
+</kw>
+<status status="PASS" endtime="20180530 13:06:29.549" critical="yes" starttime="20180530 13:06:27.490"></status>
+</test>
+<test id="s1-t3" name="Add ports to OVS bridge">
+<kw name="Addports Validate" library="OVSOBJ">
+<doc> This method is to add ports to the desired bridge</doc>
+<arguments>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${OVS_BRIDGE_CONF['PORTS']}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180530 13:06:31.603" level="INFO">  ifconfig vnet1
+vnet1     Link encap:Ethernet  HWaddr fe:54:00:c7:54:ca  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1491 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3517 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:84582 (84.5 KB)  TX bytes:389118 (389.1 KB)
+
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:06:33.657" level="INFO">  ovs-vsctl port-to-br vnet1
+cntrl_br
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:06:33.658" level="INFO">  Port vnet1 is already part of the bridge cntrl_br
+</msg>
+<msg timestamp="20180530 13:06:35.711" level="INFO">  ifconfig vnet3
+vnet3     Link encap:Ethernet  HWaddr fe:54:00:fa:5e:84  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:627 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:4147 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:52654 (52.6 KB)  TX bytes:419218 (419.2 KB)
+
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:06:37.764" level="INFO">  ovs-vsctl port-to-br vnet3
+cntrl_br
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:06:37.764" level="INFO">  Port vnet3 is already part of the bridge cntrl_br
+</msg>
+<msg timestamp="20180530 13:06:44.817" level="INFO">  ovs-ofctl del-flows cntrl_br
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:06:44.818" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180530 13:06:44.818" starttime="20180530 13:06:29.550"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180530 13:06:44.819" starttime="20180530 13:06:44.818"></status>
+</kw>
+<status status="PASS" endtime="20180530 13:06:44.820" critical="yes" starttime="20180530 13:06:29.549"></status>
+</test>
+<test id="s1-t4" name="Assign IP addresses to host interfaces">
+<kw name="Config Host Nic Ip" library="HOST1">
+<arguments>
+<arg>if_name=${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>ip=${HOST1["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<msg timestamp="20180530 13:06:46.876" level="INFO">   ifconfig eth1 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:06:48.929" level="INFO">  ifconfig eth1 0 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:06:50.981" level="INFO">  ifconfig eth1 15.15.15.1/24 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:06:53.033" level="INFO">  ifconfig eth1
+eth1      Link encap:Ethernet  HWaddr 52:54:00:c7:54:ca  
+          inet addr:15.15.15.1  Bcast:15.15.15.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:393 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1491 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:31378 (31.3 KB)  TX bytes:84582 (84.5 KB)
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:06:53.034" level="INFO">  Successfully Assigned IP Address on the Interface eth1
+</msg>
+<status status="PASS" endtime="20180530 13:06:53.034" starttime="20180530 13:06:44.821"></status>
+</kw>
+<kw name="Config Host Nic Ip" library="HOST2">
+<arguments>
+<arg>if_name=${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>ip=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<msg timestamp="20180530 13:06:55.088" level="INFO">   ifconfig eth1 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:06:57.141" level="INFO">  ifconfig eth1 0 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:06:59.194" level="INFO">  ifconfig eth1 15.15.15.2/24 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:07:01.248" level="INFO">  ifconfig eth1
+eth1      Link encap:Ethernet  HWaddr 52:54:00:fa:5e:84  
+          inet addr:15.15.15.2  Bcast:15.15.15.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:1092 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:627 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:77791 (77.7 KB)  TX bytes:52654 (52.6 KB)
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:07:01.249" level="INFO">  Successfully Assigned IP Address on the Interface eth1
+</msg>
+<status status="PASS" endtime="20180530 13:07:01.249" starttime="20180530 13:06:53.035"></status>
+</kw>
+<status status="PASS" endtime="20180530 13:07:01.249" critical="yes" starttime="20180530 13:06:44.820"></status>
+</test>
+<test id="s1-t5" name="Ports Based Flows test - PUSH To &amp; Fro Port Based Flow Rules">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Null=Null</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180530 13:07:01.253" level="INFO">&amp;{flow_input} = { Null=Null }</msg>
+<status status="PASS" endtime="20180530 13:07:01.253" starttime="20180530 13:07:01.251"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=delete</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180530 13:07:03.306" level="INFO">  ovs-ofctl dump-flows cntrl_br
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:07:03.308" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.31:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:108748501158208
+</msg>
+<msg timestamp="20180530 13:07:03.325" level="INFO">  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; cmd_rslt: True
+</msg>
+<msg timestamp="20180530 13:07:03.383" level="INFO">  ovs-ofctl dump-flows  cntrl_br
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:07:03.384" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180530 13:07:03.384" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180530 13:07:03.384" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180530 13:07:03.384" starttime="20180530 13:07:01.254"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180530 13:07:03.384" starttime="20180530 13:07:03.384"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180530 13:07:03.385" level="INFO">&amp;{flow_input} = { priority=500 | in_port=1 | id=1 | table=0 | order=0 | actions=2 }</msg>
+<status status="PASS" endtime="20180530 13:07:03.385" starttime="20180530 13:07:03.385"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=add</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180530 13:07:05.438" level="INFO">   ovs-ofctl dump-flows cntrl_br
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:07:05.439" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.31:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:108748501158208/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180530 13:07:05.465" level="INFO">  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; cmd_rslt: True
+</msg>
+<msg timestamp="20180530 13:07:05.524" level="INFO">  ovs-ofctl dump-flows  cntrl_br
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.067s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:07:05.525" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180530 13:07:05.526" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180530 13:07:05.526" starttime="20180530 13:07:03.385"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180530 13:07:05.527" starttime="20180530 13:07:05.526"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[1]}</arg>
+<arg>id=2</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[0]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180530 13:07:05.530" level="INFO">&amp;{flow_input} = { priority=500 | in_port=2 | id=2 | table=0 | order=0 | actions=1 }</msg>
+<status status="PASS" endtime="20180530 13:07:05.530" starttime="20180530 13:07:05.528"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=add</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180530 13:07:07.584" level="INFO">   ovs-ofctl dump-flows cntrl_br
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.134s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:07:07.586" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.31:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:108748501158208/flow-node-inventory:table/0/flow/2
+</msg>
+<msg timestamp="20180530 13:07:07.609" level="INFO">  &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; cmd_rslt: True
+</msg>
+<msg timestamp="20180530 13:07:07.668" level="INFO">  ovs-ofctl dump-flows  cntrl_br
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=2.210s, table=0, n_packets=0, n_bytes=0, idle_age=2, priority=500,in_port=1 actions=output:2
+ cookie=0x0, duration=0.062s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=500,in_port=2 actions=output:1
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180530 13:07:07.668" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180530 13:07:07.669" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180530 13:07:07.669" starttime="20180530 13:07:05.531"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180530 13:07:07.670" starttime="20180530 13:07:07.669"></status>
+</kw>
+<status status="PASS" endtime="20180530 13:07:07.671" critical="yes" starttime="20180530 13:07:01.250"></status>
+</test>
+<test id="s1-t6" name="Ports Based Flows test - Check Host Reachability Via Created Flow Rules">
+<kw name="Peer Ping" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>obj=${host1_obj}</arg>
+<arg>source=None</arg>
+<arg>dest=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180530 13:07:16.743" level="INFO">  ping 15.15.15.2 -c 10
+PING 15.15.15.2 (15.15.15.2) 56(84) bytes of data.
+64 bytes from 15.15.15.2: icmp_seq=1 ttl=64 time=2.64 ms
+64 bytes from 15.15.15.2: icmp_seq=2 ttl=64 time=1.06 ms
+64 bytes from 15.15.15.2: icmp_seq=3 ttl=64 time=1.10 ms
+64 bytes from 15.15.15.2: icmp_seq=4 ttl=64 time=1.05 ms
+64 bytes from 15.15.15.2: icmp_seq=5 ttl=64 time=1.06 ms
+64 bytes from 15.15.15.2: icmp_seq=6 ttl=64 time=0.891 ms
+64 bytes from 15.15.15.2: icmp_seq=7 ttl=64 time=0.984 ms
+64 bytes from 15.15.15.2: icmp_seq=8 ttl=64 time=1.01 ms
+64 bytes from 15.15.15.2: icmp_seq=9 ttl=64 time=1.07 ms
+64 bytes from 15.15.15.2: icmp_seq=10 ttl=64 time=1.01 ms
+
+--- 15.15.15.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9012ms
+rtt min/avg/max/mdev = 0.891/1.190/2.641/0.487 ms
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180530 13:07:16.744" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20180530 13:07:16.745" starttime="20180530 13:07:07.673"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180530 13:07:16.747" starttime="20180530 13:07:16.745"></status>
+</kw>
+<status status="PASS" endtime="20180530 13:07:16.747" critical="yes" starttime="20180530 13:07:07.671"></status>
+</test>
+<test id="s1-t7" name="Ports Based Flows test - Delete One Of The Flows To Interrupt The Host Reachability">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[1]}</arg>
+<arg>id=2</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[0]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180530 13:07:16.752" level="INFO">&amp;{flow_input} = { priority=500 | in_port=2 | id=2 | table=0 | order=0 | actions=1 }</msg>
+<status status="PASS" endtime="20180530 13:07:16.752" starttime="20180530 13:07:16.750"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<status status="FAIL" endtime="20180530 13:07:16.907" starttime="20180530 13:07:16.753"></status>
+</kw>
+<status status="FAIL" endtime="20180530 13:07:16.908" critical="yes" starttime="20180530 13:07:16.748">Execution terminated by signal</status>
+</test>
+<test id="s1-t8" name="Ports Based Flows test - Check Host reachability Is Interrupted">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.910" critical="yes" starttime="20180530 13:07:16.909">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t9" name="Ports Based Flows test - Restore(PUSH) The Deleted Flow Rule">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.912" critical="yes" starttime="20180530 13:07:16.911">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t10" name="Ports Based Flows test - Check Host Reachability After Port Based Flow Rule Restored">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.914" critical="yes" starttime="20180530 13:07:16.913">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t11" name="MAC Address Based Match Flows Test - PUSH A Flow To Match SRC MAC And Forward">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.916" critical="yes" starttime="20180530 13:07:16.914">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t12" name="MAC Address Based Match Flows Test - Check The Flow With Traffic on SRC MAC Match">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.917" critical="yes" starttime="20180530 13:07:16.916">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t13" name="Vlan Id Based Match Flows Test - PUSH The Flows To Match VLAN ID">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.919" critical="yes" starttime="20180530 13:07:16.918">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t14" name="Vlan Id Based Match Flows Test - Check The Traffic Is Forwarded On Vlan Id Match">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.921" critical="yes" starttime="20180530 13:07:16.920">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t15" name="Vlan Id Based Match Flows Test - PUSH Flow Rule To Strip VLAN &amp; Forward The Traffic">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.923" critical="yes" starttime="20180530 13:07:16.922">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t16" name="Vlan Id Based Match Flows Test - Check The Traffic Is Forwarded After Stripping VLAN ID">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.925" critical="yes" starttime="20180530 13:07:16.924">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t17" name="Vlan Id Based Match Flows Test - PUSH A Flow To Modify VLAN Vid &amp; Forward The Traffic">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.927" critical="yes" starttime="20180530 13:07:16.926">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t18" name="Vlan Id Based Match Flows Test - Check The Traffic Is Forwarded After Modifying The VLAN ID">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.929" critical="yes" starttime="20180530 13:07:16.928">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t19" name="IPv4 Address Based Match Flows Test - PUSH A Flow To Forward Traffic On SRC IP Match">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.931" critical="yes" starttime="20180530 13:07:16.929">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t20" name="IPv4 Address Based Match Flows Test - Check The Traffic Is Forwarded On SRC IP Match">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.933" critical="yes" starttime="20180530 13:07:16.931">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t21" name="IPv4 Address Based Match Flows test - Delete The Flow To Match SRC IP">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.934" critical="yes" starttime="20180530 13:07:16.933">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t22" name="IPv4 Address Based Match Flows test - Check The Traffic Is Droppd As SRC IP Match Flow Is Deleted">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.936" critical="yes" starttime="20180530 13:07:16.935">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t23" name="ACL Rules Mimic Using OVS Flows - PUSH FLOW To Deny ICMP Echo Req Traffic">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.938" critical="yes" starttime="20180530 13:07:16.937">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t24" name="ACL Rules Mimic Using OVS Flows - Check The ICMP Echo Req Traffic Is Denied/Dropped">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.940" critical="yes" starttime="20180530 13:07:16.939">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t25" name="ACL Rules Mimic Using OVS Flows - PUSH FLOWS To Allow ICMP Echo Req Traffic">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.941" critical="yes" starttime="20180530 13:07:16.940">Test execution stopped due to a fatal error.</status>
+</test>
+<test id="s1-t26" name="ACL Rules Mimic Using OVS Flows - Check The ICMP Echo Req Traffic Is Allowed">
+<tags>
+<tag>robot-exit</tag>
+</tags>
+<status status="FAIL" endtime="20180530 13:07:16.942" critical="yes" starttime="20180530 13:07:16.941">Test execution stopped due to a fatal error.</status>
+</test>
+<doc>Test Suite for SDNC-FUNCTIONAL Test Scenarios</doc>
+<status status="FAIL" endtime="20180530 13:07:16.944" starttime="20180530 13:06:10.364"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="20" pass="6">Critical Tests</stat>
+<stat fail="20" pass="6">All Tests</stat>
+</total>
+<tag>
+<stat info="combined" fail="1" combined="NOT robot-exit" pass="6">NOT robot-exit</stat>
+<stat fail="19" pass="0">robot-exit</stat>
+</tag>
+<suite>
+<stat fail="20" id="s1" name="OVS ODL FUNC TESTS" pass="6">OVS ODL FUNC TESTS</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

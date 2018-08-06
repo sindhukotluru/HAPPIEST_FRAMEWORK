@@ -1,0 +1,9 @@
+import sys
+sys.path.append('/home/test/AUTOMATION/HAPPIEST_FRAMEWORK')
+from Config import ControllerConfig
+from Supporting_Libs import snmp_utils
+
+
+code, text = perform_odl_snmp_operation(IP='192.168.203.3',OID='1.3.6.1.2.1.1',COMMUNITY='test')
+print code
+print text

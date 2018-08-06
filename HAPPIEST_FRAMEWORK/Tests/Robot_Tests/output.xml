@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180806 09:55:30.137" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/test/automation/All_repo/SDNC-FUNC/HAPPIEST_FRAMEWORK/Tests/Robot_Tests/SNMP_TEST.robot" id="s1" name="SNMP TEST">
+<test id="s1-t1" name="Verify If All Devices Are Powered Up">
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>CNTRLROBJ</arg>
+</arguments>
+<assign>
+<var>${cntrl_obj}</var>
+</assign>
+<msg timestamp="20180806 09:55:31.653" level="INFO">${cntrl_obj} = &lt;Supporting_Libs.Karaf.Karaf object at 0x7fd75a1e4fd0&gt;</msg>
+<status status="PASS" endtime="20180806 09:55:31.653" starttime="20180806 09:55:31.653"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${cntrl_obj}</arg>
+</arguments>
+<msg timestamp="20180806 09:55:31.654" level="INFO">${cntrl_obj} = &lt;Supporting_Libs.Karaf.Karaf object at 0x7fd75a1e4fd0&gt;</msg>
+<status status="PASS" endtime="20180806 09:55:31.654" starttime="20180806 09:55:31.653"></status>
+</kw>
+<status status="PASS" endtime="20180806 09:55:31.654" critical="yes" starttime="20180806 09:55:31.652"></status>
+</test>
+<test id="s1-t2" name="Bringup The Opendaylight Controller and Config plugins">
+<kw name="Start Karaf" library="CNTRLROBJ">
+<doc>To start Karaf from provided path</doc>
+<arguments>
+<arg>clean=${True}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180806 09:55:33.708" level="INFO">   sudo /home/test/oxygen/karaf-0.8.2/bin/stop
+karaf: JAVA_HOME not set; results may vary
+]0;root@controller: /home/testroot@controller:/home/test
+</msg>
+<msg timestamp="20180806 09:55:33.709" level="INFO">  ****** ODL KARAF stopped Successfully ******
+</msg>
+<msg timestamp="20180806 09:55:35.761" level="INFO">  sudo /home/test/oxygen/karaf-0.8.2/bin/status
+karaf: JAVA_HOME not set; results may vary
+Not Running ...
+]0;root@controller: /home/testroot@controller:/home/test
+</msg>
+<msg timestamp="20180806 09:55:35.762" level="INFO">  sudo /home/test/oxygen/karaf-0.8.2/bin/status
+karaf: JAVA_HOME not set; results may vary
+Not Running ...
+]0;root@controller: /home/testroot@controller:/home/test
+</msg>
+<msg timestamp="20180806 09:55:35.762" level="INFO">  ****** ODL KARAF stopped Successfully ******
+</msg>
+<msg timestamp="20180806 09:55:43.722" level="INFO">  sudo /home/test/oxygen/karaf-0.8.2/bin/karaf clean
+karaf: JAVA_HOME not set; results may vary
+Apache Karaf starting up. Press Enter to open the shell now...
+  7% [=====&gt;                                                                  ] 15% [==========&gt;                                                             ] 23% [================&gt;                                                       ] 30% [=====================&gt;                                                  ] 38% [===========================&gt;                                            ] 46% [=================================&gt;                                      ] 53% [======================================&gt;                                 ] 61% [===========================================&gt;                            ] 69% [=================================================&gt;                      ] 76% [======================================================&gt;                 ] 84% [============================================================&gt;           ] 92% [==================================================================&gt;     ]100% [========================================================================]
+
+Karaf started in 0s. Bundle stats: 13 active, 13 total
+[33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+[?1h=[37m~[0m                                                                                [?2004h[36m
+</msg>
+<msg timestamp="20180806 09:55:43.722" level="INFO">  ****** ODL KARAF started Successfully ******
+</msg>
+<msg timestamp="20180806 09:55:43.723" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180806 09:55:43.723" starttime="20180806 09:55:31.655"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:55:43.724" starttime="20180806 09:55:43.724"></status>
+</kw>
+<kw name="Configure Plugins" library="CNTRLROBJ">
+<doc>To install Plugins</doc>
+<arguments>
+<arg>config_flag=install</arg>
+<arg>plugins=${SNMP_PLUGINS}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180806 09:56:00.885" level="INFO">  [31mf[0m[31me[0m[31ma[0m[31mt[0m[31mu[0m[31mr[0m[6D[34mfeature[0m[K[7D[31mfeature:[0m[K[31mi[0m[31mn[0m[31ms[0m[31mt[0m[31ma[0m[31ml[0m[14D[34mfeature:install[0m[K odl-restconf odl-snmp-plugin odl-dlux-cor
+[A[79Cre odl-dluxapps-applications 
+[?1l&gt;[?1000l[?2004l[?1h=[37m~[0m                                                                                [?2004h[36m
+</msg>
+<msg timestamp="20180806 09:56:00.885" level="INFO">  ****** INSTALLED Plugins in ODL KARAF Successfully******
+</msg>
+<msg timestamp="20180806 09:56:00.886" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180806 09:56:00.886" starttime="20180806 09:55:43.725"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:00.887" starttime="20180806 09:56:00.886"></status>
+</kw>
+<kw name="Verify Installed Plugins" library="CNTRLROBJ">
+<doc>To verify the installed plugins in karaf</doc>
+<arguments>
+<arg>plugins=${SNMP_PLUGINS}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180806 09:56:02.943" level="INFO">  [31mf[0m[31me[0m[31ma[0m[31mt[0m[31mu[0m[31mr[0m[6D[34mfeature[0m[K[7D[31mfeature:[0m[K[31ml[0m[31mi[0m[31ms[0m[11D[34mfeature:list[0m[K -r
+[?1l&gt;[?1000l[?2004lName                                 \xe2\x94\x82 Version \xe2\x94\x82 Required \xe2\x94\x82 State   \xe2\x94\x82 Repository                           \xe2\x94\x82 Description
+\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80
+odl-snmp-plugin                      \xe2\x94\x82 1.5.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-snmp-1.5.2                       \xe2\x94\x82 OpenDaylight :: snmp-plugin :: SNMP
+b8b5047f-c696-4a9c-9c49-d21ea2c16986 \xe2\x94\x82 0.0.0   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 74b1c666-2254-4fab-a51b-4f69a038ece6 \xe2\x94\x82
+odl-dluxapps-applications            \xe2\x94\x82 0.7.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-dluxapps-applications            \xe2\x94\x82 ODL :: dluxapps :: odl-dluxapps-applications
+odl-restconf                         \xe2\x94\x82 1.7.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-restconf                         \xe2\x94\x82 OpenDaylight :: Restconf
+odl-dlux-core                        \xe2\x94\x82 0.7.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-dlux-0.7.2                       \xe2\x94\x82 Opendaylight dlux minimal feature
+[?1h=[37m~[0m                                                                                [?2004h[36m
+</msg>
+<msg timestamp="20180806 09:56:02.945" level="INFO">  ****** Installed Plugins are verified properly ******
+</msg>
+<msg timestamp="20180806 09:56:02.945" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180806 09:56:02.945" starttime="20180806 09:56:00.888"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:02.947" starttime="20180806 09:56:02.946"></status>
+</kw>
+<doc>CONFIGURE CONTROLLER</doc>
+<status status="PASS" endtime="20180806 09:56:02.947" critical="yes" starttime="20180806 09:55:31.654"></status>
+</test>
+<test id="s1-t3" name="Verify SNMP SET operation">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>20s</arg>
+</arguments>
+<msg timestamp="20180806 09:56:22.950" level="INFO">Slept 20 seconds</msg>
+<status status="PASS" endtime="20180806 09:56:22.951" starttime="20180806 09:56:02.949"></status>
+</kw>
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.1.5.0</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>VALUE=${SYS_NAME}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:22.987" starttime="20180806 09:56:22.951"></status>
+</kw>
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.1.5.0</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.058" level="INFO">${result} = (200, u'1.3.6.1.2.1.1.5.0 = Controller\n')</msg>
+<status status="PASS" endtime="20180806 09:56:23.058" starttime="20180806 09:56:22.987"></status>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>"${result}"</arg>
+<arg>${SYS_NAME}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.060" starttime="20180806 09:56:23.059"></status>
+</kw>
+<doc>SNMP SET OPERATION AND VERIFICATION</doc>
+<status status="PASS" endtime="20180806 09:56:23.061" critical="yes" starttime="20180806 09:56:02.948"></status>
+</test>
+<test id="s1-t4" name="Verify SNMP GET operation">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.25.1.2.0</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.073" level="INFO">${result} = (200, u'1.3.6.1.2.1.25.1.2.0 = 07:e2:08:06:09:38:17:00:2b:05:1e\n')</msg>
+<status status="PASS" endtime="20180806 09:56:23.073" starttime="20180806 09:56:23.063"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.074" level="INFO">${output} = 1.3.6.1.2.1.25.1.2.0 = 07:e2:08:06:09:38:17:00:2b:05:1e
+</msg>
+<status status="PASS" endtime="20180806 09:56:23.074" starttime="20180806 09:56:23.073"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"ERROR MESSAGE" in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.076" level="INFO">${contains} = False</msg>
+<status status="PASS" endtime="20180806 09:56:23.076" starttime="20180806 09:56:23.075"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.078" starttime="20180806 09:56:23.077"></status>
+</kw>
+<doc>SNMP GET OPERATION AND VERIFICATION</doc>
+<status status="PASS" endtime="20180806 09:56:23.078" critical="yes" starttime="20180806 09:56:23.061"></status>
+</test>
+<test id="s1-t5" name="Verify SNMP SET operation on READ-ONLY MIB">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.1.1.0</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>VALUE='Ubuntu'</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.094" level="INFO">${result} = (500, u'ERROR MESSAGE = SnmpSET failed with error status: 17, error index: 1. StatusText: Not writable')</msg>
+<status status="PASS" endtime="20180806 09:56:23.095" starttime="20180806 09:56:23.080"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.096" level="INFO">${output} = ERROR MESSAGE = SnmpSET failed with error status: 17, error index: 1. StatusText: Not writable</msg>
+<status status="PASS" endtime="20180806 09:56:23.096" starttime="20180806 09:56:23.095"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${err_string} in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.098" level="INFO">${contains} = True</msg>
+<status status="PASS" endtime="20180806 09:56:23.098" starttime="20180806 09:56:23.097"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.100" starttime="20180806 09:56:23.098"></status>
+</kw>
+<doc>SNMP SET OPERATION on READ-ONLY MIB</doc>
+<status status="PASS" endtime="20180806 09:56:23.100" critical="yes" starttime="20180806 09:56:23.079"></status>
+</test>
+<test id="s1-t6" name="Verify SNMP GET-BULK operation">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.2.2.1.7</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET-BULK</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.113" level="INFO">${result} = (200, u'1.3.6.1.2.1.2.2.1.7.1 = 1\n1.3.6.1.2.1.2.2.1.7.2 = 1\n1.3.6.1.2.1.2.2.1.7.3 = 2\n1.3.6.1.2.1.2.2.1.7.21 = 2\n1.3.6.1.2.1.2.2.1.7.26 = 2\n1.3.6.1.2.1.2.2.1.7.27 = 2\n1.3.6.1.2.1.2.2.1.7.28 = 1\...</msg>
+<status status="PASS" endtime="20180806 09:56:23.114" starttime="20180806 09:56:23.102"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.115" level="INFO">${output} = 1.3.6.1.2.1.2.2.1.7.1 = 1
+1.3.6.1.2.1.2.2.1.7.2 = 1
+1.3.6.1.2.1.2.2.1.7.3 = 2
+1.3.6.1.2.1.2.2.1.7.21 = 2
+1.3.6.1.2.1.2.2.1.7.26 = 2
+1.3.6.1.2.1.2.2.1.7.27 = 2
+1.3.6.1.2.1.2.2.1.7.28 = 1
+1.3.6.1.2.1.2....</msg>
+<status status="PASS" endtime="20180806 09:56:23.115" starttime="20180806 09:56:23.114"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"ERROR MESSAGE" in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.116" level="INFO">${contains} = False</msg>
+<status status="PASS" endtime="20180806 09:56:23.116" starttime="20180806 09:56:23.115"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.117" starttime="20180806 09:56:23.116"></status>
+</kw>
+<doc>SNMP GET BULK OPERATION</doc>
+<status status="PASS" endtime="20180806 09:56:23.117" critical="yes" starttime="20180806 09:56:23.101"></status>
+</test>
+<test id="s1-t7" name="Verify SNMP GET-NEXT operation">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.1</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET-NEXT</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.128" level="INFO">${result} = (200, u'1.3.6.1.2.1.1.1.0 = Linux controller 4.15.0-24-generic #26~16.04.1-Ubuntu SMP Fri Jun 15 14:35:08 UTC 2018 x86_64\n')</msg>
+<status status="PASS" endtime="20180806 09:56:23.128" starttime="20180806 09:56:23.119"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.128" level="INFO">${output} = 1.3.6.1.2.1.1.1.0 = Linux controller 4.15.0-24-generic #26~16.04.1-Ubuntu SMP Fri Jun 15 14:35:08 UTC 2018 x86_64
+</msg>
+<status status="PASS" endtime="20180806 09:56:23.128" starttime="20180806 09:56:23.128"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"ERROR MESSAGE" in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.129" level="INFO">${contains} = False</msg>
+<status status="PASS" endtime="20180806 09:56:23.129" starttime="20180806 09:56:23.129"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.130" starttime="20180806 09:56:23.130"></status>
+</kw>
+<doc>SNMP GET NEXT OPERATION</doc>
+<status status="PASS" endtime="20180806 09:56:23.130" critical="yes" starttime="20180806 09:56:23.118"></status>
+</test>
+<test id="s1-t8" name="Verify SNMP GET-WALK operation">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.3.1.1.2</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET-WALK</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.144" level="INFO">${result} = (200, u'1.3.6.1.2.1.3.1.1.2.28.1.192.168.203.1 = 40:71:83:3b:cb:c0\n1.3.6.1.2.1.3.1.1.2.28.1.192.168.203.4 = fc:3f:db:06:94:1a\n1.3.6.1.2.1.3.1.1.2.28.1.192.168.203.6 = fc:3f:db:06:95:75\n1.3.6.1.2.1....</msg>
+<status status="PASS" endtime="20180806 09:56:23.144" starttime="20180806 09:56:23.131"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.145" level="INFO">${output} = 1.3.6.1.2.1.3.1.1.2.28.1.192.168.203.1 = 40:71:83:3b:cb:c0
+1.3.6.1.2.1.3.1.1.2.28.1.192.168.203.4 = fc:3f:db:06:94:1a
+1.3.6.1.2.1.3.1.1.2.28.1.192.168.203.6 = fc:3f:db:06:95:75
+1.3.6.1.2.1.3.1.1.2.28....</msg>
+<status status="PASS" endtime="20180806 09:56:23.145" starttime="20180806 09:56:23.145"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"ERROR MESSAGE" in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.146" level="INFO">${contains} = False</msg>
+<status status="PASS" endtime="20180806 09:56:23.146" starttime="20180806 09:56:23.145"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.147" starttime="20180806 09:56:23.146"></status>
+</kw>
+<doc>SNMP GET WALK OPERATION</doc>
+<status status="PASS" endtime="20180806 09:56:23.147" critical="yes" starttime="20180806 09:56:23.131"></status>
+</test>
+<test id="s1-t9" name="Access unavailable SNMP MIB">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=1.3.6.1.2.1.4.21</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.156" level="INFO">${result} = (200, u'1.3.6.1.2.1.4.21 = noSuchInstance\n')</msg>
+<status status="PASS" endtime="20180806 09:56:23.156" starttime="20180806 09:56:23.148"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.157" level="INFO">${output} = 1.3.6.1.2.1.4.21 = noSuchInstance
+</msg>
+<status status="PASS" endtime="20180806 09:56:23.157" starttime="20180806 09:56:23.156"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"noSuchInstance" in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.158" level="INFO">${contains} = True</msg>
+<status status="PASS" endtime="20180806 09:56:23.158" starttime="20180806 09:56:23.157"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.159" starttime="20180806 09:56:23.158"></status>
+</kw>
+<doc>Accessing the SNMP MIB that does not exist</doc>
+<status status="PASS" endtime="20180806 09:56:23.159" critical="yes" starttime="20180806 09:56:23.147"></status>
+</test>
+<test id="s1-t10" name="Verify Multiple SNMP GET operation">
+<kw type="for" name="${GET_OID} IN [ @{GET_OIDs} ]">
+<kw type="foritem" name="${GET_OID} = 1.3.6.1.2.1.1.4.0">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=${GET_OID}</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.167" level="INFO">${result} = (200, u'1.3.6.1.2.1.1.4.0 = dinesh.bhatta@happiestminds.com\n')</msg>
+<status status="PASS" endtime="20180806 09:56:23.167" starttime="20180806 09:56:23.161"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.168" level="INFO">${output} = 1.3.6.1.2.1.1.4.0 = dinesh.bhatta@happiestminds.com
+</msg>
+<status status="PASS" endtime="20180806 09:56:23.168" starttime="20180806 09:56:23.167"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"ERROR MESSAGE" in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.169" level="INFO">${contains} = False</msg>
+<status status="PASS" endtime="20180806 09:56:23.169" starttime="20180806 09:56:23.168"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.169" starttime="20180806 09:56:23.169"></status>
+</kw>
+<status status="PASS" endtime="20180806 09:56:23.169" starttime="20180806 09:56:23.160"></status>
+</kw>
+<kw type="foritem" name="${GET_OID} = 1.3.6.1.2.1.1.3.0">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=${GET_OID}</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.178" level="INFO">${result} = (200, u'1.3.6.1.2.1.1.3.0 = 13 days, 18:38:02.59\n')</msg>
+<status status="PASS" endtime="20180806 09:56:23.178" starttime="20180806 09:56:23.170"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.179" level="INFO">${output} = 1.3.6.1.2.1.1.3.0 = 13 days, 18:38:02.59
+</msg>
+<status status="PASS" endtime="20180806 09:56:23.179" starttime="20180806 09:56:23.178"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"ERROR MESSAGE" in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.179" level="INFO">${contains} = False</msg>
+<status status="PASS" endtime="20180806 09:56:23.179" starttime="20180806 09:56:23.179"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.180" starttime="20180806 09:56:23.179"></status>
+</kw>
+<status status="PASS" endtime="20180806 09:56:23.180" starttime="20180806 09:56:23.170"></status>
+</kw>
+<kw type="foritem" name="${GET_OID} = 1.3.6.1.2.1.1.6.0">
+<kw name="Perform Odl Snmp Operation" library="SNMPOBJ">
+<doc>Author: Sirish</doc>
+<arguments>
+<arg>IP=${IP}</arg>
+<arg>OID=${GET_OID}</arg>
+<arg>COMMUNITY=${COMMUNITY}</arg>
+<arg>GETTYPE=GET</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.187" level="INFO">${result} = (200, u'1.3.6.1.2.1.1.6.0 = "IN, DataCenter"\n')</msg>
+<status status="PASS" endtime="20180806 09:56:23.187" starttime="20180806 09:56:23.180"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>@{result}[1]</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.188" level="INFO">${output} = 1.3.6.1.2.1.1.6.0 = "IN, DataCenter"
+</msg>
+<status status="PASS" endtime="20180806 09:56:23.188" starttime="20180806 09:56:23.187"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>"ERROR MESSAGE" in """${output}"""</arg>
+</arguments>
+<assign>
+<var>${contains}</var>
+</assign>
+<msg timestamp="20180806 09:56:23.189" level="INFO">${contains} = False</msg>
+<status status="PASS" endtime="20180806 09:56:23.189" starttime="20180806 09:56:23.188"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${contains}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180806 09:56:23.189" starttime="20180806 09:56:23.189"></status>
+</kw>
+<status status="PASS" endtime="20180806 09:56:23.189" starttime="20180806 09:56:23.180"></status>
+</kw>
+<status status="PASS" endtime="20180806 09:56:23.189" starttime="20180806 09:56:23.160"></status>
+</kw>
+<doc>SNMP GET operation for MIBs System Contact person, UP time and location</doc>
+<status status="PASS" endtime="20180806 09:56:23.190" critical="yes" starttime="20180806 09:56:23.159"></status>
+</test>
+<doc>Test Suite for SNMP-FUNCTIONAL Test Scenarios</doc>
+<status status="PASS" endtime="20180806 09:56:23.191" starttime="20180806 09:55:30.138"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="10">Critical Tests</stat>
+<stat fail="0" pass="10">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="SNMP TEST" pass="10">SNMP TEST</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,2338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180709 10:54:26.417" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/test/automation/All_repo/SDNC-FUNC/HAPPIEST_FRAMEWORK/Tests/Robot_Tests/OVS_ODL_FUNC_TESTS.robot" id="s1" name="OVS ODL FUNC TESTS">
+<test id="s1-t1" name="Verify If All Devices Are Powered Up">
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>OVSOBJ</arg>
+</arguments>
+<assign>
+<var>${ovs_obj}</var>
+</assign>
+<msg timestamp="20180709 10:54:31.837" level="INFO">${ovs_obj} = &lt;Supporting_Libs.ovs.ovs object at 0x7f1e9df44890&gt;</msg>
+<status status="PASS" endtime="20180709 10:54:31.837" starttime="20180709 10:54:31.837"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>CNTRLROBJ</arg>
+</arguments>
+<assign>
+<var>${cntrl_obj}</var>
+</assign>
+<msg timestamp="20180709 10:54:31.838" level="INFO">${cntrl_obj} = &lt;Supporting_Libs.Karaf.Karaf object at 0x7f1e9df8b750&gt;</msg>
+<status status="PASS" endtime="20180709 10:54:31.838" starttime="20180709 10:54:31.838"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>HOST1</arg>
+</arguments>
+<assign>
+<var>${host1_obj}</var>
+</assign>
+<msg timestamp="20180709 10:54:31.839" level="INFO">${host1_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f1e9dee9d50&gt;</msg>
+<status status="PASS" endtime="20180709 10:54:31.839" starttime="20180709 10:54:31.839"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>HOST2</arg>
+</arguments>
+<assign>
+<var>${host2_obj}</var>
+</assign>
+<msg timestamp="20180709 10:54:31.840" level="INFO">${host2_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f1e9defb790&gt;</msg>
+<status status="PASS" endtime="20180709 10:54:31.840" starttime="20180709 10:54:31.840"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${ovs_obj}</arg>
+</arguments>
+<msg timestamp="20180709 10:54:31.841" level="INFO">${ovs_obj} = &lt;Supporting_Libs.ovs.ovs object at 0x7f1e9df44890&gt;</msg>
+<status status="PASS" endtime="20180709 10:54:31.841" starttime="20180709 10:54:31.841"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${cntrl_obj}</arg>
+</arguments>
+<msg timestamp="20180709 10:54:31.842" level="INFO">${cntrl_obj} = &lt;Supporting_Libs.Karaf.Karaf object at 0x7f1e9df8b750&gt;</msg>
+<status status="PASS" endtime="20180709 10:54:31.842" starttime="20180709 10:54:31.842"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${host1_obj}</arg>
+</arguments>
+<msg timestamp="20180709 10:54:31.843" level="INFO">${host1_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f1e9dee9d50&gt;</msg>
+<status status="PASS" endtime="20180709 10:54:31.843" starttime="20180709 10:54:31.842"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${host2_obj}</arg>
+</arguments>
+<msg timestamp="20180709 10:54:31.844" level="INFO">${host2_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f1e9defb790&gt;</msg>
+<status status="PASS" endtime="20180709 10:54:31.844" starttime="20180709 10:54:31.843"></status>
+</kw>
+<doc>login to switch,host1 &amp; host2</doc>
+<status status="PASS" endtime="20180709 10:54:31.844" critical="yes" starttime="20180709 10:54:31.835"></status>
+</test>
+<test id="s1-t2" name="Configure OVS bridge">
+<kw name="Create Validate Bridge" library="OVSOBJ">
+<doc>Date: 15/06/2017  Author: Sirish</doc>
+<arguments>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${Cntrlr_data}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:54:33.898" level="INFO">   ovs-vsctl show
+fe84fc38-119e-4581-8f0c-496380f1081a
+    Bridge "ovstest1"
+        Port "ovstest1"
+            Interface "ovstest1"
+                type: internal
+    Bridge "ovstest2"
+        Port "ovstest2"
+            Interface "ovstest2"
+                type: internal
+    Bridge test
+        Controller "tcp:192.168.203.62:6653"
+            is_connected: true
+        Port test
+            Interface test
+                type: internal
+        Port "vnet1"
+            Interface "vnet1"
+        Port "vnet3"
+            Interface "vnet3"
+    ovs_version: "2.6.1"
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:54:33.899" level="INFO">  Bridge and Controller configured properly
+</msg>
+<msg timestamp="20180709 10:54:33.899" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:54:33.899" starttime="20180709 10:54:31.845"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${status} != ${True}</arg>
+<arg>Run Keywords</arg>
+<arg>Debug Controller Failure</arg>
+<arg>${ovs_obj}</arg>
+<arg>${cntrl_obj}</arg>
+<arg>AND</arg>
+<arg>Fail</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:54:33.899" starttime="20180709 10:54:33.899"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:54:33.900" critical="yes" starttime="20180709 10:54:31.844"></status>
+</test>
+<test id="s1-t3" name="Add ports to OVS bridge">
+<kw name="Addports Validate" library="OVSOBJ">
+<doc> This method is to add ports to the desired bridge</doc>
+<arguments>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${OVS_BRIDGE_CONF['PORTS']}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:54:35.954" level="INFO">  ifconfig vnet1
+vnet1     Link encap:Ethernet  HWaddr fe:54:00:c7:54:ca  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2659 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:300467 (300.4 KB)
+
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:54:38.008" level="INFO">  ovs-vsctl port-to-br vnet1
+test
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:54:38.008" level="INFO">  Port vnet1 is already part of the bridge test
+</msg>
+<msg timestamp="20180709 10:54:40.062" level="INFO">  ifconfig vnet3
+vnet3     Link encap:Ethernet  HWaddr fe:54:00:fa:5e:84  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:2660 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:300580 (300.5 KB)
+
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:54:42.115" level="INFO">  ovs-vsctl port-to-br vnet3
+test
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:54:42.115" level="INFO">  Port vnet3 is already part of the bridge test
+</msg>
+<msg timestamp="20180709 10:54:49.172" level="INFO">  ovs-ofctl del-flows test
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:54:49.173" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:54:49.173" starttime="20180709 10:54:33.900"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:54:49.175" starttime="20180709 10:54:49.174"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:54:49.175" critical="yes" starttime="20180709 10:54:33.900"></status>
+</test>
+<test id="s1-t4" name="Assign IP addresses to host interfaces">
+<kw name="Config Host Nic Ip" library="HOST1">
+<arguments>
+<arg>if_name=${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>ip=${HOST1["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<msg timestamp="20180709 10:54:51.232" level="INFO">   ifconfig eth1 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:54:53.284" level="INFO">  ifconfig eth1 0 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:54:55.337" level="INFO">  ifconfig eth1 15.15.15.1/24 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:54:57.391" level="INFO">  ifconfig eth1
+eth1      Link encap:Ethernet  HWaddr 52:54:00:c7:54:ca  
+          inet addr:15.15.15.1  Bcast:15.15.15.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:54:57.392" level="INFO">  Successfully Assigned IP Address on the Interface eth1
+</msg>
+<status status="PASS" endtime="20180709 10:54:57.392" starttime="20180709 10:54:49.177"></status>
+</kw>
+<kw name="Config Host Nic Ip" library="HOST2">
+<arguments>
+<arg>if_name=${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>ip=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<msg timestamp="20180709 10:54:59.447" level="INFO">   ifconfig eth1 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:55:01.501" level="INFO">  ifconfig eth1 0 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:55:03.554" level="INFO">  ifconfig eth1 15.15.15.2/24 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:55:05.606" level="INFO">  ifconfig eth1
+eth1      Link encap:Ethernet  HWaddr 52:54:00:fa:5e:84  
+          inet addr:15.15.15.2  Bcast:15.15.15.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:55:05.607" level="INFO">  Successfully Assigned IP Address on the Interface eth1
+</msg>
+<status status="PASS" endtime="20180709 10:55:05.607" starttime="20180709 10:54:57.393"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:55:05.608" critical="yes" starttime="20180709 10:54:49.176"></status>
+</test>
+<test id="s1-t5" name="Ports Based Flows test - PUSH To &amp; Fro Port Based Flow Rules">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Null=Null</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:55:05.612" level="INFO">&amp;{flow_input} = { Null=Null }</msg>
+<status status="PASS" endtime="20180709 10:55:05.612" starttime="20180709 10:55:05.610"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=delete</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:55:07.667" level="INFO">  ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:07.669" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758
+</msg>
+<msg timestamp="20180709 10:55:07.933" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:07.934" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:55:07.934" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180709 10:55:07.935" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:55:07.935" starttime="20180709 10:55:05.613"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:07.936" starttime="20180709 10:55:07.935"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:55:07.939" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | actions=2 }</msg>
+<status status="PASS" endtime="20180709 10:55:07.940" starttime="20180709 10:55:07.937"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=add</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:55:09.994" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:09.996" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:55:10.125" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.061s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:10.126" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:55:10.126" level="INFO">'{"priority": 1500, "table_id": "0", "id": "1", "match": {"in-port": 1}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180709 10:55:10.127" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:55:10.127" starttime="20180709 10:55:07.940"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:10.129" starttime="20180709 10:55:10.127"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[1]}</arg>
+<arg>id=2</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[0]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:55:10.130" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=2 | id=2 | table=0 | order=0 | actions=1 }</msg>
+<status status="PASS" endtime="20180709 10:55:10.130" starttime="20180709 10:55:10.129"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=add</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:55:12.184" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.127s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:12.186" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/2
+</msg>
+<msg timestamp="20180709 10:55:12.316" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=2.252s, table=0, n_packets=0, n_bytes=0, idle_age=2, priority=1500,in_port=1 actions=output:2
+ cookie=0x0, duration=0.063s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=2 actions=output:1
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:12.317" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:55:12.317" level="INFO">'{"priority": 1500, "table_id": "0", "id": "2", "match": {"in-port": 2}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 1}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 1}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180709 10:55:12.317" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:55:12.317" starttime="20180709 10:55:10.130"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:12.319" starttime="20180709 10:55:12.318"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:55:12.320" critical="yes" starttime="20180709 10:55:05.608"></status>
+</test>
+<test id="s1-t6" name="Ports Based Flows test - Check Host Reachability Via Created Flow Rules">
+<kw name="Peer Ping" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>obj=${host1_obj}</arg>
+<arg>source=None</arg>
+<arg>dest=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180709 10:55:21.415" level="INFO">  ping 15.15.15.2 -c 10
+PING 15.15.15.2 (15.15.15.2) 56(84) bytes of data.
+64 bytes from 15.15.15.2: icmp_seq=1 ttl=64 time=2.68 ms
+64 bytes from 15.15.15.2: icmp_seq=2 ttl=64 time=1.03 ms
+64 bytes from 15.15.15.2: icmp_seq=3 ttl=64 time=1.01 ms
+64 bytes from 15.15.15.2: icmp_seq=4 ttl=64 time=1.04 ms
+64 bytes from 15.15.15.2: icmp_seq=5 ttl=64 time=0.991 ms
+64 bytes from 15.15.15.2: icmp_seq=6 ttl=64 time=1.29 ms
+64 bytes from 15.15.15.2: icmp_seq=7 ttl=64 time=1.03 ms
+64 bytes from 15.15.15.2: icmp_seq=8 ttl=64 time=1.03 ms
+64 bytes from 15.15.15.2: icmp_seq=9 ttl=64 time=0.997 ms
+64 bytes from 15.15.15.2: icmp_seq=10 ttl=64 time=1.01 ms
+
+--- 15.15.15.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9011ms
+rtt min/avg/max/mdev = 0.991/1.212/2.686/0.500 ms
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:55:21.415" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20180709 10:55:21.415" starttime="20180709 10:55:12.322"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:21.416" starttime="20180709 10:55:21.415"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:55:21.416" critical="yes" starttime="20180709 10:55:12.320"></status>
+</test>
+<test id="s1-t7" name="Ports Based Flows test - Delete One Of The Flows To Interrupt The Host Reachability">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[1]}</arg>
+<arg>id=2</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[0]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:55:21.417" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=2 | id=2 | table=0 | order=0 | actions=1 }</msg>
+<status status="PASS" endtime="20180709 10:55:21.417" starttime="20180709 10:55:21.416"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:55:23.471" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=11.413s, table=0, n_packets=11, n_bytes=966, idle_age=1, priority=1500,in_port=1 actions=output:2
+ cookie=0x0, duration=9.224s, table=0, n_packets=11, n_bytes=966, idle_age=1, priority=1500,in_port=2 actions=output:1
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:23.472" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/2
+</msg>
+<msg timestamp="20180709 10:55:23.558" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=13.495s, table=0, n_packets=12, n_bytes=1064, idle_age=2, priority=1500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:23.558" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:55:23.559" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180709 10:55:23.559" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:55:23.559" starttime="20180709 10:55:21.417"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:23.561" starttime="20180709 10:55:23.560"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:55:23.561" critical="yes" starttime="20180709 10:55:21.416"></status>
+</test>
+<test id="s1-t8" name="Ports Based Flows test - Check Host reachability Is Interrupted">
+<kw name="Peer Ping" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>obj=${host1_obj}</arg>
+<arg>source=None</arg>
+<arg>dest=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180709 10:55:42.622" level="INFO">  ping 15.15.15.2 -c 10
+PING 15.15.15.2 (15.15.15.2) 56(84) bytes of data.
+
+--- 15.15.15.2 ping statistics ---
+10 packets transmitted, 0 received, 100% packet loss, time 9000ms
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:55:42.622" level="INFO">${result} = False</msg>
+<status status="PASS" endtime="20180709 10:55:42.622" starttime="20180709 10:55:23.563"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:42.623" starttime="20180709 10:55:42.623"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:55:42.624" critical="yes" starttime="20180709 10:55:23.562"></status>
+</test>
+<test id="s1-t9" name="Ports Based Flows test - Restore(PUSH) The Deleted Flow Rule">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[1]}</arg>
+<arg>id=2</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[0]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:55:42.627" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=2 | id=2 | table=0 | order=0 | actions=1 }</msg>
+<status status="PASS" endtime="20180709 10:55:42.627" starttime="20180709 10:55:42.625"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>add</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:55:44.682" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=32.624s, table=0, n_packets=22, n_bytes=2044, idle_age=10, priority=1500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:44.684" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/2
+</msg>
+<msg timestamp="20180709 10:55:44.803" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=34.740s, table=0, n_packets=22, n_bytes=2044, idle_age=12, priority=1500,in_port=1 actions=output:2
+ cookie=0x0, duration=0.063s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=2 actions=output:1
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:44.804" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:55:44.804" level="INFO">'{"priority": 1500, "table_id": "0", "id": "2", "match": {"in-port": 2}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 1}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 1}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180709 10:55:44.804" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:55:44.804" starttime="20180709 10:55:42.628"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:44.806" starttime="20180709 10:55:44.805"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:55:44.806" critical="yes" starttime="20180709 10:55:42.624"></status>
+</test>
+<test id="s1-t10" name="Ports Based Flows test - Check Host Reachability After Port Based Flow Rule Restored">
+<kw name="Peer Ping" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>obj=${host1_obj}</arg>
+<arg>source=None</arg>
+<arg>dest=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180709 10:55:53.879" level="INFO">  ping 15.15.15.2 -c 10
+PING 15.15.15.2 (15.15.15.2) 56(84) bytes of data.
+64 bytes from 15.15.15.2: icmp_seq=1 ttl=64 time=1.38 ms
+64 bytes from 15.15.15.2: icmp_seq=2 ttl=64 time=1.08 ms
+64 bytes from 15.15.15.2: icmp_seq=3 ttl=64 time=1.00 ms
+64 bytes from 15.15.15.2: icmp_seq=4 ttl=64 time=1.00 ms
+64 bytes from 15.15.15.2: icmp_seq=5 ttl=64 time=1.06 ms
+64 bytes from 15.15.15.2: icmp_seq=6 ttl=64 time=0.863 ms
+64 bytes from 15.15.15.2: icmp_seq=7 ttl=64 time=0.996 ms
+64 bytes from 15.15.15.2: icmp_seq=8 ttl=64 time=0.919 ms
+64 bytes from 15.15.15.2: icmp_seq=9 ttl=64 time=1.04 ms
+64 bytes from 15.15.15.2: icmp_seq=10 ttl=64 time=1.01 ms
+
+--- 15.15.15.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9011ms
+rtt min/avg/max/mdev = 0.863/1.038/1.385/0.137 ms
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:55:53.880" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20180709 10:55:53.880" starttime="20180709 10:55:44.809"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:53.882" starttime="20180709 10:55:53.881"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:55:53.882" critical="yes" starttime="20180709 10:55:44.807"></status>
+</test>
+<test id="s1-t11" name="MAC Address Based Match Flows Test - PUSH A Flow To Match SRC MAC And Forward">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Null=Null</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:55:53.885" level="INFO">&amp;{flow_input} = { Null=Null }</msg>
+<status status="PASS" endtime="20180709 10:55:53.886" starttime="20180709 10:55:53.884"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:55:55.939" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=43.882s, table=0, n_packets=32, n_bytes=2968, idle_age=1, priority=1500,in_port=1 actions=output:2
+ cookie=0x0, duration=9.205s, table=0, n_packets=10, n_bytes=924, idle_age=1, priority=1500,in_port=2 actions=output:1
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:55.940" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758
+</msg>
+<msg timestamp="20180709 10:55:56.022" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:56.022" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:55:56.022" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180709 10:55:56.022" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:55:56.022" starttime="20180709 10:55:53.886"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:56.023" starttime="20180709 10:55:56.023"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>dl_src=${mac_addr[0]}</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:55:56.025" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | dl_src=12:34:56:78:90:01 | actions=2 }</msg>
+<status status="PASS" endtime="20180709 10:55:56.025" starttime="20180709 10:55:56.023"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>add</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:55:58.080" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:58.081" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:55:58.166" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.060s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=1,dl_src=12:34:56:78:90:01 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:55:58.167" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:55:58.167" level="INFO">'{"priority": 1500, "table_id": "0", "id": "1", "match": {"in-port": 1, "ethernet-match": {"ethernet-source": {"address": "12:34:56:78:90:01"}}}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180709 10:55:58.168" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:55:58.168" starttime="20180709 10:55:56.026"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:55:58.169" starttime="20180709 10:55:58.168"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:55:58.170" critical="yes" starttime="20180709 10:55:53.883"></status>
+</test>
+<test id="s1-t12" name="MAC Address Based Match Flows Test - Check The Flow With Traffic on SRC MAC Match">
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.Traffic_Generator.Scapy</arg>
+<arg>${host1_obj}</arg>
+<arg>None</arg>
+<arg>WITH NAME</arg>
+<arg>TG</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:00.242" starttime="20180709 10:55:58.171"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>TG</arg>
+</arguments>
+<assign>
+<var>${tg}</var>
+</assign>
+<msg timestamp="20180709 10:56:00.243" level="INFO">${tg} = &lt;Supporting_Libs.Traffic_Generator.Scapy object at 0x7f1e9993e350&gt;</msg>
+<status status="PASS" endtime="20180709 10:56:00.244" starttime="20180709 10:56:00.243"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${tg}</arg>
+</arguments>
+<msg timestamp="20180709 10:56:00.245" level="INFO">${tg} = &lt;Supporting_Libs.Traffic_Generator.Scapy object at 0x7f1e9993e350&gt;</msg>
+<status status="PASS" endtime="20180709 10:56:00.245" starttime="20180709 10:56:00.244"></status>
+</kw>
+<kw name="Generate Packet To Send" library="TG">
+<doc>Makes the command pattern to trigger the traffic</doc>
+<arguments>
+<arg>pkt_type=ether</arg>
+</arguments>
+<assign>
+<var>${packet}</var>
+</assign>
+<msg timestamp="20180709 10:56:00.247" level="INFO">${packet} = Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')</msg>
+<status status="PASS" endtime="20180709 10:56:00.247" starttime="20180709 10:56:00.246"></status>
+</kw>
+<kw name="Send Pkts N Capture" library="HOST1">
+<doc>This method is to send traffic using scapy and capture</doc>
+<arguments>
+<arg>${tg}</arg>
+<arg>${host2_obj}</arg>
+<arg>${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>${packet}</arg>
+<arg>${pkt_count}</arg>
+<arg>${interval}</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20180709 10:56:00.306" level="INFO">  rm -rf /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:00.364" level="INFO">   timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt &amp;
+[1] 1793
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:10.443" level="INFO">  sendp(Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01'),iface='eth1',c ount=10,inter=0.5)
+..........
+Sent 10 packets.
+[34m[1m
+</msg>
+<msg timestamp="20180709 10:56:10.444" level="INFO">  Successfully sent 10 packets from SCAPY
+</msg>
+<msg timestamp="20180709 10:56:15.498" level="INFO">   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+8 packets captured
+10 packets received by filter
+0 packets dropped by kernel
+kill -9 1793
+bash: kill: (1793) - No such process
+[1]+  Exit 124                timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:15.556" level="INFO">  ls -lrt /tmp/cap.txt
+-rw-r--r-- 1 root root 2953 Jul  8 22:26 /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:15.618" level="INFO">   cat /tmp/cap.txt
+22:26:01.461244 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:05.416023 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:05.917346 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:06.418918 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:06.461323 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:06.920436 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:07.422149 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:07.923610 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:15.619" level="INFO">cat /tmp/cap.txt
+22:26:01.461244 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:05.416023 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:05.917346 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:06.418918 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:06.461323 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:06.920436 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:07.422149 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+22:26:07.923610 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), 802.3, length 0: LLC, dsap Null (0x00) Individual, ssap Null (0x00) Command, ctrl 0x0000: Information, send seq 0, rcv seq 0, Flags [Command], length 46
+	0x0000:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0010:  0000 0000 0000 0000 0000 0000 0000 0000  ................
+	0x0020:  0000 0000 0000 0000 0000 0000 0000       ..............
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet</msg>
+<msg timestamp="20180709 10:56:15.619" level="INFO">${file_data} =  cat /tmp/cap.txt
+22:26:01.461244 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:05.416023 12...</msg>
+<status status="PASS" endtime="20180709 10:56:15.619" starttime="20180709 10:56:00.247"></status>
+</kw>
+<kw name="Validate Output" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${mac_addr[0]}</arg>
+<arg>${file_data}</arg>
+</arguments>
+<assign>
+<var>${valid_count}</var>
+</assign>
+<msg timestamp="20180709 10:56:15.622" level="INFO">${valid_count} = 6</msg>
+<status status="PASS" endtime="20180709 10:56:15.622" starttime="20180709 10:56:15.620"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${zero}</var>
+</assign>
+<msg timestamp="20180709 10:56:15.623" level="INFO">${zero} = 0</msg>
+<status status="PASS" endtime="20180709 10:56:15.623" starttime="20180709 10:56:15.622"></status>
+</kw>
+<kw name="Should Not Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are equal after converting them to integers.</doc>
+<arguments>
+<arg>${valid_count}</arg>
+<arg>${zero}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:15.625" starttime="20180709 10:56:15.624"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:56:15.625" critical="yes" starttime="20180709 10:55:58.170"></status>
+</test>
+<test id="s1-t13" name="Vlan Id Based Match Flows Test - PUSH The Flows To Match VLAN ID">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Null=Null</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:56:15.629" level="INFO">&amp;{flow_input} = { Null=Null }</msg>
+<status status="PASS" endtime="20180709 10:56:15.629" starttime="20180709 10:56:15.628"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:56:17.683" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=17.584s, table=0, n_packets=10, n_bytes=140, idle_age=5, priority=1500,in_port=1,dl_src=12:34:56:78:90:01 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:56:17.684" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758
+</msg>
+<msg timestamp="20180709 10:56:17.773" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:56:17.774" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:56:17.774" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180709 10:56:17.774" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:56:17.775" starttime="20180709 10:56:15.630"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:17.776" starttime="20180709 10:56:17.775"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>dl_vlan=${vlans[0]}</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:56:17.780" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | dl_vlan=555 | actions=2 }</msg>
+<status status="PASS" endtime="20180709 10:56:17.780" starttime="20180709 10:56:17.777"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>add</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:56:19.832" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:56:19.833" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:56:19.959" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.062s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=1,dl_vlan=555 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:56:19.960" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:56:19.961" level="INFO">'{"priority": 1500, "table_id": "0", "id": "1", "match": {"vlan-match": {"vlan-id": {"vlan-id": 555, "vlan-id-present": "true"}}, "in-port": 1}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180709 10:56:19.961" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:56:19.961" starttime="20180709 10:56:17.780"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:19.963" starttime="20180709 10:56:19.962"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:56:19.963" critical="yes" starttime="20180709 10:56:15.626"></status>
+</test>
+<test id="s1-t14" name="Vlan Id Based Match Flows Test - Check The Traffic Is Forwarded On Vlan Id Match">
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.Traffic_Generator.Scapy</arg>
+<arg>${host1_obj}</arg>
+<arg>None</arg>
+<arg>WITH NAME</arg>
+<arg>TG</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:19.968" starttime="20180709 10:56:19.965"></status>
+</kw>
+<kw name="Generate Packet To Send" library="TG">
+<doc>Makes the command pattern to trigger the traffic</doc>
+<arguments>
+<arg>pkt_type=vlan</arg>
+</arguments>
+<assign>
+<var>${packet}</var>
+</assign>
+<msg timestamp="20180709 10:56:19.969" level="INFO">${packet} = Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/Dot1Q(vlan=555)/ARP(op=1, psrc='15.15.15.1', pdst='15.15.15.2')</msg>
+<status status="PASS" endtime="20180709 10:56:19.970" starttime="20180709 10:56:19.969"></status>
+</kw>
+<kw name="Send Pkts N Capture" library="HOST1">
+<doc>This method is to send traffic using scapy and capture</doc>
+<arguments>
+<arg>${tg}</arg>
+<arg>${host2_obj}</arg>
+<arg>${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>${packet}</arg>
+<arg>${pkt_count}</arg>
+<arg>${interval}</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20180709 10:56:20.026" level="INFO">   rm -rf /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:20.084" level="INFO">   timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt &amp;
+[1] 1798
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:30.170" level="INFO">  sendp(Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/Dot1Q(vlan=555 )/ARP(op=1, psrc='15.15.15.1', pdst='15.15.15.2'),iface='eth1',count=10,inter=0. 5)
+..........
+Sent 10 packets.
+[34m[1m
+</msg>
+<msg timestamp="20180709 10:56:30.171" level="INFO">  Successfully sent 10 packets from SCAPY
+</msg>
+<msg timestamp="20180709 10:56:35.227" level="INFO">   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+8 packets captured
+10 packets received by filter
+0 packets dropped by kernel
+kill -9 1798
+bash: kill: (1798) - No such process
+[1]+  Exit 124                timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:35.284" level="INFO">  ls -lrt /tmp/cap.txt
+-rw-r--r-- 1 root root 1555 Jul  8 22:26 /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:35.342" level="INFO">   cat /tmp/cap.txt
+22:26:21.461495 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:25.135782 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:25.638005 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:26.140304 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:26.461813 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:26.642783 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:27.145346 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:27.647705 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:35.342" level="INFO">cat /tmp/cap.txt
+22:26:21.461495 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:25.135782 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:25.638005 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:26.140304 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:26.461813 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:26.642783 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:27.145346 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+22:26:27.647705 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype ARP, Request who-has 15.15.15.2 tell 15.15.15.1, length 42
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet</msg>
+<msg timestamp="20180709 10:56:35.343" level="INFO">${file_data} =  cat /tmp/cap.txt
+22:26:21.461495 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:25.135782 12...</msg>
+<status status="PASS" endtime="20180709 10:56:35.343" starttime="20180709 10:56:19.970"></status>
+</kw>
+<kw name="Validate Output" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>vlan ${vlans[0]}</arg>
+<arg>${file_data}</arg>
+</arguments>
+<assign>
+<var>${valid_count}</var>
+</assign>
+<msg timestamp="20180709 10:56:35.345" level="INFO">${valid_count} = 6</msg>
+<status status="PASS" endtime="20180709 10:56:35.345" starttime="20180709 10:56:35.343"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${zero}</var>
+</assign>
+<msg timestamp="20180709 10:56:35.347" level="INFO">${zero} = 0</msg>
+<status status="PASS" endtime="20180709 10:56:35.347" starttime="20180709 10:56:35.346"></status>
+</kw>
+<kw name="Should Not Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are equal after converting them to integers.</doc>
+<arguments>
+<arg>${valid_count}</arg>
+<arg>${zero}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:35.348" starttime="20180709 10:56:35.347"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:56:35.349" critical="yes" starttime="20180709 10:56:19.964"></status>
+</test>
+<test id="s1-t15" name="Vlan Id Based Match Flows Test - PUSH Flow Rule To Strip VLAN &amp; Forward The Traffic">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>dl_vlan=${vlans[0]}</arg>
+<arg>actions=strip_vlan,${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:56:35.355" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | dl_vlan=555 | actions=strip_vlan,2 }</msg>
+<status status="PASS" endtime="20180709 10:56:35.355" starttime="20180709 10:56:35.351"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>add</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:56:37.410" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=15.519s, table=0, n_packets=10, n_bytes=460, idle_age=5, priority=1500,in_port=1,dl_vlan=555 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:56:37.412" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:56:37.536" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.045s, table=0, n_packets=0, n_bytes=0, idle_age=7, priority=1500,in_port=1,dl_vlan=555 actions=strip_vlan,output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:56:37.536" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:56:37.536" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:56:37.536" starttime="20180709 10:56:35.355"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:37.537" starttime="20180709 10:56:37.537"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:56:37.537" critical="yes" starttime="20180709 10:56:35.349"></status>
+</test>
+<test id="s1-t16" name="Vlan Id Based Match Flows Test - Check The Traffic Is Forwarded After Stripping VLAN ID">
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.Traffic_Generator.Scapy</arg>
+<arg>${host1_obj}</arg>
+<arg>None</arg>
+<arg>WITH NAME</arg>
+<arg>TG</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:37.539" starttime="20180709 10:56:37.538"></status>
+</kw>
+<kw name="Generate Packet To Send" library="TG">
+<doc>Makes the command pattern to trigger the traffic</doc>
+<arguments>
+<arg>pkt_type=vlan</arg>
+</arguments>
+<assign>
+<var>${packet}</var>
+</assign>
+<msg timestamp="20180709 10:56:37.539" level="INFO">${packet} = Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/Dot1Q(vlan=555)/ARP(op=1, psrc='15.15.15.1', pdst='15.15.15.2')</msg>
+<status status="PASS" endtime="20180709 10:56:37.539" starttime="20180709 10:56:37.539"></status>
+</kw>
+<kw name="Send Pkts N Capture" library="HOST1">
+<doc>This method is to send traffic using scapy and capture</doc>
+<arguments>
+<arg>${tg}</arg>
+<arg>${host2_obj}</arg>
+<arg>${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>${packet}</arg>
+<arg>${pkt_count}</arg>
+<arg>${interval}</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20180709 10:56:37.596" level="INFO">   rm -rf /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:37.654" level="INFO">   timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt &amp;
+[1] 1803
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:47.742" level="INFO">  sendp(Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/Dot1Q(vlan=555 )/ARP(op=1, psrc='15.15.15.1', pdst='15.15.15.2'),iface='eth1',count=10,inter=0. 5)
+..........
+Sent 10 packets.
+[34m[1m
+</msg>
+<msg timestamp="20180709 10:56:47.742" level="INFO">  Successfully sent 10 packets from SCAPY
+</msg>
+<msg timestamp="20180709 10:56:52.796" level="INFO">   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+13 packets captured
+18 packets received by filter
+0 packets dropped by kernel
+kill -9 1803
+bash: kill: (1803) - No such process
+[1]+  Exit 124                timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:52.854" level="INFO">  ls -lrt /tmp/cap.txt
+-rw-r--r-- 1 root root 2299 Jul  8 22:26 /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:52.913" level="INFO">   cat /tmp/cap.txt
+22:26:41.462294 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:42.708224 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:42.708237 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:43.210470 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:43.210502 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:43.712928 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:43.712946 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:44.215330 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:44.215361 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:44.717501 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:44.717533 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:45.220025 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:45.220058 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:52.914" level="INFO">cat /tmp/cap.txt
+22:26:41.462294 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:42.708224 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:42.708237 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:43.210470 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:43.210502 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:43.712928 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:43.712946 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:44.215330 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:44.215361 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:44.717501 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:44.717533 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+22:26:45.220025 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype ARP (0x0806), length 60: Request who-has 15.15.15.2 tell 15.15.15.1, length 46
+22:26:45.220058 52:54:00:fa:5e:84 (oui Unknown) &gt; 52:54:00:c7:54:ca (oui Unknown), ethertype ARP (0x0806), length 42: Reply 15.15.15.2 is-at 52:54:00:fa:5e:84 (oui Unknown), length 28
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet</msg>
+<msg timestamp="20180709 10:56:52.915" level="INFO">${file_data} =  cat /tmp/cap.txt
+22:26:41.462294 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:26:42.708224 12...</msg>
+<status status="PASS" endtime="20180709 10:56:52.915" starttime="20180709 10:56:37.539"></status>
+</kw>
+<kw name="Validate Output" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>'vlan'</arg>
+<arg>${file_data}</arg>
+</arguments>
+<assign>
+<var>${valid_count}</var>
+</assign>
+<msg timestamp="20180709 10:56:52.917" level="INFO">${valid_count} = 0</msg>
+<status status="PASS" endtime="20180709 10:56:52.917" starttime="20180709 10:56:52.915"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${zero}</var>
+</assign>
+<msg timestamp="20180709 10:56:52.918" level="INFO">${zero} = 0</msg>
+<status status="PASS" endtime="20180709 10:56:52.918" starttime="20180709 10:56:52.917"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${valid_count}</arg>
+<arg>${zero}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:52.919" starttime="20180709 10:56:52.918"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:56:52.919" critical="yes" starttime="20180709 10:56:37.537"></status>
+</test>
+<test id="s1-t17" name="Vlan Id Based Match Flows Test - PUSH A Flow To Modify VLAN Vid &amp; Forward The Traffic">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=mod_vlan_vid:${vlans[0]},${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:56:52.920" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | actions=mod_vlan_vid:555,2 }</msg>
+<status status="PASS" endtime="20180709 10:56:52.920" starttime="20180709 10:56:52.919"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>add</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:56:54.972" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=15.488s, table=0, n_packets=10, n_bytes=460, idle_age=5, priority=1500,in_port=1,dl_vlan=555 actions=strip_vlan,output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:56:54.974" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:56:55.112" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.048s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=1 actions=mod_vlan_vid:555,output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:56:55.113" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:56:55.114" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:56:55.114" starttime="20180709 10:56:52.921"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:55.115" starttime="20180709 10:56:55.114"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:56:55.116" critical="yes" starttime="20180709 10:56:52.919"></status>
+</test>
+<test id="s1-t18" name="Vlan Id Based Match Flows Test - Check The Traffic Is Forwarded After Modifying The VLAN ID">
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.Traffic_Generator.Scapy</arg>
+<arg>${host1_obj}</arg>
+<arg>None</arg>
+<arg>WITH NAME</arg>
+<arg>TG</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:56:55.121" starttime="20180709 10:56:55.118"></status>
+</kw>
+<kw name="Generate Packet To Send" library="TG">
+<doc>Makes the command pattern to trigger the traffic</doc>
+<arguments>
+<arg>pkt_type=ip</arg>
+</arguments>
+<assign>
+<var>${packet}</var>
+</assign>
+<msg timestamp="20180709 10:56:55.122" level="INFO">${packet} = Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/IP(src='33.33.33.1', dst='15.15.15.2')</msg>
+<status status="PASS" endtime="20180709 10:56:55.122" starttime="20180709 10:56:55.121"></status>
+</kw>
+<kw name="Send Pkts N Capture" library="HOST1">
+<doc>This method is to send traffic using scapy and capture</doc>
+<arguments>
+<arg>${tg}</arg>
+<arg>${host2_obj}</arg>
+<arg>${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>${packet}</arg>
+<arg>${pkt_count}</arg>
+<arg>${interval}</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20180709 10:56:55.181" level="INFO">   rm -rf /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:56:55.241" level="INFO">   timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt &amp;
+[1] 1808
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:05.324" level="INFO">  sendp(Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/IP(src='33.33. 33.1', dst='15.15.15.2'),iface='eth1',count=10,inter=0.5)
+..........
+Sent 10 packets.
+[34m[1m
+</msg>
+<msg timestamp="20180709 10:57:05.324" level="INFO">  Successfully sent 10 packets from SCAPY
+</msg>
+<msg timestamp="20180709 10:57:10.380" level="INFO">   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+8 packets captured
+10 packets received by filter
+0 packets dropped by kernel
+kill -9 1808
+bash: kill: (1808) - No such process
+[1]+  Exit 124                timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:10.439" level="INFO">  ls -lrt /tmp/cap.txt
+-rw-r--r-- 1 root root 1447 Jul  8 22:27 /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:10.494" level="INFO">   cat /tmp/cap.txt
+22:26:56.462104 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:00.291541 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:00.793402 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:01.295514 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:01.462625 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:01.797610 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:02.299801 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:02.801891 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:10.495" level="INFO">cat /tmp/cap.txt
+22:26:56.462104 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:00.291541 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:00.793402 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:01.295514 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:01.462625 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:01.797610 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:02.299801 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:02.801891 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet</msg>
+<msg timestamp="20180709 10:57:10.495" level="INFO">${file_data} =  cat /tmp/cap.txt
+22:26:56.462104 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:00.291541 12...</msg>
+<status status="PASS" endtime="20180709 10:57:10.495" starttime="20180709 10:56:55.123"></status>
+</kw>
+<kw name="Validate Output" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>vlan ${vlans[0]}</arg>
+<arg>${file_data}</arg>
+</arguments>
+<assign>
+<var>${valid_count}</var>
+</assign>
+<msg timestamp="20180709 10:57:10.497" level="INFO">${valid_count} = 6</msg>
+<status status="PASS" endtime="20180709 10:57:10.497" starttime="20180709 10:57:10.496"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${zero}</var>
+</assign>
+<msg timestamp="20180709 10:57:10.499" level="INFO">${zero} = 0</msg>
+<status status="PASS" endtime="20180709 10:57:10.499" starttime="20180709 10:57:10.498"></status>
+</kw>
+<kw name="Should Not Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are equal after converting them to integers.</doc>
+<arguments>
+<arg>${valid_count}</arg>
+<arg>${zero}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:57:10.500" starttime="20180709 10:57:10.499"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:57:10.501" critical="yes" starttime="20180709 10:56:55.117"></status>
+</test>
+<test id="s1-t19" name="IPv4 Address Based Match Flows Test - PUSH A Flow To Forward Traffic On SRC IP Match">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Null=Null</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:57:10.504" level="INFO">&amp;{flow_input} = { Null=Null }</msg>
+<status status="PASS" endtime="20180709 10:57:10.504" starttime="20180709 10:57:10.503"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:57:12.558" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=15.501s, table=0, n_packets=10, n_bytes=340, idle_age=5, priority=1500,in_port=1 actions=mod_vlan_vid:555,output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:57:12.559" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758
+</msg>
+<msg timestamp="20180709 10:57:12.645" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:57:12.646" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:57:12.646" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180709 10:57:12.646" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:57:12.646" starttime="20180709 10:57:10.505"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:57:12.648" starttime="20180709 10:57:12.647"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>dl_type=2048</arg>
+<arg>nw_src=${ip_addr[0]}</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:57:12.652" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | dl_type=2048 | nw_src=33.33.33.0/24 | actions=2 }</msg>
+<status status="PASS" endtime="20180709 10:57:12.652" starttime="20180709 10:57:12.649"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>add</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:57:14.706" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:57:14.708" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:57:14.835" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.059s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,ip,in_port=1,nw_src=33.33.33.0/24 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:57:14.836" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:57:14.837" level="INFO">'{"priority": 1500, "table_id": "0", "id": "1", "match": {"ethernet-match": {"ethernet-type": {"type": "2048"}}, "in-port": 1, "ipv4-source": "33.33.33.0/24", "ip-match": {"ip-proto": "ipv4"}}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180709 10:57:14.837" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:57:14.837" starttime="20180709 10:57:12.652"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:57:14.839" starttime="20180709 10:57:14.838"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:57:14.839" critical="yes" starttime="20180709 10:57:10.501"></status>
+</test>
+<test id="s1-t20" name="IPv4 Address Based Match Flows Test - Check The Traffic Is Forwarded On SRC IP Match">
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.Traffic_Generator.Scapy</arg>
+<arg>${host1_obj}</arg>
+<arg>None</arg>
+<arg>WITH NAME</arg>
+<arg>TG</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:57:14.844" starttime="20180709 10:57:14.842"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${IP}</arg>
+<arg>src_ip</arg>
+<arg>33.33.33.1</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:57:14.846" starttime="20180709 10:57:14.845"></status>
+</kw>
+<kw name="Generate Packet To Send" library="TG">
+<doc>Makes the command pattern to trigger the traffic</doc>
+<arguments>
+<arg>pkt_type=ip</arg>
+</arguments>
+<assign>
+<var>${packet}</var>
+</assign>
+<msg timestamp="20180709 10:57:14.848" level="INFO">${packet} = Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/IP(src='33.33.33.1', dst='15.15.15.2')</msg>
+<status status="PASS" endtime="20180709 10:57:14.848" starttime="20180709 10:57:14.846"></status>
+</kw>
+<kw name="Send Pkts N Capture" library="HOST1">
+<doc>This method is to send traffic using scapy and capture</doc>
+<arguments>
+<arg>${tg}</arg>
+<arg>${host2_obj}</arg>
+<arg>${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>${packet}</arg>
+<arg>${pkt_count}</arg>
+<arg>${interval}</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20180709 10:57:14.907" level="INFO">   rm -rf /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:14.967" level="INFO">   timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt &amp;
+[1] 1813
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:25.051" level="INFO">  sendp(Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/IP(src='33.33. 33.1', dst='15.15.15.2'),iface='eth1',count=10,inter=0.5)
+..........
+Sent 10 packets.
+[34m[1m
+</msg>
+<msg timestamp="20180709 10:57:25.052" level="INFO">  Successfully sent 10 packets from SCAPY
+</msg>
+<msg timestamp="20180709 10:57:30.109" level="INFO">   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+8 packets captured
+10 packets received by filter
+0 packets dropped by kernel
+kill -9 1813
+bash: kill: (1813) - No such process
+[1]+  Exit 124                timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:30.166" level="INFO">  ls -lrt /tmp/cap.txt
+-rw-r--r-- 1 root root 1249 Jul  8 22:27 /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:30.224" level="INFO">   cat /tmp/cap.txt
+22:27:16.463270 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:20.018366 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:20.520258 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:21.022424 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:21.463053 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:21.524849 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:22.026892 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:22.528925 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:30.225" level="INFO">cat /tmp/cap.txt
+22:27:16.463270 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:20.018366 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:20.520258 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:21.022424 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:21.463053 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:21.524849 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:22.026892 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+22:27:22.528925 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype IPv4 (0x0800), length 60: 33.33.33.1 &gt; 15.15.15.2:  hopopt 0
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet</msg>
+<msg timestamp="20180709 10:57:30.225" level="INFO">${file_data} =  cat /tmp/cap.txt
+22:27:16.463270 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:20.018366 12...</msg>
+<status status="PASS" endtime="20180709 10:57:30.226" starttime="20180709 10:57:14.848"></status>
+</kw>
+<kw name="Validate Output" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${Match_ip}</arg>
+<arg>${file_data}</arg>
+</arguments>
+<assign>
+<var>${valid_count}</var>
+</assign>
+<msg timestamp="20180709 10:57:30.227" level="INFO">${valid_count} = 6</msg>
+<status status="PASS" endtime="20180709 10:57:30.228" starttime="20180709 10:57:30.226"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${zero}</var>
+</assign>
+<msg timestamp="20180709 10:57:30.229" level="INFO">${zero} = 0</msg>
+<status status="PASS" endtime="20180709 10:57:30.229" starttime="20180709 10:57:30.228"></status>
+</kw>
+<kw name="Should Not Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are equal after converting them to integers.</doc>
+<arguments>
+<arg>${valid_count}</arg>
+<arg>${zero}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:57:30.229" starttime="20180709 10:57:30.229"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:57:30.230" critical="yes" starttime="20180709 10:57:14.840"></status>
+</test>
+<test id="s1-t21" name="IPv4 Address Based Match Flows test - Delete The Flow To Match SRC IP">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>dl_type=2048</arg>
+<arg>nw_src=${ip_addr[0]}</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:57:30.231" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | dl_type=2048 | nw_src=33.33.33.0/24 | actions=2 }</msg>
+<status status="PASS" endtime="20180709 10:57:30.231" starttime="20180709 10:57:30.230"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:57:32.283" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=15.515s, table=0, n_packets=10, n_bytes=340, idle_age=5, priority=1500,ip,in_port=1,nw_src=33.33.33.0/24 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:57:32.284" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:57:32.371" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:57:32.371" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:57:32.371" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180709 10:57:32.371" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:57:32.371" starttime="20180709 10:57:30.231"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:57:32.372" starttime="20180709 10:57:32.371"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:57:32.372" critical="yes" starttime="20180709 10:57:30.230"></status>
+</test>
+<test id="s1-t22" name="IPv4 Address Based Match Flows test - Check The Traffic Is Droppd As SRC IP Match Flow Is Deleted">
+<kw name="Generate Packet To Send" library="TG">
+<doc>Makes the command pattern to trigger the traffic</doc>
+<arguments>
+<arg>pkt_type=ip</arg>
+</arguments>
+<assign>
+<var>${packet}</var>
+</assign>
+<msg timestamp="20180709 10:57:32.373" level="INFO">${packet} = Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/IP(src='33.33.33.1', dst='15.15.15.2')</msg>
+<status status="PASS" endtime="20180709 10:57:32.373" starttime="20180709 10:57:32.373"></status>
+</kw>
+<kw name="Send Pkts N Capture" library="HOST1">
+<doc>This method is to send traffic using scapy and capture</doc>
+<arguments>
+<arg>${tg}</arg>
+<arg>${host2_obj}</arg>
+<arg>${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>${packet}</arg>
+<arg>${pkt_count}</arg>
+<arg>${interval}</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20180709 10:57:32.430" level="INFO">   rm -rf /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:32.487" level="INFO">   timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt &amp;
+[1] 1818
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:42.571" level="INFO">  sendp(Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/IP(src='33.33. 33.1', dst='15.15.15.2'),iface='eth1',count=10,inter=0.5)
+..........
+Sent 10 packets.
+[34m[1m
+</msg>
+<msg timestamp="20180709 10:57:42.572" level="INFO">  Successfully sent 10 packets from SCAPY
+</msg>
+<msg timestamp="20180709 10:57:47.627" level="INFO">   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+1 packet captured
+2 packets received by filter
+0 packets dropped by kernel
+kill -9 1818
+bash: kill: (1818) - No such process
+[1]+  Exit 124                timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:47.686" level="INFO">  ls -lrt /tmp/cap.txt
+-rw-r--r-- 1 root root 163 Jul  8 22:27 /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:47.743" level="INFO">   cat /tmp/cap.txt
+22:27:36.463239 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:47.743" level="INFO">cat /tmp/cap.txt
+22:27:36.463239 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet</msg>
+<msg timestamp="20180709 10:57:47.744" level="INFO">${file_data} =  cat /tmp/cap.txt
+22:27:36.463239 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+
+]0;root@mininet...</msg>
+<status status="PASS" endtime="20180709 10:57:47.744" starttime="20180709 10:57:32.373"></status>
+</kw>
+<kw name="Validate Output" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${Match_ip}</arg>
+<arg>${file_data}</arg>
+</arguments>
+<assign>
+<var>${valid_count}</var>
+</assign>
+<msg timestamp="20180709 10:57:47.746" level="INFO">${valid_count} = 0</msg>
+<status status="PASS" endtime="20180709 10:57:47.746" starttime="20180709 10:57:47.744"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${zero}</var>
+</assign>
+<msg timestamp="20180709 10:57:47.747" level="INFO">${zero} = 0</msg>
+<status status="PASS" endtime="20180709 10:57:47.747" starttime="20180709 10:57:47.746"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${valid_count}</arg>
+<arg>${zero}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:57:47.749" starttime="20180709 10:57:47.748"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:57:47.749" critical="yes" starttime="20180709 10:57:32.372"></status>
+</test>
+<test id="s1-t23" name="ACL Rules Mimic Using OVS Flows - PUSH FLOW To Deny ICMP Echo Req Traffic">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>dl_type=2048</arg>
+<arg>nw_proto=1</arg>
+<arg>icmp_type=8</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:57:47.754" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | dl_type=2048 | nw_proto=1 | icmp_type=8 | actions=2 }</msg>
+<status status="PASS" endtime="20180709 10:57:47.754" starttime="20180709 10:57:47.751"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:57:49.809" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:57:49.811" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:57:49.854" level="ERROR">  Response Code: 404
+Response Text:{"errors":{"error":[{"error-type":"protocol","error-tag":"data-missing","error-message":"Data does not exist for path: /(urn:opendaylight:inventory?revision=2013-08-19)nodes/node/node[{(urn:opendaylight:inventory?revision=2013-08-19)id=openflow:218538505255758}]/AugmentationIdentifier{childNames=[(urn:opendaylight:flow:inventory?revision=2013-08-19)supported-match-types, (urn:opendaylight:flow:inventory?revision=2013-08-19)supported-instructions, (urn:opendaylight:flow:inventory?revision=2013-08-19)supported-actions, (urn:opendaylight:flow:inventory?revision=2013-08-19)switch-features, (urn:opendaylight:flow:inventory?revision=2013-08-19)manufacturer, (urn:opendaylight:flow:inventory?revision=2013-08-19)hardware, (urn:opendaylight:flow:inventory?revision=2013-08-19)software, (urn:opendaylight:flow:inventory?revision=2013-08-19)serial-number, (urn:opendaylight:flow:inventory?revision=2013-08-19)description, (urn:opendaylight:flow:inventory?revision=2013-08-19)port-number, (urn:opendaylight:flow:inventory?revision=2013-08-19)ip-address, (urn:opendaylight:flow:inventory?revision=2013-08-19)meter, (urn:opendaylight:flow:inventory?revision=2013-08-19)stale-meter, (urn:opendaylight:flow:inventory?revision=2013-08-19)group, (urn:opendaylight:flow:inventory?revision=2013-08-19)stale-group, (urn:opendaylight:flow:inventory?revision=2013-08-19)table, (urn:opendaylight:flow:inventory?revision=2013-08-19)table-features]}/(urn:opendaylight:flow:inventory?revision=2013-08-19)table/table[{(urn:opendaylight:flow:inventory?revision=2013-08-19)id=0}]/flow/flow[{(urn:opendaylight:flow:inventory?revision=2013-08-19)id=1}]"}]}}
+</msg>
+<msg timestamp="20180709 10:57:49.854" level="ERROR">  Failed to delete the Flow, Check manually...!!!
+</msg>
+<msg timestamp="20180709 10:57:49.855" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 404</msg>
+<msg timestamp="20180709 10:57:49.855" level="INFO">${status} = False</msg>
+<status status="PASS" endtime="20180709 10:57:49.855" starttime="20180709 10:57:47.755"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<msg timestamp="20180709 10:57:49.857" level="FAIL">False != True</msg>
+<status status="FAIL" endtime="20180709 10:57:49.858" starttime="20180709 10:57:49.856"></status>
+</kw>
+<status status="FAIL" endtime="20180709 10:57:49.858" critical="yes" starttime="20180709 10:57:47.750">False != True</status>
+</test>
+<test id="s1-t24" name="ACL Rules Mimic Using OVS Flows - Check The ICMP Echo Req Traffic Is Denied/Dropped">
+<kw name="Generate Packet To Send" library="TG">
+<doc>Makes the command pattern to trigger the traffic</doc>
+<arguments>
+<arg>pkt_type=icmpv4</arg>
+</arguments>
+<assign>
+<var>${packet}</var>
+</assign>
+<msg timestamp="20180709 10:57:49.861" level="INFO">${packet} = Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/Dot1Q(vlan=555)/IP(src='33.33.33.1', dst='15.15.15.2')/ICMP(type=8,code=0)</msg>
+<status status="PASS" endtime="20180709 10:57:49.861" starttime="20180709 10:57:49.860"></status>
+</kw>
+<kw name="Send Pkts N Capture" library="HOST1">
+<doc>This method is to send traffic using scapy and capture</doc>
+<arguments>
+<arg>${tg}</arg>
+<arg>${host2_obj}</arg>
+<arg>${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>${packet}</arg>
+<arg>${pkt_count}</arg>
+<arg>${interval}</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20180709 10:57:49.921" level="INFO">   rm -rf /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:57:49.979" level="INFO">   timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt &amp;
+[1] 1823
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:00.082" level="INFO">  sendp(Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/Dot1Q(vlan=555 )/IP(src='33.33.33.1', dst='15.15.15.2')/ICMP(type=8,code=0),iface='eth1',count= 10,inter=0.5)
+..........
+Sent 10 packets.
+[34m[1m
+</msg>
+<msg timestamp="20180709 10:58:00.082" level="INFO">  Successfully sent 10 packets from SCAPY
+</msg>
+<msg timestamp="20180709 10:58:05.139" level="INFO">   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+2 packets captured
+2 packets received by filter
+0 packets dropped by kernel
+kill -9 1823
+bash: kill: (1823) - No such process
+[1]+  Exit 124                timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:05.195" level="INFO">  ls -lrt /tmp/cap.txt
+-rw-r--r-- 1 root root 325 Jul  8 22:27 /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:05.252" level="INFO">   cat /tmp/cap.txt
+22:27:51.463590 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:56.463974 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:05.252" level="INFO">cat /tmp/cap.txt
+22:27:51.463590 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:56.463974 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet</msg>
+<msg timestamp="20180709 10:58:05.252" level="INFO">${file_data} =  cat /tmp/cap.txt
+22:27:51.463590 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:27:56.463974 fe...</msg>
+<status status="PASS" endtime="20180709 10:58:05.252" starttime="20180709 10:57:49.862"></status>
+</kw>
+<kw name="Validate Output" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${Match_ip}</arg>
+<arg>${file_data}</arg>
+</arguments>
+<assign>
+<var>${valid_count}</var>
+</assign>
+<msg timestamp="20180709 10:58:05.253" level="INFO">${valid_count} = 0</msg>
+<status status="PASS" endtime="20180709 10:58:05.253" starttime="20180709 10:58:05.253"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${zero}</var>
+</assign>
+<msg timestamp="20180709 10:58:05.254" level="INFO">${zero} = 0</msg>
+<status status="PASS" endtime="20180709 10:58:05.254" starttime="20180709 10:58:05.253"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${valid_count}</arg>
+<arg>${zero}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:58:05.254" starttime="20180709 10:58:05.254"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:58:05.254" critical="yes" starttime="20180709 10:57:49.859"></status>
+</test>
+<test id="s1-t25" name="ACL Rules Mimic Using OVS Flows - PUSH FLOWS To Allow ICMP Echo Req Traffic">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Null=Null</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:58:05.255" level="INFO">&amp;{flow_input} = { Null=Null }</msg>
+<status status="PASS" endtime="20180709 10:58:05.256" starttime="20180709 10:58:05.255"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:58:07.310" level="INFO">  ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:58:07.311" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758
+</msg>
+<msg timestamp="20180709 10:58:07.403" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:58:07.403" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:58:07.404" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180709 10:58:07.404" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:58:07.404" starttime="20180709 10:58:05.256"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:58:07.406" starttime="20180709 10:58:07.405"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>dl_type=2048</arg>
+<arg>nw_proto=1</arg>
+<arg>icmp_type=8</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180709 10:58:07.409" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | dl_type=2048 | nw_proto=1 | icmp_type=8 | actions=2 }</msg>
+<status status="PASS" endtime="20180709 10:58:07.409" starttime="20180709 10:58:07.406"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>add</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180709 10:58:09.465" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:58:09.466" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.62:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180709 10:58:09.565" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.066s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,icmp,in_port=1,icmp_type=8 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180709 10:58:09.566" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180709 10:58:09.566" level="INFO">8
+'{"priority": 1500, "table_id": "0", "id": "1", "match": {"icmpv4-match": {"icmpv4-type": "8"}, "ethernet-match": {"ethernet-type": {"type": "2048"}}, "in-port": 1, "ip-match": {"ip-protocol": "1", "ip-proto": "ipv4"}}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180709 10:58:09.567" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180709 10:58:09.567" starttime="20180709 10:58:07.410"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:58:09.568" starttime="20180709 10:58:09.567"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:58:09.569" critical="yes" starttime="20180709 10:58:05.255"></status>
+</test>
+<test id="s1-t26" name="ACL Rules Mimic Using OVS Flows - Check The ICMP Echo Req Traffic Is Allowed">
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.Traffic_Generator.Scapy</arg>
+<arg>${host1_obj}</arg>
+<arg>None</arg>
+<arg>WITH NAME</arg>
+<arg>TG</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:58:09.574" starttime="20180709 10:58:09.571"></status>
+</kw>
+<kw name="Generate Packet To Send" library="TG">
+<doc>Makes the command pattern to trigger the traffic</doc>
+<arguments>
+<arg>pkt_type=icmpv4</arg>
+</arguments>
+<assign>
+<var>${packet}</var>
+</assign>
+<msg timestamp="20180709 10:58:09.575" level="INFO">${packet} = Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/Dot1Q(vlan=555)/IP(src='33.33.33.1', dst='15.15.15.2')/ICMP(type=8,code=0)</msg>
+<status status="PASS" endtime="20180709 10:58:09.575" starttime="20180709 10:58:09.575"></status>
+</kw>
+<kw name="Send Pkts N Capture" library="HOST1">
+<doc>This method is to send traffic using scapy and capture</doc>
+<arguments>
+<arg>${tg}</arg>
+<arg>${host2_obj}</arg>
+<arg>${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>${packet}</arg>
+<arg>${pkt_count}</arg>
+<arg>${interval}</arg>
+</arguments>
+<assign>
+<var>${file_data}</var>
+</assign>
+<msg timestamp="20180709 10:58:09.634" level="INFO">   rm -rf /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:09.693" level="INFO">   timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt &amp;
+[1] 1828
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:19.778" level="INFO">  sendp(Ether(dst='21:43:65:87:09:02', src='12:34:56:78:90:01')/Dot1Q(vlan=555 )/IP(src='33.33.33.1', dst='15.15.15.2')/ICMP(type=8,code=0),iface='eth1',count= 10,inter=0.5)
+..........
+Sent 10 packets.
+[34m[1m
+</msg>
+<msg timestamp="20180709 10:58:19.779" level="INFO">  Successfully sent 10 packets from SCAPY
+</msg>
+<msg timestamp="20180709 10:58:24.834" level="INFO">   tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth1, link-type EN10MB (Ethernet), capture size 262144 bytes
+8 packets captured
+10 packets received by filter
+0 packets dropped by kernel
+kill -9 1828
+bash: kill: (1828) - No such process
+[1]+  Exit 124                timeout 9 tcpdump -i eth1 -e &gt; /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:24.892" level="INFO">  ls -lrt /tmp/cap.txt
+-rw-r--r-- 1 root root 1633 Jul  8 22:28 /tmp/cap.txt
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:24.951" level="INFO">   cat /tmp/cap.txt
+22:28:11.463951 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:28:14.738316 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:15.241097 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:15.744230 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:16.247583 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:16.464004 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:28:16.750387 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:17.253239 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:24.951" level="INFO">cat /tmp/cap.txt
+22:28:11.463951 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:28:14.738316 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:15.241097 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:15.744230 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:16.247583 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:16.464004 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:28:16.750387 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+22:28:17.253239 12:34:56:78:90:01 (oui Unknown) &gt; 21:43:65:87:09:02 (oui Unknown), ethertype 802.1Q (0x8100), length 60: vlan 555, p 0, ethertype IPv4, 33.33.33.1 &gt; 15.15.15.2: ICMP echo request, id 0, seq 0, length 8
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet</msg>
+<msg timestamp="20180709 10:58:24.952" level="INFO">${file_data} =  cat /tmp/cap.txt
+22:28:11.463951 fe:54:00:fa:5e:84 (oui Unknown) &gt; 01:23:00:00:00:01 (oui Unknown), ethertype LLDP (0x88cc), length 113: LLDP, length 99: openflow:218538505255758
+22:28:14.738316 12...</msg>
+<status status="PASS" endtime="20180709 10:58:24.952" starttime="20180709 10:58:09.576"></status>
+</kw>
+<kw name="Disconnect" library="TG">
+<msg timestamp="20180709 10:58:27.005" level="INFO">  exit()
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180709 10:58:27.005" level="INFO">  EXITED from SCAPY Traffic Gen mode
+</msg>
+<status status="PASS" endtime="20180709 10:58:27.005" starttime="20180709 10:58:24.952"></status>
+</kw>
+<kw name="Validate Output" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${Match_ip}</arg>
+<arg>${file_data}</arg>
+</arguments>
+<assign>
+<var>${valid_count}</var>
+</assign>
+<msg timestamp="20180709 10:58:27.006" level="INFO">${valid_count} = 6</msg>
+<status status="PASS" endtime="20180709 10:58:27.006" starttime="20180709 10:58:27.005"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${zero}</var>
+</assign>
+<msg timestamp="20180709 10:58:27.007" level="INFO">${zero} = 0</msg>
+<status status="PASS" endtime="20180709 10:58:27.007" starttime="20180709 10:58:27.006"></status>
+</kw>
+<kw name="Should Not Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are equal after converting them to integers.</doc>
+<arguments>
+<arg>${valid_count}</arg>
+<arg>${zero}</arg>
+</arguments>
+<status status="PASS" endtime="20180709 10:58:27.007" starttime="20180709 10:58:27.007"></status>
+</kw>
+<status status="PASS" endtime="20180709 10:58:27.008" critical="yes" starttime="20180709 10:58:09.570"></status>
+</test>
+<doc>Test Suite for SDNC-FUNCTIONAL Test Scenarios</doc>
+<status status="FAIL" endtime="20180709 10:58:27.012" starttime="20180709 10:54:26.418"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="25">Critical Tests</stat>
+<stat fail="1" pass="25">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="OVS ODL FUNC TESTS" pass="25">OVS ODL FUNC TESTS</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20180709 10:57:49.854" level="ERROR">  Response Code: 404
+Response Text:{"errors":{"error":[{"error-type":"protocol","error-tag":"data-missing","error-message":"Data does not exist for path: /(urn:opendaylight:inventory?revision=2013-08-19)nodes/node/node[{(urn:opendaylight:inventory?revision=2013-08-19)id=openflow:218538505255758}]/AugmentationIdentifier{childNames=[(urn:opendaylight:flow:inventory?revision=2013-08-19)supported-match-types, (urn:opendaylight:flow:inventory?revision=2013-08-19)supported-instructions, (urn:opendaylight:flow:inventory?revision=2013-08-19)supported-actions, (urn:opendaylight:flow:inventory?revision=2013-08-19)switch-features, (urn:opendaylight:flow:inventory?revision=2013-08-19)manufacturer, (urn:opendaylight:flow:inventory?revision=2013-08-19)hardware, (urn:opendaylight:flow:inventory?revision=2013-08-19)software, (urn:opendaylight:flow:inventory?revision=2013-08-19)serial-number, (urn:opendaylight:flow:inventory?revision=2013-08-19)description, (urn:opendaylight:flow:inventory?revision=2013-08-19)port-number, (urn:opendaylight:flow:inventory?revision=2013-08-19)ip-address, (urn:opendaylight:flow:inventory?revision=2013-08-19)meter, (urn:opendaylight:flow:inventory?revision=2013-08-19)stale-meter, (urn:opendaylight:flow:inventory?revision=2013-08-19)group, (urn:opendaylight:flow:inventory?revision=2013-08-19)stale-group, (urn:opendaylight:flow:inventory?revision=2013-08-19)table, (urn:opendaylight:flow:inventory?revision=2013-08-19)table-features]}/(urn:opendaylight:flow:inventory?revision=2013-08-19)table/table[{(urn:opendaylight:flow:inventory?revision=2013-08-19)id=0}]/flow/flow[{(urn:opendaylight:flow:inventory?revision=2013-08-19)id=1}]"}]}}
+</msg>
+<msg timestamp="20180709 10:57:49.854" level="ERROR">  Failed to delete the Flow, Check manually...!!!
+</msg>
+</errors>
+</robot>
