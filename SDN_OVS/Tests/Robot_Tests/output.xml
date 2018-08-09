@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180809 16:44:34.186" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/test/g/HAPPIEST_FRAMEWORK/SDN_OVS/Tests/Robot_Tests/OVS_ODL_FUNC_TESTS.robot" id="s1" name="OVS ODL FUNC TESTS">
+<test id="s1-t1" name="Verify If All Devices Are Powered Up">
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>OVSOBJ</arg>
+</arguments>
+<assign>
+<var>${ovs_obj}</var>
+</assign>
+<msg timestamp="20180809 16:44:39.648" level="INFO">${ovs_obj} = &lt;Supporting_Libs.ovs.ovs object at 0x7f26a645af50&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.648" starttime="20180809 16:44:39.648"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>CNTRLROBJ</arg>
+</arguments>
+<assign>
+<var>${cntrl_obj}</var>
+</assign>
+<msg timestamp="20180809 16:44:39.648" level="INFO">${cntrl_obj} = &lt;Supporting_Libs.Karaf.Karaf object at 0x7f26a649ff90&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.648" starttime="20180809 16:44:39.648"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>HOST1</arg>
+</arguments>
+<assign>
+<var>${host1_obj}</var>
+</assign>
+<msg timestamp="20180809 16:44:39.649" level="INFO">${host1_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f26a640c350&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.649" starttime="20180809 16:44:39.649"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>HOST2</arg>
+</arguments>
+<assign>
+<var>${host2_obj}</var>
+</assign>
+<msg timestamp="20180809 16:44:39.649" level="INFO">${host2_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f26a641f350&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.649" starttime="20180809 16:44:39.649"></status>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.Traffic_Generator.Scapy</arg>
+<arg>${host1_obj}</arg>
+<arg>None</arg>
+<arg>WITH NAME</arg>
+<arg>TG</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:44:39.652" starttime="20180809 16:44:39.649"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>TG</arg>
+</arguments>
+<assign>
+<var>${tg}</var>
+</assign>
+<msg timestamp="20180809 16:44:39.652" level="INFO">${tg} = &lt;Supporting_Libs.Traffic_Generator.Scapy object at 0x7f26a1f07a10&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.652" starttime="20180809 16:44:39.652"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${ovs_obj}</arg>
+</arguments>
+<msg timestamp="20180809 16:44:39.653" level="INFO">${ovs_obj} = &lt;Supporting_Libs.ovs.ovs object at 0x7f26a645af50&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.653" starttime="20180809 16:44:39.652"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${cntrl_obj}</arg>
+</arguments>
+<msg timestamp="20180809 16:44:39.653" level="INFO">${cntrl_obj} = &lt;Supporting_Libs.Karaf.Karaf object at 0x7f26a649ff90&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.653" starttime="20180809 16:44:39.653"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${host1_obj}</arg>
+</arguments>
+<msg timestamp="20180809 16:44:39.654" level="INFO">${host1_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f26a640c350&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.654" starttime="20180809 16:44:39.653"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${host2_obj}</arg>
+</arguments>
+<msg timestamp="20180809 16:44:39.654" level="INFO">${host2_obj} = &lt;Supporting_Libs.hosts.hosts object at 0x7f26a641f350&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.654" starttime="20180809 16:44:39.654"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${tg}</arg>
+</arguments>
+<msg timestamp="20180809 16:44:39.655" level="INFO">${tg} = &lt;Supporting_Libs.Traffic_Generator.Scapy object at 0x7f26a1f07a10&gt;</msg>
+<status status="PASS" endtime="20180809 16:44:39.655" starttime="20180809 16:44:39.654"></status>
+</kw>
+<doc>login to switch,host1 &amp; host2</doc>
+<status status="PASS" endtime="20180809 16:44:39.655" critical="yes" starttime="20180809 16:44:39.647"></status>
+</test>
+<test id="s1-t2" name="Bringup The Opendaylight Controller and Config plugins">
+<kw name="Start Karaf" library="CNTRLROBJ">
+<doc>To start Karaf from provided path</doc>
+<arguments>
+<arg>clean=${True}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180809 16:44:41.707" level="INFO">   sudo /home/test/oxygen/karaf-0.8.2/bin/stop
+karaf: JAVA_HOME not set; results may vary
+]0;root@controller: /home/testroot@controller:/home/test
+</msg>
+<msg timestamp="20180809 16:44:41.708" level="INFO">  ****** ODL KARAF stopped Successfully ******
+</msg>
+<msg timestamp="20180809 16:44:43.762" level="INFO">  sudo /home/test/oxygen/karaf-0.8.2/bin/status
+karaf: JAVA_HOME not set; results may vary
+Not Running ...
+]0;root@controller: /home/testroot@controller:/home/test
+</msg>
+<msg timestamp="20180809 16:44:43.762" level="INFO">  sudo /home/test/oxygen/karaf-0.8.2/bin/status
+karaf: JAVA_HOME not set; results may vary
+Not Running ...
+]0;root@controller: /home/testroot@controller:/home/test
+</msg>
+<msg timestamp="20180809 16:44:43.763" level="INFO">  ****** ODL KARAF stopped Successfully ******
+</msg>
+<msg timestamp="20180809 16:44:51.804" level="INFO">  sudo /home/test/oxygen/karaf-0.8.2/bin/karaf clean
+karaf: JAVA_HOME not set; results may vary
+Apache Karaf starting up. Press Enter to open the shell now...
+  7% [=====&gt;                                                                  ] 15% [==========&gt;                                                             ] 23% [================&gt;                                                       ] 30% [=====================&gt;                                                  ] 38% [===========================&gt;                                            ] 46% [=================================&gt;                                      ] 53% [======================================&gt;                                 ] 61% [===========================================&gt;                            ] 69% [=================================================&gt;                      ] 76% [======================================================&gt;                 ] 84% [============================================================&gt;           ] 92% [==================================================================&gt;     ]100% [========================================================================]
+
+Karaf started in 0s. Bundle stats: 13 active, 13 total
+[33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+[?1h=[37m~[0m                                                                                [?2004h[36m
+</msg>
+<msg timestamp="20180809 16:44:51.805" level="INFO">  ****** ODL KARAF started Successfully ******
+</msg>
+<msg timestamp="20180809 16:44:51.806" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180809 16:44:51.806" starttime="20180809 16:44:39.656"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:44:51.807" starttime="20180809 16:44:51.806"></status>
+</kw>
+<kw name="Configure Plugins" library="CNTRLROBJ">
+<doc>To install Plugins</doc>
+<arguments>
+<arg>config_flag=install</arg>
+<arg>plugins=${OF_PLUGINS}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180809 16:45:12.093" level="INFO">  [31mf[0m[31me[0m[31ma[0m[31mt[0m[31mu[0m[31mr[0m[6D[34mfeature[0m[K[7D[31mfeature:[0m[K[31mi[0m[31mn[0m[31ms[0m[31mt[0m[31ma[0m[31ml[0m[14D[34mfeature:install[0m[K odl-restconf odl-l2switch-all odl-openflo
+[A[79Cowplugin-flow-services odl-openflowplugin-drop-test odl-mdsal-all odl-openflowplu
+[A[79Cugin-southbound 
+[?1l&gt;[?1000l[?2004l[?1h=[37m~[0m                                                                                [?2004h[36m
+</msg>
+<msg timestamp="20180809 16:45:12.094" level="INFO">  ****** INSTALLED Plugins in ODL KARAF Successfully******
+</msg>
+<msg timestamp="20180809 16:45:12.095" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180809 16:45:12.095" starttime="20180809 16:44:51.808"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:45:12.096" starttime="20180809 16:45:12.095"></status>
+</kw>
+<kw name="Verify Installed Plugins" library="CNTRLROBJ">
+<doc>To verify the installed plugins in karaf</doc>
+<arguments>
+<arg>plugins=${OF_PLUGINS}</arg>
+</arguments>
+<assign>
+<var>${return_code}</var>
+</assign>
+<msg timestamp="20180809 16:45:14.153" level="INFO">  [31mf[0m[31me[0m[31ma[0m[31mt[0m[31mu[0m[31mr[0m[6D[34mfeature[0m[K[7D[31mfeature:[0m[K[31ml[0m[31mi[0m[31ms[0m[11D[34mfeature:list[0m[K -r
+[?1l&gt;[?1000l[?2004lName                                 \xe2\x94\x82 Version \xe2\x94\x82 Required \xe2\x94\x82 State   \xe2\x94\x82 Repository                           \xe2\x94\x82 Description
+\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\xbc\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80\xe2\x94\x80
+odl-l2switch-all                     \xe2\x94\x82 0.7.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-l2switch-all                     \xe2\x94\x82 OpenDaylight :: L2Switch :: All
+odl-openflowplugin-drop-test         \xe2\x94\x82 0.6.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-openflowplugin-drop-test         \xe2\x94\x82 OpenDaylight :: Openflow Plugin :: Drop Test
+b8b5047f-c696-4a9c-9c49-d21ea2c16986 \xe2\x94\x82 0.0.0   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 74b1c666-2254-4fab-a51b-4f69a038ece6 \xe2\x94\x82
+odl-openflowplugin-flow-services     \xe2\x94\x82 0.6.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-openflowplugin-flow-services     \xe2\x94\x82 OpenDaylight :: Openflow Plugin :: Flow Services
+odl-mdsal-all                        \xe2\x94\x82 1.7.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-mdsal-all                        \xe2\x94\x82 odl-mdsal-all
+odl-restconf                         \xe2\x94\x82 1.7.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 odl-restconf                         \xe2\x94\x82 OpenDaylight :: Restconf
+odl-openflowplugin-southbound        \xe2\x94\x82 0.6.2   \xe2\x94\x82 x        \xe2\x94\x82 Started \xe2\x94\x82 openflowplugin-0.6.2                 \xe2\x94\x82 OpenDaylight :: Openflow Plugin :: Li southbound
+[?1h=[37m~[0m                                                                                [?2004h[36m
+</msg>
+<msg timestamp="20180809 16:45:14.155" level="INFO">  ****** Installed Plugins are verified properly ******
+</msg>
+<msg timestamp="20180809 16:45:14.155" level="INFO">${return_code} = True</msg>
+<status status="PASS" endtime="20180809 16:45:14.155" starttime="20180809 16:45:12.097"></status>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<doc>Fails if the given condition is not true.</doc>
+<arguments>
+<arg>${return_code}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:45:14.156" starttime="20180809 16:45:14.155"></status>
+</kw>
+<doc>CONFIGURE CONTROLLER</doc>
+<status status="PASS" endtime="20180809 16:45:14.156" critical="yes" starttime="20180809 16:44:39.655"></status>
+</test>
+<test id="s1-t3" name="Configure OVS bridge">
+<kw name="Create Validate Bridge" library="OVSOBJ">
+<doc>Date: 15/06/2017  Author: Sirish</doc>
+<arguments>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${Cntrlr_data}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180809 16:45:31.220" level="INFO">   ovs-vsctl show
+fe84fc38-119e-4581-8f0c-496380f1081a
+    Bridge "ovstest1"
+        Port "ovstest1"
+            Interface "ovstest1"
+                type: internal
+    Bridge test
+        Controller "tcp:192.168.203.7:6653"
+            is_connected: true
+        Port "vnet1"
+            Interface "vnet1"
+        Port "vnet3"
+            Interface "vnet3"
+        Port test
+            Interface test
+                type: internal
+    Bridge "ovstest2"
+        Port "ovstest2"
+            Interface "ovstest2"
+                type: internal
+    ovs_version: "2.6.1"
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:45:31.222" level="INFO">  Bridge and Controller configured properly
+</msg>
+<msg timestamp="20180809 16:45:31.222" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180809 16:45:31.222" starttime="20180809 16:45:14.156"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${status} != ${True}</arg>
+<arg>Run Keywords</arg>
+<arg>Debug Controller Failure</arg>
+<arg>${ovs_obj}</arg>
+<arg>${cntrl_obj}</arg>
+<arg>AND</arg>
+<arg>Fail</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:45:31.224" starttime="20180809 16:45:31.223"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:45:31.225" critical="yes" starttime="20180809 16:45:14.156"></status>
+</test>
+<test id="s1-t4" name="Add ports to OVS bridge">
+<kw name="Addports Validate" library="OVSOBJ">
+<doc> This method is to add ports to the desired bridge</doc>
+<arguments>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${OVS_BRIDGE_CONF['PORTS']}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180809 16:45:33.279" level="INFO">  ifconfig vnet1
+vnet1     Link encap:Ethernet  HWaddr fe:54:00:c7:54:ca  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2459 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:31787 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:131558 (131.5 KB)  TX bytes:3583109 (3.5 MB)
+
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:45:35.333" level="INFO">  ifconfig vnet1 up
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:45:37.386" level="INFO">  ovs-vsctl port-to-br vnet1
+test
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:45:37.387" level="INFO">  Port vnet1 is already part of the bridge test
+</msg>
+<msg timestamp="20180809 16:45:39.441" level="INFO">  ifconfig vnet3
+vnet3     Link encap:Ethernet  HWaddr fe:54:00:fa:5e:84  
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:863 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:33350 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:73206 (73.2 KB)  TX bytes:3653678 (3.6 MB)
+
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:45:41.495" level="INFO">  ifconfig vnet3 up
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:45:43.547" level="INFO">  ovs-vsctl port-to-br vnet3
+test
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:45:43.548" level="INFO">  Port vnet3 is already part of the bridge test
+</msg>
+<msg timestamp="20180809 16:45:50.605" level="INFO">  ovs-ofctl del-flows test
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:45:50.606" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180809 16:45:50.606" starttime="20180809 16:45:31.226"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:45:50.606" starttime="20180809 16:45:50.606"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:45:50.606" critical="yes" starttime="20180809 16:45:31.225"></status>
+</test>
+<test id="s1-t5" name="Assign IP addresses to host interfaces">
+<kw name="Config Host Nic Ip" library="HOST1">
+<arguments>
+<arg>if_name=${HOST1["PORT_CONFIG"]['iface1']}</arg>
+<arg>ip=${HOST1["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<msg timestamp="20180809 16:45:52.661" level="INFO">   ifconfig eth1 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:45:54.714" level="INFO">  ifconfig eth1 0 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:45:56.768" level="INFO">  ifconfig eth1 15.15.15.1/24 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:45:58.821" level="INFO">  ifconfig eth1
+eth1      Link encap:Ethernet  HWaddr 52:54:00:c7:54:ca  
+          inet addr:15.15.15.1  Bcast:15.15.15.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:519 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:3433 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:41354 (41.3 KB)  TX bytes:169306 (169.3 KB)
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:45:58.821" level="INFO">  Successfully Assigned IP Address on the Interface eth1
+</msg>
+<status status="PASS" endtime="20180809 16:45:58.821" starttime="20180809 16:45:50.607"></status>
+</kw>
+<kw name="Config Host Nic Ip" library="HOST2">
+<arguments>
+<arg>if_name=${HOST2["PORT_CONFIG"]['iface1']}</arg>
+<arg>ip=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<msg timestamp="20180809 16:46:00.875" level="INFO">   ifconfig eth1 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:46:02.927" level="INFO">  ifconfig eth1 0 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:46:04.981" level="INFO">  ifconfig eth1 15.15.15.2/24 up
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:46:07.033" level="INFO">  ifconfig eth1
+eth1      Link encap:Ethernet  HWaddr 52:54:00:fa:5e:84  
+          inet addr:15.15.15.2  Bcast:15.15.15.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2121 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:863 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:139606 (139.6 KB)  TX bytes:73206 (73.2 KB)
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:46:07.033" level="INFO">  Successfully Assigned IP Address on the Interface eth1
+</msg>
+<status status="PASS" endtime="20180809 16:46:07.034" starttime="20180809 16:45:58.822"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:46:07.034" critical="yes" starttime="20180809 16:45:50.606"></status>
+</test>
+<test id="s1-t6" name="Ports Based Flows test - PUSH To &amp; Fro Port Based Flow Rules">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>Null=Null</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180809 16:46:07.038" level="INFO">&amp;{flow_input} = { Null=Null }</msg>
+<status status="PASS" endtime="20180809 16:46:07.038" starttime="20180809 16:46:07.037"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=delete</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180809 16:46:09.092" level="INFO">  ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:09.094" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.7:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758
+</msg>
+<msg timestamp="20180809 16:46:09.188" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:09.189" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180809 16:46:09.190" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180809 16:46:09.190" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180809 16:46:09.190" starttime="20180809 16:46:07.039"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:46:09.192" starttime="20180809 16:46:09.191"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[0]}</arg>
+<arg>id=1</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[1]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180809 16:46:09.195" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=1 | id=1 | table=0 | order=0 | actions=2 }</msg>
+<status status="PASS" endtime="20180809 16:46:09.195" starttime="20180809 16:46:09.192"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=add</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180809 16:46:11.251" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:11.253" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.7:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/1
+</msg>
+<msg timestamp="20180809 16:46:11.391" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.073s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:11.393" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180809 16:46:11.393" level="INFO">'{"priority": 1500, "table_id": "0", "id": "1", "match": {"in-port": 1}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 2}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180809 16:46:11.393" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180809 16:46:11.394" starttime="20180809 16:46:09.196"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:46:11.395" starttime="20180809 16:46:11.394"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[1]}</arg>
+<arg>id=2</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[0]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180809 16:46:11.398" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=2 | id=2 | table=0 | order=0 | actions=1 }</msg>
+<status status="PASS" endtime="20180809 16:46:11.398" starttime="20180809 16:46:11.396"></status>
+</kw>
+<kw name="Manage Flows" library="OVSOBJ">
+<doc>This method is to manage OVS flows like add,modify,del &amp; validate</doc>
+<arguments>
+<arg>manage_type=add</arg>
+<arg>br_name=${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>flow_inputs=${flow_input}</arg>
+<arg>controller=${CONTROLLER_TYPE}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180809 16:46:13.454" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=0.142s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:13.455" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.7:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/2
+</msg>
+<msg timestamp="20180809 16:46:13.595" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=2.277s, table=0, n_packets=0, n_bytes=0, idle_age=2, priority=1500,in_port=1 actions=output:2
+ cookie=0x0, duration=0.065s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=2 actions=output:1
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:13.595" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180809 16:46:13.596" level="INFO">'{"priority": 1500, "table_id": "0", "id": "2", "match": {"in-port": 2}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 1}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 1}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180809 16:46:13.596" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180809 16:46:13.596" starttime="20180809 16:46:11.399"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:46:13.598" starttime="20180809 16:46:13.597"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:46:13.598" critical="yes" starttime="20180809 16:46:07.035"></status>
+</test>
+<test id="s1-t7" name="Ports Based Flows test - Check Host Reachability Via Created Flow Rules">
+<kw name="Peer Ping" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>obj=${host1_obj}</arg>
+<arg>source=None</arg>
+<arg>dest=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180809 16:46:22.666" level="INFO">  ping 15.15.15.2 -c 10
+PING 15.15.15.2 (15.15.15.2) 56(84) bytes of data.
+64 bytes from 15.15.15.2: icmp_seq=1 ttl=64 time=2.64 ms
+64 bytes from 15.15.15.2: icmp_seq=2 ttl=64 time=1.04 ms
+64 bytes from 15.15.15.2: icmp_seq=3 ttl=64 time=1.10 ms
+64 bytes from 15.15.15.2: icmp_seq=4 ttl=64 time=0.821 ms
+64 bytes from 15.15.15.2: icmp_seq=5 ttl=64 time=1.00 ms
+64 bytes from 15.15.15.2: icmp_seq=6 ttl=64 time=0.540 ms
+64 bytes from 15.15.15.2: icmp_seq=7 ttl=64 time=1.04 ms
+64 bytes from 15.15.15.2: icmp_seq=8 ttl=64 time=0.958 ms
+64 bytes from 15.15.15.2: icmp_seq=9 ttl=64 time=1.06 ms
+64 bytes from 15.15.15.2: icmp_seq=10 ttl=64 time=1.11 ms
+
+--- 15.15.15.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9008ms
+rtt min/avg/max/mdev = 0.540/1.134/2.648/0.532 ms
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:46:22.667" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20180809 16:46:22.667" starttime="20180809 16:46:13.600"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:46:22.669" starttime="20180809 16:46:22.668"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:46:22.670" critical="yes" starttime="20180809 16:46:13.599"></status>
+</test>
+<test id="s1-t8" name="Ports Based Flows test - Delete One Of The Flows To Interrupt The Host Reachability">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[1]}</arg>
+<arg>id=2</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[0]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180809 16:46:22.673" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=2 | id=2 | table=0 | order=0 | actions=1 }</msg>
+<status status="PASS" endtime="20180809 16:46:22.673" starttime="20180809 16:46:22.672"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>delete</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180809 16:46:24.725" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=11.415s, table=0, n_packets=11, n_bytes=966, idle_age=1, priority=1500,in_port=1 actions=output:2
+ cookie=0x0, duration=9.203s, table=0, n_packets=11, n_bytes=966, idle_age=1, priority=1500,in_port=2 actions=output:1
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:24.726" level="INFO">  
+REST CONF URL TO DEL FLOW:http://192.168.203.7:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/2
+</msg>
+<msg timestamp="20180809 16:46:24.814" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=13.496s, table=0, n_packets=12, n_bytes=1064, idle_age=2, priority=1500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:24.815" level="INFO">  Flow is DELETED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180809 16:46:24.815" level="INFO">&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; DEL RESPONSE: 200</msg>
+<msg timestamp="20180809 16:46:24.816" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180809 16:46:24.816" starttime="20180809 16:46:22.673"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:46:24.817" starttime="20180809 16:46:24.816"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:46:24.818" critical="yes" starttime="20180809 16:46:22.670"></status>
+</test>
+<test id="s1-t9" name="Ports Based Flows test - Check Host reachability Is Interrupted">
+<kw name="Peer Ping" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>obj=${host1_obj}</arg>
+<arg>source=None</arg>
+<arg>dest=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180809 16:46:43.875" level="INFO">  ping 15.15.15.2 -c 10
+PING 15.15.15.2 (15.15.15.2) 56(84) bytes of data.
+
+--- 15.15.15.2 ping statistics ---
+10 packets transmitted, 0 received, 100% packet loss, time 9000ms
+
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:46:43.876" level="INFO">${result} = False</msg>
+<status status="PASS" endtime="20180809 16:46:43.876" starttime="20180809 16:46:24.818"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>${False}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:46:43.877" starttime="20180809 16:46:43.877"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:46:43.878" critical="yes" starttime="20180809 16:46:24.818"></status>
+</test>
+<test id="s1-t10" name="Ports Based Flows test - Restore(PUSH) The Deleted Flow Rule">
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>priority=${priority[0]}</arg>
+<arg>in_port=${ports[1]}</arg>
+<arg>id=2</arg>
+<arg>table=0</arg>
+<arg>order=0</arg>
+<arg>actions=${ports[0]}</arg>
+</arguments>
+<assign>
+<var>&amp;{flow_input}</var>
+</assign>
+<msg timestamp="20180809 16:46:43.881" level="INFO">&amp;{flow_input} = { priority=1500 | in_port=2 | id=2 | table=0 | order=0 | actions=1 }</msg>
+<status status="PASS" endtime="20180809 16:46:43.881" starttime="20180809 16:46:43.879"></status>
+</kw>
+<kw name="Flow Management" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${ovs_obj}</arg>
+<arg>add</arg>
+<arg>${OVS_BRIDGE_CONF['NAME']}</arg>
+<arg>${flow_input}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180809 16:46:45.935" level="INFO">   ovs-ofctl dump-flows test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=32.623s, table=0, n_packets=22, n_bytes=2044, idle_age=10, priority=1500,in_port=1 actions=output:2
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:45.936" level="INFO">  
+REST CONF URL TO PUSH FLOW:http://192.168.203.7:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:218538505255758/flow-node-inventory:table/0/flow/2
+</msg>
+<msg timestamp="20180809 16:46:46.072" level="INFO">  ovs-ofctl dump-flows  test
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=34.754s, table=0, n_packets=22, n_bytes=2044, idle_age=12, priority=1500,in_port=1 actions=output:2
+ cookie=0x0, duration=0.065s, table=0, n_packets=0, n_bytes=0, idle_age=0, priority=1500,in_port=2 actions=output:1
+]0;root@test-HP-EliteDesk-800-G2-DM-65W: /home/testroot@test-HP-EliteDesk-800-G2-DM-65W:/home/test
+</msg>
+<msg timestamp="20180809 16:46:46.073" level="INFO">  Flow is ADDED by ODL successfully and verified the same in dump-flows
+</msg>
+<msg timestamp="20180809 16:46:46.073" level="INFO">'{"priority": 1500, "table_id": "0", "id": "2", "match": {"in-port": 2}, "instructions": {"instruction": {"order": "0", "apply-actions": {"action": [{"output-action": {"max-length": "100", "output-node-connector": 1}, "order": "0"}, {"output-action": {"max-length": "100", "output-node-connector": 1}, "order": "0"}]}}}}'</msg>
+<msg timestamp="20180809 16:46:46.073" level="INFO">${status} = True</msg>
+<status status="PASS" endtime="20180809 16:46:46.074" starttime="20180809 16:46:43.881"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${status}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:46:46.075" starttime="20180809 16:46:46.074"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:46:46.076" critical="yes" starttime="20180809 16:46:43.878"></status>
+</test>
+<test id="s1-t11" name="Ports Based Flows test - Check Host Reachability After Port Based Flow Rule Restored">
+<kw name="Peer Ping" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>obj=${host1_obj}</arg>
+<arg>source=None</arg>
+<arg>dest=${HOST2["PORT_CONFIG"]['iface1_ip']}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<msg timestamp="20180809 16:46:55.149" level="INFO">  ping 15.15.15.2 -c 10
+PING 15.15.15.2 (15.15.15.2) 56(84) bytes of data.
+64 bytes from 15.15.15.2: icmp_seq=1 ttl=64 time=1.38 ms
+64 bytes from 15.15.15.2: icmp_seq=2 ttl=64 time=1.01 ms
+64 bytes from 15.15.15.2: icmp_seq=3 ttl=64 time=0.991 ms
+64 bytes from 15.15.15.2: icmp_seq=4 ttl=64 time=1.20 ms
+64 bytes from 15.15.15.2: icmp_seq=5 ttl=64 time=1.04 ms
+64 bytes from 15.15.15.2: icmp_seq=6 ttl=64 time=1.04 ms
+64 bytes from 15.15.15.2: icmp_seq=7 ttl=64 time=0.994 ms
+64 bytes from 15.15.15.2: icmp_seq=8 ttl=64 time=1.01 ms
+64 bytes from 15.15.15.2: icmp_seq=9 ttl=64 time=1.01 ms
+64 bytes from 15.15.15.2: icmp_seq=10 ttl=64 time=1.03 ms
+
+--- 15.15.15.2 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9013ms
+rtt min/avg/max/mdev = 0.991/1.073/1.384/0.125 ms
+]0;root@mininet-vm: /home/mininetroot@mininet-vm:/home/mininet
+</msg>
+<msg timestamp="20180809 16:46:55.150" level="INFO">${result} = True</msg>
+<status status="PASS" endtime="20180809 16:46:55.150" starttime="20180809 16:46:46.077"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${result}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" endtime="20180809 16:46:55.151" starttime="20180809 16:46:55.150"></status>
+</kw>
+<status status="PASS" endtime="20180809 16:46:55.152" critical="yes" starttime="20180809 16:46:46.076"></status>
+</test>
+<test id="s1-t12" name="MAC Address Based Match Flows Test - PUSH A Flow To Match SRC MAC And Forward">
