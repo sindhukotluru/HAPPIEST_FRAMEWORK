@@ -1,0 +1,63 @@
+heat_template_version: 2015-10-15
+description: Launch a basic instance with specified ubuntu image using the
+             ``mininet`` flavor, ``mykey`` key,  and two networks private, net_mgmt.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance.
+    default: net_mngt
+  NetID2:
+    type: string
+    description: 2nd Network ID to use for the instance
+    default: net001
+  NetID3:
+    type: string
+    description: 3rd Network ID to use for the instance
+    default: net002
+  IMAGE:
+    type: string
+    description: Image name
+    default: ubuntu_test 
+  FLAVOR:
+    type: string
+    description: Flavor name
+    default: 20gb
+  KEY:
+    type: string
+    description: Flavor name
+    default: loginkey
+
+resources:
+  server:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: { get_param: FLAVOR }
+      key_name: { get_param: KEY } 
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID2 }
+      - network: { get_param: NetID3 }
+
+  floating_ip:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public01
+
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip }
+      #floating_ip: 10.16.84.20
+      server_id: { get_resource: server }
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server, first_address ] }
+
+

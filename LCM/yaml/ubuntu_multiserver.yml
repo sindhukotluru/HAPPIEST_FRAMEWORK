@@ -1,0 +1,90 @@
+heat_template_version: 2015-10-15
+description: Launch a basic instance with specified ubuntu image using the
+             ``mininet`` flavor, ``mykey`` key,  and two networks private, net_mgmt.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance.
+    default: net_mgmt
+  NetID2:
+    type: string
+    description: 2nd Network ID to use for the instance
+    default: net001
+  NetID3:
+    type: string
+    description: 3rd Network ID to use for the instance
+    default: net002
+  IMAGE:
+    type: string
+    description: Image name
+    default: host-ubuntu
+  FLAVOR:
+    type: string
+    description: Flavor name
+    default: 20gb
+  KEY:
+    type: string
+    description: Flavor name
+    default: key234demo
+
+resources:
+  server1:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: { get_param: FLAVOR }
+      key_name: { get_param: KEY }
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID2 }
+      - network: { get_param: NetID3 }
+
+  floating_ip1:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public01
+
+  association1:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip1 }
+      server_id: { get_resource: server1 }
+
+  server2:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: { get_param: FLAVOR }
+      key_name: { get_param: KEY }
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID2 }
+      - network: { get_param: NetID3 }
+
+  floating_ip2:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public01
+
+  association2:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip2 }
+      server_id: { get_resource: server2 }
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server1, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server1, first_address ] }
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server2, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server2, first_address ] }
+
+
