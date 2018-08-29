@@ -1,0 +1,2475 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180727 15:40:55.672" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/test/HAPPIEST_FRAMEWORK/Tests/Robot_Tests/MEC_TESTS.robot" id="s1" name="MEC TESTS">
+<kw type="setup" name="PreRequisite">
+<doc>Basic device Login &amp; pre-requisite steps before any test begins</doc>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Create Device SSH Handler and Check REST Login</arg>
+</arguments>
+<msg timestamp="20180727 15:40:55.795" level="INFO">Create Device SSH Handler and Check REST Login</msg>
+<status status="PASS" endtime="20180727 15:40:55.795" starttime="20180727 15:40:55.794"></status>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.ovs</arg>
+<arg>IP=${SWITCH['IP']}</arg>
+<arg>username=${SWITCH['USER']}</arg>
+<arg>password=${SWITCH['PASSWORD']}</arg>
+<arg>WITH NAME</arg>
+<arg>OVSOBJ</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:00.166" starttime="20180727 15:40:55.795"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>OVSOBJ</arg>
+</arguments>
+<assign>
+<var>${ovs_obj}</var>
+</assign>
+<msg timestamp="20180727 15:41:00.168" level="INFO">${ovs_obj} = &lt;Supporting_Libs.ovs.ovs object at 0x7fefdaafef10&gt;</msg>
+<status status="PASS" endtime="20180727 15:41:00.168" starttime="20180727 15:41:00.167"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${ovs_obj}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:00.169" level="INFO">${ovs_obj} = &lt;Supporting_Libs.ovs.ovs object at 0x7fefdaafef10&gt;</msg>
+<status status="PASS" endtime="20180727 15:41:00.170" starttime="20180727 15:41:00.168"></status>
+</kw>
+<kw name="Config MEC Infra">
+<kw name="CleanConfigInfra">
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=killall node</arg>
+</arguments>
+<msg timestamp="20180727 15:41:02.225" level="INFO">   killall node
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:41:02.226" starttime="20180727 15:41:00.171"></status>
+</kw>
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=kill $(ps aux | grep 'main.py' | awk '{print $2}')</arg>
+</arguments>
+<msg timestamp="20180727 15:41:04.280" level="INFO">   kill $(ps aux | grep 'main.py' | awk '{print $2}')
+bash: kill: (21405) - No such process
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:41:04.281" starttime="20180727 15:41:02.226"></status>
+</kw>
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=ps -ef | grep "main.py"</arg>
+</arguments>
+<msg timestamp="20180727 15:41:06.335" level="INFO">   ps -ef | grep "main.py"
+root     21428 21358  0 15:41 pts/14   00:00:00 grep --color=auto [01;31m[Kmain.py[m[K
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:41:06.336" starttime="20180727 15:41:04.281"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>--redis-address</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<msg timestamp="20180727 15:41:06.337" level="INFO">${pattern} = --redis-address</msg>
+<status status="PASS" endtime="20180727 15:41:06.337" starttime="20180727 15:41:06.336"></status>
+</kw>
+<kw name="Should Not Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` matches ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:06.339" starttime="20180727 15:41:06.337"></status>
+</kw>
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=ps -ef | grep node</arg>
+</arguments>
+<msg timestamp="20180727 15:41:08.393" level="INFO">   ps -ef | grep node
+root     21450 21358  0 15:41 pts/14   00:00:00 grep --color=auto [01;31m[Knode[m[K
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:41:08.393" starttime="20180727 15:41:06.339"></status>
+</kw>
+<kw name="Should Not Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` matches ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>index</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:08.395" starttime="20180727 15:41:08.394"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:41:08.396" starttime="20180727 15:41:00.171"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>cd /home/test/MEC/MEC/BkEnd/InstallScripts/;./config_infra_and_apps.py;cd -</arg>
+</arguments>
+<assign>
+<var>${cmd}</var>
+</assign>
+<msg timestamp="20180727 15:41:08.397" level="INFO">${cmd} = cd /home/test/MEC/MEC/BkEnd/InstallScripts/;./config_infra_and_apps.py;cd -</msg>
+<status status="PASS" endtime="20180727 15:41:08.397" starttime="20180727 15:41:08.396"></status>
+</kw>
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=${cmd}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:10.451" level="INFO">   cd /home/test/MEC/MEC/BkEnd/InstallScripts/;./config_in fra_and_apps.py;cd -
+/home/test/MEC/MEC/BkEnd/Configs/default.conf
+/etc/lxc/
+Cofiguring redis server and starting
+Cofiguring redis mnmt
+/home/test
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:41:10.452" starttime="20180727 15:41:08.397"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20180727 15:41:13.453" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20180727 15:41:13.454" starttime="20180727 15:41:10.452"></status>
+</kw>
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=ps -ef | grep "main.py"</arg>
+</arguments>
+<msg timestamp="20180727 15:41:15.508" level="INFO">   ps -ef | grep "main.py"
+root     21488     1  0 15:41 pts/14   00:00:00 /bin/sh -c python msg_broker_[01;31m[Kmain.py[m[K --redis-address 11.100.0.1 --port 6379 --sub-type mgmt
+root     21489 21488 88 15:41 pts/14   00:00:04 python msg_broker_[01;31m[Kmain.py[m[K --redis-address 11.100.0.1 --port 6379 --sub-type mgmt
+root     21543 21358  0 15:41 pts/14   00:00:00 grep --color=auto [01;31m[Kmain.py[m[K
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:41:15.508" starttime="20180727 15:41:13.454"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>--redis-address</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<msg timestamp="20180727 15:41:15.510" level="INFO">${pattern} = --redis-address</msg>
+<status status="PASS" endtime="20180727 15:41:15.510" starttime="20180727 15:41:15.509"></status>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:15.511" starttime="20180727 15:41:15.510"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>node /home/test/MEC/MEC/BkEnd/InstallScripts/index.js &gt; /var/log/index.log &amp;</arg>
+</arguments>
+<assign>
+<var>${cmd}</var>
+</assign>
+<msg timestamp="20180727 15:41:15.512" level="INFO">${cmd} = node /home/test/MEC/MEC/BkEnd/InstallScripts/index.js &gt; /var/log/index.log &amp;</msg>
+<status status="PASS" endtime="20180727 15:41:15.513" starttime="20180727 15:41:15.512"></status>
+</kw>
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=${cmd}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:17.566" level="INFO">   node /home/test/MEC/MEC/BkEnd/InstallScripts/index.js &gt;  /var/log/index.log &amp;
+[1] 21564
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:41:17.567" starttime="20180727 15:41:15.513"></status>
+</kw>
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=ps -ef | grep node</arg>
+</arguments>
+<msg timestamp="20180727 15:41:19.621" level="INFO">   ps -ef | grep node
+root     21564 21358 14 15:41 pts/14   00:00:00 [01;31m[Knode[m[K /home/test/MEC/MEC/BkEnd/InstallScripts/index.js
+root     21591 21358  0 15:41 pts/14   00:00:00 grep --color=auto [01;31m[Knode[m[K
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:41:19.621" starttime="20180727 15:41:17.567"></status>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>index</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:19.623" starttime="20180727 15:41:19.622"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>MEC Infra Started Successfully</arg>
+</arguments>
+<msg timestamp="20180727 15:41:19.624" level="INFO">MEC Infra Started Successfully</msg>
+<status status="PASS" endtime="20180727 15:41:19.624" starttime="20180727 15:41:19.623"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:41:19.625" starttime="20180727 15:41:00.170"></status>
+</kw>
+<kw name="Import Library" library="BuiltIn">
+<doc>Imports a library with the given name and optional arguments.</doc>
+<arguments>
+<arg>Supporting_Libs.rest_utils.REST</arg>
+<arg>content_type= ${CONTENT_TYPE}</arg>
+<arg>WITH NAME</arg>
+<arg>RESTOBJ</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:19.627" starttime="20180727 15:41:19.625"></status>
+</kw>
+<kw name="Get Library Instance" library="BuiltIn">
+<doc>Returns the currently active instance of the specified test library.</doc>
+<arguments>
+<arg>RESTOBJ</arg>
+</arguments>
+<assign>
+<var>${rest_obj}</var>
+</assign>
+<msg timestamp="20180727 15:41:19.628" level="INFO">${rest_obj} = &lt;Supporting_Libs.rest_utils.REST object at 0x7fefd77fc390&gt;</msg>
+<status status="PASS" endtime="20180727 15:41:19.628" starttime="20180727 15:41:19.628"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${rest_obj}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:19.628" level="INFO">${rest_obj} = &lt;Supporting_Libs.rest_utils.REST object at 0x7fefd77fc390&gt;</msg>
+<status status="PASS" endtime="20180727 15:41:19.628" starttime="20180727 15:41:19.628"></status>
+</kw>
+<kw name="PostAndValidate">
+<doc>To post the input and validate the response</doc>
+<arguments>
+<arg>${MEC URL}login</arg>
+<arg>${Login_input}</arg>
+<arg>${False}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${set_data}==${True}</arg>
+<arg>Make Mec Input</arg>
+<arg>${input}</arg>
+<arg>${services}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${input}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${input}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:19.629" starttime="20180727 15:41:19.629"></status>
+</kw>
+<msg timestamp="20180727 15:41:19.630" level="INFO">${data} = {'login': {'username': 'sirish', 'password': 'Mec@123'}}</msg>
+<status status="PASS" endtime="20180727 15:41:19.630" starttime="20180727 15:41:19.629"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>&amp;{data}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:19.630" level="INFO">&amp;{data} = { login={'username': 'sirish', 'password': 'Mec@123'} }</msg>
+<status status="PASS" endtime="20180727 15:41:19.630" starttime="20180727 15:41:19.630"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${data})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${data_to_json}</var>
+</assign>
+<msg timestamp="20180727 15:41:19.631" level="INFO">${data_to_json} = {"login": {"username": "sirish", "password": "Mec@123"}}</msg>
+<status status="PASS" endtime="20180727 15:41:19.631" starttime="20180727 15:41:19.630"></status>
+</kw>
+<kw name="Send Post Request" library="RESTOBJ">
+<arguments>
+<arg>${URL}</arg>
+<arg>${data_to_json}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:19.656" starttime="20180727 15:41:19.631"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:19.657" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:41:19.658" starttime="20180727 15:41:19.656"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:41:19.658" starttime="20180727 15:41:19.628"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:41:19.659" starttime="20180727 15:40:55.794"></status>
+</kw>
+<test id="s1-t1" name="Mec System Reset Test">
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${MEC_URL}serviceList</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20180727 15:41:19.661" level="INFO">${url} = http://192.168.203.45:8081/serviceList</msg>
+<status status="PASS" endtime="20180727 15:41:19.661" starttime="20180727 15:41:19.660"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:19.663" level="INFO">${url} = http://192.168.203.45:8081/serviceList</msg>
+<status status="PASS" endtime="20180727 15:41:19.663" starttime="20180727 15:41:19.662"></status>
+</kw>
+<kw name="PostAndValidate">
+<doc>To post the input and validate the response</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Reset_input}</arg>
+<arg>${False}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${set_data}==${True}</arg>
+<arg>Make Mec Input</arg>
+<arg>${input}</arg>
+<arg>${services}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${input}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${input}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:19.668" starttime="20180727 15:41:19.667"></status>
+</kw>
+<msg timestamp="20180727 15:41:19.668" level="INFO">${data} = {'reset': {'action': 'reset'}}</msg>
+<status status="PASS" endtime="20180727 15:41:19.668" starttime="20180727 15:41:19.665"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>&amp;{data}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:19.669" level="INFO">&amp;{data} = { reset={'action': 'reset'} }</msg>
+<status status="PASS" endtime="20180727 15:41:19.670" starttime="20180727 15:41:19.668"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${data})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${data_to_json}</var>
+</assign>
+<msg timestamp="20180727 15:41:19.671" level="INFO">${data_to_json} = {"reset": {"action": "reset"}}</msg>
+<status status="PASS" endtime="20180727 15:41:19.671" starttime="20180727 15:41:19.670"></status>
+</kw>
+<kw name="Send Post Request" library="RESTOBJ">
+<arguments>
+<arg>${URL}</arg>
+<arg>${data_to_json}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:19.679" starttime="20180727 15:41:19.672"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:19.681" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:41:19.681" starttime="20180727 15:41:19.680"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:41:19.682" starttime="20180727 15:41:19.663"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>4s</arg>
+</arguments>
+<msg timestamp="20180727 15:41:23.683" level="INFO">Slept 4 seconds</msg>
+<status status="PASS" endtime="20180727 15:41:23.684" starttime="20180727 15:41:19.682"></status>
+</kw>
+<doc>Reset the system</doc>
+<status status="PASS" endtime="20180727 15:41:23.684" critical="yes" starttime="20180727 15:41:19.659"></status>
+</test>
+<test id="s1-t2" name="Mec Service Enable Test">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>Ip-Tables</arg>
+<arg>DNS-MASq</arg>
+<arg>Telemetry</arg>
+</arguments>
+<assign>
+<var>@{services}</var>
+</assign>
+<msg timestamp="20180727 15:41:23.687" level="INFO">@{services} = [ Ip-Tables | DNS-MASq | Telemetry ]</msg>
+<status status="PASS" endtime="20180727 15:41:23.687" starttime="20180727 15:41:23.686"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>$services</arg>
+</arguments>
+<msg timestamp="20180727 15:41:23.688" level="INFO">${services} = [u'Ip-Tables', u'DNS-MASq', u'Telemetry']</msg>
+<status status="PASS" endtime="20180727 15:41:23.688" starttime="20180727 15:41:23.688"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${MEC_URL}saveList</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20180727 15:41:23.689" level="INFO">${url} = http://192.168.203.45:8081/saveList</msg>
+<status status="PASS" endtime="20180727 15:41:23.689" starttime="20180727 15:41:23.689"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:23.689" level="INFO">${url} = http://192.168.203.45:8081/saveList</msg>
+<status status="PASS" endtime="20180727 15:41:23.689" starttime="20180727 15:41:23.689"></status>
+</kw>
+<kw name="PostAndValidate">
+<doc>To post the input and validate the response</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Service_Selection_input}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${set_data}==${True}</arg>
+<arg>Make Mec Input</arg>
+<arg>${input}</arg>
+<arg>${services}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${input}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<kw name="Make Mec Input" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${input}</arg>
+<arg>${services}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:23.691" starttime="20180727 15:41:23.690"></status>
+</kw>
+<msg timestamp="20180727 15:41:23.691" level="INFO">${data} = {'services': {'type1': 'Ip-Tables', 'type3': 'Telemetry', 'type2': 'DNS-MASq'}}</msg>
+<status status="PASS" endtime="20180727 15:41:23.691" starttime="20180727 15:41:23.690"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>&amp;{data}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:23.691" level="INFO">&amp;{data} = { services={'type1': 'Ip-Tables', 'type3': 'Telemetry', 'type2': 'DNS-MASq'} }</msg>
+<status status="PASS" endtime="20180727 15:41:23.691" starttime="20180727 15:41:23.691"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${data})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${data_to_json}</var>
+</assign>
+<msg timestamp="20180727 15:41:23.692" level="INFO">${data_to_json} = {"services": {"type1": "Ip-Tables", "type3": "Telemetry", "type2": "DNS-MASq"}}</msg>
+<status status="PASS" endtime="20180727 15:41:23.692" starttime="20180727 15:41:23.692"></status>
+</kw>
+<kw name="Send Post Request" library="RESTOBJ">
+<arguments>
+<arg>${URL}</arg>
+<arg>${data_to_json}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:41:23.696" starttime="20180727 15:41:23.692"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:41:23.697" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:41:23.697" starttime="20180727 15:41:23.696"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:41:23.697" starttime="20180727 15:41:23.690"></status>
+</kw>
+<doc>Enable desired services</doc>
+<status status="PASS" endtime="20180727 15:41:23.697" critical="yes" starttime="20180727 15:41:23.685"></status>
+</test>
+<test id="s1-t3" name="Mec Validate Enabled Services Via REST">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>40s</arg>
+</arguments>
+<msg timestamp="20180727 15:42:03.699" level="INFO">Slept 40 seconds</msg>
+<status status="PASS" endtime="20180727 15:42:03.699" starttime="20180727 15:41:23.698"></status>
+</kw>
+<kw name="GetAndValidate">
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<kw name="Send Get Request" library="RESTOBJ">
+<arguments>
+<arg>url=${URL}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:03.718" starttime="20180727 15:42:03.701"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:03.719" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:03.719" starttime="20180727 15:42:03.718"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.loads('${rest_obj.response_as_text}')</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json_to_data}</var>
+</assign>
+<msg timestamp="20180727 15:42:03.720" level="INFO">${json_to_data} = {u'services': {u'type1': u'Ip-Tables', u'type3': u'Telemetry', u'type2': u'DNS-MASq'}}</msg>
+<status status="PASS" endtime="20180727 15:42:03.720" starttime="20180727 15:42:03.719"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>type(${json_to_data})==list</arg>
+</arguments>
+<assign>
+<var>${type}</var>
+</assign>
+<msg timestamp="20180727 15:42:03.721" level="INFO">${type} = False</msg>
+<status status="PASS" endtime="20180727 15:42:03.721" starttime="20180727 15:42:03.720"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${type}'=='${True}' and '${resp_text_validate}'=='${True}'</arg>
+<arg>Sort List</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:03.722" starttime="20180727 15:42:03.721"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${resp_text_validate}'=='${True}'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+<arg>ELSE</arg>
+<arg>should Not be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:03.724" level="INFO">Argument types are:
+&lt;class 'robot.utils.dotdict.DotDict'&gt;
+&lt;type 'dict'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:03.724" starttime="20180727 15:42:03.724"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:03.724" starttime="20180727 15:42:03.723"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:03.724" starttime="20180727 15:42:03.722"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:03.725" starttime="20180727 15:42:03.700"></status>
+</kw>
+<doc>Validate the enabled services using REST GET Operation</doc>
+<status status="PASS" endtime="20180727 15:42:03.725" critical="yes" starttime="20180727 15:41:23.697"></status>
+</test>
+<test id="s1-t4" name="Mec Configure The Enabled Services Test">
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${MEC_URL}serviceConfig</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20180727 15:42:03.727" level="INFO">${url} = http://192.168.203.45:8081/serviceConfig</msg>
+<status status="PASS" endtime="20180727 15:42:03.727" starttime="20180727 15:42:03.726"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{data_list}</var>
+</assign>
+<msg timestamp="20180727 15:42:03.728" level="INFO">@{data_list} = [ ]</msg>
+<status status="PASS" endtime="20180727 15:42:03.728" starttime="20180727 15:42:03.727"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:03.728" level="INFO">${url} = http://192.168.203.45:8081/serviceConfig</msg>
+<status status="PASS" endtime="20180727 15:42:03.728" starttime="20180727 15:42:03.728"></status>
+</kw>
+<kw name="PostAndValidate">
+<doc>To post the input and validate the response</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Service_Config_input1}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${set_data}==${True}</arg>
+<arg>Make Mec Input</arg>
+<arg>${input}</arg>
+<arg>${services}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${input}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<kw name="Make Mec Input" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${input}</arg>
+<arg>${services}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:03.731" starttime="20180727 15:42:03.730"></status>
+</kw>
+<msg timestamp="20180727 15:42:03.731" level="INFO">${data} = {'config': {'action': 'add', 'vlan': [{'firewall': [{'src_ip': '100.100.100.2', 'protocol': 'icmp', 'dest_ip': '1.2.2.12'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'trello.co...</msg>
+<status status="PASS" endtime="20180727 15:42:03.731" starttime="20180727 15:42:03.730"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>&amp;{data}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:03.732" level="INFO">&amp;{data} = { config={'action': 'add', 'vlan': [{'firewall': [{'src_ip': '100.100.100.2', 'protocol': 'icmp', 'dest_ip': '1.2.2.12'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'trello.com'...</msg>
+<status status="PASS" endtime="20180727 15:42:03.732" starttime="20180727 15:42:03.731"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${data})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${data_to_json}</var>
+</assign>
+<msg timestamp="20180727 15:42:03.733" level="INFO">${data_to_json} = {"config": {"action": "add", "vlan": [{"firewall": [{"src_ip": "100.100.100.2", "protocol": "icmp", "dest_ip": "1.2.2.12"}], "telemetry": [{"selected": true}], "dnsS": true, "dns": [{"url": "trello.co...</msg>
+<status status="PASS" endtime="20180727 15:42:03.733" starttime="20180727 15:42:03.732"></status>
+</kw>
+<kw name="Send Post Request" library="RESTOBJ">
+<arguments>
+<arg>${URL}</arg>
+<arg>${data_to_json}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:03.741" starttime="20180727 15:42:03.733"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:03.742" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:03.742" starttime="20180727 15:42:03.741"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:03.742" starttime="20180727 15:42:03.729"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>15s</arg>
+</arguments>
+<msg timestamp="20180727 15:42:18.743" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" endtime="20180727 15:42:18.744" starttime="20180727 15:42:03.742"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${data_list}</arg>
+<arg>${data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:18.745" starttime="20180727 15:42:18.744"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>@{data_list}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:18.747" level="INFO">@{data_list} = [ {'config': {'action': 'add', 'vlan': [{'firewall': [{'src_ip': '100.100.100.2', 'protocol': 'icmp', 'dest_ip': '1.2.2.12'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'trello....</msg>
+<status status="PASS" endtime="20180727 15:42:18.747" starttime="20180727 15:42:18.746"></status>
+</kw>
+<kw name="PostAndValidate">
+<doc>To post the input and validate the response</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Service_Config_input2}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${set_data}==${True}</arg>
+<arg>Make Mec Input</arg>
+<arg>${input}</arg>
+<arg>${services}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${input}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<kw name="Make Mec Input" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${input}</arg>
+<arg>${services}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:18.752" starttime="20180727 15:42:18.751"></status>
+</kw>
+<msg timestamp="20180727 15:42:18.752" level="INFO">${data} = {'config': {'action': 'add', 'vlan': [{'firewall': [{'src_ip': '200.200.200.3', 'protocol': 'icmp', 'dest_ip': '2.2.2.21'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'google.co...</msg>
+<status status="PASS" endtime="20180727 15:42:18.752" starttime="20180727 15:42:18.749"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>&amp;{data}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:18.754" level="INFO">&amp;{data} = { config={'action': 'add', 'vlan': [{'firewall': [{'src_ip': '200.200.200.3', 'protocol': 'icmp', 'dest_ip': '2.2.2.21'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'google.com'...</msg>
+<status status="PASS" endtime="20180727 15:42:18.754" starttime="20180727 15:42:18.753"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${data})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${data_to_json}</var>
+</assign>
+<msg timestamp="20180727 15:42:18.756" level="INFO">${data_to_json} = {"config": {"action": "add", "vlan": [{"firewall": [{"src_ip": "200.200.200.3", "protocol": "icmp", "dest_ip": "2.2.2.21"}], "telemetry": [{"selected": true}], "dnsS": true, "dns": [{"url": "google.co...</msg>
+<status status="PASS" endtime="20180727 15:42:18.756" starttime="20180727 15:42:18.754"></status>
+</kw>
+<kw name="Send Post Request" library="RESTOBJ">
+<arguments>
+<arg>${URL}</arg>
+<arg>${data_to_json}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:18.767" starttime="20180727 15:42:18.756"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:18.768" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:18.769" starttime="20180727 15:42:18.767"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:18.769" starttime="20180727 15:42:18.748"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>15s</arg>
+</arguments>
+<msg timestamp="20180727 15:42:33.771" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" endtime="20180727 15:42:33.771" starttime="20180727 15:42:18.770"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${data_list}</arg>
+<arg>${data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:33.773" starttime="20180727 15:42:33.772"></status>
+</kw>
+<kw name="Sort List" library="Collections">
+<doc>Sorts the given list in place.</doc>
+<arguments>
+<arg>${data_list}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:33.774" starttime="20180727 15:42:33.773"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>@{data_list}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:33.776" level="INFO">@{data_list} = [ {'config': {'action': 'add', 'vlan': [{'firewall': [{'src_ip': '200.200.200.3', 'protocol': 'icmp', 'dest_ip': '2.2.2.21'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'google....</msg>
+<status status="PASS" endtime="20180727 15:42:33.776" starttime="20180727 15:42:33.774"></status>
+</kw>
+<doc>Provide the configuration to the enabled services for different Users</doc>
+<status status="PASS" endtime="20180727 15:42:33.776" critical="yes" starttime="20180727 15:42:03.725"></status>
+</test>
+<test id="s1-t5" name="Mec Validate Configuration of Enabled Service Via REST">
+<kw name="GetAndValidate">
+<arguments>
+<arg>${url}</arg>
+<arg>${data_list}</arg>
+</arguments>
+<kw name="Send Get Request" library="RESTOBJ">
+<arguments>
+<arg>url=${URL}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:33.792" starttime="20180727 15:42:33.777"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:33.793" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:33.793" starttime="20180727 15:42:33.792"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.loads('${rest_obj.response_as_text}')</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json_to_data}</var>
+</assign>
+<msg timestamp="20180727 15:42:33.794" level="INFO">${json_to_data} = [{u'config': {u'action': u'add', u'vlan': [{u'firewall': [{u'src_ip': u'200.200.200.3', u'protocol': u'icmp', u'dest_ip': u'2.2.2.21'}], u'telemetry': [{u'selected': True}], u'dnsS': True, u'dns': [{u...</msg>
+<status status="PASS" endtime="20180727 15:42:33.794" starttime="20180727 15:42:33.793"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>type(${json_to_data})==list</arg>
+</arguments>
+<assign>
+<var>${type}</var>
+</assign>
+<msg timestamp="20180727 15:42:33.795" level="INFO">${type} = True</msg>
+<status status="PASS" endtime="20180727 15:42:33.795" starttime="20180727 15:42:33.794"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${type}'=='${True}' and '${resp_text_validate}'=='${True}'</arg>
+<arg>Sort List</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Sort List" library="Collections">
+<doc>Sorts the given list in place.</doc>
+<arguments>
+<arg>${json_to_data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:33.796" starttime="20180727 15:42:33.796"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:33.797" starttime="20180727 15:42:33.795"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${resp_text_validate}'=='${True}'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+<arg>ELSE</arg>
+<arg>should Not be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:33.799" starttime="20180727 15:42:33.798"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:33.799" starttime="20180727 15:42:33.798"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:33.799" starttime="20180727 15:42:33.797"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:33.799" starttime="20180727 15:42:33.777"></status>
+</kw>
+<doc>Validatae the configuration of enabled services using REST GET Operation</doc>
+<status status="PASS" endtime="20180727 15:42:33.799" critical="yes" starttime="20180727 15:42:33.776"></status>
+</test>
+<test id="s1-t6" name="Mec Valildate Configuration Of Enabled Service Device level">
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=ovs-ofctl dump-flows mec_br1</arg>
+</arguments>
+<msg timestamp="20180727 15:42:35.854" level="INFO">   ovs-ofctl dump-flows mec_br1
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=30.057s, table=0, n_packets=0, n_bytes=0, idle_age=30, in_port=1,dl_vlan=5 actions=mod_dl_dst:00:16:3c:8f:be:33,output:9
+ cookie=0x0, duration=30.045s, table=0, n_packets=1, n_bytes=74, idle_age=0, in_port=10,dl_vlan=5 actions=mod_dl_dst:00:16:3c:71:97:97,output:11
+ cookie=0x0, duration=30.035s, table=0, n_packets=0, n_bytes=0, idle_age=30, in_port=12,dl_vlan=5 actions=mod_dl_dst:00:11:22:33:44:54,output:2
+ cookie=0x0, duration=30.020s, table=0, n_packets=0, n_bytes=0, idle_age=30, in_port=2,dl_vlan=5 actions=mod_dl_dst:00:11:22:33:44:53,output:1
+ cookie=0x0, duration=15.027s, table=0, n_packets=0, n_bytes=0, idle_age=15, in_port=1,dl_vlan=8 actions=mod_dl_dst:00:16:3c:8f:be:33,output:9
+ cookie=0x0, duration=15.016s, table=0, n_packets=1, n_bytes=74, idle_age=0, in_port=10,dl_vlan=8 actions=mod_dl_dst:00:16:3c:71:97:97,output:11
+ cookie=0x0, duration=15.005s, table=0, n_packets=1, n_bytes=74, idle_age=0, in_port=12,dl_vlan=8 actions=mod_dl_dst:00:11:22:33:44:54,output:2
+ cookie=0x0, duration=14.990s, table=0, n_packets=0, n_bytes=0, idle_age=14, in_port=2,dl_vlan=8 actions=mod_dl_dst:00:11:22:33:44:53,output:1
+ cookie=0x0, duration=8805.071s, table=0, n_packets=4048, n_bytes=686705, idle_age=2, priority=0 actions=NORMAL
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:42:35.854" starttime="20180727 15:42:33.801"></status>
+</kw>
+<kw name="Split To Lines" library="String">
+<doc>Splits the given string to lines.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+</arguments>
+<assign>
+<var>@{dump_flows}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.855" level="INFO">12 lines returned</msg>
+<msg timestamp="20180727 15:42:35.855" level="INFO">@{dump_flows} = [  ovs-ofctl dump-flows mec_br1 | NXST_FLOW reply (xid=0x4): |  cookie=0x0, duration=30.057s, table=0, n_packets=0, n_bytes=0, idle_age=30, in_port=1,dl_vlan=5 actions=mod_dl_dst:00:16:3c:8f:be:33,out...</msg>
+<status status="PASS" endtime="20180727 15:42:35.855" starttime="20180727 15:42:35.855"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=1,dl_vlan=${vlan1} actions=mod_dl_dst.*put:(\\d+)</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.855" level="INFO">${pattern} = in_port=1,dl_vlan=5 actions=mod_dl_dst.*put:(\d+)</msg>
+<status status="PASS" endtime="20180727 15:42:35.856" starttime="20180727 15:42:35.855"></status>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<assign>
+<var>${match}</var>
+<var>${out_port}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.856" level="INFO">${match} = in_port=1,dl_vlan=5 actions=mod_dl_dst:00:16:3c:8f:be:33,output:9</msg>
+<msg timestamp="20180727 15:42:35.856" level="INFO">${out_port} = 9</msg>
+<status status="PASS" endtime="20180727 15:42:35.856" starttime="20180727 15:42:35.856"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>${out_port}</arg>
+</arguments>
+<assign>
+<var>${out_port}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.857" level="INFO">${out_port} = 9</msg>
+<status status="PASS" endtime="20180727 15:42:35.857" starttime="20180727 15:42:35.856"></status>
+</kw>
+<kw type="for" name="${vlan} IN [ ${vlan1} | ${vlan2} ]">
+<kw type="foritem" name="${vlan} = 5">
+<kw name="SearchForFlows">
+<doc>Search for flows related to services</doc>
+<arguments>
+<arg>${vlan}</arg>
+<arg>${False}</arg>
+<arg>${out_port}</arg>
+<arg>${out_port+1}</arg>
+<arg>${out_port+2}</arg>
+<arg>${out_port+3}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${ports}</arg>
+</arguments>
+<assign>
+<var>${length}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.858" level="INFO">Length is 4</msg>
+<msg timestamp="20180727 15:42:35.858" level="INFO">${length} = 4</msg>
+<status status="PASS" endtime="20180727 15:42:35.858" starttime="20180727 15:42:35.858"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=1,dl_vlan=${vlan} actions=mod_dl_dst.*put:${ports[0]}</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.859" level="INFO">${pattern} = in_port=1,dl_vlan=5 actions=mod_dl_dst.*put:9</msg>
+<status status="PASS" endtime="20180727 15:42:35.859" starttime="20180727 15:42:35.858"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.860" starttime="20180727 15:42:35.859"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.860" starttime="20180727 15:42:35.859"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | ${length} | 2 ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+1}</arg>
+</arguments>
+<assign>
+<var>${j}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.860" level="INFO">${j} = 1</msg>
+<status status="PASS" endtime="20180727 15:42:35.860" starttime="20180727 15:42:35.860"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+2}</arg>
+</arguments>
+<assign>
+<var>${k}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.861" level="INFO">${k} = 2</msg>
+<status status="PASS" endtime="20180727 15:42:35.861" starttime="20180727 15:42:35.861"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ports}[${j}]!=@{ports}[-1]</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.862" starttime="20180727 15:42:35.861"></status>
+</kw>
+<msg timestamp="20180727 15:42:35.862" level="INFO">${pattern} = in_port=10,dl_vlan=5 actions=mod_dl_dst.*put:11</msg>
+<status status="PASS" endtime="20180727 15:42:35.862" starttime="20180727 15:42:35.861"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.863" starttime="20180727 15:42:35.862"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.863" starttime="20180727 15:42:35.862"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.863" starttime="20180727 15:42:35.860"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+1}</arg>
+</arguments>
+<assign>
+<var>${j}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.863" level="INFO">${j} = 3</msg>
+<status status="PASS" endtime="20180727 15:42:35.863" starttime="20180727 15:42:35.863"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+2}</arg>
+</arguments>
+<assign>
+<var>${k}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.864" level="INFO">${k} = 4</msg>
+<status status="PASS" endtime="20180727 15:42:35.864" starttime="20180727 15:42:35.863"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ports}[${j}]!=@{ports}[-1]</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.865" starttime="20180727 15:42:35.864"></status>
+</kw>
+<msg timestamp="20180727 15:42:35.865" level="INFO">${pattern} = in_port=12,dl_vlan=5 actions=mod_dl_dst.*put:2</msg>
+<status status="PASS" endtime="20180727 15:42:35.865" starttime="20180727 15:42:35.864"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.866" starttime="20180727 15:42:35.865"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.866" starttime="20180727 15:42:35.865"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.866" starttime="20180727 15:42:35.863"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.866" starttime="20180727 15:42:35.860"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.866" starttime="20180727 15:42:35.857"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.866" starttime="20180727 15:42:35.857"></status>
+</kw>
+<kw type="foritem" name="${vlan} = 8">
+<kw name="SearchForFlows">
+<doc>Search for flows related to services</doc>
+<arguments>
+<arg>${vlan}</arg>
+<arg>${False}</arg>
+<arg>${out_port}</arg>
+<arg>${out_port+1}</arg>
+<arg>${out_port+2}</arg>
+<arg>${out_port+3}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${ports}</arg>
+</arguments>
+<assign>
+<var>${length}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.867" level="INFO">Length is 4</msg>
+<msg timestamp="20180727 15:42:35.867" level="INFO">${length} = 4</msg>
+<status status="PASS" endtime="20180727 15:42:35.867" starttime="20180727 15:42:35.867"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=1,dl_vlan=${vlan} actions=mod_dl_dst.*put:${ports[0]}</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.867" level="INFO">${pattern} = in_port=1,dl_vlan=8 actions=mod_dl_dst.*put:9</msg>
+<status status="PASS" endtime="20180727 15:42:35.867" starttime="20180727 15:42:35.867"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.868" starttime="20180727 15:42:35.868"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.868" starttime="20180727 15:42:35.867"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | ${length} | 2 ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+1}</arg>
+</arguments>
+<assign>
+<var>${j}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.869" level="INFO">${j} = 1</msg>
+<status status="PASS" endtime="20180727 15:42:35.869" starttime="20180727 15:42:35.869"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+2}</arg>
+</arguments>
+<assign>
+<var>${k}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.869" level="INFO">${k} = 2</msg>
+<status status="PASS" endtime="20180727 15:42:35.869" starttime="20180727 15:42:35.869"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ports}[${j}]!=@{ports}[-1]</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.870" starttime="20180727 15:42:35.870"></status>
+</kw>
+<msg timestamp="20180727 15:42:35.870" level="INFO">${pattern} = in_port=10,dl_vlan=8 actions=mod_dl_dst.*put:11</msg>
+<status status="PASS" endtime="20180727 15:42:35.870" starttime="20180727 15:42:35.869"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.871" starttime="20180727 15:42:35.871"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.871" starttime="20180727 15:42:35.870"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.871" starttime="20180727 15:42:35.868"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+1}</arg>
+</arguments>
+<assign>
+<var>${j}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.872" level="INFO">${j} = 3</msg>
+<status status="PASS" endtime="20180727 15:42:35.872" starttime="20180727 15:42:35.872"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+2}</arg>
+</arguments>
+<assign>
+<var>${k}</var>
+</assign>
+<msg timestamp="20180727 15:42:35.872" level="INFO">${k} = 4</msg>
+<status status="PASS" endtime="20180727 15:42:35.872" starttime="20180727 15:42:35.872"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ports}[${j}]!=@{ports}[-1]</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.873" starttime="20180727 15:42:35.873"></status>
+</kw>
+<msg timestamp="20180727 15:42:35.873" level="INFO">${pattern} = in_port=12,dl_vlan=8 actions=mod_dl_dst.*put:2</msg>
+<status status="PASS" endtime="20180727 15:42:35.873" starttime="20180727 15:42:35.872"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:35.874" starttime="20180727 15:42:35.874"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.874" starttime="20180727 15:42:35.873"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.874" starttime="20180727 15:42:35.871"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.874" starttime="20180727 15:42:35.868"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.874" starttime="20180727 15:42:35.866"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.874" starttime="20180727 15:42:35.866"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:35.874" starttime="20180727 15:42:35.857"></status>
+</kw>
+<doc>Validatae the configuration of enabled services from Device Level</doc>
+<status status="PASS" endtime="20180727 15:42:35.874" critical="yes" starttime="20180727 15:42:33.800"></status>
+</test>
+<test id="s1-t7" name="Mec Traffic Test To Validate The Service Config">
+<kw name="GetAndValidateStats">
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=ps -ef | grep tele</arg>
+</arguments>
+<msg timestamp="20180727 15:42:37.929" level="INFO">   ps -ef | grep tele
+root     14129     1  0 15:35 ?        00:00:02 python /home/test/MEC/MEC/BkEnd/InstallScripts/ovs_[01;31m[Ktele[m[K.py --in-port 1 --out-port 2
+root     24471 21358  0 15:42 pts/14   00:00:00 grep --color=auto [01;31m[Ktele[m[K
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:42:37.929" starttime="20180727 15:42:35.875"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>re.search(r'--in-port 1 --out-port',"""${ovs_obj.resp}""")==None</arg>
+<arg>re</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.932" level="INFO">${status} = False</msg>
+<status status="PASS" endtime="20180727 15:42:37.932" starttime="20180727 15:42:37.930"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>/home/test/MEC/MEC/BkEnd/InstallScripts/ovs_tele.py --in-port 1 --out-port 2 &gt; /var/ovs_tele.log &amp;</arg>
+</arguments>
+<assign>
+<var>${cmd}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.933" level="INFO">${cmd} = /home/test/MEC/MEC/BkEnd/InstallScripts/ovs_tele.py --in-port 1 --out-port 2 &gt; /var/ovs_tele.log &amp;</msg>
+<status status="PASS" endtime="20180727 15:42:37.933" starttime="20180727 15:42:37.932"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${status}==${True}</arg>
+<arg>OVSOBJ.Ovs_Execute_Command</arg>
+<arg>cmd=${cmd}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:37.934" starttime="20180727 15:42:37.934"></status>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<arguments>
+<arg>${MEC_URL}stats</arg>
+</arguments>
+<assign>
+<var>${url}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.935" level="INFO">${url} = http://192.168.203.45:8081/stats</msg>
+<status status="PASS" endtime="20180727 15:42:37.935" starttime="20180727 15:42:37.934"></status>
+</kw>
+<kw name="GetAndValidate">
+<arguments>
+<arg>URL=${url}</arg>
+<arg>resp_text_validate=${False}</arg>
+</arguments>
+<kw name="Send Get Request" library="RESTOBJ">
+<arguments>
+<arg>url=${URL}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:37.944" starttime="20180727 15:42:37.935"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:37.945" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:37.945" starttime="20180727 15:42:37.944"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.loads('${rest_obj.response_as_text}')</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json_to_data}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.945" level="INFO">${json_to_data} = [{u'stats': {u'vlan': [{u'report': [{u'rx_drop': 0, u'tx': 0, u'rx_nbytes': 0, u'rx': 0, u'tx_drop': 0, u'port': 1, u'tx_nbytes': 0}, {u'rx_drop': 0, u'tx': 1, u'rx_nbytes': 0, u'rx': 0, u'tx_drop': 0...</msg>
+<status status="PASS" endtime="20180727 15:42:37.946" starttime="20180727 15:42:37.945"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>type(${json_to_data})==list</arg>
+</arguments>
+<assign>
+<var>${type}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.946" level="INFO">${type} = True</msg>
+<status status="PASS" endtime="20180727 15:42:37.946" starttime="20180727 15:42:37.946"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${type}'=='${True}' and '${resp_text_validate}'=='${True}'</arg>
+<arg>Sort List</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:37.947" starttime="20180727 15:42:37.947"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${resp_text_validate}'=='${True}'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+<arg>ELSE</arg>
+<arg>should Not be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are equal.</doc>
+<arguments>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:37.948" level="INFO">Argument types are:
+&lt;class 'robot.utils.dotdict.DotDict'&gt;
+&lt;type 'list'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:37.948" starttime="20180727 15:42:37.948"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:37.948" starttime="20180727 15:42:37.947"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:37.948" starttime="20180727 15:42:37.935"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${rest_obj.response_as_text}</arg>
+</arguments>
+<assign>
+<var>${stats}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.949" level="INFO">${stats} = [{"stats":{"vlan":[{"report":[{"rx_drop":0,"tx":0,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":1,"tx_nbytes":0},{"rx_drop":0,"tx":1,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":2,"tx_nbytes":74}],"id":8,"dns":"...</msg>
+<status status="PASS" endtime="20180727 15:42:37.949" starttime="20180727 15:42:37.949"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${stats}[0]['stats']['vlan'][0]['id']==${vlan1}</arg>
+</arguments>
+<assign>
+<var>${flag}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.950" level="INFO">${flag} = False</msg>
+<status status="PASS" endtime="20180727 15:42:37.950" starttime="20180727 15:42:37.949"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${flag}==${True}</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>1</arg>
+</arguments>
+<assign>
+<var>${index}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>1</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:37.951" starttime="20180727 15:42:37.951"></status>
+</kw>
+<msg timestamp="20180727 15:42:37.951" level="INFO">${index} = 1</msg>
+<status status="PASS" endtime="20180727 15:42:37.951" starttime="20180727 15:42:37.950"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${stats}[0]['stats']['vlan'][${index}]['firewall'][0]['drop_pkt_count']</arg>
+</arguments>
+<assign>
+<var>${user1_drop_count_before}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.952" level="FAIL">Evaluating expression '[{"stats":{"vlan":[{"report":[{"rx_drop":0,"tx":0,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":1,"tx_nbytes":0},{"rx_drop":0,"tx":1,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":2,"tx_nbytes":74}],"id":8,"dns":"google.com"},{"report":[{"rx_drop":0,"tx":0,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":1,"tx_nbytes":0},{"rx_drop":0,"tx":1,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":2,"tx_nbytes":74}],"id":5,"dns":"trello.com"}]}}][0]['stats']['vlan'][1]['firewall'][0]['drop_pkt_count']' failed: KeyError: 'firewall'</msg>
+<status status="FAIL" endtime="20180727 15:42:37.952" starttime="20180727 15:42:37.951"></status>
+</kw>
+<status status="FAIL" endtime="20180727 15:42:37.952" starttime="20180727 15:42:35.875"></status>
+</kw>
+<doc>Trigger Traffic To Validate The Firewall Service Conf</doc>
+<status status="FAIL" endtime="20180727 15:42:37.953" critical="yes" starttime="20180727 15:42:35.874">Evaluating expression '[{"stats":{"vlan":[{"report":[{"rx_drop":0,"tx":0,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":1,"tx_nbytes":0},{"rx_drop":0,"tx":1,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":2,"tx_nbytes":74}],"id":8,"dns":"google.com"},{"report":[{"rx_drop":0,"tx":0,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":1,"tx_nbytes":0},{"rx_drop":0,"tx":1,"rx_nbytes":0,"rx":0,"tx_drop":0,"port":2,"tx_nbytes":74}],"id":5,"dns":"trello.com"}]}}][0]['stats']['vlan'][1]['firewall'][0]['drop_pkt_count']' failed: KeyError: 'firewall'</status>
+</test>
+<test id="s1-t8" name="Mec Remove One Of The Enabled User Config">
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${Service_Config_input2["config"]}</arg>
+<arg>action</arg>
+<arg>delete</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:37.954" starttime="20180727 15:42:37.953"></status>
+</kw>
+<kw name="PostAndValidate">
+<doc>To post the input and validate the response</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Service_Config_input2}</arg>
+<arg>${True}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${set_data}==${True}</arg>
+<arg>Make Mec Input</arg>
+<arg>${input}</arg>
+<arg>${services}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>${input}</arg>
+</arguments>
+<assign>
+<var>${data}</var>
+</assign>
+<kw name="Make Mec Input" library="Supporting_Libs.sys_utils">
+<arguments>
+<arg>${input}</arg>
+<arg>${services}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:37.956" starttime="20180727 15:42:37.956"></status>
+</kw>
+<msg timestamp="20180727 15:42:37.956" level="INFO">${data} = {'config': {'action': u'delete', 'vlan': [{'firewall': [{'src_ip': '200.200.200.3', 'protocol': 'icmp', 'dest_ip': '2.2.2.21'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'googl...</msg>
+<status status="PASS" endtime="20180727 15:42:37.956" starttime="20180727 15:42:37.955"></status>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>&amp;{data}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:37.957" level="INFO">&amp;{data} = { config={'action': u'delete', 'vlan': [{'firewall': [{'src_ip': '200.200.200.3', 'protocol': 'icmp', 'dest_ip': '2.2.2.21'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'google....</msg>
+<status status="PASS" endtime="20180727 15:42:37.957" starttime="20180727 15:42:37.956"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.dumps(${data})</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${data_to_json}</var>
+</assign>
+<msg timestamp="20180727 15:42:37.958" level="INFO">${data_to_json} = {"config": {"action": "delete", "vlan": [{"firewall": [{"src_ip": "200.200.200.3", "protocol": "icmp", "dest_ip": "2.2.2.21"}], "telemetry": [{"selected": true}], "dnsS": true, "dns": [{"url": "google...</msg>
+<status status="PASS" endtime="20180727 15:42:37.958" starttime="20180727 15:42:37.957"></status>
+</kw>
+<kw name="Send Post Request" library="RESTOBJ">
+<arguments>
+<arg>${URL}</arg>
+<arg>${data_to_json}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:37.962" starttime="20180727 15:42:37.958"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:37.963" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:37.963" starttime="20180727 15:42:37.962"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:37.963" starttime="20180727 15:42:37.954"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20180727 15:42:47.964" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" endtime="20180727 15:42:47.964" starttime="20180727 15:42:37.963"></status>
+</kw>
+<doc>Provide the configuration to the remove enabled User service</doc>
+<status status="PASS" endtime="20180727 15:42:47.965" critical="yes" starttime="20180727 15:42:37.953"></status>
+</test>
+<test id="s1-t9" name="Mec Validate the Remove Service Conf Via REST">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${Service_Config_input2}</arg>
+</arguments>
+<assign>
+<var>@{removed_data}</var>
+</assign>
+<msg timestamp="20180727 15:42:47.968" level="INFO">@{removed_data} = [ {'config': {'action': u'delete', 'vlan': [{'firewall': [{'src_ip': '200.200.200.3', 'protocol': 'icmp', 'dest_ip': '2.2.2.21'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'goo...</msg>
+<status status="PASS" endtime="20180727 15:42:47.968" starttime="20180727 15:42:47.967"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${Service_Config_input1}</arg>
+</arguments>
+<assign>
+<var>@{remain_data}</var>
+</assign>
+<msg timestamp="20180727 15:42:47.969" level="INFO">@{remain_data} = [ {'config': {'action': 'add', 'vlan': [{'firewall': [{'src_ip': '100.100.100.2', 'protocol': 'icmp', 'dest_ip': '1.2.2.12'}], 'telemetry': [{'selected': True}], 'dnsS': True, 'dns': [{'url': 'trello....</msg>
+<status status="PASS" endtime="20180727 15:42:47.969" starttime="20180727 15:42:47.968"></status>
+</kw>
+<kw name="GetAndValidate">
+<arguments>
+<arg>URL=${url}</arg>
+<arg>data_to_compare=${removed_data}</arg>
+<arg>negative=${True}</arg>
+</arguments>
+<kw name="Send Get Request" library="RESTOBJ">
+<arguments>
+<arg>url=${URL}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:47.981" starttime="20180727 15:42:47.970"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:47.981" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:47.981" starttime="20180727 15:42:47.981"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.loads('${rest_obj.response_as_text}')</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json_to_data}</var>
+</assign>
+<msg timestamp="20180727 15:42:47.982" level="INFO">${json_to_data} = [{u'config': {u'action': u'add', u'vlan': [{u'firewall': [{u'src_ip': u'100.100.100.2', u'protocol': u'icmp', u'dest_ip': u'1.2.2.12'}], u'telemetry': [{u'selected': True}], u'dnsS': True, u'dns': [{u...</msg>
+<status status="PASS" endtime="20180727 15:42:47.982" starttime="20180727 15:42:47.982"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>type(${json_to_data})==list</arg>
+</arguments>
+<assign>
+<var>${type}</var>
+</assign>
+<msg timestamp="20180727 15:42:47.983" level="INFO">${type} = True</msg>
+<status status="PASS" endtime="20180727 15:42:47.983" starttime="20180727 15:42:47.982"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${type}'=='${True}' and '${resp_text_validate}'=='${True}'</arg>
+<arg>Sort List</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Sort List" library="Collections">
+<doc>Sorts the given list in place.</doc>
+<arguments>
+<arg>${json_to_data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:47.984" starttime="20180727 15:42:47.984"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:47.984" starttime="20180727 15:42:47.983"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${resp_text_validate}'=='${True}'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+<arg>ELSE</arg>
+<arg>should Not be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:47.985" starttime="20180727 15:42:47.985"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:47.985" starttime="20180727 15:42:47.984"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:47.985" starttime="20180727 15:42:47.970"></status>
+</kw>
+<kw name="GetAndValidate">
+<arguments>
+<arg>URL=${url}</arg>
+<arg>data_to_compare=${remain_data}</arg>
+<arg>negative=${False}</arg>
+</arguments>
+<kw name="Send Get Request" library="RESTOBJ">
+<arguments>
+<arg>url=${URL}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:47.991" starttime="20180727 15:42:47.986"></status>
+</kw>
+<kw name="Should Be Equal As Integers" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<arguments>
+<arg>${rest_code}</arg>
+<arg>${rest_obj.response_code}</arg>
+</arguments>
+<msg timestamp="20180727 15:42:47.992" level="INFO">Argument types are:
+&lt;type 'unicode'&gt;
+&lt;type 'int'&gt;</msg>
+<status status="PASS" endtime="20180727 15:42:47.992" starttime="20180727 15:42:47.991"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>json.loads('${rest_obj.response_as_text}')</arg>
+<arg>json</arg>
+</arguments>
+<assign>
+<var>${json_to_data}</var>
+</assign>
+<msg timestamp="20180727 15:42:47.992" level="INFO">${json_to_data} = [{u'config': {u'action': u'add', u'vlan': [{u'firewall': [{u'src_ip': u'100.100.100.2', u'protocol': u'icmp', u'dest_ip': u'1.2.2.12'}], u'telemetry': [{u'selected': True}], u'dnsS': True, u'dns': [{u...</msg>
+<status status="PASS" endtime="20180727 15:42:47.992" starttime="20180727 15:42:47.992"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>type(${json_to_data})==list</arg>
+</arguments>
+<assign>
+<var>${type}</var>
+</assign>
+<msg timestamp="20180727 15:42:47.993" level="INFO">${type} = True</msg>
+<status status="PASS" endtime="20180727 15:42:47.993" starttime="20180727 15:42:47.993"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${type}'=='${True}' and '${resp_text_validate}'=='${True}'</arg>
+<arg>Sort List</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Sort List" library="Collections">
+<doc>Sorts the given list in place.</doc>
+<arguments>
+<arg>${json_to_data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:47.994" starttime="20180727 15:42:47.994"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:47.994" starttime="20180727 15:42:47.993"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${resp_text_validate}'=='${True}'</arg>
+<arg>Run Keyword If</arg>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+<arg>ELSE</arg>
+<arg>should Not be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>should be equal</arg>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${data_to_compare}</arg>
+<arg>${json_to_data}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:47.996" starttime="20180727 15:42:47.995"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:47.996" starttime="20180727 15:42:47.995"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:47.996" starttime="20180727 15:42:47.994"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:47.996" starttime="20180727 15:42:47.985"></status>
+</kw>
+<doc>Ensure that the User is removed and the other User is still present</doc>
+<status status="PASS" endtime="20180727 15:42:47.996" critical="yes" starttime="20180727 15:42:47.965"></status>
+</test>
+<test id="s1-t10" name="Mec Validate the Remove Service Conf Device Level">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>3s</arg>
+</arguments>
+<msg timestamp="20180727 15:42:50.998" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" endtime="20180727 15:42:50.998" starttime="20180727 15:42:47.997"></status>
+</kw>
+<kw name="Ovs Execute Command" library="OVSOBJ">
+<arguments>
+<arg>cmd=ovs-ofctl dump-flows mec_br1</arg>
+</arguments>
+<msg timestamp="20180727 15:42:53.053" level="INFO">   ovs-ofctl dump-flows mec_br1
+NXST_FLOW reply (xid=0x4):
+ cookie=0x0, duration=47.256s, table=0, n_packets=0, n_bytes=0, idle_age=47, in_port=1,dl_vlan=5 actions=mod_dl_dst:00:16:3c:8f:be:33,output:9
+ cookie=0x0, duration=47.244s, table=0, n_packets=1, n_bytes=74, idle_age=17, in_port=10,dl_vlan=5 actions=mod_dl_dst:00:16:3c:71:97:97,output:11
+ cookie=0x0, duration=47.234s, table=0, n_packets=1, n_bytes=74, idle_age=15, in_port=12,dl_vlan=5 actions=mod_dl_dst:00:11:22:33:44:54,output:2
+ cookie=0x0, duration=47.219s, table=0, n_packets=0, n_bytes=0, idle_age=47, in_port=2,dl_vlan=5 actions=mod_dl_dst:00:11:22:33:44:53,output:1
+ cookie=0x0, duration=13.031s, table=0, n_packets=0, n_bytes=0, idle_age=13, in_port=1,dl_vlan=8 actions=drop
+ cookie=0x0, duration=8822.270s, table=0, n_packets=4052, n_bytes=686997, idle_age=7, priority=0 actions=NORMAL
+]0;root@MEC-DUT: /home/testroot@MEC-DUT:/home/test
+</msg>
+<status status="PASS" endtime="20180727 15:42:53.054" starttime="20180727 15:42:50.999"></status>
+</kw>
+<kw name="Split To Lines" library="String">
+<doc>Splits the given string to lines.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+</arguments>
+<assign>
+<var>@{dump_flows}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.055" level="INFO">9 lines returned</msg>
+<msg timestamp="20180727 15:42:53.056" level="INFO">@{dump_flows} = [  ovs-ofctl dump-flows mec_br1 | NXST_FLOW reply (xid=0x4): |  cookie=0x0, duration=47.256s, table=0, n_packets=0, n_bytes=0, idle_age=47, in_port=1,dl_vlan=5 actions=mod_dl_dst:00:16:3c:8f:be:33,out...</msg>
+<status status="PASS" endtime="20180727 15:42:53.056" starttime="20180727 15:42:53.054"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=1,dl_vlan=${vlan1} actions=mod_dl_dst.*put:(\\d+)</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.057" level="INFO">${pattern} = in_port=1,dl_vlan=5 actions=mod_dl_dst.*put:(\d+)</msg>
+<status status="PASS" endtime="20180727 15:42:53.057" starttime="20180727 15:42:53.056"></status>
+</kw>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<assign>
+<var>${match}</var>
+<var>${out_port}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.058" level="INFO">${match} = in_port=1,dl_vlan=5 actions=mod_dl_dst:00:16:3c:8f:be:33,output:9</msg>
+<msg timestamp="20180727 15:42:53.058" level="INFO">${out_port} = 9</msg>
+<status status="PASS" endtime="20180727 15:42:53.058" starttime="20180727 15:42:53.058"></status>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<doc>Converts the given item to an integer number.</doc>
+<arguments>
+<arg>${out_port}</arg>
+</arguments>
+<assign>
+<var>${out_port}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.059" level="INFO">${out_port} = 9</msg>
+<status status="PASS" endtime="20180727 15:42:53.059" starttime="20180727 15:42:53.058"></status>
+</kw>
+<kw name="SearchForFlows">
+<doc>Search for flows related to services</doc>
+<arguments>
+<arg>${vlan2}</arg>
+<arg>${True}</arg>
+<arg>${out_port}</arg>
+<arg>${out_port+1}</arg>
+<arg>${out_port+2}</arg>
+<arg>${out_port+3}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${ports}</arg>
+</arguments>
+<assign>
+<var>${length}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.060" level="INFO">Length is 4</msg>
+<msg timestamp="20180727 15:42:53.060" level="INFO">${length} = 4</msg>
+<status status="PASS" endtime="20180727 15:42:53.060" starttime="20180727 15:42:53.060"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=1,dl_vlan=${vlan} actions=mod_dl_dst.*put:${ports[0]}</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.060" level="INFO">${pattern} = in_port=1,dl_vlan=8 actions=mod_dl_dst.*put:9</msg>
+<status status="PASS" endtime="20180727 15:42:53.060" starttime="20180727 15:42:53.060"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Not Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` matches ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.061" starttime="20180727 15:42:53.061"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.061" starttime="20180727 15:42:53.061"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | ${length} | 2 ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+1}</arg>
+</arguments>
+<assign>
+<var>${j}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.062" level="INFO">${j} = 1</msg>
+<status status="PASS" endtime="20180727 15:42:53.062" starttime="20180727 15:42:53.062"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+2}</arg>
+</arguments>
+<assign>
+<var>${k}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.062" level="INFO">${k} = 2</msg>
+<status status="PASS" endtime="20180727 15:42:53.063" starttime="20180727 15:42:53.062"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ports}[${j}]!=@{ports}[-1]</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.063" starttime="20180727 15:42:53.063"></status>
+</kw>
+<msg timestamp="20180727 15:42:53.064" level="INFO">${pattern} = in_port=10,dl_vlan=8 actions=mod_dl_dst.*put:11</msg>
+<status status="PASS" endtime="20180727 15:42:53.064" starttime="20180727 15:42:53.063"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Not Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` matches ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.064" starttime="20180727 15:42:53.064"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.065" starttime="20180727 15:42:53.064"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.065" starttime="20180727 15:42:53.062"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+1}</arg>
+</arguments>
+<assign>
+<var>${j}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.065" level="INFO">${j} = 3</msg>
+<status status="PASS" endtime="20180727 15:42:53.065" starttime="20180727 15:42:53.065"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+2}</arg>
+</arguments>
+<assign>
+<var>${k}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.066" level="INFO">${k} = 4</msg>
+<status status="PASS" endtime="20180727 15:42:53.066" starttime="20180727 15:42:53.065"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ports}[${j}]!=@{ports}[-1]</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.067" starttime="20180727 15:42:53.067"></status>
+</kw>
+<msg timestamp="20180727 15:42:53.067" level="INFO">${pattern} = in_port=12,dl_vlan=8 actions=mod_dl_dst.*put:2</msg>
+<status status="PASS" endtime="20180727 15:42:53.067" starttime="20180727 15:42:53.066"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Not Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` matches ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.068" starttime="20180727 15:42:53.068"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.068" starttime="20180727 15:42:53.067"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.068" starttime="20180727 15:42:53.065"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.068" starttime="20180727 15:42:53.061"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.068" starttime="20180727 15:42:53.059"></status>
+</kw>
+<kw name="SearchForFlows">
+<doc>Search for flows related to services</doc>
+<arguments>
+<arg>${vlan1}</arg>
+<arg>${False}</arg>
+<arg>${out_port}</arg>
+<arg>${out_port+1}</arg>
+<arg>${out_port+2}</arg>
+<arg>${out_port+3}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${ports}</arg>
+</arguments>
+<assign>
+<var>${length}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.069" level="INFO">Length is 4</msg>
+<msg timestamp="20180727 15:42:53.070" level="INFO">${length} = 4</msg>
+<status status="PASS" endtime="20180727 15:42:53.070" starttime="20180727 15:42:53.069"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=1,dl_vlan=${vlan} actions=mod_dl_dst.*put:${ports[0]}</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.070" level="INFO">${pattern} = in_port=1,dl_vlan=5 actions=mod_dl_dst.*put:9</msg>
+<status status="PASS" endtime="20180727 15:42:53.070" starttime="20180727 15:42:53.070"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.071" starttime="20180727 15:42:53.071"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.071" starttime="20180727 15:42:53.070"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | ${length} | 2 ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+1}</arg>
+</arguments>
+<assign>
+<var>${j}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.072" level="INFO">${j} = 1</msg>
+<status status="PASS" endtime="20180727 15:42:53.072" starttime="20180727 15:42:53.071"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+2}</arg>
+</arguments>
+<assign>
+<var>${k}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.072" level="INFO">${k} = 2</msg>
+<status status="PASS" endtime="20180727 15:42:53.072" starttime="20180727 15:42:53.072"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ports}[${j}]!=@{ports}[-1]</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.073" starttime="20180727 15:42:53.073"></status>
+</kw>
+<msg timestamp="20180727 15:42:53.073" level="INFO">${pattern} = in_port=10,dl_vlan=5 actions=mod_dl_dst.*put:11</msg>
+<status status="PASS" endtime="20180727 15:42:53.073" starttime="20180727 15:42:53.072"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.074" starttime="20180727 15:42:53.074"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.074" starttime="20180727 15:42:53.073"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.074" starttime="20180727 15:42:53.071"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+1}</arg>
+</arguments>
+<assign>
+<var>${j}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.075" level="INFO">${j} = 3</msg>
+<status status="PASS" endtime="20180727 15:42:53.075" starttime="20180727 15:42:53.074"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${i+2}</arg>
+</arguments>
+<assign>
+<var>${k}</var>
+</assign>
+<msg timestamp="20180727 15:42:53.075" level="INFO">${k} = 4</msg>
+<status status="PASS" endtime="20180727 15:42:53.075" starttime="20180727 15:42:53.075"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${ports}[${j}]!=@{ports}[-1]</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[${j}],dl_vlan=${vlan} actions=mod_dl_dst.*put:@{ports}[${k}]</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<assign>
+<var>${pattern}</var>
+</assign>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>in_port=@{ports}[-1],dl_vlan=${vlan} actions=mod_dl_dst.*put:2</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.076" starttime="20180727 15:42:53.076"></status>
+</kw>
+<msg timestamp="20180727 15:42:53.076" level="INFO">${pattern} = in_port=12,dl_vlan=5 actions=mod_dl_dst.*put:2</msg>
+<status status="PASS" endtime="20180727 15:42:53.076" starttime="20180727 15:42:53.075"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${negative}'=='${False}'</arg>
+<arg>Should Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+<arg>ELSE</arg>
+<arg>Should Not Match Regexp</arg>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<kw name="Should Match Regexp" library="BuiltIn">
+<doc>Fails if ``string`` does not match ``pattern`` as a regular expression.</doc>
+<arguments>
+<arg>${ovs_obj.resp}</arg>
+<arg>${pattern}</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.077" starttime="20180727 15:42:53.077"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.077" starttime="20180727 15:42:53.076"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.077" starttime="20180727 15:42:53.074"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.077" starttime="20180727 15:42:53.071"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.077" starttime="20180727 15:42:53.069"></status>
+</kw>
+<doc>Ensure the Device level conf if removed for removed service</doc>
+<status status="PASS" endtime="20180727 15:42:53.077" critical="yes" starttime="20180727 15:42:47.996"></status>
+</test>
+<kw type="teardown" name="TerminateSessions">
+<doc>Disconnect the created sessions</doc>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Created SSH session is now about to terminate !!!</arg>
+</arguments>
+<status status="PASS" endtime="20180727 15:42:53.079" starttime="20180727 15:42:53.079"></status>
+</kw>
+<kw name="Disconnect Ovs" library="OVSOBJ">
+<msg timestamp="20180727 15:42:53.079" level="INFO">  **********  Closing the SSh Session  **********
+</msg>
+<status status="PASS" endtime="20180727 15:42:53.481" starttime="20180727 15:42:53.079"></status>
+</kw>
+<status status="PASS" endtime="20180727 15:42:53.481" starttime="20180727 15:42:53.078"></status>
+</kw>
+<doc>Test Suite for MEC Test Scenarios</doc>
+<status status="FAIL" endtime="20180727 15:42:53.482" starttime="20180727 15:40:55.673"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="9">Critical Tests</stat>
+<stat fail="1" pass="9">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="MEC TESTS" pass="9">MEC TESTS</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
