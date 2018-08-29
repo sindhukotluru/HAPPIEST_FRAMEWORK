@@ -1,8 +1,9 @@
 '''
-Created on May 3, 2018
+Created on May 8, 2018
 
 @author: Debiprasanna.M
 '''
+
 from selenium import webdriver
 import time
 from selenium.webdriver.common.keys import Keys
@@ -15,7 +16,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from driversetup import driver
 # driver = webdriver.Firefox(executable_path = 'E:\Old Desktop Backup\geckodriver-v0.19.1-win64\geckodriver.exe')
 
-def mpls_test():
+def dia_test():
 #     driver = webdriver.Firefox(executable_path = 'E:\Old Desktop Backup\geckodriver-v0.19.1-win64\geckodriver.exe')
 #     driver.get("http://10.16.82.170:8000/odlctrl")
 #     assert "Login" in driver.title
@@ -28,7 +29,6 @@ def mpls_test():
 #     elem1.send_keys("hmwano123")
 #     time.sleep(2)
 #     elem1.send_keys(Keys.RETURN)
-    driver.get("http://10.16.82.170:8000/odlctrl/index")
     wait = WebDriverWait(driver, 10)
     wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "Configuration")))
     driver.find_element_by_link_text("Configuration").click()
@@ -37,6 +37,12 @@ def mpls_test():
     wait.until(EC.element_to_be_clickable((By.ID, "add_config_rule")))
     driver.find_element_by_id("add_config_rule").click()
     time.sleep(3)
+#     driver.find_element_by_link_text("Configuration").click()
+#     time.sleep(3)
+#     driver.find_element_by_link_text("EDGE Device").click()
+#     time.sleep(3)
+#     driver.find_element_by_id("add_config_rule").click()
+#     time.sleep(3)
     select_fr = Select(driver.find_element_by_id("ethernet_type"))
     time.sleep(2)
     select_fr.select_by_index(3)
@@ -45,7 +51,7 @@ def mpls_test():
     time.sleep(1)
     source_ip.click()
     time.sleep(1)
-    driver.execute_script("document.getElementById('source_ip').value='10.10.10.3';")
+    driver.execute_script("document.getElementById('source_ip').value='10.10.10.1';")
     time.sleep(2)
     driver.find_element_by_id("source_ip_mask").send_keys("32")
     time.sleep(2)
@@ -53,7 +59,7 @@ def mpls_test():
     time.sleep(2)
     select_ingress.select_by_index(1)
     time.sleep(2)
-    radio1 = driver.find_element_by_xpath("//div//label//input[@value='3']")
+    radio1 = driver.find_element_by_xpath("//div//label//input[@value='4']")
     radio1.click()
     time.sleep(2)
     driver.find_element_by_id("save_flow_btn").click()
@@ -125,9 +131,8 @@ def mpls_test():
     driver.find_element_by_xpath("//*[@id='stop-btn']").click()
     
     wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "Configuration")))
-    time.sleep(2)
     driver.find_element_by_link_text("Configuration").click()
-    time.sleep(2)
+    
     if driver.find_element_by_link_text("EDGE Device"):
         driver.find_element_by_link_text("EDGE Device").click()
         print "Found"
@@ -143,4 +148,4 @@ def mpls_test():
     return True
 #     driver.close()
     
-# mpls_test()
+# dia_test()

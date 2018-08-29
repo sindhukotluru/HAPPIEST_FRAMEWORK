@@ -1,47 +1,24 @@
-1525343600190	geckodriver	INFO	geckodriver 0.19.1
-1525343600210	geckodriver	INFO	Listening on 127.0.0.1:49848
-1525343603562	mozrunner::runner	INFO	Running command: "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\DEBIPR~1.M\\AppData\\Local\\Temp\\rust_mozprofile.TMpdZJiXvxnw"
-1525343618992	Marionette	INFO	Enabled via --marionette
-[Parent 11428, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-1525343633838	Marionette	INFO	Listening on port 49869
-1525343636040	Marionette	WARN	TLS certificate errors will be ignored for this session
-6
-[Child 17632,[Child
+1529220901697	geckodriver	INFO	geckodriver 0.19.1
+1529220901706	geckodriver	INFO	Listening on 127.0.0.1:51219
+1529220904782	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-profile" "C:\\Users\\DEBIPR~1.M\\AppData\\Local\\Temp\\rust_mozprofile.XBMa9XzRTQve"
+1529220907335	Marionette	INFO	Listening on port 51235
+1529220907920	Marionette	WARN	TLS certificate errors will be ignored for this session
+Unable to read VR Path Registry from C:\Users\debiprasanna.m\AppData\Local\openvr\openvrpaths.vrpath
+JavaScript error: https://www.googletagmanager.com/gtm.js?id=GTM-NX744H, line 1113: NS_ERROR_NOT_INITIALIZED: 
+Unable to read VR Path Registry from C:\Users\debiprasanna.m\AppData\Local\openvr\openvrpaths.vrpath
+[Parent 10512, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+Unable to read VR Path Registry from C:\Users\debiprasanna.m\AppData\Local\openvr\openvrpaths.vrpath
+[Child 13196, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+openvr\openvrpaths.vrpath
+[Child 11788, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
-/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 9056,1525331083798	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
-[Parent 23504, Gecko_IOThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 12640, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
-[Child 1264
-###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+alse (indicating failure)
 
-dlctrl/modules/flowStatsModule.js, line 35: TypeError: node['flow-node-inventory:table'][0].flow is undefined
-JavaScript error: http://10.16.82.170:8000/static/odlctrl/modules/flowStatsModule.js, line 35: TypeError: node['flow-node-inventory:table'][0].flow is undefined
-JavaScript error: http://10.16.82.170:8000/static/odlctrl/modules/flowStatsModule.js, line 35: TypeError: node['flow-node-inventory:table'][0].flow is undefined
-JavaScript error: http://10.16.82.170:8000/static/odlctrl/modules/flowStatsModule.js, line 35: TypeError: node['flow-node-inventory:table'][0].flow is undefined
-JavaScript error: http://10.16.82.170:8000/static/odlctrl/modules/flowStatsModule.js, line 35: TypeError: node['flow-node-inventory:table'][0].flow is undefined
-JavaScript error: http://10.16.82.170:8000/static/odlctrl/modules/flowStatsModule.js, line 35: TypeError: node['flow-node-inventory:table'][0].flow is undefined
-JavaScript error: http://10.16.82.170:8000/static/odlctrl/modules/flowStatsModule.js, line 35: TypeError: node['flow-node-inventory:table'][0].flow is undefined
-JavaScript error: http://10.16.82.170:8000/static/odlctrl/modules/flowStatsModule.js, line 35: TypeError: node['flow-node-inventory:table'][0].flow is undefined
-[Ch
-###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
-
-1525673906600	geckodriver	INFO	geckodriver 0.18.0
-1525673906608	geckodriver	INFO	Listening on 127.0.0.1:42744
-1525673907717	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
-1525673908424	Marionette	INFO	Enabled via --marionette
-1525673911248	Marionette	INFO	Listening on port 36861
-1525673911332	Marionette	WARN	TLS certificate errors will be ignored for this session
-[Child 30205, Chrome_ChildThread] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-BgGWsI/firefox-59.0.2+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
-
-###!!! [Child][MessageChannel] Error: (msgtype=0x2C00CB,name=PContent::Msg_GraphicsError) Channel error: cannot send/recv
-
+JavaScript error: http://10.16.82.170:8000/static/odlctrl/vendor/jquery/jquery.min.js, line 2: NS_ERROR_NOT_INITIALIZED: 
+[Child 14904, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+[Child 14904[Child 17692, Chrome_ChildThread] WARNING: pipe error: 109: file z:/build/build/src/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 346
+omium/src/chrome/common/ipc_channel_win.cc, line 346
+avaScript error: chrome://marionette/content/listener.js, line 466: TypeError: reply[0] is undefined
 [GFX1-]: Receive IPC close with reason=AbnormalShutdown
-1525684236932	geckodriver	INFO	geckodriver 0.18.0
-1525684236934	geckodriver	INFO	Listening on 127.0.0.1:34246
-1525684238048	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
-1525684238762	Marionette	INFO	Enabled via --marionette
-1525684241658	Marionette	INFO	Listening on port 45005
-1525684241662	Marionette	WARN	TLS certificate errors will be ignored for this session
-*** UTM:SVC TimerManager:registerTimer called after profile-before-change notification. Ignoring timer registration for id: telemetry_modules_ping

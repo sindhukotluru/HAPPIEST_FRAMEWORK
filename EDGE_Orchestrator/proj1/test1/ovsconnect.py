@@ -7,6 +7,7 @@ Created on Apr 27, 2018
 #importing modules
 import paramiko
 import time
+import re
 
 
 #pdb.set_trace()
@@ -17,7 +18,7 @@ HOST = "10.16.82.125"
 USER = "edge"
 PASS = "edge123"
 PORT = 22
-# A function that logins and execute commands
+#A function that logins and execute commands
 def fn():
     client1=paramiko.SSHClient()
     #add missing client key
@@ -33,9 +34,18 @@ def fn():
     remote_conn.send("ovs-ofctl dump-flows S1 \n")
     time.sleep(2)
     output = remote_conn.recv(10000)
+    time.sleep(2)
     print output
-    client1.close()  
-    return output  
+    time.sleep(2)
+#     output1=remote_conn.send(cmdq)
+#     time.sleep(2)
+#     output1 = remote_conn.recv(10000)
+#     time.sleep(2)
+#     #print output1
+#     b =  re.findall("[rt]x pkts=([0-9]+)",output1)
+#     print b
+#     client1.close()  
+    return output
 
 
 #-------------------------------------------------------
