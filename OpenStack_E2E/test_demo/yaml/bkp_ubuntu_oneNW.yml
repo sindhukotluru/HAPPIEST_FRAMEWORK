@@ -1,0 +1,52 @@
+heat_template_version: 2015-10-15
+description: Launch a basic instance with specified cirros image using the
+             ``mininet`` flavor, ``mykey`` key,  and network net101.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance
+    default: net_mgmt
+  IMAGE:
+    type: string
+    description: Image name
+    default: ubuntu_r
+  FLAVOR:
+    type: string
+    description: Flavor name
+    default: 10gb
+  KEY:
+    type: string
+    description: Flavor name
+    default: key234demo
+
+resources:
+  server:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: { get_param: FLAVOR }
+      key_name: { get_param: KEY }
+      networks:
+      - network: { get_param: NetID }
+
+  floating_ip:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip }
+      server_id: { get_resource: server }
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server, first_address ] }
+
+
