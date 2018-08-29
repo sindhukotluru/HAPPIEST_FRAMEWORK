@@ -1,0 +1,83 @@
+{
+  "port": {
+    "binding:host_id": "{BIND_HOST_ID}",
+    "allowed_address_pairs": [],
+    "device_owner": "compute:None",
+    "port_security_enabled": true,
+    "binding:profile": {},
+    "fixed_ips": [
+      {
+        "subnet_id": "{subnetId}",
+        "ip_address": "10.1.0.3"
+      }
+    ],
+    "id": "{portId}",
+    "security_groups": [
+      {
+        "tenant_id": "{tntId}",
+        "description": "Default security group",
+        "id": "970d6a6d-bebf-43a3-85cc-a860fc994333",
+        "security_group_rules": [
+          {
+            "remote_group_id": null,
+            "direction": "egress",
+            "remote_ip_prefix": null,
+            "protocol": null,
+            "ethertype": "IPv4",
+            "tenant_id": "{tntId}",
+            "port_range_max": null,
+            "port_range_min": null,
+            "id": "3f260b84-637a-4edc-8ba6-a5ff36b2ae79",
+            "security_group_id": "970d6a6d-bebf-43a3-85cc-a860fc994333"
+          },
+          {
+            "remote_group_id": null,
+            "direction": "egress",
+            "remote_ip_prefix": null,
+            "protocol": null,
+            "ethertype": "IPv6",
+            "tenant_id": "{tntId}",
+            "port_range_max": null,
+            "port_range_min": null,
+            "id": "9c3a324a-822d-4a60-b4d9-bc9fc8a890e9",
+            "security_group_id": "970d6a6d-bebf-43a3-85cc-a860fc994333"
+          },
+          {
+            "remote_group_id": "970d6a6d-bebf-43a3-85cc-a860fc994333",
+            "direction": "ingress",
+            "remote_ip_prefix": null,
+            "protocol": null,
+            "ethertype": "IPv6",
+            "tenant_id": "{tntId}",
+            "port_range_max": null,
+            "port_range_min": null,
+            "id": "a3dc2551-2939-4a0b-8113-bcbce704c0fd",
+            "security_group_id": "970d6a6d-bebf-43a3-85cc-a860fc994333"
+          },
+          {
+            "remote_group_id": "970d6a6d-bebf-43a3-85cc-a860fc994333",
+            "direction": "ingress",
+            "remote_ip_prefix": null,
+            "protocol": null,
+            "ethertype": "IPv4",
+            "tenant_id": "{tntId}",
+            "port_range_max": null,
+            "port_range_min": null,
+            "id": "efa8f393-1494-4370-87c2-693f1c109190",
+            "security_group_id": "970d6a6d-bebf-43a3-85cc-a860fc994333"
+          }
+        ],
+        "name": "default"
+      }
+    ],
+    "device_id": "{deviceId}",
+    "name": "",
+    "admin_state_up": true,
+    "network_id": "{netId}",
+    "tenant_id": "{tntId}",
+    "binding:vif_details": {},
+    "binding:vnic_type": "normal",
+    "binding:vif_type": "unbound",
+    "mac_address": "{macAddr}"
+  }
+}

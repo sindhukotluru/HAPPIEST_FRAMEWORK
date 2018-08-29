@@ -1,0 +1,7 @@
+Before running the 'mininet.bat' file the following steps must be followed:
+1. Download and install wget (link - http://downloads.sourceforge.net/gnuwin32/wget-1.11.4-1-setup.exe).
+	Then create a new system variable named wget and also add wget file path to system variable 'PATH'.
+2. Download and install 7-zip (link - http://www.7-zip.org/a/7z1602-x64.exe).
+	Then create a new system variable named 7z and also add 7z file path to system variable 'PATH'.
+3. The system should have Oracle VirtualBox installed and it's file path set to system variable 'PATH'.
+4. Then run the batch file.

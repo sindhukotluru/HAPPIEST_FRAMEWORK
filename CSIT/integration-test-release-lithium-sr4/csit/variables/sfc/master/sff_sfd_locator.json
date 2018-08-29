@@ -1,0 +1,6 @@
+{
+    "sff-sf-data-plane-locator": {
+        "sf-dpl-name": "SF2-DPL",
+        "sff-dpl-name": "eth0"
+    }
+}

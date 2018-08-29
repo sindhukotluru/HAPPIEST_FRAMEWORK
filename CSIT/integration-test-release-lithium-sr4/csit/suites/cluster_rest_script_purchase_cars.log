@@ -1,0 +1,7 @@
+2018-03-19 09:52:39,681 INFO: Add 10000 purchase(s) to 192.168.203.7:8181 (1 per request)
+2018-03-19 09:52:49,678 INFO: Response code(s) got per number of requests: {400: 2016}
+2018-03-19 09:52:49,679 INFO: Response code(s) got per number of requests: {400: 2010}
+2018-03-19 09:52:49,679 INFO: Response code(s) got per number of requests: {400: 1997}
+2018-03-19 09:52:49,679 INFO: Response code(s) got per number of requests: {400: 1976}
+2018-03-19 09:52:49,682 INFO: Response code(s) got per number of requests: {400: 2001}
+2018-03-19 09:52:49,684 ERROR: Not all rpc calls passed: {400: 10000}
