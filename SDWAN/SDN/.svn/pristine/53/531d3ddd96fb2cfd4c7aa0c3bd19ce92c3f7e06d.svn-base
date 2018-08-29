@@ -1,0 +1,67 @@
+from copy import deepcopy
+import json
+from SDN.odl.interface.restconf import rest_session
+
+
+
+class INTERFACE(object):
+
+    _INTERFACE_FIELD = "interface"
+    _ODL_INTERFACE_OF_PORT_ID_FIELD = "odl-interface:of-port-id"
+    _TYPE_FIELD = "type"
+    _ENABLED_FIELD = "enabled"
+    _NAME_FIELD = "name"
+
+    def __init__(self):
+        self._template = {}
+        self._template[self._ODL_INTERFACE_OF_PORT_ID_FIELD] = None
+        self._template[self._TYPE_FIELD] = None
+        self._template[self._ENABLED_FIELD] = None
+        self._template[self._NAME_FIELD] = None
+        self._default_template = deepcopy(self._template)
+        self._REST_URL = None
+
+    def set_odl_interface_of_port_id(self, value):
+        self._template[self._ODL_INTERFACE_OF_PORT_ID_FIELD] = value
+
+    def set_type(self, value):
+        self._template[self._TYPE_FIELD] = value
+
+    def set_enabled(self, value):
+        self._template[self._ENABLED_FIELD] = value
+
+    def set_name(self, value):
+        self._template[self._NAME_FIELD] = value
+
+    def set_rest_url(self, value):
+        self._REST_URL = value
+
+    def get_template(self, default=False):
+        if default:
+            return self._default_template
+        else:
+            return self._template
+
+    def get_payload(self):
+        payload = {key: value for key, value in self._template.iteritems() if value is not None}
+        return payload
+
+    def get_json(self, default=False):
+        if default:
+            return json.dumps(self.get_template(default=default))
+        return json.dumps(self.get_payload())
+
+    def create_interface(self):
+        
+        payload = {self._INTERFACE_FIELD: self.get_template()}
+        rest_session.send_post_request(url=self._REST_URL, data=json.dumps(payload))
+        return rest_session.response_code, rest_session.response_as_text
+
+    def delete_interface(self):
+        rest_session.send_delete_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+    def get_interface(self):
+        rest_session.send_get_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+

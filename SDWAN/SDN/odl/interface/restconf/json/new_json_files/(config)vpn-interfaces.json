@@ -1,0 +1,17 @@
+{
+    "vpn-interface": {
+        "adjacency": {
+            "ip_address": "",
+            "label": "",
+            "mac_address": "",
+            "nextHopId": "",
+            "odl-l3vpn:ip_address": "",
+            "odl-l3vpn:label": "",
+            "odl-l3vpn:mac_address": "",
+            "odl-l3vpn:nextHopId": ""
+        },
+        "name": "",
+        "odl-l3vpn:adjacency": "",
+        "vpn-instance-name": ""
+    }
+}

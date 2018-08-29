@@ -1,0 +1,161 @@
+import argparse
+import os
+from pprint import pprint
+import json
+import re
+
+from SDN.odl.interface.restconf import variables
+from SDN.odl import constants
+from SDN.odl.util import json_loader
+from SDN.odl.util.rest_utils import REST
+
+
+class APIUtils(object):
+
+    def __init__(self, username, password, json_dir, hostname, restconf_port):
+
+        self.odlrest_conn = REST(user=username, password=password)
+        self.json_dir = json_dir
+        self.hostname = hostname
+        self.restconf_port = restconf_port
+        self.api_list_url = 'http://{0}:{1}/apidoc/apis'.format(self.hostname, self.restconf_port)
+
+    def _execute_http_request(self, method, url, payload=None):
+        if method.upper() == 'GET':
+            self.odlrest_conn.send_get_request(url=url)
+
+        if method.upper() == "POST":
+            self.odlrest_conn.send_post_request(url=url, data=payload)
+
+    def get_resource_apis_list(self):
+        self._execute_http_request(method='GET',
+                                   url=self.api_list_url.format(variables.ODL_SYSTEM_IP_1, variables.RESTCONFPORT))
+
+        response_json = json_loader.load(self.odlrest_conn.response_as_text)
+        api_list = []
+        for apis in response_json["apis"]:
+            api_list.append(apis["path"])
+        return api_list
+
+    def get_resource_api_mapping(self):
+        api_list = self.get_resource_apis_list()
+        resource_apis = {url.rsplit("/", 1)[1].split("(")[0]: url for url in api_list}
+        return resource_apis
+
+    def get_config_properties_for_model(self, model_name, url):
+
+        self.odlrest_conn.send_get_request(url)
+        response_json = json_loader.load(self.odlrest_conn.response_as_text)
+        properties = {}
+        if "models" in response_json:
+            for prop in response_json["models"].keys():
+                # Process properties with and without POST. $ is used in order to skip the plural(s)
+                regexp1 = "\(config\){0}POST".format(model_name.replace("(config)", ""))
+                regexp2 = "\(config\){0}$".format(model_name.replace("(config)", ""))
+                if re.search('{0}|{1}'.format(regexp1,regexp2), prop) is not None:
+                    properties.update(response_json["models"][prop]["properties"])
+
+        return properties
+
+    def get_config_type_params(self, url, http_method="POST"):
+        config_object_list = []
+
+        self.odlrest_conn.send_get_request(url=url)
+        response_json = json_loader.load(self.odlrest_conn.response_as_text)
+        if "apis" in response_json:
+            for api in response_json["apis"]:
+                if api["path"] == "/config/":
+                    for oper in api["operations"]:
+                        if oper["method"] == http_method:
+                            config_object_list = [param["type"] for param in oper["parameters"]]
+        return config_object_list
+
+    @staticmethod
+    def _get_oneof_properties(oneof_props):
+
+        oneof_props_attrs = {}
+        for prop in oneof_props:
+            for name, value in prop.iteritems():
+                if isinstance(value, dict):
+                    for prop_name in value.keys():
+                        oneof_props_attrs[prop_name] = ""
+        return oneof_props_attrs
+
+    def get_model_properties(self, properties):
+        model_properties = {}
+        for props in properties:
+            if ("items" in properties[props]) and ("$ref" in properties[props]["items"]):
+                model_properties[props] = properties[props]["items"]["$ref"]
+            elif("oneOf" in properties[props]):
+                model_properties[props] = APIUtils._get_oneof_properties(properties[props]['oneOf'])
+            else:
+                model_properties[props] = ""
+        return model_properties
+
+    def update_json(self, dict_json, url):
+        for config_model in dict_json:
+            # Get parameters for only (config) type properties
+            if dict_json[config_model] != "":
+                model_properties = self.get_config_properties_for_model(model_name=config_model, url=url)
+                properties = self.get_model_properties(properties=model_properties)
+                if properties:
+                    dict_json[config_model] = properties
+                else:
+                    if not isinstance(dict_json[config_model], dict):
+                        dict_json[config_model] = ""
+                # Process (config) type properties parameters for child (config) objects
+                for params in dict_json[config_model]:
+                    if "(config)" in dict_json[config_model][params]:
+                        self.update_json(dict_json[config_model], url)
+
+    def generate_resource_json_schema(self, target_resource):
+
+        resource_list = []
+        if target_resource.upper() == 'ALL':
+            resource_list = self.get_resource_api_mapping().keys()
+        else:
+            resource_list = [target_resource]
+
+        for resource, url in self.get_resource_api_mapping().iteritems():
+            if resource in resource_list:
+                print("\n RESOURCE :: " + resource)
+                print("URL :: " + url)
+                dict_resource_json = {resource: {}}
+
+                # GET the APIs and Model JSON for the Resource
+                config_resource_models = api_util.get_config_type_params(url=url)
+                for model_name in config_resource_models:
+                    dict_resource_json[resource][model_name] = {}
+                api_util.update_json(dict_resource_json[resource], url)
+                pprint(dict_resource_json)
+
+                # Dump the JSON to a file
+                for model_name in config_resource_models:
+                    output_file = os.path.join(self.json_dir, '{0}.json'.format(model_name))
+                    json.dump(dict_resource_json[resource][model_name], open(output_file, "w"),
+                              indent=4, sort_keys=True, separators=(',', ': '), ensure_ascii=True)
+
+
+if __name__ == "__main__":
+
+    options = argparse.ArgumentParser()
+    options.add_argument('--user', dest='username', default=variables.ODL_RESTCONF_USER,
+                         help='username used to authenticate the REST service')
+    options.add_argument('--password', dest='password', default=variables.ODL_RESTCONF_PASSWORD,
+                         help='password used to authenticate the REST service')
+    options.add_argument('--resource_name', dest='resource_name', default='all',
+                         help='name of the controller resource')
+    options.add_argument('--output', dest='json_dir',
+                         default=constants.ROOT_DIR + os.path.sep + r'/odl/interface/restconf/json',
+                         help='path of the directory to generate the JSON schema file')
+    options.add_argument('--host', dest='odl_hostname', default=variables.ODL_SYSTEM_IP_1,
+                         help='IP Address of the ODL Controller')
+    options.add_argument('--port', dest='odl_restconf_port', default=variables.RESTCONFPORT,
+                         help='Port number for the RESTCONF interface')
+
+    args = vars(options.parse_args())
+
+    api_util = APIUtils(username=args['username'], password=args['password'], json_dir=args['json_dir'],
+                        hostname=args['odl_hostname'], restconf_port=args['odl_restconf_port'])
+    api_util.generate_resource_json_schema(target_resource=args['resource_name'])
+

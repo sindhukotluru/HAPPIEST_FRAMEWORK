@@ -1,0 +1,702 @@
+{
+    "node": {
+        "connected": "",
+        "description": "",
+        "flow-node-inventory:description": "",
+        "flow-node-inventory:group": "",
+        "flow-node-inventory:hardware": "",
+        "flow-node-inventory:ip-address": "",
+        "flow-node-inventory:manufacturer": "",
+        "flow-node-inventory:meter": "",
+        "flow-node-inventory:serial-number": "",
+        "flow-node-inventory:software": "",
+        "flow-node-inventory:supported-actions": "",
+        "flow-node-inventory:supported-instructions": "",
+        "flow-node-inventory:supported-match-types": "",
+        "flow-node-inventory:switch-features": "",
+        "flow-node-inventory:table": "",
+        "group": {
+            "barrier": "",
+            "buckets": {
+                "bucket": {
+                    "action": {
+                        "opendaylight-group-statistics:action": {
+                            "opendaylight-group-statistics:controller-action": "",
+                            "opendaylight-group-statistics:copy-ttl-in": "",
+                            "opendaylight-group-statistics:copy-ttl-out": "",
+                            "opendaylight-group-statistics:dec-mpls-ttl": "",
+                            "opendaylight-group-statistics:dec-nw-ttl": "",
+                            "opendaylight-group-statistics:drop-action": "",
+                            "opendaylight-group-statistics:flood-action": "",
+                            "opendaylight-group-statistics:flood-all-action": "",
+                            "opendaylight-group-statistics:group-action": "",
+                            "opendaylight-group-statistics:hw-path-action": "",
+                            "opendaylight-group-statistics:loopback-action": "",
+                            "opendaylight-group-statistics:output-action": "",
+                            "opendaylight-group-statistics:pop-mpls-action": "",
+                            "opendaylight-group-statistics:pop-pbb-action": "",
+                            "opendaylight-group-statistics:pop-vlan-action": "",
+                            "opendaylight-group-statistics:push-mpls-action": "",
+                            "opendaylight-group-statistics:push-pbb-action": "",
+                            "opendaylight-group-statistics:push-vlan-action": "",
+                            "opendaylight-group-statistics:set-dl-dst-action": "",
+                            "opendaylight-group-statistics:set-dl-src-action": "",
+                            "opendaylight-group-statistics:set-dl-type-action": "",
+                            "opendaylight-group-statistics:set-field": "",
+                            "opendaylight-group-statistics:set-mpls-ttl-action": "",
+                            "opendaylight-group-statistics:set-next-hop-action": "",
+                            "opendaylight-group-statistics:set-nw-dst-action": "",
+                            "opendaylight-group-statistics:set-nw-src-action": "",
+                            "opendaylight-group-statistics:set-nw-tos-action": "",
+                            "opendaylight-group-statistics:set-nw-ttl-action": "",
+                            "opendaylight-group-statistics:set-queue-action": "",
+                            "opendaylight-group-statistics:set-tp-dst-action": "",
+                            "opendaylight-group-statistics:set-tp-src-action": "",
+                            "opendaylight-group-statistics:set-vlan-cfi-action": "",
+                            "opendaylight-group-statistics:set-vlan-id-action": "",
+                            "opendaylight-group-statistics:set-vlan-pcp-action": "",
+                            "opendaylight-group-statistics:strip-vlan-action": "",
+                            "opendaylight-group-statistics:sw-path-action": ""
+                        },
+                        "opendaylight-group-statistics:order": "",
+                        "order": ""
+                    },
+                    "bucket-id": "",
+                    "opendaylight-group-statistics:action": "",
+                    "opendaylight-group-statistics:bucket-id": "",
+                    "opendaylight-group-statistics:watch_group": "",
+                    "opendaylight-group-statistics:watch_port": "",
+                    "opendaylight-group-statistics:weight": "",
+                    "watch_group": "",
+                    "watch_port": "",
+                    "weight": ""
+                },
+                "opendaylight-group-statistics:bucket": ""
+            },
+            "container-name": "",
+            "flow-node-inventory:barrier": "",
+            "flow-node-inventory:buckets": "",
+            "flow-node-inventory:container-name": "",
+            "flow-node-inventory:group-id": "",
+            "flow-node-inventory:group-name": "",
+            "flow-node-inventory:group-type": "",
+            "group-desc": {
+                "barrier": "",
+                "buckets": {
+                    "bucket": {
+                        "action": {
+                            "opendaylight-group-statistics:action": {
+                                "opendaylight-group-statistics:controller-action": "",
+                                "opendaylight-group-statistics:copy-ttl-in": "",
+                                "opendaylight-group-statistics:copy-ttl-out": "",
+                                "opendaylight-group-statistics:dec-mpls-ttl": "",
+                                "opendaylight-group-statistics:dec-nw-ttl": "",
+                                "opendaylight-group-statistics:drop-action": "",
+                                "opendaylight-group-statistics:flood-action": "",
+                                "opendaylight-group-statistics:flood-all-action": "",
+                                "opendaylight-group-statistics:group-action": "",
+                                "opendaylight-group-statistics:hw-path-action": "",
+                                "opendaylight-group-statistics:loopback-action": "",
+                                "opendaylight-group-statistics:output-action": "",
+                                "opendaylight-group-statistics:pop-mpls-action": "",
+                                "opendaylight-group-statistics:pop-pbb-action": "",
+                                "opendaylight-group-statistics:pop-vlan-action": "",
+                                "opendaylight-group-statistics:push-mpls-action": "",
+                                "opendaylight-group-statistics:push-pbb-action": "",
+                                "opendaylight-group-statistics:push-vlan-action": "",
+                                "opendaylight-group-statistics:set-dl-dst-action": "",
+                                "opendaylight-group-statistics:set-dl-src-action": "",
+                                "opendaylight-group-statistics:set-dl-type-action": "",
+                                "opendaylight-group-statistics:set-field": "",
+                                "opendaylight-group-statistics:set-mpls-ttl-action": "",
+                                "opendaylight-group-statistics:set-next-hop-action": "",
+                                "opendaylight-group-statistics:set-nw-dst-action": "",
+                                "opendaylight-group-statistics:set-nw-src-action": "",
+                                "opendaylight-group-statistics:set-nw-tos-action": "",
+                                "opendaylight-group-statistics:set-nw-ttl-action": "",
+                                "opendaylight-group-statistics:set-queue-action": "",
+                                "opendaylight-group-statistics:set-tp-dst-action": "",
+                                "opendaylight-group-statistics:set-tp-src-action": "",
+                                "opendaylight-group-statistics:set-vlan-cfi-action": "",
+                                "opendaylight-group-statistics:set-vlan-id-action": "",
+                                "opendaylight-group-statistics:set-vlan-pcp-action": "",
+                                "opendaylight-group-statistics:strip-vlan-action": "",
+                                "opendaylight-group-statistics:sw-path-action": ""
+                            },
+                            "opendaylight-group-statistics:order": "",
+                            "order": ""
+                        },
+                        "bucket-id": "",
+                        "opendaylight-group-statistics:action": "",
+                        "opendaylight-group-statistics:bucket-id": "",
+                        "opendaylight-group-statistics:watch_group": "",
+                        "opendaylight-group-statistics:watch_port": "",
+                        "opendaylight-group-statistics:weight": "",
+                        "watch_group": "",
+                        "watch_port": "",
+                        "weight": ""
+                    },
+                    "opendaylight-group-statistics:bucket": ""
+                },
+                "container-name": "",
+                "group-id": "",
+                "group-name": "",
+                "group-type": "",
+                "opendaylight-group-statistics:barrier": "",
+                "opendaylight-group-statistics:buckets": "",
+                "opendaylight-group-statistics:container-name": "",
+                "opendaylight-group-statistics:group-id": "",
+                "opendaylight-group-statistics:group-name": "",
+                "opendaylight-group-statistics:group-type": ""
+            },
+            "group-id": "",
+            "group-name": "",
+            "group-statistics": {
+                "buckets": {
+                    "bucket": {
+                        "action": {
+                            "opendaylight-group-statistics:action": {
+                                "opendaylight-group-statistics:controller-action": "",
+                                "opendaylight-group-statistics:copy-ttl-in": "",
+                                "opendaylight-group-statistics:copy-ttl-out": "",
+                                "opendaylight-group-statistics:dec-mpls-ttl": "",
+                                "opendaylight-group-statistics:dec-nw-ttl": "",
+                                "opendaylight-group-statistics:drop-action": "",
+                                "opendaylight-group-statistics:flood-action": "",
+                                "opendaylight-group-statistics:flood-all-action": "",
+                                "opendaylight-group-statistics:group-action": "",
+                                "opendaylight-group-statistics:hw-path-action": "",
+                                "opendaylight-group-statistics:loopback-action": "",
+                                "opendaylight-group-statistics:output-action": "",
+                                "opendaylight-group-statistics:pop-mpls-action": "",
+                                "opendaylight-group-statistics:pop-pbb-action": "",
+                                "opendaylight-group-statistics:pop-vlan-action": "",
+                                "opendaylight-group-statistics:push-mpls-action": "",
+                                "opendaylight-group-statistics:push-pbb-action": "",
+                                "opendaylight-group-statistics:push-vlan-action": "",
+                                "opendaylight-group-statistics:set-dl-dst-action": "",
+                                "opendaylight-group-statistics:set-dl-src-action": "",
+                                "opendaylight-group-statistics:set-dl-type-action": "",
+                                "opendaylight-group-statistics:set-field": "",
+                                "opendaylight-group-statistics:set-mpls-ttl-action": "",
+                                "opendaylight-group-statistics:set-next-hop-action": "",
+                                "opendaylight-group-statistics:set-nw-dst-action": "",
+                                "opendaylight-group-statistics:set-nw-src-action": "",
+                                "opendaylight-group-statistics:set-nw-tos-action": "",
+                                "opendaylight-group-statistics:set-nw-ttl-action": "",
+                                "opendaylight-group-statistics:set-queue-action": "",
+                                "opendaylight-group-statistics:set-tp-dst-action": "",
+                                "opendaylight-group-statistics:set-tp-src-action": "",
+                                "opendaylight-group-statistics:set-vlan-cfi-action": "",
+                                "opendaylight-group-statistics:set-vlan-id-action": "",
+                                "opendaylight-group-statistics:set-vlan-pcp-action": "",
+                                "opendaylight-group-statistics:strip-vlan-action": "",
+                                "opendaylight-group-statistics:sw-path-action": ""
+                            },
+                            "opendaylight-group-statistics:order": "",
+                            "order": ""
+                        },
+                        "bucket-id": "",
+                        "opendaylight-group-statistics:action": "",
+                        "opendaylight-group-statistics:bucket-id": "",
+                        "opendaylight-group-statistics:watch_group": "",
+                        "opendaylight-group-statistics:watch_port": "",
+                        "opendaylight-group-statistics:weight": "",
+                        "watch_group": "",
+                        "watch_port": "",
+                        "weight": ""
+                    },
+                    "opendaylight-group-statistics:bucket": ""
+                },
+                "byte-count": "",
+                "duration": {
+                    "nanosecond": "",
+                    "opendaylight-group-statistics:nanosecond": "",
+                    "opendaylight-group-statistics:second": "",
+                    "second": ""
+                },
+                "group-id": "",
+                "opendaylight-group-statistics:buckets": "",
+                "opendaylight-group-statistics:byte-count": "",
+                "opendaylight-group-statistics:duration": "",
+                "opendaylight-group-statistics:group-id": "",
+                "opendaylight-group-statistics:packet-count": "",
+                "opendaylight-group-statistics:ref-count": "",
+                "packet-count": "",
+                "ref-count": ""
+            },
+            "group-type": "",
+            "opendaylight-group-statistics:group-desc": "",
+            "opendaylight-group-statistics:group-statistics": ""
+        },
+        "group-features": {
+            "opendaylight-group-statistics:actions": "",
+            "opendaylight-group-statistics:group-capabilities-supported": "",
+            "opendaylight-group-statistics:group-types-supported": "",
+            "opendaylight-group-statistics:max-groups": ""
+        },
+        "hardware": "",
+        "id": "",
+        "ip-address": "",
+        "manufacturer": "",
+        "meter": {
+            "meter-id": "",
+            "opendaylight-flow-table-statistics:meter-id": ""
+        },
+        "meter-features": {
+            "max_bands": "",
+            "max_color": "",
+            "max_meter": "",
+            "opendaylight-meter-statistics:max_bands": "",
+            "opendaylight-meter-statistics:max_color": "",
+            "opendaylight-meter-statistics:max_meter": "",
+            "opendaylight-meter-statistics:meter-band-supported": "",
+            "opendaylight-meter-statistics:meter-capabilities-supported": ""
+        },
+        "netconf-node-inventory:connected": "",
+        "netconf-node-inventory:current-capability": "",
+        "netconf-node-inventory:initial-capability": "",
+        "netconf-node-inventory:pass-through": "",
+        "node-connector": {
+            "address-tracker:addresses": "",
+            "addresses": {
+                "address-tracker:first-seen": "",
+                "address-tracker:id": "",
+                "address-tracker:ip": "",
+                "address-tracker:last-seen": "",
+                "address-tracker:mac": "",
+                "address-tracker:vlan": "",
+                "first-seen": "",
+                "id": "",
+                "ip": "",
+                "last-seen": "",
+                "mac": "",
+                "vlan": ""
+            },
+            "advertised-features": "",
+            "configuration": "",
+            "current-feature": "",
+            "current-speed": "",
+            "flow-capable-node-connector-statistics": {
+                "bytes": {
+                    "opendaylight-port-statistics:received": "",
+                    "opendaylight-port-statistics:transmitted": "",
+                    "received": "",
+                    "transmitted": ""
+                },
+                "collision-count": "",
+                "duration": {
+                    "nanosecond": "",
+                    "opendaylight-group-statistics:nanosecond": "",
+                    "opendaylight-group-statistics:second": "",
+                    "second": ""
+                },
+                "opendaylight-port-statistics:bytes": "",
+                "opendaylight-port-statistics:collision-count": "",
+                "opendaylight-port-statistics:duration": "",
+                "opendaylight-port-statistics:packets": "",
+                "opendaylight-port-statistics:receive-crc-error": "",
+                "opendaylight-port-statistics:receive-drops": "",
+                "opendaylight-port-statistics:receive-errors": "",
+                "opendaylight-port-statistics:receive-frame-error": "",
+                "opendaylight-port-statistics:receive-over-run-error": "",
+                "opendaylight-port-statistics:transmit-drops": "",
+                "opendaylight-port-statistics:transmit-errors": "",
+                "packets": {
+                    "opendaylight-port-statistics:received": "",
+                    "opendaylight-port-statistics:transmitted": "",
+                    "received": "",
+                    "transmitted": ""
+                },
+                "receive-crc-error": "",
+                "receive-drops": "",
+                "receive-errors": "",
+                "receive-frame-error": "",
+                "receive-over-run-error": "",
+                "transmit-drops": "",
+                "transmit-errors": ""
+            },
+            "flow-node-inventory:advertised-features": "",
+            "flow-node-inventory:configuration": "",
+            "flow-node-inventory:current-feature": "",
+            "flow-node-inventory:current-speed": "",
+            "flow-node-inventory:hardware-address": "",
+            "flow-node-inventory:maximum-speed": "",
+            "flow-node-inventory:name": "",
+            "flow-node-inventory:peer-features": "",
+            "flow-node-inventory:port-number": "",
+            "flow-node-inventory:queue": "",
+            "flow-node-inventory:state": "",
+            "flow-node-inventory:supported": "",
+            "hardware-address": "",
+            "id": "",
+            "maximum-speed": "",
+            "name": "",
+            "opendaylight-port-statistics:flow-capable-node-connector-statistics": "",
+            "peer-features": "",
+            "port-number": "",
+            "queue": {
+                "flow-capable-node-connector-queue-statistics": {
+                    "duration": {
+                        "nanosecond": "",
+                        "opendaylight-group-statistics:nanosecond": "",
+                        "opendaylight-group-statistics:second": "",
+                        "second": ""
+                    },
+                    "opendaylight-queue-statistics:duration": "",
+                    "opendaylight-queue-statistics:transmission-errors": "",
+                    "opendaylight-queue-statistics:transmitted-bytes": "",
+                    "opendaylight-queue-statistics:transmitted-packets": "",
+                    "transmission-errors": "",
+                    "transmitted-bytes": "",
+                    "transmitted-packets": ""
+                },
+                "flow-node-inventory:port": "",
+                "flow-node-inventory:property": "",
+                "flow-node-inventory:queue-id": "",
+                "opendaylight-queue-statistics:flow-capable-node-connector-queue-statistics": "",
+                "port": "",
+                "property": "",
+                "queue-id": ""
+            },
+            "state": {
+                "blocked": "",
+                "flow-node-inventory:blocked": "",
+                "flow-node-inventory:link-down": "",
+                "flow-node-inventory:live": "",
+                "link-down": "",
+                "live": ""
+            },
+            "status": "",
+            "stp-status-aware-node-connector:status": "",
+            "supported": ""
+        },
+        "opendaylight-group-statistics:group-features": "",
+        "opendaylight-meter-statistics:meter-features": "",
+        "pass-through": "",
+        "serial-number": "",
+        "software": "",
+        "supported-actions": {
+            "action-type": {
+                "action": "",
+                "flow-node-inventory:action": "",
+                "flow-node-inventory:support-state": "",
+                "support-state": ""
+            },
+            "flow-node-inventory:action-type": ""
+        },
+        "supported-instructions": {
+            "flow-node-inventory:instruction-type": "",
+            "instruction-type": {
+                "flow-node-inventory:instruction": "",
+                "flow-node-inventory:support-state": "",
+                "instruction": "",
+                "support-state": ""
+            }
+        },
+        "supported-match-types": {
+            "flow-node-inventory:match-type": "",
+            "match-type": {
+                "flow-node-inventory:match": "",
+                "flow-node-inventory:support-state": "",
+                "match": "",
+                "support-state": ""
+            }
+        },
+        "switch-features": {
+            "flow-node-inventory:capabilities": "",
+            "flow-node-inventory:max_buffers": "",
+            "flow-node-inventory:max_tables": "",
+            "max_buffers": "",
+            "max_tables": ""
+        },
+        "table": {
+            "aggregate-flow-statistics": {
+                "byte-count": "",
+                "flow-count": "",
+                "opendaylight-flow-statistics:byte-count": "",
+                "opendaylight-flow-statistics:flow-count": "",
+                "opendaylight-flow-statistics:packet-count": "",
+                "packet-count": ""
+            },
+            "flow": {
+                "barrier": "",
+                "buffer_id": "",
+                "container-name": "",
+                "cookie": "",
+                "cookie_mask": "",
+                "flags": "",
+                "flow-name": "",
+                "flow-node-inventory:barrier": "",
+                "flow-node-inventory:buffer_id": "",
+                "flow-node-inventory:container-name": "",
+                "flow-node-inventory:cookie": "",
+                "flow-node-inventory:cookie_mask": "",
+                "flow-node-inventory:flags": "",
+                "flow-node-inventory:flow-name": "",
+                "flow-node-inventory:hard-timeout": "",
+                "flow-node-inventory:id": "",
+                "flow-node-inventory:idle-timeout": "",
+                "flow-node-inventory:installHw": "",
+                "flow-node-inventory:instructions": "",
+                "flow-node-inventory:match": "",
+                "flow-node-inventory:out_group": "",
+                "flow-node-inventory:out_port": "",
+                "flow-node-inventory:priority": "",
+                "flow-node-inventory:strict": "",
+                "flow-node-inventory:table_id": "",
+                "flow-statistics": {
+                    "byte-count": "",
+                    "duration": {
+                        "nanosecond": "",
+                        "opendaylight-group-statistics:nanosecond": "",
+                        "opendaylight-group-statistics:second": "",
+                        "second": ""
+                    },
+                    "opendaylight-flow-statistics:byte-count": "",
+                    "opendaylight-flow-statistics:duration": "",
+                    "opendaylight-flow-statistics:packet-count": "",
+                    "packet-count": ""
+                },
+                "hard-timeout": "",
+                "id": "",
+                "idle-timeout": "",
+                "installHw": "",
+                "instructions": {
+                    "instruction": {
+                        "opendaylight-flow-table-statistics:instruction": {
+                            "opendaylight-flow-table-statistics:apply-actions": "",
+                            "opendaylight-flow-table-statistics:clear-actions": "",
+                            "opendaylight-flow-table-statistics:go-to-table": "",
+                            "opendaylight-flow-table-statistics:meter": "",
+                            "opendaylight-flow-table-statistics:write-actions": "",
+                            "opendaylight-flow-table-statistics:write-metadata": ""
+                        },
+                        "opendaylight-flow-table-statistics:order": "",
+                        "order": ""
+                    },
+                    "opendaylight-flow-table-statistics:instruction": ""
+                },
+                "match": {
+                    "ethernet-match": {
+                        "ethernet-destination": {
+                            "address": "",
+                            "mask": "",
+                            "opendaylight-group-statistics:address": "",
+                            "opendaylight-group-statistics:mask": ""
+                        },
+                        "ethernet-source": {
+                            "address": "",
+                            "mask": "",
+                            "opendaylight-group-statistics:address": "",
+                            "opendaylight-group-statistics:mask": ""
+                        },
+                        "ethernet-type": {
+                            "opendaylight-group-statistics:type": "",
+                            "type": ""
+                        },
+                        "opendaylight-group-statistics:ethernet-destination": "",
+                        "opendaylight-group-statistics:ethernet-source": "",
+                        "opendaylight-group-statistics:ethernet-type": ""
+                    },
+                    "extension-list": {
+                        "extension": {
+                            "dos-ekis": "",
+                            "openflowplugin-extension-general:dos-ekis": ""
+                        },
+                        "extension-key": "",
+                        "openflowplugin-extension-general:extension": "",
+                        "openflowplugin-extension-general:extension-key": ""
+                    },
+                    "flow-node-inventory:ethernet-match": "",
+                    "flow-node-inventory:icmpv4-match": "",
+                    "flow-node-inventory:icmpv6-match": "",
+                    "flow-node-inventory:in-phy-port": "",
+                    "flow-node-inventory:in-port": "",
+                    "flow-node-inventory:ip-match": "",
+                    "flow-node-inventory:layer-3-match": "",
+                    "flow-node-inventory:layer-4-match": "",
+                    "flow-node-inventory:metadata": "",
+                    "flow-node-inventory:protocol-match-fields": "",
+                    "flow-node-inventory:tcp-flag-match": "",
+                    "flow-node-inventory:tunnel": "",
+                    "flow-node-inventory:vlan-match": "",
+                    "icmpv4-match": {
+                        "icmpv4-code": "",
+                        "icmpv4-type": "",
+                        "opendaylight-group-statistics:icmpv4-code": "",
+                        "opendaylight-group-statistics:icmpv4-type": ""
+                    },
+                    "icmpv6-match": {
+                        "icmpv6-code": "",
+                        "icmpv6-type": "",
+                        "opendaylight-group-statistics:icmpv6-code": "",
+                        "opendaylight-group-statistics:icmpv6-type": ""
+                    },
+                    "in-phy-port": "",
+                    "in-port": "",
+                    "ip-match": {
+                        "ip-dscp": "",
+                        "ip-ecn": "",
+                        "ip-proto": "",
+                        "ip-protocol": "",
+                        "opendaylight-group-statistics:ip-dscp": "",
+                        "opendaylight-group-statistics:ip-ecn": "",
+                        "opendaylight-group-statistics:ip-proto": "",
+                        "opendaylight-group-statistics:ip-protocol": ""
+                    },
+                    "metadata": {
+                        "metadata": "",
+                        "metadata-mask": "",
+                        "opendaylight-group-statistics:metadata": "",
+                        "opendaylight-group-statistics:metadata-mask": ""
+                    },
+                    "openflowplugin-extension-general:extension-list": "",
+                    "protocol-match-fields": {
+                        "mpls-bos": "",
+                        "mpls-label": "",
+                        "mpls-tc": "",
+                        "opendaylight-group-statistics:mpls-bos": "",
+                        "opendaylight-group-statistics:mpls-label": "",
+                        "opendaylight-group-statistics:mpls-tc": "",
+                        "opendaylight-group-statistics:pbb": "",
+                        "pbb": {
+                            "opendaylight-group-statistics:pbb-isid": "",
+                            "opendaylight-group-statistics:pbb-mask": "",
+                            "pbb-isid": "",
+                            "pbb-mask": ""
+                        }
+                    },
+                    "tcp-flag-match": {
+                        "opendaylight-group-statistics:tcp-flag": "",
+                        "tcp-flag": ""
+                    },
+                    "tunnel": {
+                        "opendaylight-group-statistics:tunnel-id": "",
+                        "opendaylight-group-statistics:tunnel-mask": "",
+                        "tunnel-id": "",
+                        "tunnel-mask": ""
+                    },
+                    "vlan-match": {
+                        "opendaylight-group-statistics:vlan-id": "",
+                        "opendaylight-group-statistics:vlan-pcp": "",
+                        "vlan-id": {
+                            "opendaylight-group-statistics:vlan-id": "",
+                            "opendaylight-group-statistics:vlan-id-present": "",
+                            "vlan-id": "",
+                            "vlan-id-present": ""
+                        },
+                        "vlan-pcp": ""
+                    }
+                },
+                "opendaylight-flow-statistics:flow-statistics": "",
+                "out_group": "",
+                "out_port": "",
+                "priority": "",
+                "strict": "",
+                "table_id": ""
+            },
+            "flow-hash-id-map": {
+                "flow-id": "",
+                "flow-node-inventory:flow-id": "",
+                "flow-node-inventory:hash": "",
+                "hash": ""
+            },
+            "flow-node-inventory:flow": "",
+            "flow-node-inventory:flow-hash-id-map": "",
+            "flow-node-inventory:id": "",
+            "flow-node-inventory:table-features": "",
+            "flow-table-statistics": {
+                "active-flows": "",
+                "opendaylight-flow-table-statistics:active-flows": "",
+                "opendaylight-flow-table-statistics:packets-looked-up": "",
+                "opendaylight-flow-table-statistics:packets-matched": "",
+                "packets-looked-up": "",
+                "packets-matched": ""
+            },
+            "id": "",
+            "opendaylight-flow-statistics:aggregate-flow-statistics": "",
+            "opendaylight-flow-table-statistics:flow-table-statistics": "",
+            "opendaylight-flow-table-statistics:table-feature-container": "",
+            "table-feature-container": {
+                "opendaylight-flow-table-statistics:table-features": "",
+                "table-features": {
+                    "config": "",
+                    "max-entries": "",
+                    "metadata-match": "",
+                    "metadata-write": "",
+                    "name": "",
+                    "opendaylight-flow-table-statistics:config": "",
+                    "opendaylight-flow-table-statistics:max-entries": "",
+                    "opendaylight-flow-table-statistics:metadata-match": "",
+                    "opendaylight-flow-table-statistics:metadata-write": "",
+                    "opendaylight-flow-table-statistics:name": "",
+                    "opendaylight-flow-table-statistics:table-id": "",
+                    "opendaylight-flow-table-statistics:table-properties": "",
+                    "table-id": "",
+                    "table-properties": {
+                        "opendaylight-flow-table-statistics:table-feature-properties": "",
+                        "table-feature-properties": {
+                            "opendaylight-flow-table-statistics:order": "",
+                            "opendaylight-flow-table-statistics:table-feature-prop-type": {
+                                "opendaylight-flow-table-statistics:apply-actions": "",
+                                "opendaylight-flow-table-statistics:apply-actions-miss": "",
+                                "opendaylight-flow-table-statistics:apply-setfield": "",
+                                "opendaylight-flow-table-statistics:apply-setfield-miss": "",
+                                "opendaylight-flow-table-statistics:instructions": "",
+                                "opendaylight-flow-table-statistics:instructions-miss": "",
+                                "opendaylight-flow-table-statistics:match-setfield": "",
+                                "opendaylight-flow-table-statistics:tables": "",
+                                "opendaylight-flow-table-statistics:tables-miss": "",
+                                "opendaylight-flow-table-statistics:wildcard-setfield": "",
+                                "opendaylight-flow-table-statistics:write-actions": "",
+                                "opendaylight-flow-table-statistics:write-actions-miss": "",
+                                "opendaylight-flow-table-statistics:write-setfield": "",
+                                "opendaylight-flow-table-statistics:write-setfield-miss": ""
+                            },
+                            "order": ""
+                        }
+                    }
+                }
+            },
+            "table-features": {
+                "config": "",
+                "max-entries": "",
+                "metadata-match": "",
+                "metadata-write": "",
+                "name": "",
+                "opendaylight-flow-table-statistics:config": "",
+                "opendaylight-flow-table-statistics:max-entries": "",
+                "opendaylight-flow-table-statistics:metadata-match": "",
+                "opendaylight-flow-table-statistics:metadata-write": "",
+                "opendaylight-flow-table-statistics:name": "",
+                "opendaylight-flow-table-statistics:table-id": "",
+                "opendaylight-flow-table-statistics:table-properties": "",
+                "table-id": "",
+                "table-properties": {
+                    "opendaylight-flow-table-statistics:table-feature-properties": "",
+                    "table-feature-properties": {
+                        "opendaylight-flow-table-statistics:order": "",
+                        "opendaylight-flow-table-statistics:table-feature-prop-type": {
+                            "opendaylight-flow-table-statistics:apply-actions": "",
+                            "opendaylight-flow-table-statistics:apply-actions-miss": "",
+                            "opendaylight-flow-table-statistics:apply-setfield": "",
+                            "opendaylight-flow-table-statistics:apply-setfield-miss": "",
+                            "opendaylight-flow-table-statistics:instructions": "",
+                            "opendaylight-flow-table-statistics:instructions-miss": "",
+                            "opendaylight-flow-table-statistics:match-setfield": "",
+                            "opendaylight-flow-table-statistics:tables": "",
+                            "opendaylight-flow-table-statistics:tables-miss": "",
+                            "opendaylight-flow-table-statistics:wildcard-setfield": "",
+                            "opendaylight-flow-table-statistics:write-actions": "",
+                            "opendaylight-flow-table-statistics:write-actions-miss": "",
+                            "opendaylight-flow-table-statistics:write-setfield": "",
+                            "opendaylight-flow-table-statistics:write-setfield-miss": ""
+                        },
+                        "order": ""
+                    }
+                }
+            }
+        }
+    }
+}

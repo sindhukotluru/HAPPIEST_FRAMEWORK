@@ -1,0 +1,13 @@
+{
+  "interface":
+  {
+      "enabled": "true",
+      "odl-interface:of-port-id": "openflow:2:3",
+      "description": "VM Port mpls",
+      "name": "s2-gre1",
+      "type": "odl-interface:l3tunnel",
+      "odl-interface:tunnel-type": "odl-interface:tunnel-type-gre",
+      "odl-interface:local-ip": "mininet2_ip",
+      "odl-interface:remote-ip": "mininet1_ip"
+  }
+}

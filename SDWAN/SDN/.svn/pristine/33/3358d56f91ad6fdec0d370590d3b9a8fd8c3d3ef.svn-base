@@ -1,0 +1,185 @@
+from copy import deepcopy
+import json
+from SDN.odl.interface.restconf import rest_session
+
+
+
+class VPN_INSTANCE(object):
+
+    _VPN_INSTANCE_FIELD = "vpn-instance"
+    _IPV4_FAMILY_FIELD = "ipv4-family"
+    _DESCRIPTION_FIELD = "description"
+    _VPN_INSTANCE_NAME_FIELD = "vpn-instance-name"
+
+    def __init__(self):
+        self._template = {}
+        self._template[self._IPV4_FAMILY_FIELD] = None
+        self._template[self._DESCRIPTION_FIELD] = None
+        self._template[self._VPN_INSTANCE_NAME_FIELD] = None
+        self._default_template = deepcopy(self._template)
+        self._REST_URL = None
+        self._ipv4_family = IPV4_FAMILY()
+
+    @property
+    def ipv4_family(self):
+        return self._ipv4_family
+
+    def set_description(self, value):
+        self._template[self._DESCRIPTION_FIELD] = value
+
+    def set_vpn_instance_name(self, value):
+        self._template[self._VPN_INSTANCE_NAME_FIELD] = value
+
+    def set_rest_url(self, value):
+        self._REST_URL = value
+
+    def get_template(self, default=False):
+        if default:
+            self._default_template[self._IPV4_FAMILY_FIELD] = self.ipv4_family.get_template(default=default)
+            return self._default_template
+        else:
+            self._template[self._IPV4_FAMILY_FIELD] = self.ipv4_family.get_template()
+            return self._template
+
+    def get_payload(self):
+        payload = {key: value for key, value in self._template.iteritems() if value is not None}
+        ipv4_family_payload = self.ipv4_family.get_payload()
+        if ipv4_family_payload:
+            payload[self._IPV4_FAMILY_FIELD] = ipv4_family_payload
+        return payload
+
+    def get_json(self, default=False):
+        if default:
+            return json.dumps(self.get_template(default=default))
+        return json.dumps(self.get_payload())
+
+    def create_vpn_instance(self):
+        
+        payload = {self._VPN_INSTANCE_FIELD: self.get_template()}
+        rest_session.send_post_request(url=self._REST_URL, data=json.dumps(payload))
+        return rest_session.response_code, rest_session.response_as_text
+
+    def delete_vpn_instance(self):
+        rest_session.send_delete_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+    def get_vpn_instance(self):
+        rest_session.send_get_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+
+class IPV4_FAMILY(object):
+
+    _IPV4_FAMILY_FIELD = "ipv4-family"
+    _APPLY_LABEL_FIELD = "apply-label"
+    _IMPORT_ROUTE_POLICY_FIELD = "import-route-policy"
+    _EXPORT_ROUTE_POLICY_FIELD = "export-route-policy"
+    _ROUTE_DISTINGUISHER_FIELD = "route-distinguisher"
+
+    def __init__(self):
+        self._template = {}
+        self._template[self._APPLY_LABEL_FIELD] = None
+        self._template[self._IMPORT_ROUTE_POLICY_FIELD] = None
+        self._template[self._EXPORT_ROUTE_POLICY_FIELD] = None
+        self._template[self._ROUTE_DISTINGUISHER_FIELD] = None
+        self._default_template = deepcopy(self._template)
+        self._REST_URL = None
+        self._apply_label = APPLY_LABEL()
+
+    @property
+    def apply_label(self):
+        return self._apply_label
+
+    def set_import_route_policy(self, value):
+        self._template[self._IMPORT_ROUTE_POLICY_FIELD] = value
+
+    def set_export_route_policy(self, value):
+        self._template[self._EXPORT_ROUTE_POLICY_FIELD] = value
+
+    def set_route_distinguisher(self, value):
+        self._template[self._ROUTE_DISTINGUISHER_FIELD] = value
+
+    def set_rest_url(self, value):
+        self._REST_URL = value
+
+    def get_template(self, default=False):
+        if default:
+            self._default_template[self._APPLY_LABEL_FIELD] = self.apply_label.get_template(default=default)
+            return self._default_template
+        else:
+            self._template[self._APPLY_LABEL_FIELD] = self.apply_label.get_template()
+            return self._template
+
+    def get_payload(self):
+        payload = {key: value for key, value in self._template.iteritems() if value is not None}
+        apply_label_payload = self.apply_label.get_payload()
+        if apply_label_payload:
+            payload[self._APPLY_LABEL_FIELD] = apply_label_payload
+        return payload
+
+    def get_json(self, default=False):
+        if default:
+            return json.dumps(self.get_template(default=default))
+        return json.dumps(self.get_payload())
+
+    def create_ipv4_family(self):
+        
+        payload = {self._IPV4_FAMILY_FIELD: self.get_template()}
+        rest_session.send_post_request(url=self._REST_URL, data=json.dumps(payload))
+        return rest_session.response_code, rest_session.response_as_text
+
+    def delete_ipv4_family(self):
+        rest_session.send_delete_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+    def get_ipv4_family(self):
+        rest_session.send_get_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+
+class APPLY_LABEL(object):
+
+    _APPLY_LABEL_FIELD = "apply-label"
+    _APPLY_LABEL_PER_ROUTE_FIELD = "apply-label-per-route"
+
+    def __init__(self):
+        self._template = {}
+        self._template[self._APPLY_LABEL_PER_ROUTE_FIELD] = None
+        self._default_template = deepcopy(self._template)
+        self._REST_URL = None
+
+    def set_apply_label_per_route(self, value):
+        self._template[self._APPLY_LABEL_PER_ROUTE_FIELD] = value
+
+    def set_rest_url(self, value):
+        self._REST_URL = value
+
+    def get_template(self, default=False):
+        if default:
+            return self._default_template
+        else:
+            return self._template
+
+    def get_payload(self):
+        payload = {key: value for key, value in self._template.iteritems() if value is not None}
+        return payload
+
+    def get_json(self, default=False):
+        if default:
+            return json.dumps(self.get_template(default=default))
+        return json.dumps(self.get_payload())
+
+    def create_apply_label(self):
+        
+        payload = {self._APPLY_LABEL_FIELD: self.get_template()}
+        rest_session.send_post_request(url=self._REST_URL, data=json.dumps(payload))
+        return rest_session.response_code, rest_session.response_as_text
+
+    def delete_apply_label(self):
+        rest_session.send_delete_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+    def get_apply_label(self):
+        rest_session.send_get_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+

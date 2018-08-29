@@ -1,0 +1,105 @@
+{# Importing required modules #}
+from copy import deepcopy
+import json
+from SDN.odl.interface.restconf import rest_session
+
+
+{# Dump the JSON Class Name #}
+{% for name in class_attrs %}
+
+class {{name|format_attribute_name|upper()}}(object):
+
+    _{{name|format_attribute_name|upper}}_FIELD = "{{name}}"
+{# Dump the Attribute Field Identifiers #}
+{% for attr in class_attrs[name] %}
+    _{{attr|format_attribute_name|upper}}_FIELD = "{{attr}}"
+{% endfor %}
+
+{# Dump the Constructor #}
+    def __init__(self):
+        self._template = {}
+{% for attr in class_attrs[name] %}
+        self._template[self._{{attr|format_attribute_name|upper}}_FIELD] = None
+{% endfor %}
+        self._default_template = deepcopy(self._template)
+        self._REST_URL = None
+{# Initialize the child class objects #}
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() and attr != name %}
+        self._{{attr|format_attribute_name|lower}} = {{attr|format_attribute_name|upper}}()
+{% endif %}
+{% endfor %}
+
+{# Dump the method to return the child class object as a property #}
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() and attr != name %}
+    @property
+    def {{attr|format_attribute_name|lower}}(self):
+        return self._{{attr|format_attribute_name|lower}}
+
+{% endif %}
+{% endfor%}
+{# Dump the Setter methods for the attributes #}
+{% for attr in class_attrs[name] %}
+{% if attr not in class_attrs.keys() %}
+    def set_{{attr|format_attribute_name|lower}}(self, value):
+        self._template[self._{{attr|format_attribute_name|upper}}_FIELD] = value
+
+{% endif %}
+{% endfor %}
+    def set_rest_url(self, value):
+        self._REST_URL = value
+
+{# Dump the Getter methods for the attributes #}
+    def get_template(self, default=False):
+        if default:
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() and attr != name %}
+            self._default_template[self._{{attr|format_attribute_name|upper}}_FIELD] = self.{{attr|format_attribute_name|lower}}.get_template(default=default)
+{% endif %}
+{% endfor %}
+            return self._default_template
+        else:
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() and attr != name %}
+            self._template[self._{{attr|format_attribute_name|upper}}_FIELD] = self.{{attr|format_attribute_name|lower}}.get_template()
+{% endif %}
+{% endfor %}
+            return self._template
+
+{# Dump the Getter method for the dict payload #}
+    def get_payload(self):
+        payload = {key: value for key, value in self._template.iteritems() if value is not None}
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() and attr != name %}
+        {{attr|format_attribute_name|lower}}_payload = self.{{attr|format_attribute_name|lower}}.get_payload()
+        if {{attr|format_attribute_name|lower}}_payload:
+            payload[self._{{attr|format_attribute_name|upper}}_FIELD] = {{attr|format_attribute_name|lower}}_payload
+{% endif %}
+{% endfor %}
+        return payload
+
+{# Dump the Getter method for the JSON representation #}
+    def get_json(self, default=False):
+        if default:
+            return json.dumps(self.get_template(default=default))
+        return json.dumps(self.get_payload())
+
+{# Dump the create instance method #}
+    def create_{{name|format_attribute_name|lower}}(self):
+        
+        payload = {self._{{name|format_attribute_name|upper}}_FIELD: self.get_template()}
+        rest_session.send_post_request(url=self._REST_URL, data=json.dumps(payload))
+        return rest_session.response_code, rest_session.response_as_text
+
+{# Dump the delete instance method #}
+    def delete_{{name|format_attribute_name|lower}}(self):
+        rest_session.send_delete_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+{# Dump the get instance method #}
+    def get_{{name|format_attribute_name|lower}}(self):
+        rest_session.send_get_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+{% endfor %}

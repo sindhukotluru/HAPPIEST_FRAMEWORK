@@ -1,0 +1,24 @@
+{
+    "action-choice": {
+        "enqueue-action": "",
+        "group-action": "",
+        "output-action": "",
+        "pop-mpls-action": "",
+        "push-mpls-action": "",
+        "push-pbb-action": "",
+        "push-vlan-action": "",
+        "set-dl-dst-action": "",
+        "set-dl-src-action": "",
+        "set-field-action": "",
+        "set-mpls-ttl-action": "",
+        "set-nw-dst-action": "",
+        "set-nw-src-action": "",
+        "set-nw-tos-action": "",
+        "set-nw-ttl-action": "",
+        "set-queue-action": "",
+        "set-tp-dst-action": "",
+        "set-tp-src-action": "",
+        "set-vlan-pcp-action": "",
+        "set-vlan-vid-action": ""
+    }
+}

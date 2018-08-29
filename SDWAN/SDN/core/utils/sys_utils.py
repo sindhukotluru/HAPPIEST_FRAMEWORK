@@ -1,0 +1,58 @@
+from subprocess import Popen, PIPE
+import os
+from SDN.core.interface.cli_interface import SSHConnection
+import platform
+
+
+# TBD: Add validation for valid IP Address. Also consider the use pyping module.
+def ping(ip, echo_count=1):
+    cmd_args = []
+    exp_message = None
+    
+    os_type = platform.system().lower()
+    if platform.system().lower() == 'java':
+        import java.lang
+        os_type = java.lang.System.getProperty("os.name").lower()
+
+    print "os_type :: ", os_type
+    if 'windows' in os_type:
+        cmd_args = ['-n', str(echo_count)]
+        exp_message = "Packets: Sent = {0}, Received = {1}, Lost = 0 (0% loss)".format(echo_count, echo_count)
+    else:
+        cmd_args = ['-c{0}'.format(echo_count)]
+        exp_message = "{0} packets transmitted, {1} received, 0% packet loss".format(echo_count, echo_count)
+    
+
+    cmd = Popen(["ping"] + [ip] + cmd_args, stdout=PIPE, stderr=PIPE)
+    cmd_output = cmd.stdout.read()
+    
+    return True if exp_message in cmd_output else False
+
+
+def remote_ping(source_ip, source_user, source_password, destination_ip, echo_count=1):
+    status = False
+    ssh_obj = SSHConnection(IP=source_ip, username=source_user, password=source_password)
+    conn_status = ssh_obj.connect()
+    if conn_status:
+        print destination_ip
+        print("SSH connection success")
+        cmd = "ping {0} -c{1}".format(destination_ip, echo_count)
+        if ssh_obj.execute_command(cmd=cmd):
+            exp_message = r'{0} packets transmitted, {1} received, 0% packet loss'.format(echo_count, echo_count)
+            command_output = ssh_obj.resp
+            #print command_output
+            #print exp_message
+            status = True if exp_message in command_output else False
+    return status
+
+
+
+
+
+
+
+
+
+
+
+

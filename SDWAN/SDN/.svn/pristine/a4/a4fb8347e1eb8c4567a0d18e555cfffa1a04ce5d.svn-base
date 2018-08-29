@@ -1,0 +1,394 @@
+{
+    "topology": {
+        "igp-topology-attributes": {
+            "isis-topology-attributes": {
+                "isis-topology:net": "",
+                "net": ""
+            },
+            "isis-topology:isis-topology-attributes": "",
+            "l3-unicast-igp-topology:flag": "",
+            "l3-unicast-igp-topology:name": "",
+            "name": "",
+            "ospf-topology-attributes": {
+                "area-id": "",
+                "ospf-topology:area-id": ""
+            },
+            "ospf-topology:ospf-topology-attributes": ""
+        },
+        "l3-unicast-igp-topology:igp-topology-attributes": "",
+        "link": {
+            "destination": {
+                "dest-node": "",
+                "dest-tp": ""
+            },
+            "igp-link-attributes": {
+                "isis-link-attributes": {
+                    "isis-topology:multi-topology-id": "",
+                    "isis-topology:ted": "",
+                    "multi-topology-id": "",
+                    "ted": {
+                        "color": "",
+                        "isis-topology:color": "",
+                        "isis-topology:max-link-bandwidth": "",
+                        "isis-topology:max-resv-link-bandwidth": "",
+                        "isis-topology:srlg": "",
+                        "isis-topology:te-default-metric": "",
+                        "isis-topology:unreserved-bandwidth": "",
+                        "max-link-bandwidth": "",
+                        "max-resv-link-bandwidth": "",
+                        "srlg": {
+                            "interface-switching-capabilities": {
+                                "encoding": "",
+                                "isis-topology:encoding": "",
+                                "isis-topology:max-lsp-bandwidth": "",
+                                "isis-topology:packet-switch-capable": "",
+                                "isis-topology:switching-capability": "",
+                                "isis-topology:time-division-multiplex-capable": "",
+                                "max-lsp-bandwidth": {
+                                    "bandwidth": "",
+                                    "isis-topology:bandwidth": "",
+                                    "isis-topology:priority": "",
+                                    "priority": ""
+                                },
+                                "packet-switch-capable": {
+                                    "interface-mtu": "",
+                                    "isis-topology:interface-mtu": "",
+                                    "isis-topology:minimum-lsp-bandwidth": "",
+                                    "minimum-lsp-bandwidth": ""
+                                },
+                                "switching-capability": "",
+                                "time-division-multiplex-capable": {
+                                    "indication": "",
+                                    "isis-topology:indication": "",
+                                    "isis-topology:minimum-lsp-bandwidth": "",
+                                    "minimum-lsp-bandwidth": ""
+                                }
+                            },
+                            "isis-topology:interface-switching-capabilities": "",
+                            "isis-topology:link-protection-type": "",
+                            "isis-topology:srlg-values": "",
+                            "link-protection-type": "",
+                            "srlg-values": {
+                                "isis-topology:srlg-value": "",
+                                "srlg-value": ""
+                            }
+                        },
+                        "te-default-metric": "",
+                        "unreserved-bandwidth": {
+                            "bandwidth": "",
+                            "isis-topology:bandwidth": "",
+                            "isis-topology:priority": "",
+                            "priority": ""
+                        }
+                    }
+                },
+                "isis-topology:isis-link-attributes": "",
+                "l3-unicast-igp-topology:flag": "",
+                "l3-unicast-igp-topology:metric": "",
+                "l3-unicast-igp-topology:name": "",
+                "metric": "",
+                "name": "",
+                "ospf-link-attributes": {
+                    "multi-topology-id": "",
+                    "ospf-topology:multi-topology-id": "",
+                    "ospf-topology:ted": "",
+                    "ted": {
+                        "color": "",
+                        "isis-topology:color": "",
+                        "isis-topology:max-link-bandwidth": "",
+                        "isis-topology:max-resv-link-bandwidth": "",
+                        "isis-topology:srlg": "",
+                        "isis-topology:te-default-metric": "",
+                        "isis-topology:unreserved-bandwidth": "",
+                        "max-link-bandwidth": "",
+                        "max-resv-link-bandwidth": "",
+                        "srlg": {
+                            "interface-switching-capabilities": {
+                                "encoding": "",
+                                "isis-topology:encoding": "",
+                                "isis-topology:max-lsp-bandwidth": "",
+                                "isis-topology:packet-switch-capable": "",
+                                "isis-topology:switching-capability": "",
+                                "isis-topology:time-division-multiplex-capable": "",
+                                "max-lsp-bandwidth": {
+                                    "bandwidth": "",
+                                    "isis-topology:bandwidth": "",
+                                    "isis-topology:priority": "",
+                                    "priority": ""
+                                },
+                                "packet-switch-capable": {
+                                    "interface-mtu": "",
+                                    "isis-topology:interface-mtu": "",
+                                    "isis-topology:minimum-lsp-bandwidth": "",
+                                    "minimum-lsp-bandwidth": ""
+                                },
+                                "switching-capability": "",
+                                "time-division-multiplex-capable": {
+                                    "indication": "",
+                                    "isis-topology:indication": "",
+                                    "isis-topology:minimum-lsp-bandwidth": "",
+                                    "minimum-lsp-bandwidth": ""
+                                }
+                            },
+                            "isis-topology:interface-switching-capabilities": "",
+                            "isis-topology:link-protection-type": "",
+                            "isis-topology:srlg-values": "",
+                            "link-protection-type": "",
+                            "srlg-values": {
+                                "isis-topology:srlg-value": "",
+                                "srlg-value": ""
+                            }
+                        },
+                        "te-default-metric": "",
+                        "unreserved-bandwidth": {
+                            "bandwidth": "",
+                            "isis-topology:bandwidth": "",
+                            "isis-topology:priority": "",
+                            "priority": ""
+                        }
+                    }
+                },
+                "ospf-topology:ospf-link-attributes": ""
+            },
+            "l3-unicast-igp-topology:igp-link-attributes": "",
+            "link-id": "",
+            "source": {
+                "source-node": "",
+                "source-tp": ""
+            },
+            "supporting-link": {
+                "link-ref": ""
+            }
+        },
+        "node": {
+            "addresses": {
+                "first-seen": "",
+                "host-tracker-service:first-seen": "",
+                "host-tracker-service:id": "",
+                "host-tracker-service:ip": "",
+                "host-tracker-service:last-seen": "",
+                "host-tracker-service:mac": "",
+                "host-tracker-service:vlan": "",
+                "id": "",
+                "ip": "",
+                "last-seen": "",
+                "mac": "",
+                "vlan": ""
+            },
+            "attachment-points": {
+                "active": "",
+                "corresponding-tp": "",
+                "host-tracker-service:active": "",
+                "host-tracker-service:corresponding-tp": "",
+                "host-tracker-service:tp-id": "",
+                "tp-id": ""
+            },
+            "host-tracker-service:addresses": "",
+            "host-tracker-service:attachment-points": "",
+            "host-tracker-service:id": "",
+            "id": "",
+            "igp-node-attributes": {
+                "isis-node-attributes": {
+                    "isis-topology:iso": "",
+                    "isis-topology:multi-topology-id": "",
+                    "isis-topology:net": "",
+                    "isis-topology:router-type": "",
+                    "isis-topology:ted": "",
+                    "iso": {
+                        "isis-topology:iso-pseudonode-id": "",
+                        "isis-topology:iso-system-id": "",
+                        "iso-pseudonode-id": "",
+                        "iso-system-id": ""
+                    },
+                    "ted": {
+                        "color": "",
+                        "isis-topology:color": "",
+                        "isis-topology:max-link-bandwidth": "",
+                        "isis-topology:max-resv-link-bandwidth": "",
+                        "isis-topology:srlg": "",
+                        "isis-topology:te-default-metric": "",
+                        "isis-topology:unreserved-bandwidth": "",
+                        "max-link-bandwidth": "",
+                        "max-resv-link-bandwidth": "",
+                        "srlg": {
+                            "interface-switching-capabilities": {
+                                "encoding": "",
+                                "isis-topology:encoding": "",
+                                "isis-topology:max-lsp-bandwidth": "",
+                                "isis-topology:packet-switch-capable": "",
+                                "isis-topology:switching-capability": "",
+                                "isis-topology:time-division-multiplex-capable": "",
+                                "max-lsp-bandwidth": {
+                                    "bandwidth": "",
+                                    "isis-topology:bandwidth": "",
+                                    "isis-topology:priority": "",
+                                    "priority": ""
+                                },
+                                "packet-switch-capable": {
+                                    "interface-mtu": "",
+                                    "isis-topology:interface-mtu": "",
+                                    "isis-topology:minimum-lsp-bandwidth": "",
+                                    "minimum-lsp-bandwidth": ""
+                                },
+                                "switching-capability": "",
+                                "time-division-multiplex-capable": {
+                                    "indication": "",
+                                    "isis-topology:indication": "",
+                                    "isis-topology:minimum-lsp-bandwidth": "",
+                                    "minimum-lsp-bandwidth": ""
+                                }
+                            },
+                            "isis-topology:interface-switching-capabilities": "",
+                            "isis-topology:link-protection-type": "",
+                            "isis-topology:srlg-values": "",
+                            "link-protection-type": "",
+                            "srlg-values": {
+                                "isis-topology:srlg-value": "",
+                                "srlg-value": ""
+                            }
+                        },
+                        "te-default-metric": "",
+                        "unreserved-bandwidth": {
+                            "bandwidth": "",
+                            "isis-topology:bandwidth": "",
+                            "isis-topology:priority": "",
+                            "priority": ""
+                        }
+                    }
+                },
+                "isis-topology:isis-node-attributes": "",
+                "l3-unicast-igp-topology:flag": "",
+                "l3-unicast-igp-topology:name": "",
+                "l3-unicast-igp-topology:prefix": "",
+                "l3-unicast-igp-topology:router-id": "",
+                "name": "",
+                "ospf-node-attributes": {
+                    "capabilities": "",
+                    "dr-interface-id": "",
+                    "ospf-topology:capabilities": "",
+                    "ospf-topology:dr-interface-id": "",
+                    "ospf-topology:multi-topology-id": "",
+                    "ospf-topology:router-type": "",
+                    "ospf-topology:ted": "",
+                    "ted": {
+                        "color": "",
+                        "isis-topology:color": "",
+                        "isis-topology:max-link-bandwidth": "",
+                        "isis-topology:max-resv-link-bandwidth": "",
+                        "isis-topology:srlg": "",
+                        "isis-topology:te-default-metric": "",
+                        "isis-topology:unreserved-bandwidth": "",
+                        "max-link-bandwidth": "",
+                        "max-resv-link-bandwidth": "",
+                        "srlg": {
+                            "interface-switching-capabilities": {
+                                "encoding": "",
+                                "isis-topology:encoding": "",
+                                "isis-topology:max-lsp-bandwidth": "",
+                                "isis-topology:packet-switch-capable": "",
+                                "isis-topology:switching-capability": "",
+                                "isis-topology:time-division-multiplex-capable": "",
+                                "max-lsp-bandwidth": {
+                                    "bandwidth": "",
+                                    "isis-topology:bandwidth": "",
+                                    "isis-topology:priority": "",
+                                    "priority": ""
+                                },
+                                "packet-switch-capable": {
+                                    "interface-mtu": "",
+                                    "isis-topology:interface-mtu": "",
+                                    "isis-topology:minimum-lsp-bandwidth": "",
+                                    "minimum-lsp-bandwidth": ""
+                                },
+                                "switching-capability": "",
+                                "time-division-multiplex-capable": {
+                                    "indication": "",
+                                    "isis-topology:indication": "",
+                                    "isis-topology:minimum-lsp-bandwidth": "",
+                                    "minimum-lsp-bandwidth": ""
+                                }
+                            },
+                            "isis-topology:interface-switching-capabilities": "",
+                            "isis-topology:link-protection-type": "",
+                            "isis-topology:srlg-values": "",
+                            "link-protection-type": "",
+                            "srlg-values": {
+                                "isis-topology:srlg-value": "",
+                                "srlg-value": ""
+                            }
+                        },
+                        "te-default-metric": "",
+                        "unreserved-bandwidth": {
+                            "bandwidth": "",
+                            "isis-topology:bandwidth": "",
+                            "isis-topology:priority": "",
+                            "priority": ""
+                        }
+                    }
+                },
+                "ospf-topology:ospf-node-attributes": "",
+                "prefix": {
+                    "l3-unicast-igp-topology:flag": "",
+                    "l3-unicast-igp-topology:metric": "",
+                    "l3-unicast-igp-topology:prefix": "",
+                    "metric": "",
+                    "ospf-prefix-attributes": {
+                        "forwarding-address": "",
+                        "ospf-topology:forwarding-address": ""
+                    },
+                    "ospf-topology:ospf-prefix-attributes": "",
+                    "prefix": ""
+                }
+            },
+            "inventory-node-ref": "",
+            "l3-unicast-igp-topology:igp-node-attributes": "",
+            "node-id": "",
+            "node-identifier": {
+                "identifier": "",
+                "opendaylight-topology:identifier": "",
+                "opendaylight-topology:type": "",
+                "type": ""
+            },
+            "opendaylight-topology-inventory:inventory-node-ref": "",
+            "opendaylight-topology-view:original-node": "",
+            "opendaylight-topology:node-identifier": "",
+            "original-node": {
+                "node": "",
+                "opendaylight-topology-view:node": "",
+                "opendaylight-topology-view:topology": "",
+                "topology": ""
+            },
+            "supporting-node": {
+                "node-ref": "",
+                "topology-ref": ""
+            },
+            "termination-point": {
+                "igp-termination-point-attributes": {
+                    "l3-unicast-igp-topology:termination-point-type": {
+                        "l3-unicast-igp-topology:ip-address": "",
+                        "l3-unicast-igp-topology:unnumbered-id": ""
+                    }
+                },
+                "inventory-node-connector-ref": "",
+                "l3-unicast-igp-topology:igp-termination-point-attributes": "",
+                "opendaylight-topology-inventory:inventory-node-connector-ref": "",
+                "tp-id": ""
+            }
+        },
+        "opendaylight-topology-view:original-topology": "",
+        "server-provided": "",
+        "topology-id": "",
+        "topology-types": {
+            "l3-unicast-igp-topology": {
+                "isis": "",
+                "isis-topology:isis": "",
+                "ospf": "",
+                "ospf-topology:ospf": ""
+            },
+            "l3-unicast-igp-topology:l3-unicast-igp-topology": ""
+        },
+        "underlay-topology": {
+            "topology-ref": ""
+        }
+    }
+}

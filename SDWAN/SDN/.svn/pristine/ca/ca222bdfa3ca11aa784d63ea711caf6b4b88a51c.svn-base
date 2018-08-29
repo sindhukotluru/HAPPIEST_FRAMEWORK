@@ -1,0 +1,109 @@
+"""
+Inherit the SSHConnection to build protocol specific class objects.
+Ex:  Mininet, Telnetlib, etc.
+
+"""
+import os
+import time
+import sys
+
+if 'java' in sys.platform or os.name == 'nt':
+    from SSHLibrary.library import SSHLibrary
+else:
+    from pexpect import pxssh
+
+
+Debug = False
+
+def dlog(log):
+    if Debug:
+        print("\n{0}".format(log))
+
+class  Connection(object):
+    """
+    Base class for all the types of connections.
+    """
+    def connect(self):
+        pass
+
+    def disconnect(self):
+        pass
+
+
+class SSHConnection(Connection):
+
+    def __init__(self, IP, username, password, port=22):
+        self.resp = ""
+        if 'java' in sys.platform or os.name == 'nt':
+            self.rc = _RobotSSHConnection(IP=IP, username=username, password=password, port=port)
+        else:
+            self.rc = _PexpectSSHConnection(IP=IP, username=username, password=password, port=port)
+
+    def connect(self):
+        self.rc.connect()
+
+    def execute_command(self, cmd):
+        self.rc.execute_command(cmd)
+        self.resp = self.rc.resp
+
+    def disconnect(self):
+        self.rc.disconnect()
+
+
+class _PexpectSSHConnection(Connection):
+
+    def __init__(self, IP, username, password, port=22):
+
+        self.IP = IP
+        self.rc = pxssh.pxssh()
+        self.usr = username
+        self.pwd = password
+        self.port = port
+        self.resp = ""
+
+    def connect(self):
+        self.rc.login(self.IP, self.usr, self.pwd)
+        self.rc.sendline("")
+        self.rc.setecho(False)
+        if self.rc.prompt():
+            dlog(self.rc.before)
+            return True
+
+    def execute_command(self, cmd):
+        dlog("Command Execution: {0}".format(cmd))
+        self.rc.sendline(cmd)
+        if self.rc.prompt():
+            self.resp = self.rc.before
+            dlog(self.rc.before)
+            return True
+
+
+class _RobotSSHConnection(Connection):
+    """
+    This class used the Robot Framework SSHLibrary to provide an interface to connect and remotely execute commands.
+    It is supported on both Jython and Python
+    """
+
+    def __init__(self, IP, username, password, port=22):
+        self.rc = SSHLibrary()
+        self.IP = IP
+        self.usr = username
+        self.pwd = password
+        self.port = port
+        self.resp = ""
+
+    def connect(self):
+        self.rc.open_connection(host=self.IP, port=self.port)
+        self.rc.login(username=self.usr, password=self.pwd)
+
+    def execute_command(self, cmd):
+        dlog("Command Execution: {0}".format(cmd))
+        self.resp = self.rc.execute_command(cmd)
+        if self.resp:
+            return True
+        else:
+            return False
+
+    def disconnect(self):
+        self.rc.close_connection()
+
