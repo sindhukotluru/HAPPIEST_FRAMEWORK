@@ -1,0 +1,36 @@
+==============================================================================
+2Test :: Test Vnf Lcm Scenarios                                               
+==============================================================================
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Creation :: Test VM Cre... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Multinet VM Creation :: Te... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Upgrade :: Test VM Upgrade | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Soft Reboot :: Test VM ... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Hard Reboot :: Test VM ... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Create Snapshot :: Test... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Delete Snapshot :: Test... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Pause VM :: Test pause server | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Unpause VM :: Test unpause... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Suspend VM :: Test suspend... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Resume VM :: Test Resume S... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Delete VM :: Test VM deletion | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Delete Stack :: Test stack... | PASS |
+------------------------------------------------------------------------------
+2Test :: Test Vnf Lcm Scenarios                                       | PASS |
+13 critical tests, 13 passed, 0 failed
+13 tests total, 13 passed, 0 failed
+==============================================================================
+Output:  /home/test/automation/lcm/robot/suite/vnf/output.xml
+Log:     /home/test/automation/lcm/robot/suite/vnf/log.html
+Report:  /home/test/automation/lcm/robot/suite/vnf/report.html

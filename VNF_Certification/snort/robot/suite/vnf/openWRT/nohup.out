@@ -1,0 +1,105 @@
+==============================================================================
+Test :: Test Vnf Lcm Scenarios                                                
+==============================================================================
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Creation :: Test VM Cre... | FAIL |
+AttributeError: 'NoneType' object has no attribute 'groups'
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Multinet VM Creation :: Te... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Upgrade :: Test VM Upgrade | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Downgrade :: Test VM Do... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Soft Reboot :: Test VM ... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Hard Reboot :: Test VM ... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Create Snapshot :: Test... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Delete Snapshot :: Test... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Pause VM :: Test pause server | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Unpause VM :: Test unpause... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Suspend VM :: Test suspend... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Resume VM :: Test Resume S... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Delete VM :: Test VM deletion | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Delete Stack :: Test stack... | PASS |
+------------------------------------------------------------------------------
+Test :: Test Vnf Lcm Scenarios                                        | FAIL |
+14 critical tests, 13 passed, 1 failed
+14 tests total, 13 passed, 1 failed
+==============================================================================
+Output:  /home/test/automation/lcm/robot/suite/vnf/openWRT/output.xml
+Log:     /home/test/automation/lcm/robot/suite/vnf/openWRT/log.html
+Report:  /home/test/automation/lcm/robot/suite/vnf/openWRT/report.html
+==============================================================================
+Temptest :: Test Vnf Lcm Scenarios                                            
+==============================================================================
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Creation :: Test VM Cre... | FAIL |
+AttributeError: 'NoneType' object has no attribute 'groups'
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Multinet VM Creation :: Te... | PASS |
+------------------------------------------------------------------------------
+Temptest :: Test Vnf Lcm Scenarios                                    | FAIL |
+2 critical tests, 1 passed, 1 failed
+2 tests total, 1 passed, 1 failed
+==============================================================================
+Output:  /home/test/automation/lcm/robot/suite/vnf/openWRT/output.xml
+Log:     /home/test/automation/lcm/robot/suite/vnf/openWRT/log.html
+Report:  /home/test/automation/lcm/robot/suite/vnf/openWRT/report.html
+==============================================================================
+Temptest :: Test Vnf Lcm Scenarios                                            
+==============================================================================
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Creation :: Test VM Cre... | FAIL |
+AttributeError: 'NoneType' object has no attribute 'groups'
+------------------------------------------------------------------------------
+Temptest :: Test Vnf Lcm Scenarios                                    | FAIL |
+1 critical test, 0 passed, 1 failed
+1 test total, 0 passed, 1 failed
+==============================================================================
+Output:  /home/test/automation/lcm/robot/suite/vnf/openWRT/output.xml
+Log:     /home/test/automation/lcm/robot/suite/vnf/openWRT/log.html
+Report:  /home/test/automation/lcm/robot/suite/vnf/openWRT/report.html
+==============================================================================
+Test :: Test Vnf Lcm Scenarios                                                
+==============================================================================
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Creation :: Test VM Cre... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Multinet VM Creation :: Te... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Upgrade :: Test VM Upgrade | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Downgrade :: Test VM Do... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Soft Reboot :: Test VM ... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Hard Reboot :: Test VM ... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Create Snapshot :: Test... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: VM Delete Snapshot :: Test... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Pause VM :: Test pause server | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Unpause VM :: Test unpause... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Suspend VM :: Test suspend... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Resume VM :: Test Resume S... | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Delete VM :: Test VM deletion | PASS |
+------------------------------------------------------------------------------
+OPENSTACK - Validate Vnf Lcm Scenarios: Delete Stack :: Test stack... | PASS |
+------------------------------------------------------------------------------
+Test :: Test Vnf Lcm Scenarios                                        | PASS |
+14 critical tests, 14 passed, 0 failed
+14 tests total, 14 passed, 0 failed
+==============================================================================
+Output:  /home/test/automation/lcm/robot/suite/vnf/openWRT/output.xml
+Log:     /home/test/automation/lcm/robot/suite/vnf/openWRT/log.html
+Report:  /home/test/automation/lcm/robot/suite/vnf/openWRT/report.html

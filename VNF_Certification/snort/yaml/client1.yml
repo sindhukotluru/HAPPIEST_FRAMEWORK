@@ -1,0 +1,81 @@
+heat_template_version: 2015-10-15
+description: Launch a basic instance with specified ubuntu image using the
+             ``mininet`` flavor, ``mykey`` key,  and two networks private, net_mgmt.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance.
+    default: net101
+  NetID2:
+    type: string
+    description: 2nd Network ID to use for the instance
+    default: net_mgmt
+  IMAGE1:
+    type: string
+    description: Image name
+    default: cirros
+  IMAGE2:
+    type: string
+    description: Image name
+    default: LxCIPtable_ubuntu
+
+
+resources:
+  server1:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE1 }
+      flavor: 1gb
+      key_name: key234demo
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID2 }
+
+  floating_ip1:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public01
+
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip1 }
+      server_id: { get_resource: server1 }
+
+  server2:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE2 }
+      flavor: 5gb
+      key_name: key234demo
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID2 }
+
+  floating_ip2:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public01
+
+  association:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip2 }
+      server_id: { get_resource: server2 }
+
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server1, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server1, first_address ] }
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server2, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server2, first_address ] }
+

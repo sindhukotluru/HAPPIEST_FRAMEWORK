@@ -1,0 +1,10 @@
+"""
+Definitions of common variables for the VNF Devstack test in robot suites."""
+
+DEVSTACK_IP = "10.16.86.234"
+DEVSTACK_USER = "demo"
+DEVSTACK_PSWD = "admin123"
+SSH_PORT = "22"
+PROMPT= ":~$"
+SLEEP_TIME = "30"
+TIMEOUT = "20"

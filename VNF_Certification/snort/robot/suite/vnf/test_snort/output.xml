@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180413 16:59:41.559" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/test/lcm/robot/suite/vnf/test_snort/test.robot" id="s1" name="Test">
+<test id="s1-t1" name="OPENSTACK - Validate Snort vnf Scenarios: Setup Creation">
+<kw name="Vnf Create Multistack" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:00:03.641" level="INFO">create vm command:  openstack stack create -t /home/test/automation/lcm/yaml/ubuntu_multiserver.yml Stack123
+show_stack_command:  openstack stack show Stack123 -f json</msg>
+<status status="PASS" endtime="20180413 17:00:03.642" starttime="20180413 16:59:47.808"></status>
+</kw>
+<doc>Test VM Creation</doc>
+<status status="PASS" endtime="20180413 17:00:03.642" critical="yes" starttime="20180413 16:59:47.806"></status>
+</test>
+<test id="s1-t2" name="OPENSTACK - Validate Snort vnf Scenarios: ICMP Allow Test">
+<kw name="Vnf Allow Icmp Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:02:22.873" level="INFO">stack_name : Stack123 
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.101.4
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:nueSlcVwBqVs5vEf0ws1ChaFAgyqeqs34I7uoFdGOqw.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:29
+  remove with:
+  ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.101.4
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+33 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Wed Apr 11 10:22:32 2018 from 192.168.101.2
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+root@controller:~/lcm/robot/suite/vnf/test_snort# sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.4
+
+
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+29 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Wed Apr 11 10:22:38 2018 from 192.168.102.2
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.3
+
+
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+28 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Wed Apr 11 10:22:43 2018 from 192.168.102.2
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------Rule Addition STARTED----------
+ sudo echo "alert icmp 192.168.102.3 a&lt;bs77ahihm:~$ sudo echo "alert icmp 192.168.102.3 an                         y -&gt; \$HOME_NET any (msg:&lt;ert icmp 192.168.102.3 any -&gt; \$HOME_NET any (msg:"                         ICMP test detected"; GID:&lt; -&gt; \$HOME_NET any (msg:"ICMP test detected"; GID:1                         ; sid:50000001; rev:001; &lt;CMP test detected"; GID:1; sid:50000001; rev:001; c                         lasstype:icmp-event;)
+&gt; alert icmp \$HOME_NET any -&gt; 192.168.102.3 any (msg:"ICMP test detected"; G&lt; -&gt; 192.168.102.3 any (msg:"ICMP test detected"; GI                         D:1; sid:50000001; rev:00&lt;:"ICMP test detected"; GID:1; sid:50000001; rev:001                         ; classtype:icmp-event;)"&lt;:1; sid:50000001; rev:001; classtype:icmp-event;)"                          &gt; /etc/snort/rules/local.&lt; classtype:icmp-event;)" &gt; /etc/snort/rules/local.r                         ules
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ cat /etc/snort/rules/local.rules
+alert icmp 192.168.102.3 any -&gt; $HOME_NET any (msg:ICMP test detected; GID:1; sid:50000001; rev:001; classtype:icmp-event;)
+alert icmp $HOME_NET any -&gt; 192.168.102.3 any (msg:ICMP test detected; GID:1; sid:50000001; rev:001; classtype:icmp-event;)
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+------------------STARTING FIREWALL-------------------------
+['sudo snort -A console -q -c /etc/snort/snort.conf -Q &amp;']
+--------ICMP TEST STARTED----------
+ sudo ping -c 3 192.168.102.3
+
+
+PING 192.168.102.3 (192.168.102.3) 56(84) bytes of data.
+64 bytes from 192.168.102.3: icmp_seq=1 ttl=63 time=2.67 ms
+64 bytes from 192.168.102.3: icmp_seq=2 ttl=63 time=2.01 ms
+64 bytes from 192.168.102.3: icmp_seq=3 ttl=63 time=2.84 ms
+
+--- 192.168.102.3 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 2.016/2.509/2.840/0.357 ms
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+ sudo ping -c 3 192.168.101.4
+PING 192.168.101.4 (192.168.101.4) 56(84) bytes of data.
+64 bytes from 192.168.101.4: icmp_seq=1 ttl=63 time=11.4 ms
+
+
+64 bytes from 192.168.101.4: icmp_seq=2 ttl=63 time=3.07 ms
+64 bytes from 192.168.101.4: icmp_seq=3 ttl=63 time=2.67 ms
+
+--- 192.168.101.4 ping statistics ---
+3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+rtt min/avg/max/mdev = 2.677/5.729/11.432/4.035 ms
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:02:22.874" starttime="20180413 17:00:03.643"></status>
+</kw>
+<doc>Test ICMP</doc>
+<status status="PASS" endtime="20180413 17:02:22.875" critical="yes" starttime="20180413 17:00:03.642"></status>
+</test>
+<test id="s1-t3" name="OPENSTACK - Validate Snort vnf Scenarios: ICMP All drop Test">
+<kw name="Vnf Icmp Alldrop Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:04:38.011" level="INFO">stack_name : Stack123 
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.101.4
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:nueSlcVwBqVs5vEf0ws1ChaFAgyqeqs34I7uoFdGOqw.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:29
+  remove with:
+  ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.101.4
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+33 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:30:44 2018 from 192.168.101.2
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+root@controller:~/lcm/robot/suite/vnf/test_snort# sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.4
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+29 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:30:48 2018 from 192.168.102.2
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.3
+
+
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+28 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:30:52 2018 from 192.168.102.2
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------Rule Addition STARTED----------
+ sudo echo "drop icmp 192.168.102.3 an&lt;bs77ahihm:~$ sudo echo "drop icmp 192.168.102.3 any                          -&gt; \$HOME_NET any (msg:"&lt;op icmp 192.168.102.3 any -&gt; \$HOME_NET any (msg:"I                         CMP test detected"; GID:1&lt;-&gt; \$HOME_NET any (msg:"ICMP test detected"; GID:1;                          sid:50000001; rev:001; c&lt;MP test detected"; GID:1; sid:50000001; rev:001; cl                         asstype:icmp-event;)
+&gt; drop icmp \$HOME_NET any -&gt; 192.168.102.3 any (msg:"ICMP test detected"; GI&lt;-&gt; 192.168.102.3 any (msg:"ICMP test detected"; GID                         :1; sid:50000001; rev:001&lt;"ICMP test detected"; GID:1; sid:50000001; rev:001;                          classtype:icmp-event;)" &lt;1; sid:50000001; rev:001; classtype:icmp-event;)" &gt;                          /etc/snort/rules/local.r&lt;classtype:icmp-event;)" &gt; /etc/snort/rules/local.ru                         les
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ cat /etc/snort/rules/local.rules
+drop icmp 192.168.102.3 any -&gt; $HOME_NET any (msg:ICMP test detected; GID:1; sid:50000001; rev:001; classtype:icmp-event;)
+drop icmp $HOME_NET any -&gt; 192.168.102.3 any (msg:ICMP test detected; GID:1; sid:50000001; rev:001; classtype:icmp-event;)
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+------------------STARTING FIREWALL-------------------------
+['sudo snort -A console -q -c /etc/snort/snort.conf -Q &amp;']
+--------ICMP TEST STARTED----------
+ sudo ping -c 3 192.168.102.3
+PING 192.168.102.3 (192.168.102.3) 56(84) bytes of data.
+From 192.168.102.3 icmp_seq=1 Destination Port Unreachable
+
+
+From 192.168.102.3 icmp_seq=2 Destination Port Unreachable
+From 192.168.102.3 icmp_seq=3 Destination Port Unreachable
+
+--- 192.168.102.3 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2003ms
+
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+ sudo ping -c 3 192.168.101.4
+PING 192.168.101.4 (192.168.101.4) 56(84) bytes of data.
+
+
+
+--- 192.168.101.4 ping statistics ---
+3 packets transmitted, 0 received, 100% packet loss, time 1999ms
+
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:04:38.013" starttime="20180413 17:02:22.877"></status>
+</kw>
+<doc>Test ICMP</doc>
+<status status="PASS" endtime="20180413 17:04:38.013" critical="yes" starttime="20180413 17:02:22.875"></status>
+</test>
+<test id="s1-t4" name="OPENSTACK - Validate Snort vnf Scenarios: ICMP Block Test">
+<kw name="Vnf Block Icmp Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:06:03.694" level="INFO">stack_name : Stack123 
+--------Rule Addition STARTED----------
+ sudo echo "drop icmp 192.168.102.3 an&lt;bs77ahihm:~$ sudo echo "drop icmp 192.168.102.3 any                          -&gt; \$HOME_NET any (msg:"&lt;op icmp 192.168.102.3 any -&gt; \$HOME_NET any (msg:"I                         CMP test detected"; GID:1&lt;-&gt; \$HOME_NET any (msg:"ICMP test detected"; GID:1;                          sid:50000001; rev:001; c&lt;MP test detected"; GID:1; sid:50000001; rev:001; cl                         asstype:icmp-event;)
+[1]+  Done                    sudo snort -A console -q -c /etc/snort/snort.conf -Q
+&gt; drop icmp \$HOME_NET any -&gt; 192.168.102.3 any (msg:"ICMP test detected"; GI&lt;-&gt; 192.168.102.3 any (msg:"ICMP test detected"; GID                         :1; sid:50000001; rev:001&lt;"ICMP test detected"; GID:1; sid:50000001; rev:001;                          classtype:icmp-event;)" &lt;1; sid:50000001; rev:001; classtype:icmp-event;)" &gt;                          /etc/snort/rules/local.r&lt;classtype:icmp-event;)" &gt; /etc/snort/rules/local.ru                         les
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ cat /etc/snort/rules/local.rules
+drop icmp 192.168.102.3 any -&gt; $HOME_NET any (msg:ICMP test detected; GID:1; sid:50000001; rev:001; classtype:icmp-event;)
+drop icmp $HOME_NET any -&gt; 192.168.102.3 any (msg:ICMP test detected; GID:1; sid:50000001; rev:001; classtype:icmp-event;)
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+------------------STARTING FIREWALL-------------------------
+['sudo snort -A console -q -c /etc/snort/snort.conf -Q &amp;']
+--------ICMP TEST STARTED----------
+ sudo ping -c 3 192.168.102.3
+PING 192.168.102.3 (192.168.102.3) 56(84) bytes of data.
+From 192.168.102.3 icmp_seq=1 Destination Port Unreachable
+
+
+From 192.168.102.3 icmp_seq=2 Destination Port Unreachable
+From 192.168.102.3 icmp_seq=3 Destination Port Unreachable
+
+--- 192.168.102.3 ping statistics ---
+3 packets transmitted, 0 received, +3 errors, 100% packet loss, time 2001ms
+
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:06:03.695" starttime="20180413 17:04:38.016"></status>
+</kw>
+<doc>Test ICMP</doc>
+<status status="PASS" endtime="20180413 17:06:03.696" critical="yes" starttime="20180413 17:04:38.015"></status>
+</test>
+<test id="s1-t5" name="OPENSTACK - Validate Snort vnf Scenarios: HTTP Allow Test">
+<kw name="Vnf Http Allow Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:07:24.691" level="INFO">stack_name : Stack123 
+--------Rule Addition STARTED----------
+ sudo echo "alert tcp \$HOME_NET any -&lt;bs77ahihm:~$ sudo echo "alert tcp \$HOME_NET any -&gt;                          any 80 (msg:"Warning!!, &lt;ert tcp \$HOME_NET any -&gt; any 80 (msg:"Warning!!, A                          host is trying to access&lt;any 80 (msg:"Warning!!, A host is trying to access                          /admin"; sid:1002355; rev&lt;host is trying to access /admin"; sid:1002355; rev:                         2; classtype:web-applicat&lt;admin"; sid:1002355; rev:2; classtype:web-applicati                         on-activity;)" &gt; /etc/sno&lt;; classtype:web-application-activity;)" &gt; /etc/snor                         t/rules/local.rules
+sudo echo "alert tcp \$HOME_NET any -&gt; any 80 (msg:"Warningsudo killall snort, A host is trying to access /admin"; sid:1002355; rev:2; classtype:web-application-activity;)" &gt; /etc/snort/rules/local.rules
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+[1]+  Done                    sudo snort -A console -q -c /etc/snort/snort.conf -Q
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ cat /etc/snort/rules/local.rules
+alert tcp $HOME_NET any -&gt; any 80 (msg:Warningsudo killall snort, A host is trying to access /admin; sid:1002355; rev:2; classtype:web-application-activity;)
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+------------------STARTING FIREWALL-------------------------
+['sudo snort -A console -q -c /etc/snort/snort.conf -Q &amp;']
+--------HTTP TEST STARTED----------
+ curl http://www.google.com 
+
+
+&lt;!doctype html&gt;&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="en-IN"&gt;&lt;head&gt;&lt;meta content="text/html; charset=UTF-8" http-equiv="Content-Type"&gt;&lt;meta content="/images/branding/googleg/1x/googleg_standard_color_128dp.png" itemprop="image"&gt;&lt;title&gt;Google&lt;/title&gt;&lt;script nonce="jA6QOqkxDf9H3aPJTnLGjQ=="&gt;(function(){window.google={kEI:'XpbQWon_McGEvQS8hqnQDw',kEXPI:'0,18167,183662,1151917,58,472,640,759,87,677,340,74,366,718,174,104,11,172,224,19,2341631,168,49,32,302989,26305,1294,12383,2349,2506,32691,16115,316,1264,7,1381,7,9188,5281,1100,3101,234,2,2,1624,514,2471,2192,369,548,332,332,2102,113,1614,587,19,2550,314,308,224,56,525,1631,136,130,1028,2690,261,210,439,479,444,1047,203,2,558,20,353,24,287,64,310,3,299,1050,402,45,322,37,22,2,2,2,276,409,612,388,789,490,623,1149,156,728,403,20,131,366,695,2,50,429,38,7,3,148,468,630,8,326,127,84,771,66,195,723,137,440,189,659,63,159,200,413,41,136,145,2,183,278,301,2,76,2,282,1019,112,252,60,223,25,10,198,143,87,122,208,28,190,216,18,2,37,761,11,122,2346076,194,3,67,81,3686469,2544,9,8797651,135,4,1572,549,332,441,2,2,1,2,1,1,77,1,1,900,207,1,1,1,1,1,371,9,438,23,122,17,4,2,13,14,22311621',authuser:0,kscs:'c9c918f0_XpbQWon_McGEvQS8hqnQDw',u:'c9c918f0',kGL:'IN'};google.kHL='en-IN';})();(function(){google.lc=[];google.li=0;google.getEI=function(a){for(var b;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("eid")));)a=a.parentNode;return b||google.kEI};google.getLEI=function(a){for(var b=null;a&amp;&amp;(!a.getAttribute||!(b=a.getAttribute("leid")));)a=a.parentNode;return b};google.https=function(){return"https:"==window.location.protocol};google.ml=function(){return null};google.wl=function(a,b){try{google.ml(Error(a),!1,b)}catch(d){}};google.time=function(){return(new Date).getTime()};google.log=function(a,b,d,c,g){if(a=google.logUrl(a,b,d,c,g)){b=new Image;var e=google.lc,f=google.li;e[f]=b;b.onerror=b.onload=b.onabort=function(){delete e[f]};google.vel&amp;&amp;google.vel.lu&amp;&amp;google.vel.lu(a);b.src=a;google.li=f+1}};google.logUrl=function(a,b,d,c,g){var e="",f=google.ls||"";d||-1!=b.search("&amp;ei=")||(e="&amp;ei="+google.getEI(c),-1==b.search("&amp;lei=")&amp;&amp;(c=google.getLEI(c))&amp;&amp;(e+="&amp;lei="+c));c="";!d&amp;&amp;google.cshid&amp;&amp;-1==b.search("&amp;cshid=")&amp;&amp;(c="&amp;cshid="+google.cshid);a=d||"/"+(g||"gen_204")+"?atyp=i&amp;ct="+a+"&amp;cad="+b+e+f+"&amp;zx="+google.time()+c;/^http:/i.test(a)&amp;&amp;google.https()&amp;&amp;(google.ml(Error("a"),!1,{src:a,glmm:1}),a="");return a};}).call(this);(function(){google.y={};google.x=function(a,b){if(a)var c=a.id;else{do c=Math.random();while(google.y[c])}google.y[c]=[a,b];return!1};google.lm=[];google.plm=function(a){google.lm.push.apply(google.lm,a)};google.lq=[];google.load=function(a,b,c){google.lq.push([[a],b,c])};google.loadAll=function(a,b){google.lq.push([a,b])};}).call(this);google.f={};var a=window.location,b=a.href.indexOf("#");if(0&lt;=b){var c=a.href.substring(b+1);/(^|&amp;)q=/.test(c)&amp;&amp;-1==c.indexOf("#")&amp;&amp;a.replace("/search?"+c.replace(/(^|&amp;)fp=[^&amp;]*/g,"")+"&amp;cad=h")};&lt;/script&gt;&lt;style&gt;#gbar,#guser{font-size:13px;padding-top:1px !important;}#gbar{height:22px}#guser{padding-bottom:7px !important;text-align:right}.gbh,.gbd{border-top:1px solid #c9d7f1;font-size:1px}.gbh{height:0;position:absolute;top:24px;width:100%}@media all{.gb1{height:22px;margin-right:.5em;vertical-align:top}#gbar{float:left}}a.gb1,a.gb4{text-decoration:underline !important}a.gb1,a.gb4{color:#00c !important}.gbi .gb4{color:#dd8e27 !important}.gbf .gb4{color:#900 !important}
+&lt;/style&gt;&lt;style&gt;body,td,a,p,.h{font-family:arial,sans-serif}body{margin:0;overflow-y:scroll}#gog{padding:3px 8px 0}td{line-height:.8em}.gac_m td{line-height:17px}form{margin-bottom:20px}.h{color:#36c}.q{color:#00c}.ts td{padding:0}.ts{border-collapse:collapse}em{font-weight:bold;font-style:normal}.lst{height:25px;width:496px}.gsfi,.lst{font:18px arial,sans-serif}.gsfs{font:17px arial,sans-serif}.ds{display:inline-box;display:inline-block;margin:3px 0 4px;margin-left:4px}input{font-family:inherit}a.gb1,a.gb2,a.gb3,a.gb4{color:#11c !important}body{background:#fff;color:black}a{color:#11c;text-decoration:none}a:hover,a:active{text-decoration:underline}.fl a{color:#36c}a:visited{color:#551a8b}a.gb1,a.gb4{text-decoration:underline}a.gb3:hover{text-decoration:none}#ghead a.gb2:hover{color:#fff !important}.sblc{padding-top:5px}.sblc a{display:block;margin:2px 0;margin-left:13px;font-size:11px}.lsbb{background:#eee;border:solid 1px;border-color:#ccc #999 #999 #ccc;height:30px}.lsbb{display:block}.ftl,#fll a{display:inline-block;margin:0 12px}.lsb{background:url(/images/nav_logo229.png) 0 -261px repeat-x;border:none;color:#000;cursor:pointer;height:30px;margin:0;outline:0;font:15px arial,sans-serif;vertical-align:top}.lsb:active{background:#ccc}.lst:focus{outline:none}&lt;/style&gt;&lt;script nonce="jA6QOqkxDf9H3aPJTnLGjQ=="&gt;&lt;/script&gt;&lt;link href="/images/branding/product/ico/googleg_lodp.ico" rel="shortcut icon"&gt;&lt;/head&gt;&lt;body bgcolor="#fff"&gt;&lt;script nonce="jA6QOqkxDf9H3aPJTnLGjQ=="&gt;(function(){var src='/images/nav_logo229.png';var iesg=false;document.body.onload = function(){window.n &amp;&amp; window.n();if (document.images){new Image().src=src;}
+if (!iesg){document.f&amp;&amp;document.f.q.focus();document.gbqf&amp;&amp;document.gbqf.q.focus();}
+}
+})();&lt;/script&gt;&lt;div id="mngb"&gt; &lt;div id=gbar&gt;&lt;nobr&gt;&lt;b class=gb1&gt;Search&lt;/b&gt; &lt;a class=gb1 href="http://www.google.co.in/imghp?hl=en&amp;tab=wi"&gt;Images&lt;/a&gt; &lt;a class=gb1 href="http://maps.google.co.in/maps?hl=en&amp;tab=wl"&gt;Maps&lt;/a&gt; &lt;a class=gb1 href="https://play.google.com/?hl=en&amp;tab=w8"&gt;Play&lt;/a&gt; &lt;a class=gb1 href="http://www.youtube.com/?gl=IN&amp;tab=w1"&gt;YouTube&lt;/a&gt; &lt;a class=gb1 href="http://news.google.co.in/nwshp?hl=en&amp;tab=wn"&gt;News&lt;/a&gt; &lt;a class=gb1 href="https://mail.google.com/mail/?tab=wm"&gt;Gmail&lt;/a&gt; &lt;a class=gb1 href="https://drive.google.com/?tab=wo"&gt;Drive&lt;/a&gt; &lt;a class=gb1 style="text-decoration:none" href="https://www.google.co.in/intl/en/options/"&gt;&lt;u&gt;More&lt;/u&gt; &amp;raquo;&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div id=guser width=100%&gt;&lt;nobr&gt;&lt;span id=gbn class=gbi&gt;&lt;/span&gt;&lt;span id=gbf class=gbf&gt;&lt;/span&gt;&lt;span id=gbe&gt;&lt;/span&gt;&lt;a href="http://www.google.co.in/history/optout?hl=en" class=gb4&gt;Web History&lt;/a&gt; | &lt;a  href="/preferences?hl=en" class=gb4&gt;Settings&lt;/a&gt; | &lt;a target=_top id=gb_70 href="https://accounts.google.com/ServiceLogin?hl=en&amp;passive=true&amp;continue=http://www.google.com/" class=gb4&gt;Sign in&lt;/a&gt;&lt;/nobr&gt;&lt;/div&gt;&lt;div class=gbh style=left:0&gt;&lt;/div&gt;&lt;div class=gbh style=right:0&gt;&lt;/div&gt; &lt;/div&gt;&lt;center&gt;&lt;br clear="all" id="lgpd"&gt;&lt;div id="lga"&gt;&lt;img alt="Google" height="92" src="/images/branding/googlelogo/1x/googlelogo_white_background_color_272x92dp.png" style="padding:28px 0 14px" width="272" id="hplogo" onload="window.lol&amp;&amp;lol()"&gt;&lt;br&gt;&lt;br&gt;&lt;/div&gt;&lt;form action="/search" name="f"&gt;&lt;table cellpadding="0" cellspacing="0"&gt;&lt;tr valign="top"&gt;&lt;td width="25%"&gt;&amp;nbsp;&lt;/td&gt;&lt;td align="center" nowrap=""&gt;&lt;input name="ie" value="ISO-8859-1" type="hidden"&gt;&lt;input value="en-IN" name="hl" type="hidden"&gt;&lt;input name="source" type="hidden" value="hp"&gt;&lt;input name="biw" type="hidden"&gt;&lt;input name="bih" type="hidden"&gt;&lt;div class="ds" style="height:32px;margin:4px 0"&gt;&lt;input style="color:#000;margin:0;padding:5px 8px 0 6px;vertical-align:top" autocomplete="off" class="lst" value="" title="Google Search" maxlength="2048" name="q" size="57"&gt;&lt;/div&gt;&lt;br style="line-height:0"&gt;&lt;span class="ds"&gt;&lt;span class="lsbb"&gt;&lt;input class="lsb" value="Google Search" name="btnG" type="submit"&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="ds"&gt;&lt;span class="lsbb"&gt;&lt;input class="lsb" value="I'm Feeling Lucky" name="btnI" onclick="if(this.form.q.value)this.checked=1; else top.location='/doodles/'" type="submit"&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;td class="fl sblc" align="left" nowrap="" width="25%"&gt;&lt;a href="/advanced_search?hl=en-IN&amp;amp;authuser=0"&gt;Advanced search&lt;/a&gt;&lt;a href="/language_tools?hl=en-IN&amp;amp;authuser=0"&gt;Language tools&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;input id="gbv" name="gbv" type="hidden" value="1"&gt;&lt;/form&gt;&lt;div id="gac_scont"&gt;&lt;/div&gt;&lt;div style="font-size:83%;min-height:3.5em"&gt;&lt;br&gt;&lt;div id="gws-output-pages-elements-homepage_additional_languages__als"&gt;&lt;style&gt;#gws-output-pages-elements-homepage_additional_languages__als{font-size:small;margin-bottom:24px}#SIvCob{display:inline-block;line-height:28px;}#SIvCob a{padding:0 3px;}.H6sW5{display:inline-block;margin:0 2px;white-space:nowrap}.z4hgWe{display:inline-block;margin:0 2px}&lt;/style&gt;&lt;div id="SIvCob"&gt;Google offered in:  &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=hi&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCAU"&gt;&amp;#2361;&amp;#2367;&amp;#2344;&amp;#2381;&amp;#2342;&amp;#2368;&lt;/a&gt;    &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=bn&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCAY"&gt;&amp;#2476;&amp;#2494;&amp;#2434;&amp;#2482;&amp;#2494;&lt;/a&gt;    &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=te&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCAc"&gt;&amp;#3108;&amp;#3142;&amp;#3122;&amp;#3137;&amp;#3095;&amp;#3137;&lt;/a&gt;    &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=mr&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCAg"&gt;&amp;#2350;&amp;#2352;&amp;#2366;&amp;#2336;&amp;#2368;&lt;/a&gt;    &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=ta&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCAk"&gt;&amp;#2980;&amp;#2990;&amp;#3007;&amp;#2996;&amp;#3021;&lt;/a&gt;    &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=gu&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCAo"&gt;&amp;#2711;&amp;#2753;&amp;#2716;&amp;#2736;&amp;#2750;&amp;#2724;&amp;#2752;&lt;/a&gt;    &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=kn&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCAs"&gt;&amp;#3221;&amp;#3240;&amp;#3277;&amp;#3240;&amp;#3233;&lt;/a&gt;    &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=ml&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCAw"&gt;&amp;#3374;&amp;#3378;&amp;#3375;&amp;#3390;&amp;#3379;&amp;#3330;&lt;/a&gt;    &lt;a href="http://www.google.com/setprefs?sig=0_sgYcEwcBzvwqUT-iRnTPeNMkx_Q%3D&amp;amp;hl=pa&amp;amp;source=homepage&amp;amp;sa=X&amp;amp;ved=0ahUKEwiJpuHTlLfaAhVBQo8KHTxDCvoQ2ZgBCA0"&gt;&amp;#2602;&amp;#2672;&amp;#2588;&amp;#2622;&amp;#2604;&amp;#2624;&lt;/a&gt;  &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;span id="footer"&gt;&lt;div style="font-size:10pt"&gt;&lt;div style="margin:19px auto;text-align:center" id="fll"&gt;&lt;a href="/intl/en/ads/"&gt;Advertising\xa0Programs&lt;/a&gt;&lt;a href="http://www.google.co.in/services/"&gt;Business Solutions&lt;/a&gt;&lt;a href="https://plus.google.com/104205742743787718296" rel="publisher"&gt;+Google&lt;/a&gt;&lt;a href="/intl/en/about.html"&gt;About Google&lt;/a&gt;&lt;a href="http://www.google.com/setprefdomain?prefdom=IN&amp;amp;prev=http://www.google.co.in/&amp;amp;sig=__YUwjN4eEeISO00dtpt7umriwO9A%3D"&gt;Google.co.in&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;&lt;p style="color:#767676;font-size:8pt"&gt;&amp;copy; 2018 - &lt;a href="/intl/en/policies/privacy/"&gt;Privacy&lt;/a&gt; - &lt;a href="/intl/en/policies/terms/"&gt;Terms&lt;/a&gt;&lt;/p&gt;&lt;/span&gt;&lt;/center&gt;&lt;script nonce="jA6QOqkxDf9H3aPJTnLGjQ=="&gt;(function(){window.google.cdo={height:0,width:0};(function(){var a=window.innerWidth,b=window.innerHeight;if(!a||!b){var c=window.document,d="CSS1Compat"==c.compatMode?c.documentElement:c.body;a=d.clientWidth;b=d.clientHeight}a&amp;&amp;b&amp;&amp;(a!=google.cdo.width||b!=google.cdo.height)&amp;&amp;google.log("","","/client_204?&amp;atyp=i&amp;biw="+a+"&amp;bih="+b+"&amp;ei="+google.kEI);}).call(this);})();&lt;/script&gt;&lt;div id="xjsd"&gt;&lt;/div&gt;&lt;div id="xjsi"&gt;&lt;script nonce="jA6QOqkxDf9H3aPJTnLGjQ=="&gt;(function(){function c(b){window.setTimeout(function(){var a=document.createElement("script");a.src=b;google.timers&amp;&amp;google.timers.load.t&amp;&amp;google.tick("load",{gen204:"xjsls",clearcut:31});document.getElementById("xjsd").appendChild(a)},0)}google.dljp=function(b,a){google.xjsu=b;c(a)};google.dlj=c;}).call(this);if(!google.xjs){window._=window._||{};window._DumpException=window._._DumpException=function(e){throw e};window._F_installCss=window._._F_installCss=function(c){};google.dljp('/xjs/_/js/k\x3dxjs.hp.en.-AzhX2gXwUk.O/m\x3dsb_he,d/am\x3dVDA2/rt\x3dj/d\x3d1/t\x3dzcms/rs\x3dACT90oFjqmho8rJNo3WmgtKSKmqsOp8Kfw','/xjs/_/js/k\x3dxjs.hp.en.-AzhX2gXwUk.O/m\x3dsb_he,d/am\x3dVDA2/rt\x3dj/d\x3d1/t\x3dzcms/rs\x3dACT90oFjqmho8rJNo3WmgtKSKmqsOp8Kfw');google.xjs=1;}google.pmc={"sb_he":{"agen":true,"cgen":true,"client":"heirloom-hp","dh":true,"dhqt":true,"ds":"","ffql":"en","fl":true,"host":"google.com","isbh":28,"jsonp":true,"msgs":{"cibl":"Clear Search","dym":"Did you mean:","lcky":"I\u0026#39;m Feeling Lucky","lml":"Learn more","oskt":"Input tools","psrc":"This search was removed from your \u003Ca href=\"/history\"\u003EWeb History\u003C/a\u003E","psrl":"Remove","sbit":"Search by image","srch":"Google Search"},"nds":true,"ovr":{},"pq":"","refpd":true,"rfs":[],"sbpl":24,"sbpr":24,"scd":10,"sce":5,"stok":"l3G9DWfSPy5QbEJIQvCX8F4mAww"},"d":{},"ZI/YVQ":{},"U5B21g":{},"DPBNMg":{},"YFCs/g":{}};google.x(null,function(){});(function(){var r=[];google.plm(r);})();(function(){var ctx=[]
+;google.jsc &amp;&amp; google.jsc.x(ctx);})();&lt;/script&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:07:24.693" starttime="20180413 17:06:03.699"></status>
+</kw>
+<doc>Test HTTP</doc>
+<status status="PASS" endtime="20180413 17:07:24.693" critical="yes" starttime="20180413 17:06:03.697"></status>
+</test>
+<test id="s1-t6" name="OPENSTACK - Validate Snort vnf Scenarios: HTTP Block Test">
+<kw name="Vnf Http Block Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:08:45.303" level="INFO">stack_name : Stack123 
+--------Rule Addition STARTED----------
+ 04/13-11:37:02.755967  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.774008  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.775169  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.901063  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.902317  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.903149  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.903931  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.904659  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.905378  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.906089  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.907020  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+04/13-11:37:02.924639  [**] [1:1002355:2] Warningsudo killall snort, A host is trying to access /admin [**] [Classification: access to a potentially vulnerable web application] [Priority: 2] {TCP} 192.168.101.4:34792 -&gt; 216.58.196.68:80
+sudo killall snort
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+*** Caught Term-Signal
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ sudo echo "drop tcp \$HOME_NET any -&gt;&lt;bs77ahihm:~$ sudo echo "drop tcp \$HOME_NET any -&gt;                          any 80 (msg:"Warning!!, A&lt;op tcp \$
+HOME_NET any -&gt; any 80 (msg:"Warning!!, A                          host is trying to access &lt;ny 80 (msg:"Warning!!, A host is trying to access /                         admin"; sid:1002355; rev:&lt;ost is trying to access /admin"; sid:1002355; rev:2                         ; classtype:web-applicati&lt;dmin"; sid:1002355; rev:2; classtype:web-applicatio                         n-activity;)" &gt; /etc/snor&lt; classtype:web-application-activity;)" &gt; /etc/snort                         /rules/local.rules
+sudo echo "drop tcp \$HOME_NET any -&gt; any 80 (msg:"Warningsudo killall snort, A host is trying to access /admin"; sid:1002355; rev:2; classtype:web-application-activity;)" &gt; /etc/snort/rules/local.rules
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+[1]+  Done                    sudo snort -A console -q -c /etc/snort/snort.conf -Q
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ cat /etc/snort/rules/local.rules
+drop tcp $HOME_NET any -&gt; any 80 (msg:Warningsudo killall snort, A host is trying to access /admin; sid:1002355; rev:2; classtype:web-application-activity;)
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+------------------STARTING FIREWALL-------------------------
+['sudo snort -A console -q -c /etc/snort/snort.conf -Q &amp;']
+--------HTTP TEST STARTED----------
+ curl http://www.google.com 
+
+
+curl: (7) Failed to connect to www.google.com port 80: Connection refused
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:08:45.305" starttime="20180413 17:07:24.696"></status>
+</kw>
+<doc>Test HTTP</doc>
+<status status="PASS" endtime="20180413 17:08:45.305" critical="yes" starttime="20180413 17:07:24.694"></status>
+</test>
+<test id="s1-t7" name="OPENSTACK - Validate Snort vnf Scenarios: Inline Test">
+<kw name="Vnf Inline Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:09:05.434" level="INFO">stack_name : Stack123 
+-----CHECKING INLINE MODE INFO-----
+ sudo snort --daq-list
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+Available DAQ modules:
+pcap(v3): readback live multi unpriv
+ipfw(v3): live inline multi unpriv
+dump(v3): readback live inline multi unpriv
+afpacket(v5): live inline multi unpriv
+[1]+  Done                    sudo snort -A console -q -c /etc/snort/snort.conf -Q
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$</msg>
+<status status="PASS" endtime="20180413 17:09:05.435" starttime="20180413 17:08:45.308"></status>
+</kw>
+<doc>Test INLINE</doc>
+<status status="PASS" endtime="20180413 17:09:05.436" critical="yes" starttime="20180413 17:08:45.307"></status>
+</test>
+<test id="s1-t8" name="OPENSTACK - Validate Snort vnf Scenarios: Inline Testmode Test">
+<kw name="Vnf Inline Testmode Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:10:43.744" level="INFO">stack_name : Stack123 
+-----CHECKING INLINE TEST MODE INFO-----
+------------&gt; ['sudo snort -vde --enable-inline-test']
+output is ---------------&gt;  sudo snort -vde --enable-inline-test
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+Enable Inline Test Mode
+Running in packet dump mode
+
+        --== Initializing Snort ==--
+Initializing Output Plugins!
+
+
+pcap DAQ configured to passive.
+Acquiring network traffic from "ens3".
+Decoding Ethernet
+
+        --== Initialization Complete ==--
+
+   ,,_     -*&gt; Snort! &lt;*-
+  o"  )~   Version 2.9.11.1 GRE (Build 268) 
+   ''''    By Martin Roesch &amp; The Snort Team: http://www.snort.org/contact#team
+           Copyright (C) 2014-2017 Cisco and/or its affiliates. All rights reserved.
+           Copyright (C) 1998-2013 Sourcefire, Inc., et al.
+           Using libpcap version 1.7.4
+           Using PCRE version: 8.38 2015-11-23
+           Using ZLIB version: 1.2.8
+
+Commencing packet processing (pid=18487)
+04/13-11:39:15.639602 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x76
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33557 IpLen:20 DgmLen:104 DF
+***AP*** Seq: 0x2FF6E901  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267296 1079946396 
+01 E4 0D 53 11 7A 9C 01 D6 FE CA D7 AB 74 DB D2  ...S.z.......t..
+80 17 D9 D4 7F 0D 90 CA C5 13 54 D5 BD 04 16 37  ..........T....7
+56 0E 97 5C 64 DF 90 63 DC E5 0B 94 07 0C D9 3C  V..\d..c.......&lt;
+9A 8B 11 0A                                      ....
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.639958 FA:16:3E:C5:A4:DE -&gt; FA:16:3E:9E:B3:A4 type:0x800 len:0x42
+192.168.102.2:59432 -&gt; 192.168.102.4:22 TCP TTL:64 TOS:0x10 ID:2587 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xB1CA5D14  Ack: 0x2FF6E935  Win: 0x4F9  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 1079946405 630267288 
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.640132 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33558 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6E935  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+94 45 E0 FF 86 B1 91 DE 83 36 B1 14 B3 52 6B 81  .E.......6...Rk.
+1C FB 2C 42 6C 59 0D 28 A2 A4 E6 50 9F AA 8A 0B  ..,BlY.(...P....
+16 61 8D 3C                                      .a.&lt;
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.640677 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33559 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6E959  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+18 C7 3D 1A 42 CA 9D A4 C0 9A 58 9A A2 4C B1 59  ..=.B.....X..L.Y
+67 59 32 2A FB 79 2E 8B E1 40 E7 3C 70 CB 61 E7  gY2*.y...@.&lt;p.a.
+53 B5 F4 42                                      S..B
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.640887 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x8E
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33560 IpLen:20 DgmLen:128 DF
+***AP*** Seq: 0x2FF6E97D  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+17 C8 78 EE B9 0E 93 79 3D 2E 0F 3B 2F 5D C9 88  ..x....y=..;/]..
+DC AE 5D 14 8E 98 1E 44 12 DA 00 6D E3 3C 49 F5  ..]....D...m.&lt;I.
+C8 F3 B5 C4 4D 98 12 7B 68 97 02 23 41 79 C6 70  ....M..{h..#Ay.p
+12 07 DD BC 4B 65 3B 4E 9F 02 9D D7 37 DA 60 32  ....Ke;N....7.`2
+42 5C 05 2C 15 96 2D 06 CE 97 AF 2F              B\.,..-..../
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641056 FA:16:3E:C5:A4:DE -&gt; FA:16:3E:9E:B3:A4 type:0x800 len:0x42
+192.168.102.2:59432 -&gt; 192.168.102.4:22 TCP TTL:64 TOS:0x10 ID:2588 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xB1CA5D14  Ack: 0x2FF6E97D  Win: 0x4F9  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 1079946405 630267297 
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641219 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33561 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6E9C9  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+2D 0D 06 A7 07 45 5D FD 08 82 CD EA 32 FA 0F A3  -....E].....2...
+37 D8 1B C1 AF A7 38 26 AA F2 C4 92 CB 5B 8C 9E  7.....8&amp;.....[..
+F3 28 2B 05                                      .(+.
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641431 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33562 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6E9ED  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+3B 79 23 4A 31 ED B9 49 5A 26 9E B9 EA A8 C5 37  ;y#J1..IZ&amp;.....7
+01 0C 9B 05 DE F5 CC D2 60 A5 38 29 FE A9 2C AB  ........`.8)..,.
+35 9B 7D CB                                      5.}.
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641556 FA:16:3E:C5:A4:DE -&gt; FA:16:3E:9E:B3:A4 type:0x800 len:0x42
+192.168.102.2:59432 -&gt; 192.168.102.4:22 TCP TTL:64 TOS:0x10 ID:2589 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xB1CA5D14  Ack: 0x2FF6E9ED  Win: 0x4F9  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 1079946405 630267297 
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641752 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x7E
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33563 IpLen:20 DgmLen:112 DF
+***AP*** Seq: 0x2FF6EA11  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+29 C7 AB 35 5D 02 F0 0F 00 44 DA E6 7E 4B 00 02  )..5]....D..~K..
+FC E2 79 44 7D B1 71 E2 77 72 21 58 E5 50 2F 15  ..yD}.q.wr!X.P/.
+E8 7B 02 C4 41 1B 1F 74 9B DA 3C 2D EC 70 98 E4  .{..A..t..&lt;-.p..
+0B FF 51 BC 10 AD 83 5C 20 04 B8 24              ..Q....\ ..$
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641940 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33564 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6EA4D  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+2B 28 95 17 28 FB 22 AC B7 54 A6 AC 04 60 19 1E  +(..(."..T...`..
+F1 A1 66 AD FA C7 E2 E9 7D 98 73 EB A1 9E 31 DA  ..f.....}.s...1.
+1B CA EA 35                                      ...5
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.642107 FA:16:3E:C5:A4:DE -&gt; FA:16:3E:9E:B3:A4 type:0x800 len:0x42
+192.168.102.2:59432 -&gt; 192.168.102.4:22 TCP TTL:64 TOS:0x10 ID:2590 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xB1CA5D14  Ack: 0x2FF6EA4D  Win: 0x4F9  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 1079946405 630267297 
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.642289 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x96
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33565 IpLen:20 DgmLen:136 DF
+***AP*** Seq: 0x2FF6EA71  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+AC 3C 24 7F D2 F7 8A 9C DC A2 18 57 6A 87 76 1B  .&lt;$
+ sudo snort -vde --enable-inline-test
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+Enable Inline Test Mode
+Running in packet dump mode
+
+        --== Initializing Snort ==--
+Initializing Output Plugins!
+
+
+pcap DAQ configured to passive.
+Acquiring network traffic from "ens3".
+Decoding Ethernet
+
+        --== Initialization Complete ==--
+
+   ,,_     -*&gt; Snort! &lt;*-
+  o"  )~   Version 2.9.11.1 GRE (Build 268) 
+   ''''    By Martin Roesch &amp; The Snort Team: http://www.snort.org/contact#team
+           Copyright (C) 2014-2017 Cisco and/or its affiliates. All rights reserved.
+           Copyright (C) 1998-2013 Sourcefire, Inc., et al.
+           Using libpcap version 1.7.4
+           Using PCRE version: 8.38 2015-11-23
+           Using ZLIB version: 1.2.8
+
+Commencing packet processing (pid=18487)
+04/13-11:39:15.639602 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x76
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33557 IpLen:20 DgmLen:104 DF
+***AP*** Seq: 0x2FF6E901  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267296 1079946396 
+01 E4 0D 53 11 7A 9C 01 D6 FE CA D7 AB 74 DB D2  ...S.z.......t..
+80 17 D9 D4 7F 0D 90 CA C5 13 54 D5 BD 04 16 37  ..........T....7
+56 0E 97 5C 64 DF 90 63 DC E5 0B 94 07 0C D9 3C  V..\d..c.......&lt;
+9A 8B 11 0A                                      ....
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.639958 FA:16:3E:C5:A4:DE -&gt; FA:16:3E:9E:B3:A4 type:0x800 len:0x42
+192.168.102.2:59432 -&gt; 192.168.102.4:22 TCP TTL:64 TOS:0x10 ID:2587 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xB1CA5D14  Ack: 0x2FF6E935  Win: 0x4F9  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 1079946405 630267288 
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.640132 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33558 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6E935  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+94 45 E0 FF 86 B1 91 DE 83 36 B1 14 B3 52 6B 81  .E.......6...Rk.
+1C FB 2C 42 6C 59 0D 28 A2 A4 E6 50 9F AA 8A 0B  ..,BlY.(...P....
+16 61 8D 3C                                      .a.&lt;
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.640677 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33559 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6E959  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+18 C7 3D 1A 42 CA 9D A4 C0 9A 58 9A A2 4C B1 59  ..=.B.....X..L.Y
+67 59 32 2A FB 79 2E 8B E1 40 E7 3C 70 CB 61 E7  gY2*.y...@.&lt;p.a.
+53 B5 F4 42                                      S..B
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.640887 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x8E
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33560 IpLen:20 DgmLen:128 DF
+***AP*** Seq: 0x2FF6E97D  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+17 C8 78 EE B9 0E 93 79 3D 2E 0F 3B 2F 5D C9 88  ..x....y=..;/]..
+DC AE 5D 14 8E 98 1E 44 12 DA 00 6D E3 3C 49 F5  ..]....D...m.&lt;I.
+C8 F3 B5 C4 4D 98 12 7B 68 97 02 23 41 79 C6 70  ....M..{h..#Ay.p
+12 07 DD BC 4B 65 3B 4E 9F 02 9D D7 37 DA 60 32  ....Ke;N....7.`2
+42 5C 05 2C 15 96 2D 06 CE 97 AF 2F              B\.,..-..../
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641056 FA:16:3E:C5:A4:DE -&gt; FA:16:3E:9E:B3:A4 type:0x800 len:0x42
+192.168.102.2:59432 -&gt; 192.168.102.4:22 TCP TTL:64 TOS:0x10 ID:2588 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xB1CA5D14  Ack: 0x2FF6E97D  Win: 0x4F9  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 1079946405 630267297 
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641219 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33561 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6E9C9  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+2D 0D 06 A7 07 45 5D FD 08 82 CD EA 32 FA 0F A3  -....E].....2...
+37 D8 1B C1 AF A7 38 26 AA F2 C4 92 CB 5B 8C 9E  7.....8&amp;.....[..
+F3 28 2B 05                                      .(+.
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641431 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33562 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6E9ED  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+3B 79 23 4A 31 ED B9 49 5A 26 9E B9 EA A8 C5 37  ;y#J1..IZ&amp;.....7
+01 0C 9B 05 DE F5 CC D2 60 A5 38 29 FE A9 2C AB  ........`.8)..,.
+35 9B 7D CB                                      5.}.
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641556 FA:16:3E:C5:A4:DE -&gt; FA:16:3E:9E:B3:A4 type:0x800 len:0x42
+192.168.102.2:59432 -&gt; 192.168.102.4:22 TCP TTL:64 TOS:0x10 ID:2589 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xB1CA5D14  Ack: 0x2FF6E9ED  Win: 0x4F9  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 1079946405 630267297 
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641752 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x7E
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33563 IpLen:20 DgmLen:112 DF
+***AP*** Seq: 0x2FF6EA11  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+29 C7 AB 35 5D 02 F0 0F 00 44 DA E6 7E 4B 00 02  )..5]....D..~K..
+FC E2 79 44 7D B1 71 E2 77 72 21 58 E5 50 2F 15  ..yD}.q.wr!X.P/.
+E8 7B 02 C4 41 1B 1F 74 9B DA 3C 2D EC 70 98 E4  .{..A..t..&lt;-.p..
+0B FF 51 BC 10 AD 83 5C 20 04 B8 24              ..Q....\ ..$
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.641940 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x66
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33564 IpLen:20 DgmLen:88 DF
+***AP*** Seq: 0x2FF6EA4D  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+2B 28 95 17 28 FB 22 AC B7 54 A6 AC 04 60 19 1E  +(..(."..T...`..
+F1 A1 66 AD FA C7 E2 E9 7D 98 73 EB A1 9E 31 DA  ..f.....}.s...1.
+1B CA EA 35                                      ...5
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.642107 FA:16:3E:C5:A4:DE -&gt; FA:16:3E:9E:B3:A4 type:0x800 len:0x42
+192.168.102.2:59432 -&gt; 192.168.102.4:22 TCP TTL:64 TOS:0x10 ID:2590 IpLen:20 DgmLen:52 DF
+***A**** Seq: 0xB1CA5D14  Ack: 0x2FF6EA4D  Win: 0x4F9  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 1079946405 630267297 
+
+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+
+
+04/13-11:39:15.642289 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x96
+192.168.102.4:22 -&gt; 192.168.102.2:59432 TCP TTL:64 TOS:0x10 ID:33565 IpLen:20 DgmLen:136 DF
+***AP*** Seq: 0x2FF6EA71  Ack: 0xB1CA5D14  Win: 0x16E  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630267297 1079946405 
+AC 3C 24 7F D2 F7 8A 9C DC A2 18 57 6A 87 76 1B  .&lt;$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.101.4
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:nueSlcVwBqVs5vEf0ws1ChaFAgyqeqs34I7uoFdGOqw.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:29
+  remove with:
+  ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.101.4
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+33 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:32:59 2018 from 192.168.101.2
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+root@controller:~/lcm/robot/suite/vnf/test_snort# sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.4
+
+
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+29 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:33:05 2018 from 192.168.102.2
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.3
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+28 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:33:10 2018 from 192.168.102.2
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:10:43.746" starttime="20180413 17:09:05.439"></status>
+</kw>
+<doc>Test InlineTestmode</doc>
+<status status="PASS" endtime="20180413 17:10:43.747" critical="yes" starttime="20180413 17:09:05.437"></status>
+</test>
+<test id="s1-t9" name="OPENSTACK - Validate Snort vnf Scenarios: Sniffer Test">
+<kw name="Vnf Sniffer Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:12:21.625" level="INFO">stack_name : Stack123 
+-----ACTIVATING SNIFFER MODE-----
+------------&gt; ['sudo snort -vde']
+output is ---------------&gt;  sudo snort -vde
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+Running in packet dump mode
+
+        --== Initializing Snort ==--
+Initializing Output Plugins!
+pcap DAQ configured to passive.
+Acquiring network traffic from "ens3".
+Decoding Ethernet
+
+        --== Initialization Complete ==--
+
+   ,,_     -*&gt; Snort! &lt;*-
+  o"  )~   Version 2.9.11.1 GRE (Build 268) 
+   ''''    By Martin Roesch &amp; The Snort Team: http://www.snort.org/contact#team
+           Copyright (C) 2014-2017 Cisco and/or its affiliates. All rights reserved.
+           Copyright (C) 1998-2013 Sourcefire, Inc., et al.
+           Using libpcap version 1.7.4
+           Using PCRE version: 8.38 2015-11-23
+           Using ZLIB version: 1.2.8
+
+Commencing packet processing (pid=18542)
+
+
+04/13-11:40:53.856773 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x2C6
+192.168.102.4:22 -&gt; 192.168.102.2:59534 TCP TTL:64 TOS:0x10 ID:54545 IpLen:20 DgmLen:696 DF
+***AP*** Seq: 0x64119883  Ack: 0x4C547D83  Win: 0x11B  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630291851 1079970957 
+81 B3 CC 3F B8 58 60 6E D6 A4 EF 6D BD 9E DE 6A  ...?.X`n...m...j
+C8 DC A6 83 21 51 AE 7A 9F DB 15 57 9B 1C 68 12  ....!Q.z...W..h.
+A7 7D 6D 78 14 8C 96 10 53 F8 7E A5 7D A3 B9 2D  .}mx....S.~.}..-
+DC E3 72 43 8F 98 2C 32 26 58 51 D0 0A 57 2C 6F  ..rC..,2&amp;XQ..W,o
+70 4A 54 01 C9 B9 FF D8 D3 27 4B 0E 85 85 64 64  pJT......'K...dd
+63 BC 2B 48 41 82 93 C7 F9 52 A3 00 8C 47 84 43  c.+HA....R...G.C
+41 49 EA FD C2 39 68 76 F2 63 E1 25 AC C9 EF D1  AI...9hv.c.%....
+EA 6C 4F 34 F5 AA ED 9C BA 98 BC 9A 5F 26 8C 6E  .lO4........_&amp;.n
+E9 0F 5F 2E 4F 41 B2 8C F7 02 51 33 AF 65 BC 34  .._.OA....Q3.e.4
+E0 F9 CD 25 E0 E7 E7 49 08 05 DE DA 83 D5 33 FE  ...%...I......3.
+F8 8B 2E BF 88 41 40 F7 EB 23 27 89 9C FD FD 66  .....A@..#'....f
+08 E3 8C 9E 95 DC 89 16 23 96 DE 5B 67 D1 3F 2D  ........#..[g.?-
+9B A2 7C 46 F3 43 88 37 6C 52 DD 75 17 78 6B B6  ..|F.C.7lR.u.xk.
+2D D0 0D C4 08 A9 6E E2 57 30 F7 72 B0 93 44 DF  -.....n.W0.r..D.
+46 87 6E D1 D3 43 27 62 DA C9 55 4F BF AD D8 D0  F.n..C'b..UO....
+51 78 77 D9 B9 7F 40 C9 96 07 63 DD 9B B5 85 43  Qxw...@...c....C
+A1 53 10 60 EB 61 73 3C 81 8B 08 DB FF 24 3F B8  .S.`.as&lt;.....$?.
+D7 B2 5B 60 5A 1C 95 E3 77 12 6D 6A 60 E8 DE 4E  ..[`Z...w.mj`..N
+39 2D 8D 5F 57 49 CD D9 8D 34 E9 DE 72 E9 CB DC  9-._WI...4..r...
+DD DF 7E 3D 49 12 EB FD 30 C8 A3 3C ED EE BE 2A  ..~=I...0..&lt;...*
+B6 5A 7C A4 24 80 31 00 8F 2A 8F 8F 27 3F 18 F2  .Z|.$.1..*..'?..
+58 D4 C8 B0 89 DD 66 F6 77 C9 8A 71 CA FD E0 3C  X.....f.w..q...&lt;
+A2 C6 38 BE 97 07 31 F3 06 8C 8E 2C B5 34 85 CA  ..8...1....,.4..
+6A E1 07 30 19 8A B5 9D 62 4F C1 DD B0 63 34 56  j..0....bO...c4V
+6B 54 2B 42 59 25 FE 44 97 81 F0 0B 57 25 A8 4E  kT+BY%.D....W%.N
+E5 38 3B 21 7A E2 95 2D A3 40 FE 24 95 C0 02 EB  .8;!z..-.@.$....
+FF 59 21 F4 A5 A9 7E EF B6 A5 BB E4 9D 3C 67 5A  .Y!...~......&lt;gZ
+D1 08 54 59 5B 71 54 43 59 4A B1 A9 6C E3 40 F4  ..TY[qTCYJ..l.@.
+E3 EB 2A 6E 49 22 0F 8F 4A 74 53 22 D6 63 C7 AA  ..*nI"..JtS".c..
+11 7C A2 8F 7A 5E 59 42 9C 89 84 43 65 0D FD F3  .|..z^YB...Ce...
+CB 0C 74 FE 27 5D A1 77 52 49 1A F1 F2 B0 D0 FF  ..t.'].wRI......
+B4 FA 18 2D BE B6 46 56 E6 E5 B6 DB 30 B2 9F 97  ...-..FV....0...
+B6 C5 63 19 80 56 7D 38 08 3B BB B4 B2 C1 FD 29  ..c..V}8.;.....)
+BD 82 C7 8F 31 81 9A 41 A6 22 5D 64 5A E9 1B DD  ....1..A."]dZ...
+51 3A 83 D1 4B 31 34 F2 A2 08 D8 9A 37 E9 ED 16  Q:..K14.....7...
+90 E9 1F 1A A1 4C 35 FA F3 B5 F0 3B FF 24 74 58  .....L5....;.$
+ sudo snort -vde
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+Running in packet dump mode
+
+        --== Initializing Snort ==--
+Initializing Output Plugins!
+pcap DAQ configured to passive.
+Acquiring network traffic from "ens3".
+Decoding Ethernet
+
+        --== Initialization Complete ==--
+
+   ,,_     -*&gt; Snort! &lt;*-
+  o"  )~   Version 2.9.11.1 GRE (Build 268) 
+   ''''    By Martin Roesch &amp; The Snort Team: http://www.snort.org/contact#team
+           Copyright (C) 2014-2017 Cisco and/or its affiliates. All rights reserved.
+           Copyright (C) 1998-2013 Sourcefire, Inc., et al.
+           Using libpcap version 1.7.4
+           Using PCRE version: 8.38 2015-11-23
+           Using ZLIB version: 1.2.8
+
+Commencing packet processing (pid=18542)
+
+
+04/13-11:40:53.856773 FA:16:3E:9E:B3:A4 -&gt; FA:16:3E:C5:A4:DE type:0x800 len:0x2C6
+192.168.102.4:22 -&gt; 192.168.102.2:59534 TCP TTL:64 TOS:0x10 ID:54545 IpLen:20 DgmLen:696 DF
+***AP*** Seq: 0x64119883  Ack: 0x4C547D83  Win: 0x11B  TcpLen: 32
+TCP Options (3) =&gt; NOP NOP TS: 630291851 1079970957 
+81 B3 CC 3F B8 58 60 6E D6 A4 EF 6D BD 9E DE 6A  ...?.X`n...m...j
+C8 DC A6 83 21 51 AE 7A 9F DB 15 57 9B 1C 68 12  ....!Q.z...W..h.
+A7 7D 6D 78 14 8C 96 10 53 F8 7E A5 7D A3 B9 2D  .}mx....S.~.}..-
+DC E3 72 43 8F 98 2C 32 26 58 51 D0 0A 57 2C 6F  ..rC..,2&amp;XQ..W,o
+70 4A 54 01 C9 B9 FF D8 D3 27 4B 0E 85 85 64 64  pJT......'K...dd
+63 BC 2B 48 41 82 93 C7 F9 52 A3 00 8C 47 84 43  c.+HA....R...G.C
+41 49 EA FD C2 39 68 76 F2 63 E1 25 AC C9 EF D1  AI...9hv.c.%....
+EA 6C 4F 34 F5 AA ED 9C BA 98 BC 9A 5F 26 8C 6E  .lO4........_&amp;.n
+E9 0F 5F 2E 4F 41 B2 8C F7 02 51 33 AF 65 BC 34  .._.OA....Q3.e.4
+E0 F9 CD 25 E0 E7 E7 49 08 05 DE DA 83 D5 33 FE  ...%...I......3.
+F8 8B 2E BF 88 41 40 F7 EB 23 27 89 9C FD FD 66  .....A@..#'....f
+08 E3 8C 9E 95 DC 89 16 23 96 DE 5B 67 D1 3F 2D  ........#..[g.?-
+9B A2 7C 46 F3 43 88 37 6C 52 DD 75 17 78 6B B6  ..|F.C.7lR.u.xk.
+2D D0 0D C4 08 A9 6E E2 57 30 F7 72 B0 93 44 DF  -.....n.W0.r..D.
+46 87 6E D1 D3 43 27 62 DA C9 55 4F BF AD D8 D0  F.n..C'b..UO....
+51 78 77 D9 B9 7F 40 C9 96 07 63 DD 9B B5 85 43  Qxw...@...c....C
+A1 53 10 60 EB 61 73 3C 81 8B 08 DB FF 24 3F B8  .S.`.as&lt;.....$?.
+D7 B2 5B 60 5A 1C 95 E3 77 12 6D 6A 60 E8 DE 4E  ..[`Z...w.mj`..N
+39 2D 8D 5F 57 49 CD D9 8D 34 E9 DE 72 E9 CB DC  9-._WI...4..r...
+DD DF 7E 3D 49 12 EB FD 30 C8 A3 3C ED EE BE 2A  ..~=I...0..&lt;...*
+B6 5A 7C A4 24 80 31 00 8F 2A 8F 8F 27 3F 18 F2  .Z|.$.1..*..'?..
+58 D4 C8 B0 89 DD 66 F6 77 C9 8A 71 CA FD E0 3C  X.....f.w..q...&lt;
+A2 C6 38 BE 97 07 31 F3 06 8C 8E 2C B5 34 85 CA  ..8...1....,.4..
+6A E1 07 30 19 8A B5 9D 62 4F C1 DD B0 63 34 56  j..0....bO...c4V
+6B 54 2B 42 59 25 FE 44 97 81 F0 0B 57 25 A8 4E  kT+BY%.D....W%.N
+E5 38 3B 21 7A E2 95 2D A3 40 FE 24 95 C0 02 EB  .8;!z..-.@.$....
+FF 59 21 F4 A5 A9 7E EF B6 A5 BB E4 9D 3C 67 5A  .Y!...~......&lt;gZ
+D1 08 54 59 5B 71 54 43 59 4A B1 A9 6C E3 40 F4  ..TY[qTCYJ..l.@.
+E3 EB 2A 6E 49 22 0F 8F 4A 74 53 22 D6 63 C7 AA  ..*nI"..JtS".c..
+11 7C A2 8F 7A 5E 59 42 9C 89 84 43 65 0D FD F3  .|..z^YB...Ce...
+CB 0C 74 FE 27 5D A1 77 52 49 1A F1 F2 B0 D0 FF  ..t.'].wRI......
+B4 FA 18 2D BE B6 46 56 E6 E5 B6 DB 30 B2 9F 97  ...-..FV....0...
+B6 C5 63 19 80 56 7D 38 08 3B BB B4 B2 C1 FD 29  ..c..V}8.;.....)
+BD 82 C7 8F 31 81 9A 41 A6 22 5D 64 5A E9 1B DD  ....1..A."]dZ...
+51 3A 83 D1 4B 31 34 F2 A2 08 D8 9A 37 E9 ED 16  Q:..K14.....7...
+90 E9 1F 1A A1 4C 35 FA F3 B5 F0 3B FF 24 74 58  .....L5....;.$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.101.4
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:nueSlcVwBqVs5vEf0ws1ChaFAgyqeqs34I7uoFdGOqw.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:29
+  remove with:
+  ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.101.4
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+33 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:40:03 2018 from 192.168.101.2
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+root@controller:~/lcm/robot/suite/vnf/test_snort# sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.4
+
+
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+29 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:40:08 2018 from 192.168.102.2
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.3
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+28 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:40:13 2018 from 192.168.102.2
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:12:21.627" starttime="20180413 17:10:43.750"></status>
+</kw>
+<doc>Test Sniffer</doc>
+<status status="PASS" endtime="20180413 17:12:21.628" critical="yes" starttime="20180413 17:10:43.748"></status>
+</test>
+<test id="s1-t10" name="OPENSTACK - Validate Snort vnf Scenarios: NIDSmode Test">
+<kw name="Vnf NIDS Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:13:59.349" level="INFO">stack_name : Stack123 
+-----ACTIVATING NIDS MODE-----
+ sudo snort -dev -l ./log -h 192.168.1&lt;bs77ahihm:~$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.101.4
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:nueSlcVwBqVs5vEf0ws1ChaFAgyqeqs34I7uoFdGOqw.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:29
+  remove with:
+  ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.101.4
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+33 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:41:41 2018 from 192.168.101.2
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+root@controller:~/lcm/robot/suite/vnf/test_snort# sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.4
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+29 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:41:46 2018 from 192.168.102.2
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.3
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+28 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:41:51 2018 from 192.168.102.2
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:13:59.350" starttime="20180413 17:12:21.631"></status>
+</kw>
+<doc>Test NIDS</doc>
+<status status="PASS" endtime="20180413 17:13:59.351" critical="yes" starttime="20180413 17:12:21.629"></status>
+</test>
+<test id="s1-t11" name="OPENSTACK - Validate Snort vnf Scenarios: Packet Logger mode Test">
+<kw name="Vnf Pkt Logger Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:15:42.201" level="INFO">stack_name : Stack123 
+-----ACTIVATING PACKET LOGGER MODE-----
+ 
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.101.4
+
+
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:nueSlcVwBqVs5vEf0ws1ChaFAgyqeqs34I7uoFdGOqw.
+Please contact your system administrator.
+Add correct host key in /root/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /root/.ssh/known_hosts:29
+  remove with:
+  ssh-keygen -f "/root/.ssh/known_hosts" -R 192.168.101.4
+Password authentication is disabled to avoid man-in-the-middle attacks.
+Keyboard-interactive authentication is disabled to avoid man-in-the-middle attacks.
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+33 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:43:18 2018 from 192.168.101.2
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+root@controller:~/lcm/robot/suite/vnf/test_snort# sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.4
+
+
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+29 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:43:23 2018 from 192.168.102.2
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ sudo ssh -o StrictHostKeyCh&lt;/suite/vnf/test_snort# sudo ssh -o StrictHostKeyChe                         cking=no -i key.pem ubunt&lt;o ssh -o StrictHostKeyChecking=no -i key.pem ubuntu                         @192.168.102.3
+
+
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic x86_64)
+
+
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+28 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Fri Apr 13 11:43:29 2018 from 192.168.102.2
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------FIREWALL SHUTDOWN----------
+-----FIND LOG FILES-----
+ ls /home/ubuntu/log/
+alert                 snort.log.1521540463  snort.log.1522905539
+snort.log.1521531483  snort.log.1521540683  snort.log.1522915330
+snort.log.1521531661  snort.log.1521540901  snort.log.1523426200
+snort.log.1521531802  snort.log.1521623042  snort.log.1523427803
+snort.log.1521532030  snort.log.1521623098  snort.log.1523429786
+snort.log.1521532600  snort.log.1522756289  snort.log.1523431598
+snort.log.1521536649  snort.log.1522840750  snort.log.1523436798
+snort.log.1521539146  snort.log.1522840789  snort.log.1523442105
+snort.log.1521539506  snort.log.1522843593  snort.log.1523619849
+snort.log.1521539800  snort.log.1522904940
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$</msg>
+<status status="PASS" endtime="20180413 17:15:42.202" starttime="20180413 17:13:59.354"></status>
+</kw>
+<doc>Test PacketLoggerMode</doc>
+<status status="PASS" endtime="20180413 17:15:42.203" critical="yes" starttime="20180413 17:13:59.352"></status>
+</test>
+<test id="s1-t12" name="OPENSTACK - Validate Snort vnf Scenarios: SSH Test">
+<kw name="Vnf Ssh Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:17:00.772" level="INFO">stack_name : Stack123 
+--------Rule Addition STARTED----------
+ sudo echo "drop tcp 192.168.102.3 any&lt;bs77ahihm:~$ sudo echo "drop tcp 192.168.102.3 any                          -&gt; \$HOME_NET 22 (msg:"Po&lt;op tcp 192.168.102.3 any -&gt; \$HOME_NET 22 (msg:"Pot                         ential SSH Brute Force At&lt;&gt; \$HOME_NET 22 (msg:"Potential SSH Brute Force Att                         ack"; GID:1; sid:2001219;&lt;ntial SSH Brute Force Attack"; GID:1; sid:2001219;                          rev:4; classtype:attempte&lt;ck"; GID:1; sid:2001219; rev:4; classtype:attempted                         -dos; resp:rst_all;)" &gt; /&lt;ev:4; classtype:attempted-dos; resp:rst_all;)" &gt; /e                         tc/snort/rules/local.rule&lt;dos; resp:rst_all;)" &gt; /etc/snort/rules/local.rules                         
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ cat /etc/snort/rules/local.rules
+drop tcp 192.168.102.3 any -&gt; $HOME_NET 22 (msg:Potential SSH Brute Force Attack; GID:1; sid:2001219; rev:4; classtype:attempted-dos; resp:rst_all;)
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+------------------STARTING FIREWALL-------------------------
+['sudo snort -A console -q -c /etc/snort/snort.conf -Q &amp;']
+-----Initiating SSH Connection-----
+command is--------&gt; ['sudo ssh ubuntu@192.168.101.4']
+ sudo ssh ubuntu@192.168.101.4
+ssh: connect to host 192.168.101.4 port 22: Connection refused
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$ 
+ubuntu@stack123-server3-w2g6vvuqvjw6:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:17:00.773" starttime="20180413 17:15:42.206"></status>
+</kw>
+<doc>Test SSH</doc>
+<status status="PASS" endtime="20180413 17:17:00.774" critical="yes" starttime="20180413 17:15:42.204"></status>
+</test>
+<test id="s1-t13" name="OPENSTACK - Validate Snort vnf Scenarios: Malware Test">
+<kw name="Vnf Malware Test" library="vnf_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180413 17:18:19.344" level="INFO">stack_name : Stack123 
+--------Rule Addition STARTED----------
+ sudo echo "drop tcp \$HOME_NET any -&gt;&lt;bs77ahihm:~$ sudo echo "drop tcp \$HOME_NET any -&gt;                          any any (msg:"Warning!!, &lt;op tcp \$HOME_NET any -&gt; any any (msg:"Warning!!, A                          host is trying to access&lt;ny any (msg:"Warning!!, A host is trying to access                          /admin"; sid:1002355; rev&lt;host is trying to access /admin"; sid:1002355; rev:                         2; classtype:web-applicat&lt;admin"; sid:1002355; rev:2; classtype:web-applicati                         on-activity;)" &gt; /etc/sno&lt;; classtype:web-application-activity;)" &gt; /etc/snor                         t/rules/local.rules
+sudo echo "drop tcp \$HOME_NET any -&gt; any any (msg:"Warningsudo killall snort, A host is trying to access /admin"; sid:1002355; rev:2; classtype:web-application-activity;)" &gt; /etc/snort/rules/local.rules
+sudo: unable to resolve host stack123-server2-ga2bs77ahihm: Connection timed out
+[1]+  Done                    sudo snort -A console -q -c /etc/snort/snort.conf -Q
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+ cat /etc/snort/rules/local.rules
+drop tcp $HOME_NET any -&gt; any any (msg:Warningsudo killall snort, A host is trying to access /admin; sid:1002355; rev:2; classtype:web-application-activity;)
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$ 
+ubuntu@stack123-server2-ga2bs77ahihm:~$
+------------------STARTING FIREWALL-------------------------
+['sudo snort -A console -q -c /etc/snort/snort.conf -Q &amp;']
+--------MALWARE TEST STARTED----------
+ sudo wget https://secure.eicar.org/ei&lt;4kkpemvt4:~$ sudo wget https://secure.eicar.org/eic                         ar.com.txt 
+--2018-04-13 11:47:56--  https://secure.eicar.org/eicar.com.txt
+
+
+Resolving secure.eicar.org (secure.eicar.org)... 213.211.198.58
+Connecting to secure.eicar.org (secure.eicar.org)|213.211.198.58|:443... failed: Connection refused.
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$ 
+ubuntu@stack123-server1-cpd4kkpemvt4:~$
+--------FIREWALL SHUTDOWN----------</msg>
+<status status="PASS" endtime="20180413 17:18:19.345" starttime="20180413 17:17:00.777"></status>
+</kw>
+<doc>Test SSH</doc>
+<status status="PASS" endtime="20180413 17:18:19.345" critical="yes" starttime="20180413 17:17:00.775"></status>
+</test>
+<doc>Test Vnf SNORT Scenarios</doc>
+<status status="PASS" endtime="20180413 17:18:19.350" starttime="20180413 16:59:41.563"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="13">Critical Tests</stat>
+<stat fail="0" pass="13">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test" pass="13">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

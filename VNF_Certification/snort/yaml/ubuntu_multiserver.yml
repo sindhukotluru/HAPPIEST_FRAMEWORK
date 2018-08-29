@@ -1,0 +1,107 @@
+heat_template_version: 2015-10-15
+description: Launch a basic instance with specified ubuntu image using the
+             ``mininet`` flavor, ``mykey`` key,  and two networks private, net_mgmt.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance.
+    default: net103_management
+  NetID2:
+    type: string
+    description: 2nd Network ID to use for the instance
+    default: net101
+  NetID3:
+    type: string
+    description: 3rd Network ID to use for the instance
+    default: net102
+  IMAGE:
+    type: string
+    description: Image name
+    default: ubuntu_new
+  IMAGE2:
+    type: string
+    description: Image name
+    default: ubuntu_new
+resources:
+  server1:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: 20gb
+      key_name: key
+      networks:
+      - network: { get_param: NetID2 }
+
+  floating_ip1:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+
+  association1:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip1 }
+      server_id: { get_resource: server1 }
+
+  server2:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE2 }
+      flavor: 20gb
+      key_name: key234demo
+      networks:
+      - network: { get_param: NetID2 }
+      - network: { get_param: NetID3 }
+
+  floating_ip2:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+
+  association2:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip2 }
+      server_id: { get_resource: server2 }
+
+  server3:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: 20gb
+      key_name: key234demo
+      networks:
+      - network: { get_param: NetID3 }
+
+  floating_ip3:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+
+  association3:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip3 }
+      server_id: { get_resource: server3 }
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server1, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server1, first_address ] }
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server2, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server2, first_address ] }
+
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server3, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server3, first_address ] }

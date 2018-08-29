@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20180304 18:32:03.202" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/home/test/automation/lcm/robot/suite/vnf/test_debian/test.robot" id="s1" name="Test">
+<test id="s1-t1" name="OPENSTACK - Validate Vnf Lcm Scenarios: VM Creation">
+<kw name="Vnf Create Instance" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:37:09.989" level="INFO">create vm command:  openstack stack create -t /home/test/automation/lcm/yaml/vnf.yml stack1
+show_stack_command:  openstack stack show stack1 -f json
+show_stack_command:  openstack stack show stack1 -f json
+show_stack_command:  openstack server show stack1-server-xwozltczb3xr -f json
+net_mgmt=192.168.120.13, 192.168.203.20
+first connection failed
+cmd:  sudo ifconfig eth0
+text ::  sudo ifconfig eth0
+sudo: unable to resolve host stack1-server-xwozltczb3xr
+eth0      Link encap:Ethernet  HWaddr fa:16:3e:65:82:37  
+          inet addr:192.168.120.13  Bcast:192.168.120.255  Mask:255.255.255.0
+          inet6 addr: fe80::f816:3eff:fe65:8237/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1450  Metric:1
+          RX packets:359 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:385 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:59276 (59.2 KB)  TX bytes:41986 (41.9 KB)
+
+
+MATCH: 192.168.120.13</msg>
+<status status="PASS" endtime="20180304 18:37:09.989" starttime="20180304 18:32:08.795"></status>
+</kw>
+<doc>Test VM Creation</doc>
+<status status="PASS" endtime="20180304 18:37:09.990" critical="yes" starttime="20180304 18:32:08.793"></status>
+</test>
+<test id="s1-t2" name="OPENSTACK - Validate Vnf Lcm Scenarios: Multinet VM Creation">
+<kw name="Vnf Create Instance Multinet" library="lcm_library">
+<arguments>
+<arg>${stack2_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:37:21.130" level="INFO">create vm command:  openstack stack create -t /home/test/automation/lcm/yaml/vnf2.yml multiStack1</msg>
+<status status="PASS" endtime="20180304 18:37:21.130" starttime="20180304 18:37:09.991"></status>
+</kw>
+<doc>Test Multinet VM Creation</doc>
+<status status="PASS" endtime="20180304 18:37:21.130" critical="yes" starttime="20180304 18:37:09.990"></status>
+</test>
+<test id="s1-t3" name="OPENSTACK - Validate Vnf Lcm Scenarios: VM Upgrade">
+<kw name="Vnf Upgrade Instance" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:38:39.710" level="INFO">create vm command:  openstack stack update -t /home/test/automation/lcm/yaml/vnf_update.yml stack1
+show_stack_command:  openstack stack show stack1 -f json</msg>
+<status status="PASS" endtime="20180304 18:38:39.710" starttime="20180304 18:37:21.131"></status>
+</kw>
+<doc>Test VM Upgrade</doc>
+<status status="PASS" endtime="20180304 18:38:39.711" critical="yes" starttime="20180304 18:37:21.131"></status>
+</test>
+<test id="s1-t4" name="OPENSTACK - Validate Vnf Lcm Scenarios: VM Downgrade">
+<kw name="Vnf Downgrade Instance" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:39:52.908" level="INFO">create vm command:  openstack stack update -t /home/test/automation/lcm/yaml/vnf.yml stack1
+show_stack_command:  openstack stack show stack1 -f json</msg>
+<status status="PASS" endtime="20180304 18:39:52.908" starttime="20180304 18:38:39.712"></status>
+</kw>
+<doc>Test VM Downgrade</doc>
+<status status="PASS" endtime="20180304 18:39:52.908" critical="yes" starttime="20180304 18:38:39.711"></status>
+</test>
+<test id="s1-t5" name="OPENSTACK - Validate Vnf Lcm Scenarios: VM Soft Reboot">
+<kw name="Vnf Soft Reboot Server" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:42:50.953" level="INFO">show_stack_command:  openstack stack show stack1 -f json
+show_stack_command:  openstack server show stack1-server-xwozltczb3xr -f json
+stack_create_status ACTIVE</msg>
+<status status="PASS" endtime="20180304 18:42:50.954" starttime="20180304 18:39:52.909"></status>
+</kw>
+<doc>Test VM Soft Reboot</doc>
+<status status="PASS" endtime="20180304 18:42:50.954" critical="yes" starttime="20180304 18:39:52.909"></status>
+</test>
+<test id="s1-t6" name="OPENSTACK - Validate Vnf Lcm Scenarios: VM Hard Reboot">
+<kw name="Vnf Hard Reboot Server" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:43:44.334" level="INFO">show_stack_command:  openstack stack show stack1 -f json
+show_stack_command:  openstack server show stack1-server-xwozltczb3xr -f json</msg>
+<status status="PASS" endtime="20180304 18:43:44.335" starttime="20180304 18:42:50.955"></status>
+</kw>
+<doc>Test VM Hard Reboot</doc>
+<status status="PASS" endtime="20180304 18:43:44.335" critical="yes" starttime="20180304 18:42:50.954"></status>
+</test>
+<test id="s1-t7" name="OPENSTACK - Validate Vnf Lcm Scenarios: VM Create Snapshot">
+<kw name="Vnf Create Snapshot" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+<arg>${snapshot_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:44:35.691" level="INFO">show_stack_command:  openstack stack show stack1 -f json
+Create snapshot command:  openstack server image create stack1-server-xwozltczb3xr --name snap1
+show_stack_command:  openstack image show snap1 -f json</msg>
+<status status="PASS" endtime="20180304 18:44:35.692" starttime="20180304 18:43:44.336"></status>
+</kw>
+<doc>Test Create Snapshot</doc>
+<status status="PASS" endtime="20180304 18:44:35.692" critical="yes" starttime="20180304 18:43:44.335"></status>
+</test>
+<test id="s1-t8" name="OPENSTACK - Validate Vnf Lcm Scenarios: VM Delete Snapshot">
+<kw name="Vnf Delete Snapshot" library="lcm_library">
+<arguments>
+<arg>${snapshot_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:45:17.246" level="INFO">Revert snapshot command:  openstack image delete snap1
+show_stack_command:  openstack image show snap1 -f json</msg>
+<status status="PASS" endtime="20180304 18:45:17.246" starttime="20180304 18:44:35.693"></status>
+</kw>
+<doc>Test VM Delete Snapshot</doc>
+<status status="PASS" endtime="20180304 18:45:17.247" critical="yes" starttime="20180304 18:44:35.692"></status>
+</test>
+<test id="s1-t9" name="OPENSTACK - Validate Vnf Lcm Scenarios: Pause VM">
+<kw name="Vnf Pause Server" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:46:05.171" level="INFO">show_stack_command:  openstack stack show stack1 -f json
+Server pause command:  openstack server pause stack1-server-xwozltczb3xr
+show_stack_command:  openstack server show stack1-server-xwozltczb3xr -f json</msg>
+<status status="PASS" endtime="20180304 18:46:05.172" starttime="20180304 18:45:17.248"></status>
+</kw>
+<doc>Test pause server</doc>
+<status status="PASS" endtime="20180304 18:46:05.172" critical="yes" starttime="20180304 18:45:17.247"></status>
+</test>
+<test id="s1-t10" name="OPENSTACK - Validate Vnf Lcm Scenarios: Unpause VM">
+<kw name="Vnf Unpause Server" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:46:52.718" level="INFO">show_stack_command:  openstack stack show stack1 -f json
+Server unpause command:  openstack server unpause stack1-server-xwozltczb3xr
+show_stack_command:  openstack server show stack1-server-xwozltczb3xr -f json</msg>
+<status status="PASS" endtime="20180304 18:46:52.718" starttime="20180304 18:46:05.173"></status>
+</kw>
+<doc>Test unpause server</doc>
+<status status="PASS" endtime="20180304 18:46:52.719" critical="yes" starttime="20180304 18:46:05.172"></status>
+</test>
+<test id="s1-t11" name="OPENSTACK - Validate Vnf Lcm Scenarios: Suspend VM">
+<kw name="Vnf Suspend Server" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:47:40.451" level="INFO">show_stack_command:  openstack stack show stack1 -f json
+Server suspend command:  openstack server suspend stack1-server-xwozltczb3xr
+show_stack_command:  openstack server show stack1-server-xwozltczb3xr -f json</msg>
+<status status="PASS" endtime="20180304 18:47:40.451" starttime="20180304 18:46:52.720"></status>
+</kw>
+<doc>Test suspend server</doc>
+<status status="PASS" endtime="20180304 18:47:40.452" critical="yes" starttime="20180304 18:46:52.719"></status>
+</test>
+<test id="s1-t12" name="OPENSTACK - Validate Vnf Lcm Scenarios: Resume VM">
+<kw name="Vnf Resume Server" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:48:28.101" level="INFO">show_stack_command:  openstack stack show stack1 -f json
+Server resume command:  openstack server resume stack1-server-xwozltczb3xr
+show_stack_command:  openstack server show stack1-server-xwozltczb3xr -f json</msg>
+<status status="PASS" endtime="20180304 18:48:28.101" starttime="20180304 18:47:40.453"></status>
+</kw>
+<doc>Test Resume Server</doc>
+<status status="PASS" endtime="20180304 18:48:28.102" critical="yes" starttime="20180304 18:47:40.452"></status>
+</test>
+<test id="s1-t13" name="OPENSTACK - Validate Vnf Lcm Scenarios: Delete VM">
+<kw name="Vnf Delete Server" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:49:20.420" level="INFO">show_stack_command:  openstack stack show stack1 -f json
+Delete server command:  openstack server delete --wait stack1-server-xwozltczb3xr
+show_stack_command:  openstack server show stack1-server-xwozltczb3xr -f json</msg>
+<status status="PASS" endtime="20180304 18:49:20.420" starttime="20180304 18:48:28.103"></status>
+</kw>
+<doc>Test VM deletion</doc>
+<status status="PASS" endtime="20180304 18:49:20.420" critical="yes" starttime="20180304 18:48:28.102"></status>
+</test>
+<test id="s1-t14" name="OPENSTACK - Validate Vnf Lcm Scenarios: Delete Stack">
+<kw name="Vnf Delete Stack" library="lcm_library">
+<arguments>
+<arg>${stack_name}</arg>
+</arguments>
+<msg timestamp="20180304 18:50:01.524" level="INFO">Delete stack command:  openstack stack delete --yes stack1
+show_stack_command:  openstack stack show stack1 -f json</msg>
+<status status="PASS" endtime="20180304 18:50:01.525" starttime="20180304 18:49:20.422"></status>
+</kw>
+<doc>Test stack deletion</doc>
+<status status="PASS" endtime="20180304 18:50:01.525" critical="yes" starttime="20180304 18:49:20.421"></status>
+</test>
+<doc>Test Vnf Lcm Scenarios</doc>
+<status status="PASS" endtime="20180304 18:50:01.527" starttime="20180304 18:32:03.205"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="14">Critical Tests</stat>
+<stat fail="0" pass="14">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="Test" pass="14">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
