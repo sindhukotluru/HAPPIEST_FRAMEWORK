@@ -1,0 +1,15 @@
+{
+    "vpn-instance":
+        {
+            "description": "",
+            "vpn-instance-name": "",
+            "ipv4-family": {
+                "route-distinguisher": "",
+                "export-route-policy": "",
+                "import-route-policy": "",
+                "apply-label": {
+                    "apply-label-per-route": ""
+                }
+            }
+        }
+}

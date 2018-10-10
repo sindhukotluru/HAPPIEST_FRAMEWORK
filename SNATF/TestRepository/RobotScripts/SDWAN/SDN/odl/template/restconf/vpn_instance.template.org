@@ -1,0 +1,69 @@
+{# Importing required modules #}
+from copy import deepcopy
+import json
+
+
+{# Dump the JSON Class Name #}
+{% for name in class_attrs %}
+class {{name|format_attribute_name|upper()}}(object):
+
+{# Dump the Attribute Field Identifiers #}
+{% for attr in class_attrs[name] %}
+    _{{attr|format_attribute_name|upper}}_FIELD = "{{attr}}"
+{% endfor %}
+
+{# Dump the Constructor #}
+    def __init__(self):
+        self._template = {}
+{% for attr in class_attrs[name] %}
+        self._template[self._{{attr|format_attribute_name|upper}}_FIELD] = None
+{% endfor %}
+        self._default_template = deepcopy(self._template)
+
+{# Initialize the child class objects #}
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() %}
+        self._{{attr|format_attribute_name|lower}} = {{attr|format_attribute_name|upper}}()
+{% endif %}
+{% endfor %}
+
+{# Dump the method to return the child clas object as a property #}
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() %}
+    @property
+    def {{attr|format_attribute_name|lower}}(self):
+        return self._{{attr|format_attribute_name|lower}}
+{% endif %}
+{% endfor%}
+
+{# Dump the Setter methods for the attributes #}
+{% for attr in class_attrs[name] %}
+{% if attr not in class_attrs.keys() %}
+    def set_{{attr|format_attribute_name|lower}}(self, value):
+        self._template[self._{{attr|format_attribute_name|upper}}_FIELD] = value
+
+{% endif %}
+{% endfor %}
+
+{# Dump the Getter methods for the attributes #}
+    def get_template(self, default=False):
+        if default:
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() %}
+            self._default_template[self._{{attr|format_attribute_name|upper}}_FIELD] = self.{{attr|format_attribute_name|lower}}.get_template(default=default)
+{% endif %}
+{% endfor %}
+            return self._default_template
+        else:
+{% for attr in class_attrs[name] %}
+{% if attr in class_attrs.keys() %}
+            self._template[self._{{attr|format_attribute_name|upper}}_FIELD] = self.{{attr|format_attribute_name|lower}}.get_template()
+{% endif %}
+{% endfor %}
+            return self._template
+
+{# Dump the Getter method for the JSON representation #}
+    def get_json(self, default=False):
+        return json.dumps(self.get_template(default=default))
+
+{% endfor %}

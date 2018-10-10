@@ -1,0 +1,79 @@
+{
+    "vpn-instance": {
+        "description": "",
+        "ipv4-family": {
+            "apply-label": "",
+            "export-route-policy": "",
+            "import-route-policy": "",
+            "importRibs": {
+                "bgp-valid-route": " ",
+                "policyName": " ",
+                "processId": " ",
+                "protocol": " "
+            },
+            "l3vpnTtlMode": {
+                "ttlMode": " "
+            },
+            "l3vpnVrfPipe": {
+                "color": " ",
+                "dsName": " ",
+                "pipeMode": " ",
+                "serviceClass": " "
+            },
+            "prefix-limit": {
+                "prefix-limit-number": " "
+            },
+            "route-distinguisher": "",
+            "routing-table-limit": {
+                "routing-table-limit-number": " "
+            },
+            "traffic-statistics": "",
+            "tunnel-policy": "",
+            "vpn-frr": "",
+            "vpnTargets": {
+                "vpnTarget": {
+                    "vrfRTType": " ",
+                    "vrfRTValue": " "
+                }
+            }
+        },
+        "ipv6-family": {
+            "apply-label": "",
+            "export-route-policy": "",
+            "import-route-policy": "",
+            "importRibs": {
+                "bgp-valid-route": " ",
+                "policyName": " ",
+                "processId": " ",
+                "protocol": " "
+            },
+            "l3vpnTtlMode": {
+                "ttlMode": " "
+            },
+            "l3vpnVrfPipe": {
+                "color": " ",
+                "dsName": " ",
+                "pipeMode": " ",
+                "serviceClass": " "
+            },
+            "prefix-limit": {
+                "prefix-limit-number": " "
+            },
+            "route-distinguisher": "",
+            "routing-table-limit": {
+                "routing-table-limit-number": " "
+            },
+            "traffic-statistics": "",
+            "tunnel-policy": "",
+            "vpn-frr": "",
+            "vpnTargets": {
+                "vpnTarget": {
+                    "vrfRTType": " ",
+                    "vrfRTValue": " "
+                }
+            }
+        },
+        "vpn-id": "",
+        "vpn-instance-name": ""
+    }
+}

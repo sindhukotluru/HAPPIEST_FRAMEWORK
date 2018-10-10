@@ -1,0 +1,3648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170818 18:15:28.530" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/root/PycharmProjects/robotframework/sdnperf/SdnBenchmarking.robot" id="s1" name="SdnBenchmarking">
+<kw type="setup" name="Cbench Suite Setup">
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3x</arg>
+<arg>1s</arg>
+<arg>OdlKarafKeywords.Issue Command On Karaf Console In Odl</arg>
+<arg>log:set ERROR</arg>
+</arguments>
+<kw name="Issue Command On Karaf Console In Odl" library="OdlKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.88</doc>
+<arguments>
+<arg>log:set ERROR</arg>
+</arguments>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:30.177" starttime="20170818 18:15:30.177"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${KARAF_USER}</arg>
+<arg>${KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:30.182" level="INFO">Logging into '10.22.20.88:8101' as 'karaf'.</msg>
+<msg timestamp="20170818 18:15:30.363" level="INFO">Read output: [33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:30.363" starttime="20170818 18:15:30.177"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:30.413" level="INFO">[0m[1m@[0m[34mroot[0m&gt;log:set ERROR</msg>
+<status status="PASS" endtime="20170818 18:15:30.414" starttime="20170818 18:15:30.363"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:30.414" level="INFO">[36mopendaylight-user</msg>
+<msg timestamp="20170818 18:15:30.414" level="INFO">${output} = [36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:30.415" starttime="20170818 18:15:30.414"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:30.533" starttime="20170818 18:15:30.415"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:30.533" level="INFO">[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:30.534" starttime="20170818 18:15:30.533"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:30.534" starttime="20170818 18:15:30.176"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:30.534" starttime="20170818 18:15:30.168"></status>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<arguments>
+<arg>3x</arg>
+<arg>1s</arg>
+<arg>OnosKarafKeywords.Issue Command On Karaf Console In Onos</arg>
+<arg>log:set ERROR</arg>
+</arguments>
+<kw name="Issue Command On Karaf Console In Onos" library="OnosKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.88</doc>
+<arguments>
+<arg>log:set ERROR</arg>
+</arguments>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${ONOS_KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:30.544" starttime="20170818 18:15:30.543"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${ONOS_KARAF_USER}</arg>
+<arg>${ONOS_KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:30.545" level="INFO">Logging into '10.22.20.73:8101' as 'onos'.</msg>
+<msg timestamp="20170818 18:15:30.780" level="INFO">Read output: Welcome to Open Network Operating System (ONOS)!
+[1;31m     ____  _  ______  ____     [0m
+[1;31m    / __ \/ |/ / __ \/ __/   [0m
+[1;31m   / /_/ /    / /_/ /\ \     [0m
+[1;31m   \____/_/|_/\____/___/     [0m
+[1;31m                               [0m
+Documentation: wiki.onosproject.org      
+Tutorials:     tutorials.onosproject.org 
+Mailing lists: lists.onosproject.org     
+
+Come help out! Find out how at: contribute.onosproject.org 
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown ONOS.
+
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:30.780" starttime="20170818 18:15:30.544"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:30.838" level="INFO">[0mlog:set ERROR</msg>
+<status status="PASS" endtime="20170818 18:15:30.839" starttime="20170818 18:15:30.780"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${ONOS_KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:30.839" level="INFO">[32monos&gt;</msg>
+<msg timestamp="20170818 18:15:30.840" level="INFO">${output} = [32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:30.840" starttime="20170818 18:15:30.839"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:30.955" starttime="20170818 18:15:30.840"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:30.956" level="INFO">[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:30.956" starttime="20170818 18:15:30.956"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:30.956" starttime="20170818 18:15:30.543"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:30.956" starttime="20170818 18:15:30.534"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${cbench_system}" == "localhost"</arg>
+<arg>OperatingSystem.File Should Exist</arg>
+<arg>${cbench_executable}</arg>
+<arg>ELSE</arg>
+<arg>Verify File Exists On Remote System</arg>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable}</arg>
+</arguments>
+<kw name="Verify File Exists On Remote System" library="CommonUtils">
+<doc>Will create connection with public key and will PASS if the given ${file} exists,</doc>
+<arguments>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable}</arg>
+</arguments>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${system}</arg>
+<arg>prompt=${prompt}</arg>
+<arg>timeout=${prompt_timeout}</arg>
+</arguments>
+<assign>
+<var>${conn_id}</var>
+</assign>
+<msg timestamp="20170818 18:15:30.970" level="INFO">${conn_id} = 3</msg>
+<status status="PASS" endtime="20170818 18:15:30.970" starttime="20170818 18:15:30.969"></status>
+</kw>
+<kw name="Flexible_SSH_Login" library="SSHKeywords">
+<doc>On active SSH session: if given non-empty password, do Login, else do Login With Public Key.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<assign>
+<var>${pwd_length}</var>
+</assign>
+<msg timestamp="20170818 18:15:30.977" level="INFO">Length is 0</msg>
+<msg timestamp="20170818 18:15:30.977" level="INFO">${pwd_length} = 0</msg>
+<status status="PASS" endtime="20170818 18:15:30.977" starttime="20170818 18:15:30.971"></status>
+</kw>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${pwd_length} &gt; 0</arg>
+<arg>SSHLibrary.Login</arg>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:30.978" starttime="20170818 18:15:30.977"></status>
+</kw>
+<kw name="Run Keyword And Return" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>SSHLibrary.Login With Public Key</arg>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<kw name="Login With Public Key" library="SSHLibrary">
+<doc>Logs into the SSH server using key-based authentication.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:30.980" level="INFO">Logging into '10.22.20.177:22' as 'root'.</msg>
+<msg timestamp="20170818 18:15:31.386" level="INFO">Read output: Welcome to Ubuntu 16.04 LTS (GNU/Linux 4.4.0-89-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+321 packages can be updated.
+1 update is a security update.
+
+Last login: Fri Aug 18 18:15:23 2017 from 10.22.20.177
+root@admin1-VirtualBox:~#</msg>
+<status status="PASS" endtime="20170818 18:15:31.386" starttime="20170818 18:15:30.979"></status>
+</kw>
+<msg timestamp="20170818 18:15:31.386" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20170818 18:15:31.386" starttime="20170818 18:15:30.978"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:31.387" starttime="20170818 18:15:30.970"></status>
+</kw>
+<kw name="File Should Exist" library="SSHLibrary">
+<doc>Fails if the given `path` does NOT point to an existing file.</doc>
+<arguments>
+<arg>${file}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:31.394" level="INFO">[chan 1] Opened sftp connection (server version 3)</msg>
+<status status="PASS" endtime="20170818 18:15:31.397" starttime="20170818 18:15:31.387"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:31.463" starttime="20170818 18:15:31.398"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:31.463" starttime="20170818 18:15:30.968"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:31.463" starttime="20170818 18:15:30.957"></status>
+</kw>
+<kw name="Install A Feature In Odl" library="OdlKarafKeywords">
+<doc>Will Install the given ${feature_name}</doc>
+<arguments>
+<arg>odl-openflowplugin-drop-test</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${timeout}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:31.474" level="INFO">180</msg>
+<status status="PASS" endtime="20170818 18:15:31.474" starttime="20170818 18:15:31.474"></status>
+</kw>
+<kw name="Issue Command On Karaf Console In Odl" library="OdlKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.88</doc>
+<arguments>
+<arg>feature:install ${feature_name}</arg>
+<arg>${controller}</arg>
+<arg>${karaf_port}</arg>
+<arg>${timeout}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:31.492" starttime="20170818 18:15:31.491"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${KARAF_USER}</arg>
+<arg>${KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:31.495" level="INFO">Logging into '10.22.20.88:8101' as 'karaf'.</msg>
+<msg timestamp="20170818 18:15:31.683" level="INFO">Read output: [33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:31.684" starttime="20170818 18:15:31.494"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:31.740" level="INFO">[0m[1m@[0m[34mroot[0m&gt;feature:install odl-openflowplugin-drop-test</msg>
+<status status="PASS" endtime="20170818 18:15:31.740" starttime="20170818 18:15:31.684"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:31.778" level="INFO">[36mopendaylight-user</msg>
+<msg timestamp="20170818 18:15:31.779" level="INFO">${output} = [36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:31.779" starttime="20170818 18:15:31.740"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:31.894" starttime="20170818 18:15:31.779"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:31.895" level="INFO">[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:31.896" starttime="20170818 18:15:31.895"></status>
+</kw>
+<msg timestamp="20170818 18:15:31.896" level="INFO">${output} = [36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:31.901" starttime="20170818 18:15:31.485"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:31.905" level="INFO">[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:31.905" starttime="20170818 18:15:31.904"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:31.905" starttime="20170818 18:15:31.471"></status>
+</kw>
+<kw name="Install A Feature In Odl" library="OdlKarafKeywords">
+<doc>Will Install the given ${feature_name}</doc>
+<arguments>
+<arg>odl-openflowplugin-flow-services</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${timeout}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:31.935" level="INFO">180</msg>
+<status status="PASS" endtime="20170818 18:15:31.935" starttime="20170818 18:15:31.935"></status>
+</kw>
+<kw name="Issue Command On Karaf Console In Odl" library="OdlKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.88</doc>
+<arguments>
+<arg>feature:install ${feature_name}</arg>
+<arg>${controller}</arg>
+<arg>${karaf_port}</arg>
+<arg>${timeout}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:31.976" starttime="20170818 18:15:31.976"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${KARAF_USER}</arg>
+<arg>${KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:31.977" level="INFO">Logging into '10.22.20.88:8101' as 'karaf'.</msg>
+<msg timestamp="20170818 18:15:32.247" level="INFO">Read output: [33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:32.247" starttime="20170818 18:15:31.977"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:32.260" level="INFO">[0m[1m@[0m[34mroot[0m&gt;feature:install odl-openflowplugin-flow-services</msg>
+<status status="PASS" endtime="20170818 18:15:32.260" starttime="20170818 18:15:32.247"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:32.290" level="INFO">[36mopendaylight-user</msg>
+<msg timestamp="20170818 18:15:32.291" level="INFO">${output} = [36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:32.291" starttime="20170818 18:15:32.261"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:32.406" starttime="20170818 18:15:32.291"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:32.407" level="INFO">[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:32.407" starttime="20170818 18:15:32.406"></status>
+</kw>
+<msg timestamp="20170818 18:15:32.407" level="INFO">${output} = [36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:32.407" starttime="20170818 18:15:31.960"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:32.408" level="INFO">[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:32.408" starttime="20170818 18:15:32.407"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:32.408" starttime="20170818 18:15:31.933"></status>
+</kw>
+<kw name="Verify Feature Is Installed In Odl" library="OdlKarafKeywords">
+<doc>Will Succeed if the given ${feature_name} is found in the output of "feature:list -i"</doc>
+<arguments>
+<arg>odl-openflowplugin-drop-test</arg>
+</arguments>
+<kw name="Issue Command On Karaf Console In Odl" library="OdlKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.88</doc>
+<arguments>
+<arg>feature:list -i | grep ${feature_name}</arg>
+<arg>${controller}</arg>
+<arg>${karaf_port}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:32.438" starttime="20170818 18:15:32.437"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${KARAF_USER}</arg>
+<arg>${KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:32.439" level="INFO">Logging into '10.22.20.88:8101' as 'karaf'.</msg>
+<msg timestamp="20170818 18:15:32.729" level="INFO">Read output: [33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:32.729" starttime="20170818 18:15:32.438"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:32.791" level="INFO">[0m[1m@[0m[34mroot[0m&gt;feature:list -i | grep odl-openflowplugin-drop-test</msg>
+<status status="PASS" endtime="20170818 18:15:32.791" starttime="20170818 18:15:32.733"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:32.824" level="INFO">[43;30modl-openflowplugin-drop-test[m[m                   | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Drop Test      [m
+[36mopendaylight-user</msg>
+<msg timestamp="20170818 18:15:32.825" level="INFO">${output} = [43;30modl-openflowplugin-drop-test[m[m                   | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Drop Test      [m
+[36mopenday...</msg>
+<status status="PASS" endtime="20170818 18:15:32.825" starttime="20170818 18:15:32.791"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:32.941" starttime="20170818 18:15:32.825"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:32.942" level="INFO">[43;30modl-openflowplugin-drop-test[m[m                   | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Drop Test      [m
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:32.942" starttime="20170818 18:15:32.941"></status>
+</kw>
+<msg timestamp="20170818 18:15:32.942" level="INFO">${output} = [43;30modl-openflowplugin-drop-test[m[m                   | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Drop Test      [m
+[36mopenday...</msg>
+<status status="PASS" endtime="20170818 18:15:32.942" starttime="20170818 18:15:32.434"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>${feature_name}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:32.943" starttime="20170818 18:15:32.943"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:32.944" starttime="20170818 18:15:32.422"></status>
+</kw>
+<kw name="Verify Feature Is Installed In Odl" library="OdlKarafKeywords">
+<doc>Will Succeed if the given ${feature_name} is found in the output of "feature:list -i"</doc>
+<arguments>
+<arg>odl-openflowplugin-flow-services</arg>
+</arguments>
+<kw name="Issue Command On Karaf Console In Odl" library="OdlKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.88</doc>
+<arguments>
+<arg>feature:list -i | grep ${feature_name}</arg>
+<arg>${controller}</arg>
+<arg>${karaf_port}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:32.966" starttime="20170818 18:15:32.965"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${KARAF_USER}</arg>
+<arg>${KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:32.966" level="INFO">Logging into '10.22.20.88:8101' as 'karaf'.</msg>
+<msg timestamp="20170818 18:15:33.248" level="INFO">Read output: [33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:33.249" starttime="20170818 18:15:32.966"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:33.312" level="INFO">[0m[1m@[0m[34mroot[0m&gt;feature:list -i | grep odl-openflowplugin-flow-services</msg>
+<status status="PASS" endtime="20170818 18:15:33.313" starttime="20170818 18:15:33.249"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:33.347" level="INFO">[43;30modl-openflowplugin-flow-services[m[m-ui            | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Flow Services :[m
+[43;30modl-openflowplugin-flow-services[m[m-rest          | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Flow Services :[m
+[43;30modl-openflowplugin-flow-services[m[m               | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Flow Services  [m
+[36mopendaylight-user</msg>
+<msg timestamp="20170818 18:15:33.347" level="INFO">${output} = [43;30modl-openflowplugin-flow-services[m[m-ui            | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Flow Services :[m
+[43;30modl-...</msg>
+<status status="PASS" endtime="20170818 18:15:33.347" starttime="20170818 18:15:33.313"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:33.464" starttime="20170818 18:15:33.348"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:33.466" level="INFO">[43;30modl-openflowplugin-flow-services[m[m-ui            | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Flow Services :[m
+[43;30modl-openflowplugin-flow-services[m[m-rest          | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Flow Services :[m
+[43;30modl-openflowplugin-flow-services[m[m               | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Flow Services  [m
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:33.466" starttime="20170818 18:15:33.465"></status>
+</kw>
+<msg timestamp="20170818 18:15:33.466" level="INFO">${output} = [43;30modl-openflowplugin-flow-services[m[m-ui            | 0.3.3-Boron-SR3  | x         | openflowplugin-0.3.3-Boron-SR3       | OpenDaylight :: Openflow Plugin :: Flow Services :[m
+[43;30modl-...</msg>
+<status status="PASS" endtime="20170818 18:15:33.467" starttime="20170818 18:15:32.964"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>${feature_name}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:33.467" starttime="20170818 18:15:33.467"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:33.468" starttime="20170818 18:15:32.952"></status>
+</kw>
+<kw name="Issue Command On Karaf Console In Odl" library="OdlKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.88</doc>
+<arguments>
+<arg>dropallpacketsrpc on</arg>
+</arguments>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:33.477" starttime="20170818 18:15:33.476"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${KARAF_USER}</arg>
+<arg>${KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:33.479" level="INFO">Logging into '10.22.20.88:8101' as 'karaf'.</msg>
+<msg timestamp="20170818 18:15:33.666" level="INFO">Read output: [33m                                                                                           
+[33m    ________                       ________                .__  .__       .__     __       
+[33m    \_____  \ ______   ____   ____ \______ \ _____  ___.__.|  | |__| ____ |  |___/  |_     
+[33m     /   |   \\____ \_/ __ \ /    \ |    |  \\__  \&lt;   |  ||  | |  |/ ___\|  |  \   __\    
+[33m    /    |    \  |_&gt; &gt;  ___/|   |  \|    `   \/ __ \\___  ||  |_|  / /_/  &gt;   Y  \  |      
+[33m    \_______  /   __/ \___  &gt;___|  /_______  (____  / ____||____/__\___  /|___|  /__|      
+[33m            \/|__|        \/     \/        \/     \/\/            /_____/      \/          
+[33m                                                                                           
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown OpenDaylight.
+
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:33.666" starttime="20170818 18:15:33.478"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:33.725" level="INFO">[0m[1m@[0m[34mroot[0m&gt;dropallpacketsrpc on</msg>
+<status status="PASS" endtime="20170818 18:15:33.726" starttime="20170818 18:15:33.666"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:33.728" level="INFO">DropAllFlows is already on
+[36mopendaylight-user</msg>
+<msg timestamp="20170818 18:15:33.729" level="INFO">${output} = DropAllFlows is already on
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:33.729" starttime="20170818 18:15:33.727"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:33.846" starttime="20170818 18:15:33.730"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:33.847" level="INFO">DropAllFlows is already on
+[36mopendaylight-user</msg>
+<status status="PASS" endtime="20170818 18:15:33.847" starttime="20170818 18:15:33.847"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:33.848" starttime="20170818 18:15:33.475"></status>
+</kw>
+<kw name="Install A Feature In Onos" library="OnosKarafKeywords">
+<doc>Will Install the given ${feature_name}</doc>
+<arguments>
+<arg>org.onosproject.fwd</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${timeout}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:33.854" level="INFO">180</msg>
+<status status="PASS" endtime="20170818 18:15:33.855" starttime="20170818 18:15:33.854"></status>
+</kw>
+<kw name="Issue Command On Karaf Console In Onos" library="OnosKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.73</doc>
+<arguments>
+<arg>app activate ${feature_name}</arg>
+<arg>${controller}</arg>
+<arg>${karaf_port}</arg>
+<arg>${timeout}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${ONOS_KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:33.862" starttime="20170818 18:15:33.861"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${ONOS_KARAF_USER}</arg>
+<arg>${ONOS_KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:33.864" level="INFO">Logging into '10.22.20.73:8101' as 'onos'.</msg>
+<msg timestamp="20170818 18:15:34.232" level="INFO">Read output: Welcome to Open Network Operating System (ONOS)!
+[1;31m     ____  _  ______  ____     [0m
+[1;31m    / __ \/ |/ / __ \/ __/   [0m
+[1;31m   / /_/ /    / /_/ /\ \     [0m
+[1;31m   \____/_/|_/\____/___/     [0m
+[1;31m                               [0m
+Documentation: wiki.onosproject.org      
+Tutorials:     tutorials.onosproject.org 
+Mailing lists: lists.onosproject.org     
+
+Come help out! Find out how at: contribute.onosproject.org 
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown ONOS.
+
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:34.232" starttime="20170818 18:15:33.863"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:34.313" level="INFO">[0mapp activate org.onosproject.fwd</msg>
+<status status="PASS" endtime="20170818 18:15:34.313" starttime="20170818 18:15:34.233"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${ONOS_KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:34.351" level="INFO">Activated org.onosproject.fwd
+[32monos&gt;</msg>
+<msg timestamp="20170818 18:15:34.352" level="INFO">${output} = Activated org.onosproject.fwd
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:34.352" starttime="20170818 18:15:34.314"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:34.467" starttime="20170818 18:15:34.352"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:34.468" level="INFO">Activated org.onosproject.fwd
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:34.468" starttime="20170818 18:15:34.467"></status>
+</kw>
+<msg timestamp="20170818 18:15:34.469" level="INFO">${output} = Activated org.onosproject.fwd
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:34.469" starttime="20170818 18:15:33.860"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:34.470" level="INFO">Activated org.onosproject.fwd
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:34.470" starttime="20170818 18:15:34.469"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:34.470" starttime="20170818 18:15:33.853"></status>
+</kw>
+<kw name="Install A Feature In Onos" library="OnosKarafKeywords">
+<doc>Will Install the given ${feature_name}</doc>
+<arguments>
+<arg>org.onosproject.openflow-base</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${timeout}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:34.478" level="INFO">180</msg>
+<status status="PASS" endtime="20170818 18:15:34.478" starttime="20170818 18:15:34.478"></status>
+</kw>
+<kw name="Issue Command On Karaf Console In Onos" library="OnosKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.73</doc>
+<arguments>
+<arg>app activate ${feature_name}</arg>
+<arg>${controller}</arg>
+<arg>${karaf_port}</arg>
+<arg>${timeout}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${ONOS_KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:34.487" starttime="20170818 18:15:34.486"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${ONOS_KARAF_USER}</arg>
+<arg>${ONOS_KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:34.488" level="INFO">Logging into '10.22.20.73:8101' as 'onos'.</msg>
+<msg timestamp="20170818 18:15:34.804" level="INFO">Read output: Welcome to Open Network Operating System (ONOS)!
+[1;31m     ____  _  ______  ____     [0m
+[1;31m    / __ \/ |/ / __ \/ __/   [0m
+[1;31m   / /_/ /    / /_/ /\ \     [0m
+[1;31m   \____/_/|_/\____/___/     [0m
+[1;31m                               [0m
+Documentation: wiki.onosproject.org      
+Tutorials:     tutorials.onosproject.org 
+Mailing lists: lists.onosproject.org     
+
+Come help out! Find out how at: contribute.onosproject.org 
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown ONOS.
+
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:34.804" starttime="20170818 18:15:34.488"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:34.851" level="INFO">[0mapp activate org.onosproject.openflow-base</msg>
+<status status="PASS" endtime="20170818 18:15:34.852" starttime="20170818 18:15:34.805"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${ONOS_KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:34.887" level="INFO">Activated org.onosproject.openflow-base
+[32monos&gt;</msg>
+<msg timestamp="20170818 18:15:34.888" level="INFO">${output} = Activated org.onosproject.openflow-base
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:34.888" starttime="20170818 18:15:34.852"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:35.003" starttime="20170818 18:15:34.888"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:35.005" level="INFO">Activated org.onosproject.openflow-base
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:35.005" starttime="20170818 18:15:35.004"></status>
+</kw>
+<msg timestamp="20170818 18:15:35.005" level="INFO">${output} = Activated org.onosproject.openflow-base
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:35.005" starttime="20170818 18:15:34.485"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:35.007" level="INFO">Activated org.onosproject.openflow-base
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:35.007" starttime="20170818 18:15:35.006"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:35.007" starttime="20170818 18:15:34.476"></status>
+</kw>
+<kw name="Verify Feature Is Installed In Onos" library="OnosKarafKeywords">
+<doc>Will Succeed if the given ${feature_name} is found in the output of "apps -a"</doc>
+<arguments>
+<arg>org.onosproject.fwd</arg>
+</arguments>
+<kw name="Issue Command On Karaf Console In Onos" library="OnosKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.73</doc>
+<arguments>
+<arg>apps -s -a | grep ${feature_name}</arg>
+<arg>${controller}</arg>
+<arg>${karaf_port}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${ONOS_KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:35.023" starttime="20170818 18:15:35.022"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${ONOS_KARAF_USER}</arg>
+<arg>${ONOS_KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:35.025" level="INFO">Logging into '10.22.20.73:8101' as 'onos'.</msg>
+<msg timestamp="20170818 18:15:35.406" level="INFO">Read output: Welcome to Open Network Operating System (ONOS)!
+[1;31m     ____  _  ______  ____     [0m
+[1;31m    / __ \/ |/ / __ \/ __/   [0m
+[1;31m   / /_/ /    / /_/ /\ \     [0m
+[1;31m   \____/_/|_/\____/___/     [0m
+[1;31m                               [0m
+Documentation: wiki.onosproject.org      
+Tutorials:     tutorials.onosproject.org 
+Mailing lists: lists.onosproject.org     
+
+Come help out! Find out how at: contribute.onosproject.org 
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown ONOS.
+
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:35.406" starttime="20170818 18:15:35.024"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:35.458" level="INFO">[0mapps -s -a | grep org.onosproject.fwd</msg>
+<status status="PASS" endtime="20170818 18:15:35.458" starttime="20170818 18:15:35.407"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${ONOS_KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:35.564" level="INFO">*   6 [43;30morg.onosproject.fwd[m[m                  1.10.3   Reactive Forwarding App[m
+[32monos&gt;</msg>
+<msg timestamp="20170818 18:15:35.564" level="INFO">${output} = *   6 [43;30morg.onosproject.fwd[m[m                  1.10.3   Reactive Forwarding App[m
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:35.564" starttime="20170818 18:15:35.459"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:35.679" starttime="20170818 18:15:35.564"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:35.680" level="INFO">*   6 [43;30morg.onosproject.fwd[m[m                  1.10.3   Reactive Forwarding App[m
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:35.681" starttime="20170818 18:15:35.680"></status>
+</kw>
+<msg timestamp="20170818 18:15:35.682" level="INFO">${output} = *   6 [43;30morg.onosproject.fwd[m[m                  1.10.3   Reactive Forwarding App[m
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:35.682" starttime="20170818 18:15:35.020"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>${feature_name}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:35.683" starttime="20170818 18:15:35.683"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:35.683" starttime="20170818 18:15:35.014"></status>
+</kw>
+<kw name="Verify Feature Is Installed In Onos" library="OnosKarafKeywords">
+<doc>Will Succeed if the given ${feature_name} is found in the output of "apps -a"</doc>
+<arguments>
+<arg>org.onosproject.openflow-base</arg>
+</arguments>
+<kw name="Issue Command On Karaf Console In Onos" library="OnosKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.73</doc>
+<arguments>
+<arg>apps -s -a | grep ${feature_name}</arg>
+<arg>${controller}</arg>
+<arg>${karaf_port}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${ONOS_KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:35.703" starttime="20170818 18:15:35.702"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${ONOS_KARAF_USER}</arg>
+<arg>${ONOS_KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:35.704" level="INFO">Logging into '10.22.20.73:8101' as 'onos'.</msg>
+<msg timestamp="20170818 18:15:36.033" level="INFO">Read output: Welcome to Open Network Operating System (ONOS)!
+[1;31m     ____  _  ______  ____     [0m
+[1;31m    / __ \/ |/ / __ \/ __/   [0m
+[1;31m   / /_/ /    / /_/ /\ \     [0m
+[1;31m   \____/_/|_/\____/___/     [0m
+[1;31m                               [0m
+Documentation: wiki.onosproject.org      
+Tutorials:     tutorials.onosproject.org 
+Mailing lists: lists.onosproject.org     
+
+Come help out! Find out how at: contribute.onosproject.org 
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown ONOS.
+
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:36.033" starttime="20170818 18:15:35.704"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.079" level="INFO">[0mapps -s -a | grep org.onosproject.openflow-base</msg>
+<status status="PASS" endtime="20170818 18:15:36.079" starttime="20170818 18:15:36.034"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${ONOS_KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:36.116" level="INFO">*  25 [43;30morg.onosproject.openflow-base[m[m        1.10.3   OpenFlow Provider[m
+[32monos&gt;</msg>
+<msg timestamp="20170818 18:15:36.116" level="INFO">${output} = *  25 [43;30morg.onosproject.openflow-base[m[m        1.10.3   OpenFlow Provider[m
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:36.116" starttime="20170818 18:15:36.080"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:36.232" starttime="20170818 18:15:36.117"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.234" level="INFO">*  25 [43;30morg.onosproject.openflow-base[m[m        1.10.3   OpenFlow Provider[m
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:36.234" starttime="20170818 18:15:36.233"></status>
+</kw>
+<msg timestamp="20170818 18:15:36.234" level="INFO">${output} = *  25 [43;30morg.onosproject.openflow-base[m[m        1.10.3   OpenFlow Provider[m
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:36.234" starttime="20170818 18:15:35.700"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>${feature_name}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.237" starttime="20170818 18:15:36.236"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.237" starttime="20170818 18:15:35.693"></status>
+</kw>
+<kw name="Issue Command On Karaf Console In Onos" library="OnosKarafKeywords">
+<doc>Will execute the given ${cmd} by ssh'ing to the karaf console running on 10.22.20.88</doc>
+<arguments>
+<arg>cfg set org.onosproject.fwd.ReactiveForwarding packetOutOnly true</arg>
+</arguments>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${controller}</arg>
+<arg>port=${karaf_port}</arg>
+<arg>prompt=${ONOS_KARAF_PROMPT}</arg>
+<arg>timeout=${timeout}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.245" starttime="20170818 18:15:36.244"></status>
+</kw>
+<kw name="Login" library="SSHLibrary">
+<doc>Logs into the SSH server with the given `username` and `password`.</doc>
+<arguments>
+<arg>${ONOS_KARAF_USER}</arg>
+<arg>${ONOS_KARAF_PASSWORD}</arg>
+<arg>loglevel=${loglevel}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.246" level="INFO">Logging into '10.22.20.73:8101' as 'onos'.</msg>
+<msg timestamp="20170818 18:15:36.537" level="INFO">Read output: Welcome to Open Network Operating System (ONOS)!
+[1;31m     ____  _  ______  ____     [0m
+[1;31m    / __ \/ |/ / __ \/ __/   [0m
+[1;31m   / /_/ /    / /_/ /\ \     [0m
+[1;31m   \____/_/|_/\____/___/     [0m
+[1;31m                               [0m
+Documentation: wiki.onosproject.org      
+Tutorials:     tutorials.onosproject.org 
+Mailing lists: lists.onosproject.org     
+
+Come help out! Find out how at: contribute.onosproject.org 
+
+Hit '[1m&lt;tab&gt;[0m' for a list of available commands
+and '[1m[cmd] --help[0m' for help on a specific command.
+Hit '[1m&lt;ctrl-d&gt;[0m' or type '[1msystem:shutdown[0m' or '[1mlogout[0m' to shutdown ONOS.
+
+[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:36.537" starttime="20170818 18:15:36.245"></status>
+</kw>
+<kw name="Write" library="SSHLibrary">
+<doc>Writes the given `text` on the remote machine and appends a newline.</doc>
+<arguments>
+<arg>${cmd}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.594" level="INFO">[0mcfg set org.onosproject.fwd.ReactiveForwarding packetOutOnly true</msg>
+<status status="PASS" endtime="20170818 18:15:36.594" starttime="20170818 18:15:36.538"></status>
+</kw>
+<kw name="Read Until" library="SSHLibrary">
+<doc>Consumes and returns the server output until `expected` is encountered.</doc>
+<arguments>
+<arg>${ONOS_KARAF_PROMPT}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20170818 18:15:36.631" level="INFO">[32monos&gt;</msg>
+<msg timestamp="20170818 18:15:36.631" level="INFO">${output} = [32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:36.631" starttime="20170818 18:15:36.595"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:36.748" starttime="20170818 18:15:36.632"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.749" level="INFO">[32monos&gt;</msg>
+<status status="PASS" endtime="20170818 18:15:36.750" starttime="20170818 18:15:36.748"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.750" starttime="20170818 18:15:36.243"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.750" starttime="20170818 18:15:30.164"></status>
+</kw>
+<test id="s1-t1" name="2. SDN Benchmarking TC2">
+<kw name="Generate Testcase Incremental Switch Description">
+<arguments>
+<arg>2</arg>
+<arg>${switch_count_tc2}</arg>
+<arg>${duration_in_ms_tc2}</arg>
+<arg>${loops_tc2}</arg>
+<arg>${num_of_unique_macs_tc2}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}-----------------------------------------------------------------</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.754" starttime="20170818 18:15:36.754"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"TestCaseID: TC${number}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.756" starttime="20170818 18:15:36.755"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Incremental Switch condition"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.757" starttime="20170818 18:15:36.757"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Time (ms) : ${duration_in_ms}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.759" starttime="20170818 18:15:36.758"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Loop : ${loops}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.760" starttime="20170818 18:15:36.759"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Switches : ${INDEX} to ${switch_count}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.762" starttime="20170818 18:15:36.761"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Hosts : ${num_of_unique_macs}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.763" starttime="20170818 18:15:36.763"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>-----------------------------------------------------------------</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.764" starttime="20170818 18:15:36.764"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.765" starttime="20170818 18:15:36.751"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"\nConnecting to Device"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.766" starttime="20170818 18:15:36.765"></status>
+</kw>
+<kw name="Cbench Throughput Latency Incremental Load">
+<arguments>
+<arg>${switch_count_tc2}</arg>
+<arg>${ODL_SYSTEM_IP}</arg>
+<arg>-m ${duration_in_ms_tc2} -M ${num_of_unique_macs_tc2} -s ${switch_count_tc2} -l ${loops_tc2} -D ${start_delay} -p ${of_port}</arg>
+</arguments>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<assign>
+<var>@{avgThroughputlist}</var>
+</assign>
+<msg timestamp="20170818 18:15:36.769" level="INFO">@{avgThroughputlist} = [ ]</msg>
+<status status="PASS" endtime="20170818 18:15:36.769" starttime="20170818 18:15:36.768"></status>
+</kw>
+<kw type="for" name="${INDEX} IN RANGE [ 1 | ${load}+1 ]">
+<kw type="foritem" name="${INDEX} = 1">
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${avgThroughputlist}</arg>
+<arg>${1}</arg>
+<arg>${2}</arg>
+<arg>${3}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.772" starttime="20170818 18:15:36.771"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sum(${avgThroughputlist})</arg>
+</arguments>
+<assign>
+<var>${avgMean}</var>
+</assign>
+<msg timestamp="20170818 18:15:36.774" level="INFO">${avgMean} = 6</msg>
+<status status="PASS" endtime="20170818 18:15:36.774" starttime="20170818 18:15:36.773"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${INDEX}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.775" starttime="20170818 18:15:36.774"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.775" starttime="20170818 18:15:36.770"></status>
+</kw>
+<kw type="foritem" name="${INDEX} = 2">
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${avgThroughputlist}</arg>
+<arg>${1}</arg>
+<arg>${2}</arg>
+<arg>${3}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.776" starttime="20170818 18:15:36.776"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>sum(${avgThroughputlist})</arg>
+</arguments>
+<assign>
+<var>${avgMean}</var>
+</assign>
+<msg timestamp="20170818 18:15:36.778" level="INFO">${avgMean} = 12</msg>
+<status status="PASS" endtime="20170818 18:15:36.779" starttime="20170818 18:15:36.777"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${INDEX}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.781" starttime="20170818 18:15:36.780"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.781" starttime="20170818 18:15:36.775"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.781" starttime="20170818 18:15:36.769"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>For loop is over</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.782" starttime="20170818 18:15:36.781"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${avgThroughputlist}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.783" starttime="20170818 18:15:36.782"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${avgMean}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.784" starttime="20170818 18:15:36.783"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.784" starttime="20170818 18:15:36.766"></status>
+</kw>
+<kw type="teardown" name="Log Results As Zero If Cbench Timed Out">
+<kw name="Run Keyword If Timeout Occurred" library="BuiltIn">
+<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
+<arguments>
+<arg>Log Results And Determine Status</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>${output_filename}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.786" starttime="20170818 18:15:36.786"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.786" starttime="20170818 18:15:36.784"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.786" critical="yes" starttime="20170818 18:15:36.750"></status>
+</test>
+<test id="s1-t2" name="3. SDN Benchmarking TC3">
+<kw name="Generate Testcase Constant Switch Description">
+<arguments>
+<arg>3</arg>
+<arg>${switch_count_tc3}</arg>
+<arg>${duration_in_ms_tc3}</arg>
+<arg>${loops_tc3}</arg>
+<arg>${num_of_unique_macs_tc3}</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}-----------------------------------------------------------------</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.790" starttime="20170818 18:15:36.789"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"TestCaseID: TC${number}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.791" starttime="20170818 18:15:36.791"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Constant Switch condition"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.792" starttime="20170818 18:15:36.792"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Time (ms) : ${duration_in_ms}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.793" starttime="20170818 18:15:36.793"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Loop : ${loops}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.795" starttime="20170818 18:15:36.794"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Switches : ${switch_count}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.797" starttime="20170818 18:15:36.796"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>"Hosts : ${num_of_unique_macs}"</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.798" starttime="20170818 18:15:36.797"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>-----------------------------------------------------------------</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.799" starttime="20170818 18:15:36.798"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:36.799" starttime="20170818 18:15:36.788"></status>
+</kw>
+<kw name="Cbench Throughput Latency Constant Load Test">
+<arguments>
+<arg>-m ${duration_in_ms_tc1} -M ${num_of_unique_macs_tc1} -s ${switch_count_tc1} -l ${loops_tc1} -D ${start_delay} -p ${of_port}</arg>
+</arguments>
+<kw name="Run Cbench And Log Results">
+<arguments>
+<arg>Throughput</arg>
+<arg>ODL</arg>
+<arg>${ODL_SYSTEM_IP}</arg>
+<arg>${TC_ARGS} -t</arg>
+<arg>${throughput_results_file}</arg>
+</arguments>
+<assign>
+<var>${odlThroughput}</var>
+</assign>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${output_filename}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.804" level="INFO">${output_filename} = throughput.csv</msg>
+<status status="PASS" endtime="20170818 18:15:36.804" starttime="20170818 18:15:36.804"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}Start Cbench ${cbench_testtype} of SDN controller ${controller_name} ${controller_ip}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.806" starttime="20170818 18:15:36.805"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${cbench_system}" == "localhost"</arg>
+<arg>Run</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+<arg>ELSE</arg>
+<arg>Run Command On Remote System</arg>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Run Command On Remote System" library="CommonUtils">
+<doc>Reduces the common work of running a command on a remote system to a single higher level</doc>
+<arguments>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+</arguments>
+<kw name="Get Connection" library="SSHLibrary">
+<doc>Return information about the connection.</doc>
+<assign>
+<var>${current_ssh_connection}</var>
+</assign>
+<msg timestamp="20170818 18:15:36.812" level="INFO">index=None
+path_separator=/
+prompt=None
+width=80
+newline=
+
+height=24
+encoding=utf8
+alias=None
+host=None
+timeout=3 seconds
+term_type=vt100
+port=22</msg>
+<msg timestamp="20170818 18:15:36.813" level="INFO">${current_ssh_connection} = index=None
+path_separator=/
+prompt=None
+width=80
+newline=
+
+height=24
+encoding=utf8
+alias=None
+host=None
+timeout=3 seconds
+term_type=vt100
+port=22</msg>
+<status status="PASS" endtime="20170818 18:15:36.813" starttime="20170818 18:15:36.811"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Attempting to execute command "${cmd}" on remote system "${system}" by user "${user}" with keyfile pass "${keyfile_pass}" and prompt "${prompt}"</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.814" level="INFO">Attempting to execute command "/usr/local/bin/cbench -c 10.22.20.88 -m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633 -t" on remote system "10.22.20.177" by user "root" with keyfile pass "any" and prompt "#"</msg>
+<status status="PASS" endtime="20170818 18:15:36.814" starttime="20170818 18:15:36.813"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.815" level="INFO"></msg>
+<status status="PASS" endtime="20170818 18:15:36.815" starttime="20170818 18:15:36.815"></status>
+</kw>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${system}</arg>
+<arg>prompt=${prompt}</arg>
+<arg>timeout=${prompt_timeout}</arg>
+</arguments>
+<assign>
+<var>${conn_id}</var>
+</assign>
+<msg timestamp="20170818 18:15:36.817" level="INFO">${conn_id} = 14</msg>
+<status status="PASS" endtime="20170818 18:15:36.817" starttime="20170818 18:15:36.816"></status>
+</kw>
+<kw name="Flexible_SSH_Login" library="SSHKeywords">
+<doc>On active SSH session: if given non-empty password, do Login, else do Login With Public Key.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<assign>
+<var>${pwd_length}</var>
+</assign>
+<msg timestamp="20170818 18:15:36.820" level="INFO">Length is 0</msg>
+<msg timestamp="20170818 18:15:36.820" level="INFO">${pwd_length} = 0</msg>
+<status status="PASS" endtime="20170818 18:15:36.820" starttime="20170818 18:15:36.819"></status>
+</kw>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${pwd_length} &gt; 0</arg>
+<arg>SSHLibrary.Login</arg>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:36.822" starttime="20170818 18:15:36.821"></status>
+</kw>
+<kw name="Run Keyword And Return" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>SSHLibrary.Login With Public Key</arg>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<kw name="Login With Public Key" library="SSHLibrary">
+<doc>Logs into the SSH server using key-based authentication.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:36.824" level="INFO">Logging into '10.22.20.177:22' as 'root'.</msg>
+<msg timestamp="20170818 18:15:37.319" level="INFO">Read output: Welcome to Ubuntu 16.04 LTS (GNU/Linux 4.4.0-89-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+321 packages can be updated.
+1 update is a security update.
+
+Last login: Fri Aug 18 18:15:31 2017 from 10.22.20.177
+root@admin1-VirtualBox:~#</msg>
+<status status="PASS" endtime="20170818 18:15:37.319" starttime="20170818 18:15:36.823"></status>
+</kw>
+<msg timestamp="20170818 18:15:37.320" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20170818 18:15:37.320" starttime="20170818 18:15:36.822"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:37.321" starttime="20170818 18:15:36.818"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>return_stderr=True</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+<var>${stderr}</var>
+</assign>
+<msg timestamp="20170818 18:15:37.323" level="INFO">Executing command '/usr/local/bin/cbench -c 10.22.20.88 -m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633 -t'.</msg>
+<msg timestamp="20170818 18:15:53.347" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20170818 18:15:53.347" level="INFO">${stdout} = 18:15:43.333 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:44.433 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:45.5...</msg>
+<msg timestamp="20170818 18:15:53.347" level="INFO">${stderr} = cbench: controller benchmarking tool
+   running in mode 'throughput'
+   connecting to controller at 10.22.20.88:6633 
+   faking 10 switches offset 1 :: 10 tests each; 1000 ms per test
+   with 10 uniqu...</msg>
+<status status="PASS" endtime="20170818 18:15:53.347" starttime="20170818 18:15:37.322"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:53.392" starttime="20170818 18:15:53.348"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${stderr}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.393" level="INFO">cbench: controller benchmarking tool
+   running in mode 'throughput'
+   connecting to controller at 10.22.20.88:6633 
+   faking 10 switches offset 1 :: 10 tests each; 1000 ms per test
+   with 10 unique source MACs per switch
+   learning destination mac addresses before the test
+   starting test with 5000 ms delay after features_reply
+   ignoring first 1 "warmup" and last 0 "cooldown" loops
+   connection delay of 0ms per 1 switch(es)
+   debugging info is off</msg>
+<status status="PASS" endtime="20170818 18:15:53.393" starttime="20170818 18:15:53.392"></status>
+</kw>
+<kw type="teardown" name="Restore_Current_Ssh_Connection_From_Index" library="CommonSSHKeywords">
+<doc>Restore active SSH connection in SSHLibrary to given index.</doc>
+<arguments>
+<arg>${current_ssh_connection.index}</arg>
+</arguments>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${connection_index} is not None</arg>
+<arg>SSHLibrary.Switch Connection</arg>
+<arg>${connection_index}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:53.405" starttime="20170818 18:15:53.404"></status>
+</kw>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>127.0.0.1</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:53.405" starttime="20170818 18:15:53.405"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:15:53.411" starttime="20170818 18:15:53.405"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.411" starttime="20170818 18:15:53.403"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.411" starttime="20170818 18:15:36.807"></status>
+</kw>
+<msg timestamp="20170818 18:15:53.411" level="INFO">${output} = 18:15:43.333 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:44.433 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:45.5...</msg>
+<status status="PASS" endtime="20170818 18:15:53.411" starttime="20170818 18:15:36.806"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:53.412" starttime="20170818 18:15:53.411"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.412" level="INFO">18:15:43.333 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:44.433 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:45.534 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:46.635 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:47.735 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:48.835 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:49.935 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:51.036 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:52.136 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:15:53.236 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+RESULT: 10 switches 9 tests min/max/avg/stdev = 0.00/0.00/0.00/0.00 responses/s</msg>
+<status status="PASS" endtime="20170818 18:15:53.412" starttime="20170818 18:15:53.412"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>RESULT</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:53.413" starttime="20170818 18:15:53.412"></status>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>RESULT</arg>
+</arguments>
+<assign>
+<var>${result_line}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.419" level="INFO">1 out of 11 lines matched</msg>
+<msg timestamp="20170818 18:15:53.419" level="INFO">${result_line} = RESULT: 10 switches 9 tests min/max/avg/stdev = 0.00/0.00/0.00/0.00 responses/s</msg>
+<status status="PASS" endtime="20170818 18:15:53.419" starttime="20170818 18:15:53.413"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${result_line}</arg>
+</arguments>
+<assign>
+<var>@{results_list}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.420" level="INFO">@{results_list} = [ RESULT: | 10 | switches | 9 | tests | min/max/avg/stdev | = | 0.00/0.00/0.00/0.00 | responses/s ]</msg>
+<status status="PASS" endtime="20170818 18:15:53.420" starttime="20170818 18:15:53.420"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${results_list[5]}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.427" level="INFO">min/max/avg/stdev</msg>
+<status status="PASS" endtime="20170818 18:15:53.427" starttime="20170818 18:15:53.420"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${results_list[7]}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.428" level="INFO">0.00/0.00/0.00/0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.428" starttime="20170818 18:15:53.428"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${results_list[5]}</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>@{result_name_list}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.429" level="INFO">@{result_name_list} = [ min | max | avg | stdev ]</msg>
+<status status="PASS" endtime="20170818 18:15:53.433" starttime="20170818 18:15:53.429"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${results_list[7]}</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>@{result_value_list}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.435" level="INFO">@{result_value_list} = [ 0.00 | 0.00 | 0.00 | 0.00 ]</msg>
+<status status="PASS" endtime="20170818 18:15:53.435" starttime="20170818 18:15:53.433"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${result_name_list}</arg>
+</arguments>
+<assign>
+<var>${num_stats}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.436" level="INFO">Length is 4</msg>
+<msg timestamp="20170818 18:15:53.436" level="INFO">${num_stats} = 4</msg>
+<status status="PASS" endtime="20170818 18:15:53.436" starttime="20170818 18:15:53.435"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | ${num_stats} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.444" level="INFO">min :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.444" starttime="20170818 18:15:53.443"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.444" starttime="20170818 18:15:53.436"></status>
+</kw>
+<kw type="foritem" name="${i} = 1">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.445" level="INFO">max :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.445" starttime="20170818 18:15:53.444"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.445" starttime="20170818 18:15:53.444"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.449" level="INFO">avg :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.449" starttime="20170818 18:15:53.445"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.449" starttime="20170818 18:15:53.445"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.454" level="INFO">stdev :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.454" starttime="20170818 18:15:53.449"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.454" starttime="20170818 18:15:53.449"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.454" starttime="20170818 18:15:53.436"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${0}]}</arg>
+</arguments>
+<assign>
+<var>${min}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.455" level="INFO">${min} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.455" starttime="20170818 18:15:53.455"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${1}]}</arg>
+</arguments>
+<assign>
+<var>${max}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.456" level="INFO">${max} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.457" starttime="20170818 18:15:53.456"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${2}]}</arg>
+</arguments>
+<assign>
+<var>${average}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.464" level="INFO">${average} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.464" starttime="20170818 18:15:53.457"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${3}]}</arg>
+</arguments>
+<assign>
+<var>${stdev}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.465" level="INFO">${stdev} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.465" starttime="20170818 18:15:53.464"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>d,m,s</arg>
+</arguments>
+<assign>
+<var>${date}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.466" level="INFO">${date} = 2017-08-18 18:15:53</msg>
+<status status="PASS" endtime="20170818 18:15:53.466" starttime="20170818 18:15:53.465"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>CBench Result: ${date},${cbench_args},${min},${max},${average},${stdev}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.467" level="INFO">CBench Result: 2017-08-18 18:15:53,-m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633 -t,0.00,0.00,0.00,0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.467" starttime="20170818 18:15:53.466"></status>
+</kw>
+<kw name="Log Results And Determine Status">
+<arguments>
+<arg>${cbench_testtype}</arg>
+<arg>${controller_name}</arg>
+<arg>${controller_ip}</arg>
+<arg>${average}</arg>
+<arg>${output_filename}</arg>
+</arguments>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${output_file}</arg>
+<arg>${cbench_testtype},${controller_name},${controller_ip},${average}\n</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.469" html="yes" level="INFO">Appended to file '&lt;a href="file:///root/PycharmProjects/robotframework/sdnperf/logs/throughput.csv"&gt;/root/PycharmProjects/robotframework/sdnperf/logs/throughput.csv&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170818 18:15:53.469" starttime="20170818 18:15:53.468"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.470" starttime="20170818 18:15:53.467"></status>
+</kw>
+<msg timestamp="20170818 18:15:53.470" level="INFO">${odlThroughput} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:15:53.470" starttime="20170818 18:15:36.801"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${test_delay}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.471" level="INFO">Slept 0 seconds</msg>
+<status status="PASS" endtime="20170818 18:15:53.471" starttime="20170818 18:15:53.470"></status>
+</kw>
+<kw name="Run Cbench And Log Results">
+<arguments>
+<arg>Throughput</arg>
+<arg>ONOS</arg>
+<arg>${ONOS_SYSTEM_IP}</arg>
+<arg>${TC_ARGS} -t</arg>
+<arg>${throughput_results_file}</arg>
+</arguments>
+<assign>
+<var>${onosThroughput}</var>
+</assign>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${output_filename}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.473" level="INFO">${output_filename} = throughput.csv</msg>
+<status status="PASS" endtime="20170818 18:15:53.473" starttime="20170818 18:15:53.472"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}Start Cbench ${cbench_testtype} of SDN controller ${controller_name} ${controller_ip}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:53.474" starttime="20170818 18:15:53.473"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${cbench_system}" == "localhost"</arg>
+<arg>Run</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+<arg>ELSE</arg>
+<arg>Run Command On Remote System</arg>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Run Command On Remote System" library="CommonUtils">
+<doc>Reduces the common work of running a command on a remote system to a single higher level</doc>
+<arguments>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+</arguments>
+<kw name="Get Connection" library="SSHLibrary">
+<doc>Return information about the connection.</doc>
+<assign>
+<var>${current_ssh_connection}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.477" level="INFO">index=None
+path_separator=/
+prompt=None
+width=80
+newline=
+
+height=24
+encoding=utf8
+alias=None
+host=None
+timeout=3 seconds
+term_type=vt100
+port=22</msg>
+<msg timestamp="20170818 18:15:53.477" level="INFO">${current_ssh_connection} = index=None
+path_separator=/
+prompt=None
+width=80
+newline=
+
+height=24
+encoding=utf8
+alias=None
+host=None
+timeout=3 seconds
+term_type=vt100
+port=22</msg>
+<status status="PASS" endtime="20170818 18:15:53.477" starttime="20170818 18:15:53.476"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Attempting to execute command "${cmd}" on remote system "${system}" by user "${user}" with keyfile pass "${keyfile_pass}" and prompt "${prompt}"</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.478" level="INFO">Attempting to execute command "/usr/local/bin/cbench -c 10.22.20.73 -m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633 -t" on remote system "10.22.20.177" by user "root" with keyfile pass "any" and prompt "#"</msg>
+<status status="PASS" endtime="20170818 18:15:53.478" starttime="20170818 18:15:53.477"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.478" level="INFO"></msg>
+<status status="PASS" endtime="20170818 18:15:53.479" starttime="20170818 18:15:53.478"></status>
+</kw>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${system}</arg>
+<arg>prompt=${prompt}</arg>
+<arg>timeout=${prompt_timeout}</arg>
+</arguments>
+<assign>
+<var>${conn_id}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.480" level="INFO">${conn_id} = 16</msg>
+<status status="PASS" endtime="20170818 18:15:53.480" starttime="20170818 18:15:53.479"></status>
+</kw>
+<kw name="Flexible_SSH_Login" library="SSHKeywords">
+<doc>On active SSH session: if given non-empty password, do Login, else do Login With Public Key.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<assign>
+<var>${pwd_length}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.481" level="INFO">Length is 0</msg>
+<msg timestamp="20170818 18:15:53.481" level="INFO">${pwd_length} = 0</msg>
+<status status="PASS" endtime="20170818 18:15:53.481" starttime="20170818 18:15:53.481"></status>
+</kw>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${pwd_length} &gt; 0</arg>
+<arg>SSHLibrary.Login</arg>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:15:53.482" starttime="20170818 18:15:53.482"></status>
+</kw>
+<kw name="Run Keyword And Return" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>SSHLibrary.Login With Public Key</arg>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<kw name="Login With Public Key" library="SSHLibrary">
+<doc>Logs into the SSH server using key-based authentication.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<msg timestamp="20170818 18:15:53.483" level="INFO">Logging into '10.22.20.177:22' as 'root'.</msg>
+<msg timestamp="20170818 18:15:53.786" level="INFO">Read output: Welcome to Ubuntu 16.04 LTS (GNU/Linux 4.4.0-89-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+321 packages can be updated.
+1 update is a security update.
+
+Last login: Fri Aug 18 18:15:37 2017 from 10.22.20.177
+root@admin1-VirtualBox:~#</msg>
+<status status="PASS" endtime="20170818 18:15:53.786" starttime="20170818 18:15:53.483"></status>
+</kw>
+<msg timestamp="20170818 18:15:53.786" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20170818 18:15:53.786" starttime="20170818 18:15:53.482"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:15:53.786" starttime="20170818 18:15:53.480"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>return_stderr=True</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+<var>${stderr}</var>
+</assign>
+<msg timestamp="20170818 18:15:53.787" level="INFO">Executing command '/usr/local/bin/cbench -c 10.22.20.73 -m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633 -t'.</msg>
+<msg timestamp="20170818 18:16:09.829" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20170818 18:16:09.829" level="INFO">${stdout} = 18:15:59.795 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:00.895 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:01.9...</msg>
+<msg timestamp="20170818 18:16:09.829" level="INFO">${stderr} = cbench: controller benchmarking tool
+   running in mode 'throughput'
+   connecting to controller at 10.22.20.73:6633 
+   faking 10 switches offset 1 :: 10 tests each; 1000 ms per test
+   with 10 uniqu...</msg>
+<status status="PASS" endtime="20170818 18:16:09.829" starttime="20170818 18:15:53.787"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:16:09.895" starttime="20170818 18:16:09.830"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${stderr}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.895" level="INFO">cbench: controller benchmarking tool
+   running in mode 'throughput'
+   connecting to controller at 10.22.20.73:6633 
+   faking 10 switches offset 1 :: 10 tests each; 1000 ms per test
+   with 10 unique source MACs per switch
+   learning destination mac addresses before the test
+   starting test with 5000 ms delay after features_reply
+   ignoring first 1 "warmup" and last 0 "cooldown" loops
+   connection delay of 0ms per 1 switch(es)
+   debugging info is off</msg>
+<status status="PASS" endtime="20170818 18:16:09.895" starttime="20170818 18:16:09.895"></status>
+</kw>
+<kw type="teardown" name="Restore_Current_Ssh_Connection_From_Index" library="CommonSSHKeywords">
+<doc>Restore active SSH connection in SSHLibrary to given index.</doc>
+<arguments>
+<arg>${current_ssh_connection.index}</arg>
+</arguments>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${connection_index} is not None</arg>
+<arg>SSHLibrary.Switch Connection</arg>
+<arg>${connection_index}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:09.898" starttime="20170818 18:16:09.897"></status>
+</kw>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>127.0.0.1</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:09.899" starttime="20170818 18:16:09.899"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:16:09.900" starttime="20170818 18:16:09.900"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.900" starttime="20170818 18:16:09.896"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.900" starttime="20170818 18:15:53.475"></status>
+</kw>
+<msg timestamp="20170818 18:16:09.905" level="INFO">${output} = 18:15:59.795 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:00.895 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:01.9...</msg>
+<status status="PASS" endtime="20170818 18:16:09.905" starttime="20170818 18:15:53.475"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:09.908" starttime="20170818 18:16:09.907"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.908" level="INFO">18:15:59.795 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:00.895 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:01.996 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:03.096 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:04.198 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:05.299 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:06.408 10  switches: flows/sec:  0  4  4  4  4  4  4  4  4  4   total = 0.035696 per ms 
+18:16:07.515 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:08.621 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:09.724 10  switches: flows/sec:  4  4  4  4  4  4  4  4  4  4   total = 0.039900 per ms 
+RESULT: 10 switches 9 tests min/max/avg/stdev = 0.00/39.90/8.40/15.75 responses/s</msg>
+<status status="PASS" endtime="20170818 18:16:09.909" starttime="20170818 18:16:09.908"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>RESULT</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:09.912" starttime="20170818 18:16:09.909"></status>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>RESULT</arg>
+</arguments>
+<assign>
+<var>${result_line}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.915" level="INFO">1 out of 11 lines matched</msg>
+<msg timestamp="20170818 18:16:09.916" level="INFO">${result_line} = RESULT: 10 switches 9 tests min/max/avg/stdev = 0.00/39.90/8.40/15.75 responses/s</msg>
+<status status="PASS" endtime="20170818 18:16:09.916" starttime="20170818 18:16:09.913"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${result_line}</arg>
+</arguments>
+<assign>
+<var>@{results_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.916" level="INFO">@{results_list} = [ RESULT: | 10 | switches | 9 | tests | min/max/avg/stdev | = | 0.00/39.90/8.40/15.75 | responses/s ]</msg>
+<status status="PASS" endtime="20170818 18:16:09.916" starttime="20170818 18:16:09.916"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${results_list[5]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.917" level="INFO">min/max/avg/stdev</msg>
+<status status="PASS" endtime="20170818 18:16:09.917" starttime="20170818 18:16:09.916"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${results_list[7]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.917" level="INFO">0.00/39.90/8.40/15.75</msg>
+<status status="PASS" endtime="20170818 18:16:09.921" starttime="20170818 18:16:09.917"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${results_list[5]}</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>@{result_name_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.923" level="INFO">@{result_name_list} = [ min | max | avg | stdev ]</msg>
+<status status="PASS" endtime="20170818 18:16:09.923" starttime="20170818 18:16:09.922"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${results_list[7]}</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>@{result_value_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.924" level="INFO">@{result_value_list} = [ 0.00 | 39.90 | 8.40 | 15.75 ]</msg>
+<status status="PASS" endtime="20170818 18:16:09.924" starttime="20170818 18:16:09.924"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${result_name_list}</arg>
+</arguments>
+<assign>
+<var>${num_stats}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.925" level="INFO">Length is 4</msg>
+<msg timestamp="20170818 18:16:09.934" level="INFO">${num_stats} = 4</msg>
+<status status="PASS" endtime="20170818 18:16:09.934" starttime="20170818 18:16:09.925"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | ${num_stats} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.935" level="INFO">min :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:09.935" starttime="20170818 18:16:09.934"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.935" starttime="20170818 18:16:09.934"></status>
+</kw>
+<kw type="foritem" name="${i} = 1">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.940" level="INFO">max :: 39.90</msg>
+<status status="PASS" endtime="20170818 18:16:09.940" starttime="20170818 18:16:09.936"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.940" starttime="20170818 18:16:09.935"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.941" level="INFO">avg :: 8.40</msg>
+<status status="PASS" endtime="20170818 18:16:09.944" starttime="20170818 18:16:09.941"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.945" starttime="20170818 18:16:09.940"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.948" level="INFO">stdev :: 15.75</msg>
+<status status="PASS" endtime="20170818 18:16:09.948" starttime="20170818 18:16:09.945"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.948" starttime="20170818 18:16:09.945"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.948" starttime="20170818 18:16:09.934"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${0}]}</arg>
+</arguments>
+<assign>
+<var>${min}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.949" level="INFO">${min} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:09.949" starttime="20170818 18:16:09.948"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${1}]}</arg>
+</arguments>
+<assign>
+<var>${max}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.949" level="INFO">${max} = 39.90</msg>
+<status status="PASS" endtime="20170818 18:16:09.953" starttime="20170818 18:16:09.949"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${2}]}</arg>
+</arguments>
+<assign>
+<var>${average}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.957" level="INFO">${average} = 8.40</msg>
+<status status="PASS" endtime="20170818 18:16:09.957" starttime="20170818 18:16:09.954"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${3}]}</arg>
+</arguments>
+<assign>
+<var>${stdev}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.960" level="INFO">${stdev} = 15.75</msg>
+<status status="PASS" endtime="20170818 18:16:09.960" starttime="20170818 18:16:09.957"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>d,m,s</arg>
+</arguments>
+<assign>
+<var>${date}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.960" level="INFO">${date} = 2017-08-18 18:16:09</msg>
+<status status="PASS" endtime="20170818 18:16:09.960" starttime="20170818 18:16:09.960"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>CBench Result: ${date},${cbench_args},${min},${max},${average},${stdev}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.961" level="INFO">CBench Result: 2017-08-18 18:16:09,-m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633 -t,0.00,39.90,8.40,15.75</msg>
+<status status="PASS" endtime="20170818 18:16:09.961" starttime="20170818 18:16:09.961"></status>
+</kw>
+<kw name="Log Results And Determine Status">
+<arguments>
+<arg>${cbench_testtype}</arg>
+<arg>${controller_name}</arg>
+<arg>${controller_ip}</arg>
+<arg>${average}</arg>
+<arg>${output_filename}</arg>
+</arguments>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${output_file}</arg>
+<arg>${cbench_testtype},${controller_name},${controller_ip},${average}\n</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.966" html="yes" level="INFO">Appended to file '&lt;a href="file:///root/PycharmProjects/robotframework/sdnperf/logs/throughput.csv"&gt;/root/PycharmProjects/robotframework/sdnperf/logs/throughput.csv&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170818 18:16:09.966" starttime="20170818 18:16:09.965"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.966" starttime="20170818 18:16:09.964"></status>
+</kw>
+<msg timestamp="20170818 18:16:09.966" level="INFO">${onosThroughput} = 8.40</msg>
+<status status="PASS" endtime="20170818 18:16:09.967" starttime="20170818 18:15:53.471"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>ODL average throughput : ${odlThroughput}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.967" level="INFO">ODL average throughput : 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:09.967" starttime="20170818 18:16:09.967"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>ONOS average throughput : ${onosThroughput}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.968" level="INFO">ONOS average throughput : 8.40</msg>
+<status status="PASS" endtime="20170818 18:16:09.968" starttime="20170818 18:16:09.968"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Comparing results...</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.969" level="INFO">Comparing results...</msg>
+<status status="PASS" endtime="20170818 18:16:09.969" starttime="20170818 18:16:09.968"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${odlThroughput} &gt; ${onosThroughput}</arg>
+<arg>log to console</arg>
+<arg>${\n}CONCLUSION : ODL performs betters than ONOS</arg>
+<arg>Log</arg>
+<arg>CONCLUSION : ODL performs betters than ONOS</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:09.970" starttime="20170818 18:16:09.969"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${onosThroughput} &gt; ${odlThroughput}</arg>
+<arg>log to console</arg>
+<arg>${\n}CONCLUSION : ONOS performs betters than ODL</arg>
+<arg>Log</arg>
+<arg>CONCLUSION : ONOS performs betters than ODL</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}CONCLUSION : ONOS performs betters than ODL</arg>
+<arg>Log</arg>
+<arg>CONCLUSION : ONOS performs betters than ODL</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:09.971" starttime="20170818 18:16:09.971"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:09.971" starttime="20170818 18:16:09.970"></status>
+</kw>
+<kw name="Run Cbench And Log Results">
+<arguments>
+<arg>Latency</arg>
+<arg>ODL</arg>
+<arg>${ODL_SYSTEM_IP}</arg>
+<arg>${TC_ARGS}</arg>
+<arg>${throughput_results_file}</arg>
+</arguments>
+<assign>
+<var>${odlLatency}</var>
+</assign>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${output_filename}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.973" level="INFO">${output_filename} = throughput.csv</msg>
+<status status="PASS" endtime="20170818 18:16:09.973" starttime="20170818 18:16:09.972"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}Start Cbench ${cbench_testtype} of SDN controller ${controller_name} ${controller_ip}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:09.974" starttime="20170818 18:16:09.974"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${cbench_system}" == "localhost"</arg>
+<arg>Run</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+<arg>ELSE</arg>
+<arg>Run Command On Remote System</arg>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Run Command On Remote System" library="CommonUtils">
+<doc>Reduces the common work of running a command on a remote system to a single higher level</doc>
+<arguments>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+</arguments>
+<kw name="Get Connection" library="SSHLibrary">
+<doc>Return information about the connection.</doc>
+<assign>
+<var>${current_ssh_connection}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.977" level="INFO">index=None
+path_separator=/
+prompt=None
+width=80
+newline=
+
+height=24
+encoding=utf8
+alias=None
+host=None
+timeout=3 seconds
+term_type=vt100
+port=22</msg>
+<msg timestamp="20170818 18:16:09.977" level="INFO">${current_ssh_connection} = index=None
+path_separator=/
+prompt=None
+width=80
+newline=
+
+height=24
+encoding=utf8
+alias=None
+host=None
+timeout=3 seconds
+term_type=vt100
+port=22</msg>
+<status status="PASS" endtime="20170818 18:16:09.977" starttime="20170818 18:16:09.976"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Attempting to execute command "${cmd}" on remote system "${system}" by user "${user}" with keyfile pass "${keyfile_pass}" and prompt "${prompt}"</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.978" level="INFO">Attempting to execute command "/usr/local/bin/cbench -c 10.22.20.88 -m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633" on remote system "10.22.20.177" by user "root" with keyfile pass "any" and prompt "#"</msg>
+<status status="PASS" endtime="20170818 18:16:09.978" starttime="20170818 18:16:09.977"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.979" level="INFO"></msg>
+<status status="PASS" endtime="20170818 18:16:09.980" starttime="20170818 18:16:09.979"></status>
+</kw>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${system}</arg>
+<arg>prompt=${prompt}</arg>
+<arg>timeout=${prompt_timeout}</arg>
+</arguments>
+<assign>
+<var>${conn_id}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.981" level="INFO">${conn_id} = 18</msg>
+<status status="PASS" endtime="20170818 18:16:09.981" starttime="20170818 18:16:09.980"></status>
+</kw>
+<kw name="Flexible_SSH_Login" library="SSHKeywords">
+<doc>On active SSH session: if given non-empty password, do Login, else do Login With Public Key.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<assign>
+<var>${pwd_length}</var>
+</assign>
+<msg timestamp="20170818 18:16:09.983" level="INFO">Length is 0</msg>
+<msg timestamp="20170818 18:16:09.983" level="INFO">${pwd_length} = 0</msg>
+<status status="PASS" endtime="20170818 18:16:09.983" starttime="20170818 18:16:09.982"></status>
+</kw>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${pwd_length} &gt; 0</arg>
+<arg>SSHLibrary.Login</arg>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:09.984" starttime="20170818 18:16:09.983"></status>
+</kw>
+<kw name="Run Keyword And Return" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>SSHLibrary.Login With Public Key</arg>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<kw name="Login With Public Key" library="SSHLibrary">
+<doc>Logs into the SSH server using key-based authentication.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:09.985" level="INFO">Logging into '10.22.20.177:22' as 'root'.</msg>
+<msg timestamp="20170818 18:16:10.358" level="INFO">Read output: Welcome to Ubuntu 16.04 LTS (GNU/Linux 4.4.0-89-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+321 packages can be updated.
+1 update is a security update.
+
+Last login: Fri Aug 18 18:15:53 2017 from 10.22.20.177
+root@admin1-VirtualBox:~#</msg>
+<status status="PASS" endtime="20170818 18:16:10.358" starttime="20170818 18:16:09.984"></status>
+</kw>
+<msg timestamp="20170818 18:16:10.358" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20170818 18:16:10.359" starttime="20170818 18:16:09.984"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:10.359" starttime="20170818 18:16:09.981"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>return_stderr=True</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+<var>${stderr}</var>
+</assign>
+<msg timestamp="20170818 18:16:10.360" level="INFO">Executing command '/usr/local/bin/cbench -c 10.22.20.88 -m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633'.</msg>
+<msg timestamp="20170818 18:16:26.377" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20170818 18:16:26.377" level="INFO">${stdout} = 18:16:16.366 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:17.467 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:18.5...</msg>
+<msg timestamp="20170818 18:16:26.377" level="INFO">${stderr} = cbench: controller benchmarking tool
+   running in mode 'latency'
+   connecting to controller at 10.22.20.88:6633 
+   faking 10 switches offset 1 :: 10 tests each; 1000 ms per test
+   with 10 unique s...</msg>
+<status status="PASS" endtime="20170818 18:16:26.377" starttime="20170818 18:16:10.359"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:16:26.424" starttime="20170818 18:16:26.378"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${stderr}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.425" level="INFO">cbench: controller benchmarking tool
+   running in mode 'latency'
+   connecting to controller at 10.22.20.88:6633 
+   faking 10 switches offset 1 :: 10 tests each; 1000 ms per test
+   with 10 unique source MACs per switch
+   learning destination mac addresses before the test
+   starting test with 5000 ms delay after features_reply
+   ignoring first 1 "warmup" and last 0 "cooldown" loops
+   connection delay of 0ms per 1 switch(es)
+   debugging info is off</msg>
+<status status="PASS" endtime="20170818 18:16:26.425" starttime="20170818 18:16:26.424"></status>
+</kw>
+<kw type="teardown" name="Restore_Current_Ssh_Connection_From_Index" library="CommonSSHKeywords">
+<doc>Restore active SSH connection in SSHLibrary to given index.</doc>
+<arguments>
+<arg>${current_ssh_connection.index}</arg>
+</arguments>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${connection_index} is not None</arg>
+<arg>SSHLibrary.Switch Connection</arg>
+<arg>${connection_index}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:26.428" starttime="20170818 18:16:26.428"></status>
+</kw>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>127.0.0.1</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:26.428" starttime="20170818 18:16:26.428"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:16:26.429" starttime="20170818 18:16:26.429"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.429" starttime="20170818 18:16:26.427"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.439" starttime="20170818 18:16:09.975"></status>
+</kw>
+<msg timestamp="20170818 18:16:26.439" level="INFO">${output} = 18:16:16.366 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:17.467 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:18.5...</msg>
+<status status="PASS" endtime="20170818 18:16:26.439" starttime="20170818 18:16:09.975"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:26.440" starttime="20170818 18:16:26.439"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.440" level="INFO">18:16:16.366 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:17.467 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:18.567 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:19.668 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:20.768 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:21.869 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:22.969 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:24.069 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:25.169 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:26.270 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+RESULT: 10 switches 9 tests min/max/avg/stdev = 0.00/0.00/0.00/0.00 responses/s</msg>
+<status status="PASS" endtime="20170818 18:16:26.444" starttime="20170818 18:16:26.440"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>RESULT</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:26.445" starttime="20170818 18:16:26.445"></status>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>RESULT</arg>
+</arguments>
+<assign>
+<var>${result_line}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.447" level="INFO">1 out of 11 lines matched</msg>
+<msg timestamp="20170818 18:16:26.447" level="INFO">${result_line} = RESULT: 10 switches 9 tests min/max/avg/stdev = 0.00/0.00/0.00/0.00 responses/s</msg>
+<status status="PASS" endtime="20170818 18:16:26.447" starttime="20170818 18:16:26.445"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${result_line}</arg>
+</arguments>
+<assign>
+<var>@{results_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.448" level="INFO">@{results_list} = [ RESULT: | 10 | switches | 9 | tests | min/max/avg/stdev | = | 0.00/0.00/0.00/0.00 | responses/s ]</msg>
+<status status="PASS" endtime="20170818 18:16:26.448" starttime="20170818 18:16:26.448"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${results_list[5]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.452" level="INFO">min/max/avg/stdev</msg>
+<status status="PASS" endtime="20170818 18:16:26.452" starttime="20170818 18:16:26.448"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${results_list[7]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.453" level="INFO">0.00/0.00/0.00/0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.453" starttime="20170818 18:16:26.452"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${results_list[5]}</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>@{result_name_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.458" level="INFO">@{result_name_list} = [ min | max | avg | stdev ]</msg>
+<status status="PASS" endtime="20170818 18:16:26.458" starttime="20170818 18:16:26.458"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${results_list[7]}</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>@{result_value_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.459" level="INFO">@{result_value_list} = [ 0.00 | 0.00 | 0.00 | 0.00 ]</msg>
+<status status="PASS" endtime="20170818 18:16:26.459" starttime="20170818 18:16:26.459"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${result_name_list}</arg>
+</arguments>
+<assign>
+<var>${num_stats}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.460" level="INFO">Length is 4</msg>
+<msg timestamp="20170818 18:16:26.460" level="INFO">${num_stats} = 4</msg>
+<status status="PASS" endtime="20170818 18:16:26.460" starttime="20170818 18:16:26.459"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | ${num_stats} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.465" level="INFO">min :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.466" starttime="20170818 18:16:26.464"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.466" starttime="20170818 18:16:26.460"></status>
+</kw>
+<kw type="foritem" name="${i} = 1">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.467" level="INFO">max :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.467" starttime="20170818 18:16:26.466"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.467" starttime="20170818 18:16:26.466"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.468" level="INFO">avg :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.469" starttime="20170818 18:16:26.468"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.469" starttime="20170818 18:16:26.467"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.470" level="INFO">stdev :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.470" starttime="20170818 18:16:26.469"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.470" starttime="20170818 18:16:26.469"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.470" starttime="20170818 18:16:26.460"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${0}]}</arg>
+</arguments>
+<assign>
+<var>${min}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.471" level="INFO">${min} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.471" starttime="20170818 18:16:26.471"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${1}]}</arg>
+</arguments>
+<assign>
+<var>${max}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.473" level="INFO">${max} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.473" starttime="20170818 18:16:26.472"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${2}]}</arg>
+</arguments>
+<assign>
+<var>${average}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.474" level="INFO">${average} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.474" starttime="20170818 18:16:26.473"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${3}]}</arg>
+</arguments>
+<assign>
+<var>${stdev}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.474" level="INFO">${stdev} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.474" starttime="20170818 18:16:26.474"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>d,m,s</arg>
+</arguments>
+<assign>
+<var>${date}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.475" level="INFO">${date} = 2017-08-18 18:16:26</msg>
+<status status="PASS" endtime="20170818 18:16:26.475" starttime="20170818 18:16:26.475"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>CBench Result: ${date},${cbench_args},${min},${max},${average},${stdev}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.476" level="INFO">CBench Result: 2017-08-18 18:16:26,-m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633,0.00,0.00,0.00,0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.476" starttime="20170818 18:16:26.476"></status>
+</kw>
+<kw name="Log Results And Determine Status">
+<arguments>
+<arg>${cbench_testtype}</arg>
+<arg>${controller_name}</arg>
+<arg>${controller_ip}</arg>
+<arg>${average}</arg>
+<arg>${output_filename}</arg>
+</arguments>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${output_file}</arg>
+<arg>${cbench_testtype},${controller_name},${controller_ip},${average}\n</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.478" html="yes" level="INFO">Appended to file '&lt;a href="file:///root/PycharmProjects/robotframework/sdnperf/logs/throughput.csv"&gt;/root/PycharmProjects/robotframework/sdnperf/logs/throughput.csv&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170818 18:16:26.478" starttime="20170818 18:16:26.478"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.478" starttime="20170818 18:16:26.477"></status>
+</kw>
+<msg timestamp="20170818 18:16:26.479" level="INFO">${odlLatency} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:26.479" starttime="20170818 18:16:09.971"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>${test_delay}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.479" level="INFO">Slept 0 seconds</msg>
+<status status="PASS" endtime="20170818 18:16:26.479" starttime="20170818 18:16:26.479"></status>
+</kw>
+<kw name="Run Cbench And Log Results">
+<arguments>
+<arg>Latency</arg>
+<arg>ONOS</arg>
+<arg>${ONOS_SYSTEM_IP}</arg>
+<arg>${TC_ARGS}</arg>
+<arg>${throughput_results_file}</arg>
+</arguments>
+<assign>
+<var>${onosLatency}</var>
+</assign>
+<kw name="Set Suite Variable" library="BuiltIn">
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<arguments>
+<arg>${output_filename}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.481" level="INFO">${output_filename} = throughput.csv</msg>
+<status status="PASS" endtime="20170818 18:16:26.481" starttime="20170818 18:16:26.480"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}Start Cbench ${cbench_testtype} of SDN controller ${controller_name} ${controller_ip}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:26.482" starttime="20170818 18:16:26.481"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${cbench_system}" == "localhost"</arg>
+<arg>Run</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+<arg>ELSE</arg>
+<arg>Run Command On Remote System</arg>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<kw name="Run Command On Remote System" library="CommonUtils">
+<doc>Reduces the common work of running a command on a remote system to a single higher level</doc>
+<arguments>
+<arg>${cbench_system}</arg>
+<arg>${cbench_executable} -c ${controller_ip} ${cbench_args}</arg>
+</arguments>
+<kw name="Get Connection" library="SSHLibrary">
+<doc>Return information about the connection.</doc>
+<assign>
+<var>${current_ssh_connection}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.484" level="INFO">index=None
+path_separator=/
+prompt=None
+width=80
+newline=
+
+height=24
+encoding=utf8
+alias=None
+host=None
+timeout=3 seconds
+term_type=vt100
+port=22</msg>
+<msg timestamp="20170818 18:16:26.484" level="INFO">${current_ssh_connection} = index=None
+path_separator=/
+prompt=None
+width=80
+newline=
+
+height=24
+encoding=utf8
+alias=None
+host=None
+timeout=3 seconds
+term_type=vt100
+port=22</msg>
+<status status="PASS" endtime="20170818 18:16:26.484" starttime="20170818 18:16:26.484"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Attempting to execute command "${cmd}" on remote system "${system}" by user "${user}" with keyfile pass "${keyfile_pass}" and prompt "${prompt}"</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.485" level="INFO">Attempting to execute command "/usr/local/bin/cbench -c 10.22.20.73 -m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633" on remote system "10.22.20.177" by user "root" with keyfile pass "any" and prompt "#"</msg>
+<status status="PASS" endtime="20170818 18:16:26.485" starttime="20170818 18:16:26.484"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.485" level="INFO"></msg>
+<status status="PASS" endtime="20170818 18:16:26.486" starttime="20170818 18:16:26.485"></status>
+</kw>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>${system}</arg>
+<arg>prompt=${prompt}</arg>
+<arg>timeout=${prompt_timeout}</arg>
+</arguments>
+<assign>
+<var>${conn_id}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.487" level="INFO">${conn_id} = 20</msg>
+<status status="PASS" endtime="20170818 18:16:26.487" starttime="20170818 18:16:26.486"></status>
+</kw>
+<kw name="Flexible_SSH_Login" library="SSHKeywords">
+<doc>On active SSH session: if given non-empty password, do Login, else do Login With Public Key.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${password}</arg>
+</arguments>
+<assign>
+<var>${pwd_length}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.489" level="INFO">Length is 0</msg>
+<msg timestamp="20170818 18:16:26.489" level="INFO">${pwd_length} = 0</msg>
+<status status="PASS" endtime="20170818 18:16:26.489" starttime="20170818 18:16:26.488"></status>
+</kw>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${pwd_length} &gt; 0</arg>
+<arg>SSHLibrary.Login</arg>
+<arg>${user}</arg>
+<arg>${password}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:26.489" starttime="20170818 18:16:26.489"></status>
+</kw>
+<kw name="Run Keyword And Return" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>SSHLibrary.Login With Public Key</arg>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<kw name="Login With Public Key" library="SSHLibrary">
+<doc>Logs into the SSH server using key-based authentication.</doc>
+<arguments>
+<arg>${user}</arg>
+<arg>${USER_HOME}/.ssh/${SSH_KEY}</arg>
+<arg>${KEYFILE_PASS}</arg>
+<arg>delay=${delay}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:26.490" level="INFO">Logging into '10.22.20.177:22' as 'root'.</msg>
+<msg timestamp="20170818 18:16:26.830" level="INFO">Read output: Welcome to Ubuntu 16.04 LTS (GNU/Linux 4.4.0-89-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com/
+
+321 packages can be updated.
+1 update is a security update.
+
+Last login: Fri Aug 18 18:16:10 2017 from 10.22.20.177
+root@admin1-VirtualBox:~#</msg>
+<status status="PASS" endtime="20170818 18:16:26.830" starttime="20170818 18:16:26.490"></status>
+</kw>
+<msg timestamp="20170818 18:16:26.830" level="INFO">Returning from the enclosing user keyword.</msg>
+<status status="PASS" endtime="20170818 18:16:26.830" starttime="20170818 18:16:26.490"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:26.831" starttime="20170818 18:16:26.488"></status>
+</kw>
+<kw name="Execute Command" library="SSHLibrary">
+<doc>Executes `command` on the remote machine and returns its outputs.</doc>
+<arguments>
+<arg>${cmd}</arg>
+<arg>return_stderr=True</arg>
+</arguments>
+<assign>
+<var>${stdout}</var>
+<var>${stderr}</var>
+</assign>
+<msg timestamp="20170818 18:16:26.831" level="INFO">Executing command '/usr/local/bin/cbench -c 10.22.20.73 -m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633'.</msg>
+<msg timestamp="20170818 18:16:42.850" level="INFO">Command exited with return code 0.</msg>
+<msg timestamp="20170818 18:16:42.850" level="INFO">${stdout} = 18:16:32.838 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:33.939 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:35.0...</msg>
+<msg timestamp="20170818 18:16:42.850" level="INFO">${stderr} = cbench: controller benchmarking tool
+   running in mode 'latency'
+   connecting to controller at 10.22.20.73:6633 
+   faking 10 switches offset 1 :: 10 tests each; 1000 ms per test
+   with 10 unique s...</msg>
+<status status="PASS" endtime="20170818 18:16:42.850" starttime="20170818 18:16:26.831"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:16:42.896" starttime="20170818 18:16:42.851"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${stderr}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.897" level="INFO">cbench: controller benchmarking tool
+   running in mode 'latency'
+   connecting to controller at 10.22.20.73:6633 
+   faking 10 switches offset 1 :: 10 tests each; 1000 ms per test
+   with 10 unique source MACs per switch
+   learning destination mac addresses before the test
+   starting test with 5000 ms delay after features_reply
+   ignoring first 1 "warmup" and last 0 "cooldown" loops
+   connection delay of 0ms per 1 switch(es)
+   debugging info is off</msg>
+<status status="PASS" endtime="20170818 18:16:42.897" starttime="20170818 18:16:42.897"></status>
+</kw>
+<kw type="teardown" name="Restore_Current_Ssh_Connection_From_Index" library="CommonSSHKeywords">
+<doc>Restore active SSH connection in SSHLibrary to given index.</doc>
+<arguments>
+<arg>${current_ssh_connection.index}</arg>
+</arguments>
+<kw name="Run Keyword And Return If" library="BuiltIn">
+<doc>Runs the specified keyword and returns from the enclosing user keyword.</doc>
+<arguments>
+<arg>${connection_index} is not None</arg>
+<arg>SSHLibrary.Switch Connection</arg>
+<arg>${connection_index}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:42.919" starttime="20170818 18:16:42.905"></status>
+</kw>
+<kw name="Open Connection" library="SSHLibrary">
+<doc>Opens a new SSH connection to the given `host` and `port`.</doc>
+<arguments>
+<arg>127.0.0.1</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:42.920" starttime="20170818 18:16:42.919"></status>
+</kw>
+<kw name="Close Connection" library="SSHLibrary">
+<doc>Closes the current connection.</doc>
+<status status="PASS" endtime="20170818 18:16:42.920" starttime="20170818 18:16:42.920"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:42.921" starttime="20170818 18:16:42.904"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:42.923" starttime="20170818 18:16:26.483"></status>
+</kw>
+<msg timestamp="20170818 18:16:42.923" level="INFO">${output} = 18:16:32.838 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:33.939 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:35.0...</msg>
+<status status="PASS" endtime="20170818 18:16:42.923" starttime="20170818 18:16:26.482"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:42.926" starttime="20170818 18:16:42.924"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${output}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.936" level="INFO">18:16:32.838 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:33.939 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:35.039 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:36.139 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:37.239 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:38.340 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:39.441 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:40.541 10  switches: flows/sec:  0  0  0  0  4  4  0  4  4  0   total = 0.016000 per ms 
+18:16:41.643 10  switches: flows/sec:  0  0  0  0  0  0  0  0  0  0   total = 0.000000 per ms 
+18:16:42.743 10  switches: flows/sec:  4  4  4  4  4  4  4  4  4  4   total = 0.040000 per ms 
+RESULT: 10 switches 9 tests min/max/avg/stdev = 0.00/40.00/6.22/12.94 responses/s</msg>
+<status status="PASS" endtime="20170818 18:16:42.936" starttime="20170818 18:16:42.936"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>RESULT</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:42.940" starttime="20170818 18:16:42.939"></status>
+</kw>
+<kw name="Get Lines Containing String" library="String">
+<doc>Returns lines of the given ``string`` that contain the ``pattern``.</doc>
+<arguments>
+<arg>${output}</arg>
+<arg>RESULT</arg>
+</arguments>
+<assign>
+<var>${result_line}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.944" level="INFO">1 out of 11 lines matched</msg>
+<msg timestamp="20170818 18:16:42.944" level="INFO">${result_line} = RESULT: 10 switches 9 tests min/max/avg/stdev = 0.00/40.00/6.22/12.94 responses/s</msg>
+<status status="PASS" endtime="20170818 18:16:42.944" starttime="20170818 18:16:42.940"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${result_line}</arg>
+</arguments>
+<assign>
+<var>@{results_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.945" level="INFO">@{results_list} = [ RESULT: | 10 | switches | 9 | tests | min/max/avg/stdev | = | 0.00/40.00/6.22/12.94 | responses/s ]</msg>
+<status status="PASS" endtime="20170818 18:16:42.945" starttime="20170818 18:16:42.945"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${results_list[5]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.957" level="INFO">min/max/avg/stdev</msg>
+<status status="PASS" endtime="20170818 18:16:42.957" starttime="20170818 18:16:42.946"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${results_list[7]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.958" level="INFO">0.00/40.00/6.22/12.94</msg>
+<status status="PASS" endtime="20170818 18:16:42.961" starttime="20170818 18:16:42.957"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${results_list[5]}</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>@{result_name_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.964" level="INFO">@{result_name_list} = [ min | max | avg | stdev ]</msg>
+<status status="PASS" endtime="20170818 18:16:42.964" starttime="20170818 18:16:42.963"></status>
+</kw>
+<kw name="Split String" library="String">
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<arguments>
+<arg>${results_list[7]}</arg>
+<arg>/</arg>
+</arguments>
+<assign>
+<var>@{result_value_list}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.965" level="INFO">@{result_value_list} = [ 0.00 | 40.00 | 6.22 | 12.94 ]</msg>
+<status status="PASS" endtime="20170818 18:16:42.965" starttime="20170818 18:16:42.964"></status>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<arguments>
+<arg>${result_name_list}</arg>
+</arguments>
+<assign>
+<var>${num_stats}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.972" level="INFO">Length is 4</msg>
+<msg timestamp="20170818 18:16:42.972" level="INFO">${num_stats} = 4</msg>
+<status status="PASS" endtime="20170818 18:16:42.972" starttime="20170818 18:16:42.965"></status>
+</kw>
+<kw type="for" name="${i} IN RANGE [ 0 | ${num_stats} ]">
+<kw type="foritem" name="${i} = 0">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.980" level="INFO">min :: 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:42.980" starttime="20170818 18:16:42.973"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:42.980" starttime="20170818 18:16:42.973"></status>
+</kw>
+<kw type="foritem" name="${i} = 1">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.981" level="INFO">max :: 40.00</msg>
+<status status="PASS" endtime="20170818 18:16:42.981" starttime="20170818 18:16:42.981"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:42.981" starttime="20170818 18:16:42.980"></status>
+</kw>
+<kw type="foritem" name="${i} = 2">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.983" level="INFO">avg :: 6.22</msg>
+<status status="PASS" endtime="20170818 18:16:42.983" starttime="20170818 18:16:42.982"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:42.983" starttime="20170818 18:16:42.982"></status>
+</kw>
+<kw type="foritem" name="${i} = 3">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${result_name_list[${i}]} :: ${result_value_list[${i}]}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.985" level="INFO">stdev :: 12.94</msg>
+<status status="PASS" endtime="20170818 18:16:42.985" starttime="20170818 18:16:42.984"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:42.985" starttime="20170818 18:16:42.983"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:42.985" starttime="20170818 18:16:42.973"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${0}]}</arg>
+</arguments>
+<assign>
+<var>${min}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.990" level="INFO">${min} = 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:42.991" starttime="20170818 18:16:42.990"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${1}]}</arg>
+</arguments>
+<assign>
+<var>${max}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.992" level="INFO">${max} = 40.00</msg>
+<status status="PASS" endtime="20170818 18:16:42.992" starttime="20170818 18:16:42.991"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${2}]}</arg>
+</arguments>
+<assign>
+<var>${average}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.992" level="INFO">${average} = 6.22</msg>
+<status status="PASS" endtime="20170818 18:16:42.992" starttime="20170818 18:16:42.992"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>${result_value_list[${3}]}</arg>
+</arguments>
+<assign>
+<var>${stdev}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.993" level="INFO">${stdev} = 12.94</msg>
+<status status="PASS" endtime="20170818 18:16:42.993" starttime="20170818 18:16:42.993"></status>
+</kw>
+<kw name="Get Time" library="BuiltIn">
+<doc>Returns the given time in the requested format.</doc>
+<arguments>
+<arg>d,m,s</arg>
+</arguments>
+<assign>
+<var>${date}</var>
+</assign>
+<msg timestamp="20170818 18:16:42.994" level="INFO">${date} = 2017-08-18 18:16:42</msg>
+<status status="PASS" endtime="20170818 18:16:42.994" starttime="20170818 18:16:42.993"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>CBench Result: ${date},${cbench_args},${min},${max},${average},${stdev}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.994" level="INFO">CBench Result: 2017-08-18 18:16:42,-m 1000 -M 10 -s 10 -l 10 -D 5000 -p 6633,0.00,40.00,6.22,12.94</msg>
+<status status="PASS" endtime="20170818 18:16:42.995" starttime="20170818 18:16:42.994"></status>
+</kw>
+<kw name="Log Results And Determine Status">
+<arguments>
+<arg>${cbench_testtype}</arg>
+<arg>${controller_name}</arg>
+<arg>${controller_ip}</arg>
+<arg>${average}</arg>
+<arg>${output_filename}</arg>
+</arguments>
+<kw name="Append To File" library="OperatingSystem">
+<doc>Appends the given content to the specified file.</doc>
+<arguments>
+<arg>${output_file}</arg>
+<arg>${cbench_testtype},${controller_name},${controller_ip},${average}\n</arg>
+</arguments>
+<msg timestamp="20170818 18:16:42.996" html="yes" level="INFO">Appended to file '&lt;a href="file:///root/PycharmProjects/robotframework/sdnperf/logs/throughput.csv"&gt;/root/PycharmProjects/robotframework/sdnperf/logs/throughput.csv&lt;/a&gt;'.</msg>
+<status status="PASS" endtime="20170818 18:16:42.996" starttime="20170818 18:16:42.995"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:43.001" starttime="20170818 18:16:42.995"></status>
+</kw>
+<msg timestamp="20170818 18:16:43.001" level="INFO">${onosLatency} = 6.22</msg>
+<status status="PASS" endtime="20170818 18:16:43.002" starttime="20170818 18:16:26.479"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>ODL average Latency : ${odlLatency}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:43.002" level="INFO">ODL average Latency : 0.00</msg>
+<status status="PASS" endtime="20170818 18:16:43.002" starttime="20170818 18:16:43.002"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>ONOS average Latency : ${onosLatency}</arg>
+</arguments>
+<msg timestamp="20170818 18:16:43.005" level="INFO">ONOS average Latency : 6.22</msg>
+<status status="PASS" endtime="20170818 18:16:43.005" starttime="20170818 18:16:43.003"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Comparing results...</arg>
+</arguments>
+<msg timestamp="20170818 18:16:43.007" level="INFO">Comparing results...</msg>
+<status status="PASS" endtime="20170818 18:16:43.007" starttime="20170818 18:16:43.005"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${odlLatency} &lt; ${onosLatency}</arg>
+<arg>log to console</arg>
+<arg>${\n}CONCLUSION : ODL performs betters than ONOS</arg>
+<arg>Log</arg>
+<arg>CONCLUSION : ODL performs betters than ONOS</arg>
+</arguments>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>${\n}CONCLUSION : ODL performs betters than ONOS</arg>
+<arg>Log</arg>
+<arg>CONCLUSION : ODL performs betters than ONOS</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:43.008" starttime="20170818 18:16:43.008"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:43.008" starttime="20170818 18:16:43.007"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${onosLatency} &lt; ${odlLatency}</arg>
+<arg>log to console</arg>
+<arg>${\n}CONCLUSION : ONOS performs betters than ODL</arg>
+<arg>Log</arg>
+<arg>CONCLUSION : ONOS performs betters than ODL</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:43.009" starttime="20170818 18:16:43.009"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:43.009" starttime="20170818 18:15:36.799"></status>
+</kw>
+<kw type="teardown" name="Log Results As Zero If Cbench Timed Out">
+<kw name="Run Keyword If Timeout Occurred" library="BuiltIn">
+<doc>Runs the given keyword if either a test or a keyword timeout has occurred.</doc>
+<arguments>
+<arg>Log Results And Determine Status</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>0</arg>
+<arg>${output_filename}</arg>
+</arguments>
+<status status="PASS" endtime="20170818 18:16:43.010" starttime="20170818 18:16:43.010"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:43.010" starttime="20170818 18:16:43.009"></status>
+</kw>
+<status status="PASS" endtime="20170818 18:16:43.010" critical="yes" starttime="20170818 18:15:36.787"></status>
+</test>
+<doc>SDN benchmarking robot file</doc>
+<status status="PASS" endtime="20170818 18:16:43.011" starttime="20170818 18:15:28.531"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="2">Critical Tests</stat>
+<stat fail="0" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="SdnBenchmarking" pass="2">SdnBenchmarking</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

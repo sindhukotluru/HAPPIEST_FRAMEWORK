@@ -1,0 +1,9 @@
+{
+    "service": {
+        "instance": {
+            "name": "",
+            "provider": ""
+        },
+        "type": ""
+    }
+}

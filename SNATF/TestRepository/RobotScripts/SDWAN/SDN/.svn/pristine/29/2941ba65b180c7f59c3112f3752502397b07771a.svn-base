@@ -1,0 +1,10 @@
+{
+    "token_list": {
+        "userId": "",
+        "user_tokens": {
+            "expiration": "",
+            "timestamp": "",
+            "tokenid": ""
+        }
+    }
+}

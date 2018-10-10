@@ -1,0 +1,30 @@
+{
+    "interface": {
+        "base-interface": "",
+        "description": "",
+        "enabled": "",
+        "gateway-ip": "",
+        "link-up-down-trap-enable": "",
+        "local-ip": "",
+        "name": "",
+        "numLabels": "",
+        "odl-interface:base-interface": "",
+        "odl-interface:gateway-ip": "",
+        "odl-interface:labelStack": "",
+        "odl-interface:local-ip": "",
+        "odl-interface:numLabels": "",
+        "odl-interface:of-port-id": "",
+        "odl-interface:remote-ip": "",
+        "odl-interface:stacked_vlan-id": "",
+        "odl-interface:tenant-id": "",
+        "odl-interface:tunnel-type": "",
+        "odl-interface:vlan-id": "",
+        "of-port-id": "",
+        "remote-ip": "",
+        "stacked_vlan-id": "",
+        "tenant-id": "",
+        "tunnel-type": "",
+        "type": "",
+        "vlan-id": ""
+    }
+}

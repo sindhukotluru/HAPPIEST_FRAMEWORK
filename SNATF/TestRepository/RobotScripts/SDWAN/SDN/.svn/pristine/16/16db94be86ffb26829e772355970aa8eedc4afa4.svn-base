@@ -1,0 +1,41 @@
+import os
+
+ROOT_DIR = r'D:\Karthik\CodeBase\E_R&D'
+
+# Topology Configuration parameters
+CLIENT_IP = "10.18.20.82"
+CLIENT_USER = "osboxes"
+CLIENT_PASSWORD = "Password@123"
+
+HOST1_IP = "10.18.20.92"
+HOST1_USER = "osboxes"
+HOST1_PASSWORD = "Password@123"
+
+HOST2_IP = "10.18.20.83"
+HOST2_USER = "osboxes"
+HOST1_PASSWORD = "Password@123"
+
+SWITCH_IP = "10.18.22.182"
+SWITCH_USER = "osboxes"
+SWITCH_PASSWORD = "Password@123"
+
+CONTROLLER_IP = "10.18.20.99"
+
+#WEB_SERVER = '10.18.33.165'
+WEB_SERVER = '10.18.20.152'
+
+# REST Configuration parameters
+ODL_RESTCONF_USER = 'admin'
+ODL_RESTCONF_PASSWORD = 'admin'
+RESTCONFPORT = '8181'
+
+REST_CON = '/restconf/config'
+CONFIG_FLOW_API = '/opendaylight-inventory:nodes/node/1/flow-node-inventory:table/1/flow/'
+CONFIG_FLOW_API = '/opendaylight-inventory:nodes/node/1/flow-node-inventory:table/'
+
+BASE_PAGE_URL = 'http://{0}:8080/SDWAN/mainPage4.html'.format(WEB_SERVER)
+
+#CHROME_DRIVER_PATH = r'/home/osboxes/Downloads/E_R&D/SDN/browser_drivers/chromedriver'
+#FIREFOX_PROFILE_DIR = r'/home/osboxes/Downloads/E_R&D/SDN/browser_profile/firefox'
+CHROME_DRIVER_PATH = ROOT_DIR + os.path.sep + r'SDN\browser_drivers\win\chromedriver.exe'
+FIREFOX_PROFILE_DIR = ROOT_DIR + os.path.sep + r'SDN\browser_profile\firefox'

@@ -1,0 +1,10 @@
+{
+    "vpn-interface": {
+        "name": "s1-eth1",
+        "odl-l3vpn:adjacency": {
+            "ip_address": "10.0.0.1",
+            "mac_address": "12:f8:57:a8:b9:a1"
+        },
+        "vpn-instance-name": "testVpn1"
+    }
+}

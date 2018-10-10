@@ -1,0 +1,15 @@
+{
+    "vpn-instance":
+        {
+            "description": "Test VPN Instance 1",
+            "vpn-instance-name": "testVpn1",
+            "ipv4-family": {
+                "route-distinguisher": "100:1",
+                "export-route-policy": "300:1",
+                "import-route-policy": "200:1",
+                "apply-label": {
+                    "apply-label-per-route": "true"
+                }
+            }
+        }
+}

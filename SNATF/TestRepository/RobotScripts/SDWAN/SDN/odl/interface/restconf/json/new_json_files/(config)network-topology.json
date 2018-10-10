@@ -1,0 +1,403 @@
+{
+    "topology": {
+        "igp-topology-attributes": {
+            "isis-topology-attributes": {
+                "isis-topology:net": "",
+                "net": ""
+            },
+            "isis-topology:isis-topology-attributes": "",
+            "l3-unicast-igp-topology:flag": "",
+            "l3-unicast-igp-topology:name": "",
+            "name": "",
+            "ospf-topology-attributes": {
+                "area-id": "",
+                "ospf-topology:area-id": ""
+            },
+            "ospf-topology:ospf-topology-attributes": ""
+        },
+        "l3-unicast-igp-topology:igp-topology-attributes": "",
+        "link": {
+            "destination": {
+                "dest-node": "",
+                "dest-tp": ""
+            },
+            "igp-link-attributes": {
+                "isis-link-attributes": {
+                    "isis-topology:multi-topology-id": "",
+                    "isis-topology:ted": "",
+                    "multi-topology-id": "",
+                    "ted": {
+                        "color": "",
+                        "max-link-bandwidth": "",
+                        "max-resv-link-bandwidth": "",
+                        "ospf-topology:color": "",
+                        "ospf-topology:max-link-bandwidth": "",
+                        "ospf-topology:max-resv-link-bandwidth": "",
+                        "ospf-topology:srlg": "",
+                        "ospf-topology:te-default-metric": "",
+                        "ospf-topology:unreserved-bandwidth": "",
+                        "srlg": {
+                            "interface-switching-capabilities": {
+                                "encoding": "",
+                                "max-lsp-bandwidth": {
+                                    "bandwidth": "",
+                                    "ospf-topology:bandwidth": "",
+                                    "ospf-topology:priority": "",
+                                    "priority": ""
+                                },
+                                "ospf-topology:encoding": "",
+                                "ospf-topology:max-lsp-bandwidth": "",
+                                "ospf-topology:packet-switch-capable": "",
+                                "ospf-topology:switching-capability": "",
+                                "ospf-topology:time-division-multiplex-capable": "",
+                                "packet-switch-capable": {
+                                    "interface-mtu": "",
+                                    "minimum-lsp-bandwidth": "",
+                                    "ospf-topology:interface-mtu": "",
+                                    "ospf-topology:minimum-lsp-bandwidth": ""
+                                },
+                                "switching-capability": "",
+                                "time-division-multiplex-capable": {
+                                    "indication": "",
+                                    "minimum-lsp-bandwidth": "",
+                                    "ospf-topology:indication": "",
+                                    "ospf-topology:minimum-lsp-bandwidth": ""
+                                }
+                            },
+                            "link-protection-type": "",
+                            "ospf-topology:interface-switching-capabilities": "",
+                            "ospf-topology:link-protection-type": "",
+                            "ospf-topology:srlg-values": "",
+                            "srlg-values": {
+                                "ospf-topology:srlg-value": "",
+                                "srlg-value": ""
+                            }
+                        },
+                        "te-default-metric": "",
+                        "unreserved-bandwidth": {
+                            "bandwidth": "",
+                            "ospf-topology:bandwidth": "",
+                            "ospf-topology:priority": "",
+                            "priority": ""
+                        }
+                    }
+                },
+                "isis-topology:isis-link-attributes": "",
+                "l3-unicast-igp-topology:flag": "",
+                "l3-unicast-igp-topology:metric": "",
+                "l3-unicast-igp-topology:name": "",
+                "metric": "",
+                "name": "",
+                "ospf-link-attributes": {
+                    "multi-topology-id": "",
+                    "ospf-topology:multi-topology-id": "",
+                    "ospf-topology:ted": "",
+                    "ted": {
+                        "color": "",
+                        "max-link-bandwidth": "",
+                        "max-resv-link-bandwidth": "",
+                        "ospf-topology:color": "",
+                        "ospf-topology:max-link-bandwidth": "",
+                        "ospf-topology:max-resv-link-bandwidth": "",
+                        "ospf-topology:srlg": "",
+                        "ospf-topology:te-default-metric": "",
+                        "ospf-topology:unreserved-bandwidth": "",
+                        "srlg": {
+                            "interface-switching-capabilities": {
+                                "encoding": "",
+                                "max-lsp-bandwidth": {
+                                    "bandwidth": "",
+                                    "ospf-topology:bandwidth": "",
+                                    "ospf-topology:priority": "",
+                                    "priority": ""
+                                },
+                                "ospf-topology:encoding": "",
+                                "ospf-topology:max-lsp-bandwidth": "",
+                                "ospf-topology:packet-switch-capable": "",
+                                "ospf-topology:switching-capability": "",
+                                "ospf-topology:time-division-multiplex-capable": "",
+                                "packet-switch-capable": {
+                                    "interface-mtu": "",
+                                    "minimum-lsp-bandwidth": "",
+                                    "ospf-topology:interface-mtu": "",
+                                    "ospf-topology:minimum-lsp-bandwidth": ""
+                                },
+                                "switching-capability": "",
+                                "time-division-multiplex-capable": {
+                                    "indication": "",
+                                    "minimum-lsp-bandwidth": "",
+                                    "ospf-topology:indication": "",
+                                    "ospf-topology:minimum-lsp-bandwidth": ""
+                                }
+                            },
+                            "link-protection-type": "",
+                            "ospf-topology:interface-switching-capabilities": "",
+                            "ospf-topology:link-protection-type": "",
+                            "ospf-topology:srlg-values": "",
+                            "srlg-values": {
+                                "ospf-topology:srlg-value": "",
+                                "srlg-value": ""
+                            }
+                        },
+                        "te-default-metric": "",
+                        "unreserved-bandwidth": {
+                            "bandwidth": "",
+                            "ospf-topology:bandwidth": "",
+                            "ospf-topology:priority": "",
+                            "priority": ""
+                        }
+                    }
+                },
+                "ospf-topology:ospf-link-attributes": ""
+            },
+            "l3-unicast-igp-topology:igp-link-attributes": "",
+            "link-id": "",
+            "source": {
+                "source-node": "",
+                "source-tp": ""
+            },
+            "supporting-link": {
+                "link-ref": ""
+            }
+        },
+        "node": {
+            "addresses": {
+                "first-seen": "",
+                "host-tracker-service:first-seen": "",
+                "host-tracker-service:id": "",
+                "host-tracker-service:ip": "",
+                "host-tracker-service:last-seen": "",
+                "host-tracker-service:mac": "",
+                "host-tracker-service:vlan": "",
+                "id": "",
+                "ip": "",
+                "last-seen": "",
+                "mac": "",
+                "vlan": ""
+            },
+            "attachment-points": {
+                "active": "",
+                "corresponding-tp": "",
+                "host-tracker-service:active": "",
+                "host-tracker-service:corresponding-tp": "",
+                "host-tracker-service:tp-id": "",
+                "tp-id": ""
+            },
+            "host-tracker-service:addresses": "",
+            "host-tracker-service:attachment-points": "",
+            "host-tracker-service:id": "",
+            "id": "",
+            "igp-node-attributes": {
+                "isis-node-attributes": {
+                    "isis-topology:iso": "",
+                    "isis-topology:multi-topology-id": "",
+                    "isis-topology:net": "",
+                    "isis-topology:router-type": {
+                        "isis-topology:level-1": "",
+                        "isis-topology:level-1-2": "",
+                        "isis-topology:level-2": ""
+                    },
+                    "isis-topology:ted": "",
+                    "iso": {
+                        "isis-topology:iso-pseudonode-id": "",
+                        "isis-topology:iso-system-id": "",
+                        "iso-pseudonode-id": "",
+                        "iso-system-id": ""
+                    },
+                    "ted": {
+                        "color": "",
+                        "max-link-bandwidth": "",
+                        "max-resv-link-bandwidth": "",
+                        "ospf-topology:color": "",
+                        "ospf-topology:max-link-bandwidth": "",
+                        "ospf-topology:max-resv-link-bandwidth": "",
+                        "ospf-topology:srlg": "",
+                        "ospf-topology:te-default-metric": "",
+                        "ospf-topology:unreserved-bandwidth": "",
+                        "srlg": {
+                            "interface-switching-capabilities": {
+                                "encoding": "",
+                                "max-lsp-bandwidth": {
+                                    "bandwidth": "",
+                                    "ospf-topology:bandwidth": "",
+                                    "ospf-topology:priority": "",
+                                    "priority": ""
+                                },
+                                "ospf-topology:encoding": "",
+                                "ospf-topology:max-lsp-bandwidth": "",
+                                "ospf-topology:packet-switch-capable": "",
+                                "ospf-topology:switching-capability": "",
+                                "ospf-topology:time-division-multiplex-capable": "",
+                                "packet-switch-capable": {
+                                    "interface-mtu": "",
+                                    "minimum-lsp-bandwidth": "",
+                                    "ospf-topology:interface-mtu": "",
+                                    "ospf-topology:minimum-lsp-bandwidth": ""
+                                },
+                                "switching-capability": "",
+                                "time-division-multiplex-capable": {
+                                    "indication": "",
+                                    "minimum-lsp-bandwidth": "",
+                                    "ospf-topology:indication": "",
+                                    "ospf-topology:minimum-lsp-bandwidth": ""
+                                }
+                            },
+                            "link-protection-type": "",
+                            "ospf-topology:interface-switching-capabilities": "",
+                            "ospf-topology:link-protection-type": "",
+                            "ospf-topology:srlg-values": "",
+                            "srlg-values": {
+                                "ospf-topology:srlg-value": "",
+                                "srlg-value": ""
+                            }
+                        },
+                        "te-default-metric": "",
+                        "unreserved-bandwidth": {
+                            "bandwidth": "",
+                            "ospf-topology:bandwidth": "",
+                            "ospf-topology:priority": "",
+                            "priority": ""
+                        }
+                    }
+                },
+                "isis-topology:isis-node-attributes": "",
+                "l3-unicast-igp-topology:flag": "",
+                "l3-unicast-igp-topology:name": "",
+                "l3-unicast-igp-topology:prefix": "",
+                "l3-unicast-igp-topology:router-id": "",
+                "name": "",
+                "ospf-node-attributes": {
+                    "capabilities": "",
+                    "dr-interface-id": "",
+                    "ospf-topology:capabilities": "",
+                    "ospf-topology:dr-interface-id": "",
+                    "ospf-topology:multi-topology-id": "",
+                    "ospf-topology:router-type": {
+                        "ospf-topology:abr": "",
+                        "ospf-topology:asbr": "",
+                        "ospf-topology:internal": "",
+                        "ospf-topology:pseudonode": ""
+                    },
+                    "ospf-topology:ted": "",
+                    "ted": {
+                        "color": "",
+                        "max-link-bandwidth": "",
+                        "max-resv-link-bandwidth": "",
+                        "ospf-topology:color": "",
+                        "ospf-topology:max-link-bandwidth": "",
+                        "ospf-topology:max-resv-link-bandwidth": "",
+                        "ospf-topology:srlg": "",
+                        "ospf-topology:te-default-metric": "",
+                        "ospf-topology:unreserved-bandwidth": "",
+                        "srlg": {
+                            "interface-switching-capabilities": {
+                                "encoding": "",
+                                "max-lsp-bandwidth": {
+                                    "bandwidth": "",
+                                    "ospf-topology:bandwidth": "",
+                                    "ospf-topology:priority": "",
+                                    "priority": ""
+                                },
+                                "ospf-topology:encoding": "",
+                                "ospf-topology:max-lsp-bandwidth": "",
+                                "ospf-topology:packet-switch-capable": "",
+                                "ospf-topology:switching-capability": "",
+                                "ospf-topology:time-division-multiplex-capable": "",
+                                "packet-switch-capable": {
+                                    "interface-mtu": "",
+                                    "minimum-lsp-bandwidth": "",
+                                    "ospf-topology:interface-mtu": "",
+                                    "ospf-topology:minimum-lsp-bandwidth": ""
+                                },
+                                "switching-capability": "",
+                                "time-division-multiplex-capable": {
+                                    "indication": "",
+                                    "minimum-lsp-bandwidth": "",
+                                    "ospf-topology:indication": "",
+                                    "ospf-topology:minimum-lsp-bandwidth": ""
+                                }
+                            },
+                            "link-protection-type": "",
+                            "ospf-topology:interface-switching-capabilities": "",
+                            "ospf-topology:link-protection-type": "",
+                            "ospf-topology:srlg-values": "",
+                            "srlg-values": {
+                                "ospf-topology:srlg-value": "",
+                                "srlg-value": ""
+                            }
+                        },
+                        "te-default-metric": "",
+                        "unreserved-bandwidth": {
+                            "bandwidth": "",
+                            "ospf-topology:bandwidth": "",
+                            "ospf-topology:priority": "",
+                            "priority": ""
+                        }
+                    }
+                },
+                "ospf-topology:ospf-node-attributes": "",
+                "prefix": {
+                    "l3-unicast-igp-topology:flag": "",
+                    "l3-unicast-igp-topology:metric": "",
+                    "l3-unicast-igp-topology:prefix": "",
+                    "metric": "",
+                    "ospf-prefix-attributes": {
+                        "forwarding-address": "",
+                        "ospf-topology:forwarding-address": ""
+                    },
+                    "ospf-topology:ospf-prefix-attributes": "",
+                    "prefix": ""
+                }
+            },
+            "inventory-node-ref": "",
+            "l3-unicast-igp-topology:igp-node-attributes": "",
+            "node-id": "",
+            "node-identifier": {
+                "identifier": "",
+                "opendaylight-topology:identifier": "",
+                "opendaylight-topology:type": "",
+                "type": ""
+            },
+            "opendaylight-topology-inventory:inventory-node-ref": "",
+            "opendaylight-topology-view:original-node": "",
+            "opendaylight-topology:node-identifier": "",
+            "original-node": {
+                "node": "",
+                "opendaylight-topology-view:node": "",
+                "opendaylight-topology-view:topology": "",
+                "topology": ""
+            },
+            "supporting-node": {
+                "node-ref": "",
+                "topology-ref": ""
+            },
+            "termination-point": {
+                "igp-termination-point-attributes": {
+                    "l3-unicast-igp-topology:termination-point-type": {
+                        "l3-unicast-igp-topology:ip-address": "",
+                        "l3-unicast-igp-topology:unnumbered-id": ""
+                    }
+                },
+                "inventory-node-connector-ref": "",
+                "l3-unicast-igp-topology:igp-termination-point-attributes": "",
+                "opendaylight-topology-inventory:inventory-node-connector-ref": "",
+                "tp-id": ""
+            }
+        },
+        "opendaylight-topology-view:original-topology": "",
+        "server-provided": "",
+        "topology-id": "",
+        "topology-types": {
+            "l3-unicast-igp-topology": {
+                "isis": "",
+                "isis-topology:isis": "",
+                "ospf": "",
+                "ospf-topology:ospf": ""
+            },
+            "l3-unicast-igp-topology:l3-unicast-igp-topology": ""
+        },
+        "underlay-topology": {
+            "topology-ref": ""
+        }
+    }
+}

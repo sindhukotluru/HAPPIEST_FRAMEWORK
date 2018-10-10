@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170228 20:00:44.893" generator="Robot 3.0.1 (Python 2.7.6 on linux2)">
+<suite source="/home/test/repo/SDN/test/RobotTest/test_sdwan_scenario_1.robot" id="s1" name="Test Sdwan Scenario 1">
+<test id="s1-t1" name="Verify If All Devices Are Powered Up">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>"Test: Verify if all Devices are Powered Up"</arg>
+</arguments>
+<msg timestamp="20170228 20:00:44.943" level="INFO">"Test: Verify if all Devices are Powered Up"</msg>
+<status status="PASS" endtime="20170228 20:00:44.943" starttime="20170228 20:00:44.942"></status>
+</kw>
+<kw name="E PowerUpDevices">
+<arguments>
+<arg>${devices}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20170228 20:00:44.944" level="FAIL">No keyword with name 'E PowerUpDevices' found.</msg>
+<status status="FAIL" endtime="20170228 20:00:44.944" starttime="20170228 20:00:44.944"></status>
+</kw>
+<status status="FAIL" endtime="20170228 20:00:44.944" critical="yes" starttime="20170228 20:00:44.942">No keyword with name 'E PowerUpDevices' found.</status>
+</test>
+<test id="s1-t2" name="Configure And Verify DefaultFlows">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>"Verify if Default Flows can be configured from Web UI"</arg>
+</arguments>
+<msg timestamp="20170228 20:00:44.945" level="INFO">"Verify if Default Flows can be configured from Web UI"</msg>
+<status status="PASS" endtime="20170228 20:00:44.945" starttime="20170228 20:00:44.945"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>"Verify if the Connection between OVS Switch and remote Devices is established"</arg>
+</arguments>
+<msg timestamp="20170228 20:00:44.945" level="INFO">"Verify if the Connection between OVS Switch and remote Devices is established"</msg>
+<status status="PASS" endtime="20170228 20:00:44.945" starttime="20170228 20:00:44.945"></status>
+</kw>
+<kw type="for" name="${remote_ip} IN [ @{dest_devices} ]">
+<kw type="foritem" name="${remote_ip} = 10.22.12.88">
+<kw name="E PingDevices">
+<arguments>
+<arg>${SWITCH_IP}</arg>
+<arg>${SWITCH_USER}</arg>
+<arg>${SWITCH_PASSWORD}</arg>
+<arg>${remote_ip}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20170228 20:00:44.947" level="FAIL">No keyword with name 'E PingDevices' found.</msg>
+<status status="FAIL" endtime="20170228 20:00:44.947" starttime="20170228 20:00:44.947"></status>
+</kw>
+<status status="FAIL" endtime="20170228 20:00:44.947" starttime="20170228 20:00:44.946"></status>
+</kw>
+<status status="FAIL" endtime="20170228 20:00:44.947" starttime="20170228 20:00:44.946"></status>
+</kw>
+<status status="FAIL" endtime="20170228 20:00:44.947" critical="yes" starttime="20170228 20:00:44.944">No keyword with name 'E PingDevices' found.</status>
+</test>
+<test id="s1-t3" name="Configure And Verify UIFlows">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>"Verify the MPLS and DIA Flows configured through the WebUI"</arg>
+</arguments>
+<msg timestamp="20170228 20:00:44.948" level="INFO">"Verify the MPLS and DIA Flows configured through the WebUI"</msg>
+<status status="PASS" endtime="20170228 20:00:44.948" starttime="20170228 20:00:44.948"></status>
+</kw>
+<kw name="V VerifyConfigFlows">
+<arguments>
+<arg>${open_flow_version}</arg>
+<arg>${protocol}</arg>
+<arg>${protocolType}</arg>
+<arg>${interface}</arg>
+</arguments>
+<assign>
+<var>${status}</var>
+</assign>
+<msg timestamp="20170228 20:00:44.949" level="FAIL">No keyword with name 'V VerifyConfigFlows' found.</msg>
+<status status="FAIL" endtime="20170228 20:00:44.949" starttime="20170228 20:00:44.949"></status>
+</kw>
+<status status="FAIL" endtime="20170228 20:00:44.949" critical="yes" starttime="20170228 20:00:44.947">No keyword with name 'V VerifyConfigFlows' found.</status>
+</test>
+<test id="s1-t4" name="Configure And Verify Traffic">
+<kw name="E TrafficGenerator">
+<assign>
+<var>${traffic}</var>
+</assign>
+<msg timestamp="20170228 20:00:44.951" level="FAIL">No keyword with name 'E TrafficGenerator' found.</msg>
+<status status="FAIL" endtime="20170228 20:00:44.951" starttime="20170228 20:00:44.951"></status>
+</kw>
+<status status="FAIL" endtime="20170228 20:00:44.951" critical="yes" starttime="20170228 20:00:44.949">No keyword with name 'E TrafficGenerator' found.</status>
+</test>
+<doc>Test Suite for SDWAN Scenarios</doc>
+<status status="FAIL" endtime="20170228 20:00:44.951" starttime="20170228 20:00:44.894"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="4" pass="0">Critical Tests</stat>
+<stat fail="4" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="4" id="s1" name="Test Sdwan Scenario 1" pass="0">Test Sdwan Scenario 1</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20170228 20:00:44.938" level="ERROR">Error in file '/home/test/repo/SDN/test/RobotTest/test_sdwan_scenario_1.robot': Importing test library 'SDN.test.sdwan_flows.SDWAN_FLOWS' failed: ImportError: No module named flows
+Traceback (most recent call last):
+  File "/home/test/repo/SDN/test/sdwan_flows.py", line 6, in &lt;module&gt;
+    from SDN.odl.util.restconf import flow_utils
+  File "/home/test/repo/SDN/odl/util/restconf/flow_utils.py", line 4, in &lt;module&gt;
+    from SDN.odl.interface.restconf.api.flows import FLOW
+PYTHONPATH:
+  /home/test/repo
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/mininet-2.3.0d1-py2.7.egg
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/PILcompat
+  /usr/lib/python2.7/dist-packages/gtk-2.0
+  /usr/lib/python2.7/dist-packages/ubuntu-sso-client
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+<msg timestamp="20170228 20:00:44.940" level="ERROR">Error in file '/home/test/repo/SDN/test/RobotTest/test_sdwan_scenario_1.robot': Importing test library 'SSHLibrary' failed: ImportError: Importing Paramiko library failed. Make sure you have Paramiko installed.
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/SSHLibrary/__init__.py", line 15, in &lt;module&gt;
+    from .library import SSHLibrary
+  File "/usr/local/lib/python2.7/dist-packages/SSHLibrary/library.py", line 22, in &lt;module&gt;
+    from .client import SSHClient
+  File "/usr/local/lib/python2.7/dist-packages/SSHLibrary/client.py", line 20, in &lt;module&gt;
+    from pythonclient import PythonSSHClient as SSHClient
+  File "/usr/local/lib/python2.7/dist-packages/SSHLibrary/pythonclient.py", line 21, in &lt;module&gt;
+    'Importing Paramiko library failed. '
+PYTHONPATH:
+  /home/test/repo
+  /usr/local/bin
+  /usr/local/lib/python2.7/dist-packages/mininet-2.3.0d1-py2.7.egg
+  /usr/lib/python2.7/dist-packages
+  /usr/lib/python2.7
+  /usr/lib/python2.7/plat-x86_64-linux-gnu
+  /usr/lib/python2.7/lib-tk
+  /usr/lib/python2.7/lib-old
+  /usr/lib/python2.7/lib-dynload
+  /usr/local/lib/python2.7/dist-packages
+  /usr/lib/python2.7/dist-packages/PILcompat
+  /usr/lib/python2.7/dist-packages/gtk-2.0
+  /usr/lib/python2.7/dist-packages/ubuntu-sso-client
+  /usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode</msg>
+</errors>
+</robot>

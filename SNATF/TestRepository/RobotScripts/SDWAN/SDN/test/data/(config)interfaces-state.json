@@ -1,0 +1,19 @@
+{
+    "interface": {
+        "base-interface": "",
+        "description": "",
+        "enabled": "",
+        "gateway-ip": "",
+        "link-up-down-trap-enable": "",
+        "local-ip": "",
+        "name": "",
+        "numLabels": "",
+        "of-port-id": "",
+        "remote-ip": "",
+        "stacked_vlan-id": "",
+        "tenant-id": "",
+        "tunnel-type": "",
+        "type": "",
+        "vlan-id": ""
+    }
+}

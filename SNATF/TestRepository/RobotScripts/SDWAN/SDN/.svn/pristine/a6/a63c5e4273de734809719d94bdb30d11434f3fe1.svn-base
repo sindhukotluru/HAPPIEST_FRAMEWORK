@@ -1,0 +1,16 @@
+{
+    "prefix-list": {
+        "prefix-list-name": "",
+        "prefixes": {
+            "prefix": {
+                "prefix-filter": {
+                    "action": "",
+                    "statistics": {
+                        "prefix-hit-count": ""
+                    }
+                },
+                "seq-nr": ""
+            }
+        }
+    }
+}

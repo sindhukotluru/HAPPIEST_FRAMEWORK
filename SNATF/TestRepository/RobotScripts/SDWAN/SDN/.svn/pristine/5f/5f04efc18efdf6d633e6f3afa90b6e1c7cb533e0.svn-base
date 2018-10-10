@@ -1,0 +1,121 @@
+from copy import deepcopy
+import json
+from SDN.odl.interface.restconf import rest_session
+
+
+
+class ODL_L3VPN_ADJACENCY(object):
+
+    _ODL_L3VPN_ADJACENCY_FIELD = "odl-l3vpn:adjacency"
+    _IP_ADDRESS_FIELD = "ip_address"
+    _MAC_ADDRESS_FIELD = "mac_address"
+
+    def __init__(self):
+        self._template = {}
+        self._template[self._IP_ADDRESS_FIELD] = None
+        self._template[self._MAC_ADDRESS_FIELD] = None
+        self._default_template = deepcopy(self._template)
+        self._REST_URL = None
+
+    def set_ip_address(self, value):
+        self._template[self._IP_ADDRESS_FIELD] = value
+
+    def set_mac_address(self, value):
+        self._template[self._MAC_ADDRESS_FIELD] = value
+
+    def set_rest_url(self, value):
+        self._REST_URL = value
+
+    def get_template(self, default=False):
+        if default:
+            return self._default_template
+        else:
+            return self._template
+
+    def get_payload(self):
+        payload = {key: value for key, value in self._template.iteritems() if value is not None}
+        return payload
+
+    def get_json(self, default=False):
+        if default:
+            return json.dumps(self.get_template(default=default))
+        return json.dumps(self.get_payload())
+
+    def create_odl_l3vpn_adjacency(self):
+        
+        payload = {self._ODL_L3VPN_ADJACENCY_FIELD: self.get_template()}
+        rest_session.send_post_request(url=self._REST_URL, data=json.dumps(payload))
+        return rest_session.response_code, rest_session.response_as_text
+
+    def delete_odl_l3vpn_adjacency(self):
+        rest_session.send_delete_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+    def get_odl_l3vpn_adjacency(self):
+        rest_session.send_get_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+
+class VPN_INTERFACE(object):
+
+    _VPN_INTERFACE_FIELD = "vpn-interface"
+    _VPN_INSTANCE_NAME_FIELD = "vpn-instance-name"
+    _ODL_L3VPN_ADJACENCY_FIELD = "odl-l3vpn:adjacency"
+    _NAME_FIELD = "name"
+
+    def __init__(self):
+        self._template = {}
+        self._template[self._VPN_INSTANCE_NAME_FIELD] = None
+        self._template[self._ODL_L3VPN_ADJACENCY_FIELD] = None
+        self._template[self._NAME_FIELD] = None
+        self._default_template = deepcopy(self._template)
+        self._REST_URL = None
+        self._odl_l3vpn_adjacency = ODL_L3VPN_ADJACENCY()
+
+    @property
+    def odl_l3vpn_adjacency(self):
+        return self._odl_l3vpn_adjacency
+
+    def set_vpn_instance_name(self, value):
+        self._template[self._VPN_INSTANCE_NAME_FIELD] = value
+
+    def set_name(self, value):
+        self._template[self._NAME_FIELD] = value
+
+    def set_rest_url(self, value):
+        self._REST_URL = value
+
+    def get_template(self, default=False):
+        if default:
+            self._default_template[self._ODL_L3VPN_ADJACENCY_FIELD] = self.odl_l3vpn_adjacency.get_template(default=default)
+            return self._default_template
+        else:
+            self._template[self._ODL_L3VPN_ADJACENCY_FIELD] = self.odl_l3vpn_adjacency.get_template()
+            return self._template
+
+    def get_payload(self):
+        payload = {key: value for key, value in self._template.iteritems() if value is not None}
+        odl_l3vpn_adjacency_payload = self.odl_l3vpn_adjacency.get_payload()
+        if odl_l3vpn_adjacency_payload:
+            payload[self._ODL_L3VPN_ADJACENCY_FIELD] = odl_l3vpn_adjacency_payload
+        return payload
+
+    def get_json(self, default=False):
+        if default:
+            return json.dumps(self.get_template(default=default))
+        return json.dumps(self.get_payload())
+
+    def create_vpn_interface(self):
+        
+        payload = {self._VPN_INTERFACE_FIELD: self.get_template()}
+        rest_session.send_post_request(url=self._REST_URL, data=json.dumps(payload))
+        return rest_session.response_code, rest_session.response_as_text
+
+    def delete_vpn_interface(self):
+        rest_session.send_delete_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+
+    def get_vpn_interface(self):
+        rest_session.send_get_request(url=self._REST_URL)
+        return rest_session.response_code, rest_session.response_as_text
+

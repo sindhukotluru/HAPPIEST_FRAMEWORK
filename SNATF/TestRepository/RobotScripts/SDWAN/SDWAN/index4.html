@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Happiest Minds ODL</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script
+	src="mainScript4.js"></script>
+
+<link rel="stylesheet"
+	href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+<script
+	src="jquery-3.1.1.min.js"></script>
+<script
+	src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<style>
+.reset {
+	padding: 0;
+	margin: 0;
+}
+
+html, body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #393939;
+}
+
+html {
+	display: table;
+}
+
+body {
+	display: table-cell;
+	vertical-align: middle;
+	padding-bottom: 10%;
+}
+
+.container {
+	font-family: 'Open Sans', sans-serif;
+	width: 360px;
+}
+
+.container .content {
+	padding-top: 40px;
+	padding: 40px;
+	background-color: #fff;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+	<fieldset>
+		<form role="form" id="form" name="myform" method="post">
+			<div class="container">
+				<div class="content">
+					<div class="login-form">
+						<img class="center-block img-responsive"
+							src="happiest-minds.png"
+							alt="OpenDayLight">
+						<fieldset>
+							<div align="center" class="form-group">
+								<input type="text" style="width: 250px" class="form-control"
+									name="j_username" id="username" placeholder="Username" />
+							</div>
+							<div align="center" class="form-group">
+								<input type="password" style="width: 250px" class="form-control"
+									name="j_password" id="password" placeholder="Password"
+									onkeypress="handleKeyPress(event)" />
+							</div>
+							<div align="left" class="checkbox">
+								<label><input type="checkbox"> Remember me</label>
+							</div>
+							<input style="width: 250px" id="login" class="btn btn-success"
+								type="button" value="Log In" onclick="validate()" />
+						</fieldset>
+					</div>
+				</div>
+				<footer class="navbar-fixed-bottom">
+					<p style="color: black;">© Happiest Minds Technologies Pvt Ltd 2016</p>
+				</footer>
+			</div>
+		</form>
+	</fieldset>
+</body>
+</html>

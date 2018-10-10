@@ -1,0 +1,109 @@
+{
+    "vpn-instance": {
+        "description": "",
+        "ipv4-family": {
+            "apply-label": {
+                "apply-label-mode": {
+                    "apply-label-per-instance": "",
+                    "apply-label-per-route": ""
+                }
+            },
+            "export-route-policy": "",
+            "import-route-policy": "",
+            "importRibs": {
+                "bgp-valid-route": "",
+                "policyName": "",
+                "processId": "",
+                "protocol": ""
+            },
+            "l3vpnTtlMode": {
+                "ttlMode": ""
+            },
+            "l3vpnVrfPipe": {
+                "color": "",
+                "dsName": "",
+                "pipeMode": "",
+                "serviceClass": ""
+            },
+            "prefix-limit": {
+                "prefix-limit-action": {
+                    "alert-percent-value": "",
+                    "route-unchanged": "",
+                    "simple-alert": ""
+                },
+                "prefix-limit-number": ""
+            },
+            "route-distinguisher": "",
+            "routing-table-limit": {
+                "routing-table-limit-action": {
+                    "alert-percent-value": "",
+                    "simple-alert": ""
+                },
+                "routing-table-limit-number": ""
+            },
+            "traffic-statistics": "",
+            "tunnel-policy": "",
+            "vpn-frr": "",
+            "vpnTargets": {
+                "vpnTarget": {
+                    "vrfRTType": "",
+                    "vrfRTValue": ""
+                }
+            }
+        },
+        "ipv6-family": {
+            "apply-label": {
+                "apply-label-mode": {
+                    "apply-label-per-instance": "",
+                    "apply-label-per-route": ""
+                }
+            },
+            "export-route-policy": "",
+            "import-route-policy": "",
+            "importRibs": {
+                "bgp-valid-route": "",
+                "policyName": "",
+                "processId": "",
+                "protocol": ""
+            },
+            "l3vpnTtlMode": {
+                "ttlMode": ""
+            },
+            "l3vpnVrfPipe": {
+                "color": "",
+                "dsName": "",
+                "pipeMode": "",
+                "serviceClass": ""
+            },
+            "prefix-limit": {
+                "prefix-limit-action": {
+                    "alert-percent-value": "",
+                    "route-unchanged": "",
+                    "simple-alert": ""
+                },
+                "prefix-limit-number": ""
+            },
+            "route-distinguisher": "",
+            "routing-table-limit": {
+                "routing-table-limit-action": {
+                    "alert-percent-value": "",
+                    "simple-alert": ""
+                },
+                "routing-table-limit-number": ""
+            },
+            "traffic-statistics": "",
+            "tunnel-policy": "",
+            "vpn-frr": "",
+            "vpnTargets": {
+                "vpnTarget": {
+                    "vrfRTType": "",
+                    "vrfRTValue": ""
+                }
+            }
+        },
+        "odl-l3vpn:route-entry-id": "",
+        "odl-l3vpn:vpn-id": "",
+        "vpn-id": "",
+        "vpn-instance-name": ""
+    }
+}

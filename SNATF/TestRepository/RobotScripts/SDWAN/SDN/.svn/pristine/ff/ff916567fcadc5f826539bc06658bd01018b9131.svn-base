@@ -1,0 +1,23 @@
+{
+    "prefix-list": {
+        "prefix-list-name": "",
+        "prefixes": {
+            "prefix": {
+                "prefix-filter": {
+                    "action": "",
+                    "ip-address-group": {
+                        "ip-address": "",
+                        "ip-host-address": "",
+                        "lower": "",
+                        "prefix": "",
+                        "upper": ""
+                    },
+                    "statistics": {
+                        "prefix-hit-count": ""
+                    }
+                },
+                "seq-nr": ""
+            }
+        }
+    }
+}

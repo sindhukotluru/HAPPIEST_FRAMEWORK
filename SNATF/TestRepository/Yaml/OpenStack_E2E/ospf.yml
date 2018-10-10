@@ -1,0 +1,162 @@
+heat_template_version: 2015-10-15
+description: Launch a basic instance with specified ubuntu image using the
+             ``mininet`` flavor, ``mykey`` key,  and two networks private, net_mgmt.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance.
+    default: net_mngt
+  NetID2:
+    type: string
+    description: 2nd Network ID to use for the instance
+    default: net001
+  NetID3:
+    type: string
+    description: 3rd Network ID to use for the instance
+    default: net1
+  NetID4:
+    type: string
+    description: 4th Network ID to use for the instance
+    default: net003
+  IMAGE:
+    type: string
+    description: Image name
+    default: ubuntu
+  FLAVOR:
+    type: string
+    description: Flavor name
+    default: m1.small
+  KEY:
+    type: string
+    description: Flavor name
+    default: loginkey
+
+resources:
+  server1:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: { get_param: FLAVOR }
+      key_name: { get_param: KEY }
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID2 }
+      user_data_format: RAW
+      user_data: |
+          #!/bin/sh
+          sudo -i
+          ifconfig ens3 up
+          dhclient ens3
+          route add -net 10.10.1.0/24 gw 20.1.1.8
+          route add -net 40.1.1.0/24 gw 20.1.1.8
+
+  floating_ip1:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+
+  association1:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip1 }
+      server_id: { get_resource: server1 }
+
+  server2:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: { get_param: FLAVOR }
+      key_name: { get_param: KEY }
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID2 }
+      - network: { get_param: NetID3 }
+
+  floating_ip2:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+
+  association2:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip2 }
+      server_id: { get_resource: server2 }
+
+  server3:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: { get_param: FLAVOR }
+      key_name: { get_param: KEY }
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID3 }
+      - network: { get_param: NetID4 }
+
+  floating_ip3:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+
+  association3:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip3 }
+      server_id: { get_resource: server3 }
+
+  server4:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE }
+      flavor: { get_param: FLAVOR }
+      key_name: { get_param: KEY }
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID4 }
+      user_data_format: RAW
+      user_data: |
+          #!/bin/sh
+          sudo -i
+          ifconfig ens3 up
+          dhclient ens3
+          route add -net 20.1.1.0/24 gw 40.1.1.10
+          route add -net 10.10.1.0/24 gw 40.1.1.10
+
+  floating_ip4:
+    type: OS::Nova::FloatingIP
+    properties:
+      pool: public
+
+  association4:
+    type: OS::Nova::FloatingIPAssociation
+    properties:
+      floating_ip: { get_resource: floating_ip4 }
+      server_id: { get_resource: server4 }
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server1, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server1, first_address ] }
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server2, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server2, first_address ] }
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server3, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server3, first_address ] }
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server4, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server4, first_address ] }

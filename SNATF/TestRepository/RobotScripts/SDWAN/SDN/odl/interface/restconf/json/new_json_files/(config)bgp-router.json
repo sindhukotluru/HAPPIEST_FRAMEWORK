@@ -1,0 +1,515 @@
+{
+    "af-configuration": {
+        "ipv4": {
+            "mdt": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            },
+            "multicast": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "default-originate": {
+                    "enable": ""
+                },
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "propagate-dmzlink-bw": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            },
+            "mvpn": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            },
+            "unicast": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "default-originate": {
+                    "enable": ""
+                },
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "propagate-dmzlink-bw": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            }
+        },
+        "ipv6": {
+            "multicast": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "default-originate": {
+                    "enable": ""
+                },
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "propagate-dmzlink-bw": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            },
+            "mvpn": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            },
+            "unicast": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "default-originate": {
+                    "enable": ""
+                },
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "propagate-dmzlink-bw": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            }
+        },
+        "l2vpn": {
+            "evpn": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            },
+            "vpls": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            }
+        },
+        "nsap": {
+            "unicast": {
+                "active": "",
+                "advertisement-interval": "",
+                "allowas-in": "",
+                "default-originate": {
+                    "enable": ""
+                },
+                "detection": {
+                    "enable": "",
+                    "threshold": ""
+                },
+                "maximum-prefix": "",
+                "next-hop-self": "",
+                "next-hop-unchanged": "",
+                "prefix-list": "",
+                "propagate-dmzlink-bw": "",
+                "remove-private-as": {
+                    "remove-private-as-number": "",
+                    "replace-with-local-as": ""
+                },
+                "route-reflector-client": "",
+                "send-community": "",
+                "soft-reconfiguration": "",
+                "soo": "",
+                "split-update-group": "",
+                "weight": ""
+            }
+        }
+    },
+    "bgp-af-ipv4-vpn-instances": {
+        "bgp-af-ipv4-vpn-instance": {
+            "auto-frr": "",
+            "bgpPeers": {
+                "bgpPeer": {
+                    "description": "",
+                    "groupName": "",
+                    "l3vpn:description": "",
+                    "l3vpn:groupName": "",
+                    "l3vpn:peerAddr": "",
+                    "l3vpn:remoteAs": "",
+                    "l3vpn:soo": "",
+                    "l3vpn:substituteAsEnable": "",
+                    "peerAddr": "",
+                    "remoteAs": "",
+                    "soo": "",
+                    "substituteAsEnable": ""
+                },
+                "l3vpn:bgpPeer": ""
+            },
+            "l3vpn:auto-frr": "",
+            "l3vpn:bgpPeers": "",
+            "l3vpn:router-id": "",
+            "l3vpn:vpn-instance-name": "",
+            "router-id": {
+                "enable": "",
+                "l3vpn:config-type": {
+                    "l3vpn:enable-auto-select": "",
+                    "l3vpn:ip-address": ""
+                },
+                "l3vpn:enable": ""
+            },
+            "vpn-instance-name": ""
+        },
+        "l3vpn:bgp-af-ipv4-vpn-instance": ""
+    },
+    "bgp-af-ipv6-vpn-instances": {
+        "bgp-af-ipv6-vpn-instance": {
+            "auto-frr": "",
+            "bgpPeers": {
+                "bgpPeer": {
+                    "description": "",
+                    "groupName": "",
+                    "l3vpn:description": "",
+                    "l3vpn:groupName": "",
+                    "l3vpn:peerAddr": "",
+                    "l3vpn:remoteAs": "",
+                    "l3vpn:soo": "",
+                    "l3vpn:substituteAsEnable": "",
+                    "peerAddr": "",
+                    "remoteAs": "",
+                    "soo": "",
+                    "substituteAsEnable": ""
+                },
+                "l3vpn:bgpPeer": ""
+            },
+            "l3vpn:auto-frr": "",
+            "l3vpn:bgpPeers": "",
+            "l3vpn:router-id": "",
+            "l3vpn:vpn-instance-name": "",
+            "router-id": {
+                "enable": "",
+                "l3vpn:config-type": {
+                    "l3vpn:enable-auto-select": "",
+                    "l3vpn:ip-address": ""
+                },
+                "l3vpn:enable": ""
+            },
+            "vpn-instance-name": ""
+        },
+        "l3vpn:bgp-af-ipv6-vpn-instance": ""
+    },
+    "l3vpn:bgp-af-ipv4-vpn-instances": "",
+    "l3vpn:bgp-af-ipv6-vpn-instances": "",
+    "local-as-identifier": "",
+    "local-as-number": "",
+    "rpki-config": {
+        "bestpath-computation": {
+            "allow-invalid": "",
+            "enable": ""
+        },
+        "cache-server-config": {
+            "password": "",
+            "preference-value": "",
+            "purge-time": "",
+            "refresh-time": {
+                "refresh-interval": "",
+                "refresh-time-disable": ""
+            },
+            "responce-time": {
+                "responce-interval": "",
+                "responce-time-disable": ""
+            },
+            "server": {
+                "ip-address": "",
+                "ip-host-address": ""
+            },
+            "transport": {
+                "ssh-port": "",
+                "tcp-port": ""
+            },
+            "user-name": ""
+        },
+        "validation-config": {
+            "enable": "",
+            "enable-ibgp": "",
+            "validation-time": {
+                "disable": "",
+                "prefix-validation-time": ""
+            }
+        }
+    },
+    "rtfilter": {
+        "unicast": {
+            "active": "",
+            "advertisement-interval": "",
+            "allowas-in": "",
+            "default-originate": {
+                "enable": ""
+            },
+            "detection": {
+                "enable": "",
+                "threshold": ""
+            },
+            "maximum-prefix": "",
+            "next-hop-self": "",
+            "next-hop-unchanged": "",
+            "prefix-list": "",
+            "propagate-dmzlink-bw": "",
+            "remove-private-as": {
+                "remove-private-as-number": "",
+                "replace-with-local-as": ""
+            },
+            "route-reflector-client": "",
+            "send-community": "",
+            "soft-reconfiguration": "",
+            "soo": "",
+            "split-update-group": "",
+            "weight": ""
+        }
+    },
+    "vpnv4": {
+        "multicast": {
+            "active": "",
+            "advertisement-interval": "",
+            "allowas-in": "",
+            "default-originate": {
+                "enable": ""
+            },
+            "detection": {
+                "enable": "",
+                "threshold": ""
+            },
+            "maximum-prefix": "",
+            "next-hop-self": "",
+            "next-hop-unchanged": "",
+            "prefix-list": "",
+            "propagate-dmzlink-bw": "",
+            "remove-private-as": {
+                "remove-private-as-number": "",
+                "replace-with-local-as": ""
+            },
+            "route-reflector-client": "",
+            "send-community": "",
+            "soft-reconfiguration": "",
+            "soo": "",
+            "split-update-group": "",
+            "weight": ""
+        },
+        "unicast": {
+            "active": "",
+            "advertisement-interval": "",
+            "allowas-in": "",
+            "default-originate": {
+                "enable": ""
+            },
+            "detection": {
+                "enable": "",
+                "threshold": ""
+            },
+            "maximum-prefix": "",
+            "next-hop-self": "",
+            "next-hop-unchanged": "",
+            "prefix-list": "",
+            "propagate-dmzlink-bw": "",
+            "remove-private-as": {
+                "remove-private-as-number": "",
+                "replace-with-local-as": ""
+            },
+            "route-reflector-client": "",
+            "send-community": "",
+            "soft-reconfiguration": "",
+            "soo": "",
+            "split-update-group": "",
+            "weight": ""
+        }
+    },
+    "vpnv6": {
+        "multicast": {
+            "active": "",
+            "advertisement-interval": "",
+            "allowas-in": "",
+            "default-originate": {
+                "enable": ""
+            },
+            "detection": {
+                "enable": "",
+                "threshold": ""
+            },
+            "maximum-prefix": "",
+            "next-hop-self": "",
+            "next-hop-unchanged": "",
+            "prefix-list": "",
+            "propagate-dmzlink-bw": "",
+            "remove-private-as": {
+                "remove-private-as-number": "",
+                "replace-with-local-as": ""
+            },
+            "route-reflector-client": "",
+            "send-community": "",
+            "soft-reconfiguration": "",
+            "soo": "",
+            "split-update-group": "",
+            "weight": ""
+        },
+        "unicast": {
+            "active": "",
+            "advertisement-interval": "",
+            "allowas-in": "",
+            "default-originate": {
+                "enable": ""
+            },
+            "detection": {
+                "enable": "",
+                "threshold": ""
+            },
+            "maximum-prefix": "",
+            "next-hop-self": "",
+            "next-hop-unchanged": "",
+            "prefix-list": "",
+            "propagate-dmzlink-bw": "",
+            "remove-private-as": {
+                "remove-private-as-number": "",
+                "replace-with-local-as": ""
+            },
+            "route-reflector-client": "",
+            "send-community": "",
+            "soft-reconfiguration": "",
+            "soo": "",
+            "split-update-group": "",
+            "weight": ""
+        }
+    }
+}

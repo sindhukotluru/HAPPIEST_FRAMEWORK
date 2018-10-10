@@ -1,0 +1,83 @@
+heat_template_version: 2015-10-15
+description: Launch a basic instance with specified ubuntu image using the
+             ``mininet`` flavor, ``mykey`` key,  and two networks private, net_mgmt.
+
+parameters:
+  NetID:
+    type: string
+    description: Network ID to use for the instance.
+    default: private
+  NetID2:
+    type: string
+    description: 2nd Network ID to use for the instance
+    default: private2
+  NetID3:
+    type: string
+    description: 3rd Network ID to use for the instance
+    default: net1
+  NetID4:
+    type: string
+    description: 4th Network ID to use for the instance
+    default: net2
+  IMAGE1:
+    type: string
+    description: Image name
+    default: ubuntu_iperf
+  IMAGE2:
+    type: string
+    description: Image name
+    default: vyos118
+
+
+resources:
+  server1:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE1 }
+      flavor: flavor4
+      key_name: test_key
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID3 }
+
+  server2:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE2 }
+      flavor: flavor2
+      key_name: test_key
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID3 }
+      - network: { get_param: NetID4 }
+
+  server3:
+    type: OS::Nova::Server
+    properties:
+      image: { get_param: IMAGE1 }
+      flavor: flavor4
+      key_name: test_key
+      networks:
+      - network: { get_param: NetID }
+      - network: { get_param: NetID4 }
+
+outputs:
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server1, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server1, first_address ] }
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server2, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server2, first_address ] }
+  instance_name:
+    description: Name of the instance.
+    value: { get_attr: [ server3, name ] }
+  instance_ip:
+    description: IP address of the instance.
+    value: { get_attr: [ server3, first_address ] }
+
