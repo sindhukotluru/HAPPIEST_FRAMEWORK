@@ -1,0 +1,73 @@
+node('TEE') {
+  timestamps {
+  try {
+      stage ('Checkout') {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'intdpc02']], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'd7316682-6a1d-4244-8dfa-2481ffbb134a', url: 'https://git.happiestminds.com/git/intdpc02.git']]])
+
+      }
+      stage ('Setup Topology') {
+          echo "Setup ready"
+      }
+      stage ('Static Code Analysis') {
+             sh 'mkdir -p ${WORKSPACE}/logs'
+             sh 'pylint --disable=${pylint_disable_checkers} --output-format=parseable --reports=no intdpc02/SNATF/Network_Protocol/*.py > ${WORKSPACE}/logs/pylint.log || echo "pylint exited with $?"'
+             sh 'cat ${WORKSPACE}/logs/pylint.log'
+             step([
+                 $class                     : 'WarningsPublisher',
+                 parserConfigurations       : [[
+                                               parserName: 'PYLint',
+                 pattern   : 'logs/pylint.log'
+                                      ]],
+                 unstableTotalAll: '0',
+                 usePreviousBuildAsReference: true
+                 ])
+      }
+      stage ('Test') {
+             sh 'mkdir -p ${WORKSPACE}/reports'
+             sh 'cd ${WORKSPACE}/intdpc02/SNATF/Network_Protocol/;pybot Testcase_file.robot;'
+
+      }
+    } catch(e) {
+        // fail the build if an exception is thrown
+        currentBuild.result = "FAILED"
+        throw e
+    } finally {
+        // Post build steps here
+        /* Success or failure, always run post build steps */
+        // send email
+        // publish test results etc etc
+
+        def currentResult = currentBuild.result ?: 'SUCCESS'
+        if (currentResult == 'UNSTABLE') {
+            echo 'This will run only if the run was marked as unstable'
+        }
+
+        def previousResult = currentBuild.previousBuild?.result
+        if (previousResult != null && previousResult != currentResult) {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
+        echo 'This will always run'
+        res = sh(script: "test -f  ${WORKSPACE}/intdpc02/SNATF/Network_Protocol/log.html && echo '1' || echo '0' ", returnStdout: true).trim()
+        if(res=='1'){
+            echo 'Logs found'
+            step([$class: 'RobotPublisher',
+              outputPath: '',
+              outputFileName: 'intdpc02/SNATF/Network_Protocol/output.xml',
+              reportFileName: 'intdpc02/SNATF/Network_Protocol/report.html',
+              logFileName: 'intdpc02/SNATF/Network_Protocol/log.html',
+              otherFiles: '',
+              disableArchiveOutput: false,
+              enableCache: true,
+              unstableThreshold: 90,
+              passThreshold: 95,
+              onlyCritical: true
+              ])
+        } else {
+            echo 'No logs found'
+        }
+        echo 'Clean Workspace'
+        //cleanWs()
+    }
+    }
+}
