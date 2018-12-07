@@ -1,0 +1,7 @@
+1. GNS3 environment environment should be installed in the Test environment
+2. Create the desired topolgy as per HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/BGP_Topology.png
+3. Edge core router with ONL OS having quagga router installed
+4. Edit the BGP_OSPF/Topology_file.json and varibales.py file
+5. Start the test
+   # cd HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/
+   # pybot BGP_OSPF_Test_with_GNS3_EC.robot
