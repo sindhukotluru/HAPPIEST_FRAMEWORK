@@ -12,14 +12,15 @@ def checking_operabilty(Device, command):
     hostname = device_data['Device_Details'][Device]['Hostname']
     Dev = Devices.Devices()
     child = Dev.connect(Device)
-    if (child):
+    if child:
 
       clear_buffer.flushBuffer(10, child)
       child.sendcontrol('m')
       child.sendcontrol('m')
       child.sendcontrol('m')
-      flag = child.expect([hostname+'>', hostname+'#', 'Router\>', 'Router\#', pexpect.EOF, pexpect.TIMEOUT], timeout=90)
-      if flag == 0 or flag == 2:
+      flag = child.expect([hostname+'>', hostname+'#', 'Router\>', 'Router\#',\
+             pexpect.EOF, pexpect.TIMEOUT], timeout=90)
+      if flag in (0, 2):
         Dev.Login(Device, child)
         configs = """
         %s
@@ -35,7 +36,7 @@ def checking_operabilty(Device, command):
         else:
           return False
 
-      if flag == 1 or flag == 3:
+      if flag in (1, 3):
         configs = """
         %s
         """ % (command)
@@ -60,14 +61,15 @@ def checking_operabilty_ospf(Device, command):
     hostname = device_data['Device_Details'][Device]['Hostname']
     Dev = Devices.Devices()
     child = Dev.connect(Device)
-    if (child):
+    if child:
 
       clear_buffer.flushBuffer(10, child)
       child.sendcontrol('m')
       child.sendcontrol('m')
       child.sendcontrol('m')
-      flag = child.expect([hostname+'>', hostname+'#', 'Router\>', 'Router\#', pexpect.EOF, pexpect.TIMEOUT], timeout=90)
-      if flag == 0 or flag == 2:
+      flag = child.expect([hostname+'>', hostname+'#', 'Router\>', 'Router\#',\
+                           pexpect.EOF, pexpect.TIMEOUT], timeout=90)
+      if flag in (0, 2):
         Dev.Login(Device, child)
         configs = """
         %s
@@ -84,7 +86,7 @@ def checking_operabilty_ospf(Device, command):
           return False
 
 
-      if flag == 1 or flag == 3:
+      if flag in (1, 3):
         configs = """
         %s
         """ % (command)
@@ -108,10 +110,10 @@ def ping_host(server, user_name, password, destination_ip, echo_count=5):
     ssh = paramiko.SSHClient()
     ssh.load_system_host_keys()
     ssh.connect(server, username=user_name, password=password)
-    if (ssh.connect):
+    if ssh.connect:
         ssh_stdin, ssh_stdout, ssh_stderr = ssh.exec_command(cmd_to_execute)
         output = ssh_stdout.read().decode('utf-8')
-        if (output):
+        if output:
             regex = r'bytes from %s: icmp_seq' %(destination_ip)
             if re.search(regex, output):
                 return True
@@ -122,18 +124,18 @@ def ping_host(server, user_name, password, destination_ip, echo_count=5):
       return False
 
 def ping_router(Device, Action, Peer_IP, Count="5"):
-
+    print(Action)
     device_data = getdata.get_data()
     IP_add = device_data['Device_Details'][Device]['ip_add']
     Port_no = device_data['Device_Details'][Device]['port']
     child = pexpect.spawn('telnet ' + IP_add + ' ' + Port_no)
     clear_buffer.flushBuffer(5, child)
-    if (child):
+    if child:
       child.sendcontrol('m')
       child.sendcontrol('m')
       flag = child.expect(['PC-1>*', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
 
-      if (flag == 0):
+      if flag == 0:
               configs = "ping %s -c %s " % (Peer_IP, Count)
               commands = configs.split('\n')
               execute.execute(child, commands)
@@ -158,14 +160,15 @@ def checking_operabilty_bgp(Device, command):
     child = Dev.connect(Device)
 
     if port != "zebra":
-        if (child):
+        if child:
 
           clear_buffer.flushBuffer(10, child)
           child.sendcontrol('m')
           child.sendcontrol('m')
           child.sendcontrol('m')
-          flag = child.expect([hostname+'>', hostname+'#', 'Router\>', 'Router\#', pexpect.EOF, pexpect.TIMEOUT], timeout=90)
-          if flag == 0 or flag == 2:
+          flag = child.expect([hostname+'>', hostname+'#', 'Router\>', \
+                 'Router\#', pexpect.EOF, pexpect.TIMEOUT], timeout=90)
+          if flag in (0, 2):
               Dev.Login(Device, child)
               configs = """
               %s
@@ -182,7 +185,7 @@ def checking_operabilty_bgp(Device, command):
                   return True
 
 
-          if flag == 1 or flag == 3:
+          if flag in (1, 3):
               configs = """
               %s
               """ % (command)
@@ -207,7 +210,7 @@ def checking_operabilty_bgp(Device, command):
 
         child.sendcontrol('m')
         flag = (child.expect(['bgpd*', 'Password*', pexpect.EOF, pexpect.TIMEOUT], timeout=100))
-        if (flag == 1):
+        if flag == 1:
             child.send('zebra')
             child.sendcontrol('m')
             flag = child.expect(['bgpd*>', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
@@ -215,7 +218,7 @@ def checking_operabilty_bgp(Device, command):
                 child.send('enable')
                 child.sendcontrol('m')
 
-                if (child):
+                if child:
                    flag = child.expect(['bgpd#*', pexpect.EOF, pexpect.TIMEOUT], timeout=90)
                    if flag == 0:
                        Dev.Login(Device, child)

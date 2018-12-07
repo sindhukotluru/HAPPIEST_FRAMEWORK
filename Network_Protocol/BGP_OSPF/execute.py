@@ -1,10 +1,9 @@
 import pexpect
-import time
 
-def execute(child,commands):
+def execute(child, commands):
   cmds = commands
-  flushedStuff=''
-  while not child.expect([r'.+', pexpect.EOF,pexpect.TIMEOUT], timeout=5):
+  flushedStuff = ''
+  while not child.expect([r'.+', pexpect.EOF, pexpect.TIMEOUT], timeout=5):
     try:
         flushedStuff += child.match.group(0)
     except TypeError as e:
@@ -14,7 +13,7 @@ def execute(child,commands):
       child.send(cmd)
       child.sendcontrol('m')
       child.sendcontrol('m')
-  child.expect(['exit',pexpect.EOF,pexpect.TIMEOUT],timeout=5)
+  child.expect(['exit', pexpect.EOF, pexpect.TIMEOUT], timeout=5)
   child.sendcontrol('m')
   child.sendcontrol('m')
   print(child.before)
