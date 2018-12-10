@@ -22,7 +22,7 @@ class Devices:
         child.sendcontrol('m')
         child.sendcontrol('m')
         try:
-            clear_buffer.flushBuffer(5, child)
+            clear_buffer.flushBuffer(1, child)
         except pexpect.exceptions.EOF as exc:
             return False
         child.sendcontrol('m')
@@ -53,7 +53,7 @@ class Devices:
     device_data = getdata.get_data()
     hostname = device_data['Device_Details'][Device]['Hostname']
     Password = device_data['Device_Details'][Device]['pwd']
-    clear_buffer.flushBuffer(5, child)
+    clear_buffer.flushBuffer(1, child)
     if Password != 'zebra':
         child.sendcontrol('m')
         flag = child.expect(['Router>', 'Router#', hostname+'>', \
@@ -65,7 +65,7 @@ class Devices:
 
           child.send(Password)
           child.sendcontrol('m')
-          clear_buffer.flushBuffer(5, child)
+          clear_buffer.flushBuffer(1, child)
           child.sendcontrol('m')
           child.sendcontrol('m')
           child.sendcontrol('m')
@@ -100,7 +100,7 @@ class Devices:
     if child:
       device_data = getdata.get_data()
       hostname = device_data['Device_Details'][Device]['Hostname']
-      clear_buffer.flushBuffer(5, child)
+      clear_buffer.flushBuffer(1, child)
       child.sendcontrol('m')
       flag = child.expect(['R*#', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
       print('flag=%d' % flag)
@@ -198,7 +198,7 @@ class Devices:
     ip_add = device_data['Device_Details'][Device]["ip_add"]
     child = self.connect(Device)
     if child != False:
-      clear_buffer.flushBuffer(5, child)
+      clear_buffer.flushBuffer(1, child)
       child.sendcontrol('m')
       child.sendcontrol('m')
       child.sendcontrol('m')
@@ -237,18 +237,18 @@ class Devices:
 
 
   def set_IP_Host(self, Device, Action, Mask):
-#    import sys, pdb; pdb.Pdb(stdout=sys.__stdout__).set_trace()
+   # import sys, pdb; pdb.Pdb(stdout=sys.__stdout__).set_trace()
     device_data = getdata.get_data()
     IP_add = device_data['Device_Details'][Device]['ip_add']
     Network = device_data['Device_Details'][Device]['network']
     Port_no = device_data['Device_Details'][Device]['port']
     Gateway = device_data['Device_Details'][Device]['gateway']
     child = pexpect.spawn('telnet ' + IP_add + ' ' + Port_no)
-    clear_buffer.flushBuffer(5, child)
+    clear_buffer.flushBuffer(1, child)
     if child:
       child.sendcontrol('m')
       child.sendcontrol('m')
-      flag = child.expect(['PC-1>*', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
+      flag = child.expect(['PC*', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
 
       if flag == 0:
 
@@ -277,7 +277,7 @@ class Devices:
 #    IP_add = device_data['Device_Details'][Device]['ip_add']
 #    Port_no = device_data['Device_Details'][Device]['port']
 #    child = pexpect.spawn('telnet ' + IP_add + ' ' + Port_no)
-#    clear_buffer.flushBuffer(5,child)
+#    clear_buffer.flushBuffer(1,child)
 #    if (child):
 #      child.sendcontrol('m')
 #      child.sendcontrol('m')
@@ -300,4 +300,43 @@ class Devices:
 #
 #      return False
 
+  def set_IP_DockerHost(self, Device, Action, Mask):
+   # import sys, pdb; pdb.Pdb(stdout=sys.__stdout__).set_trace()
+    device_data = getdata.get_data()
+    IP_add = device_data['Device_Details'][Device]['ip_add']
+    Network = device_data['Device_Details'][Device]['network']
+    Port_no = device_data['Device_Details'][Device]['port']
+    Gateway = device_data['Device_Details'][Device]['gateway']
+    child = pexpect.spawn('telnet ' + IP_add + ' ' + Port_no)
+    clear_buffer.flushBuffer(1, child)
+    if child:
+      child.sendcontrol('m')
+      child.sendcontrol('m')
+      flag = child.expect(['root*', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
+
+      if flag == 0:
+
+        if Action == 'configure':
+
+              configs = "ifconfig eth0 %s""" % (Network)
+              commands = configs.split('\n')
+              execute.execute(child, commands)
+              child.sendcontrol('m')
+
+              configs = "route add default gw %s" %  (Gateway)
+              commands = configs.split('\n')
+              execute.execute(child, commands)
+              child.sendcontrol('m')
+
+        else:
+              unconfig = "ifconfig eth0 0"
+              commands = unconfig.split('\n')
+              execute.execute(child, commands)
+              child.sendline('exit')
+              child.sendcontrol('m')
+
+        return True
+    else:
+
+      return False
 dev = Devices()

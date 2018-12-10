@@ -29,6 +29,11 @@ class config_ip(object):
         dev.set_IP_Host(args[0], args[1], args[2])
 
     @staticmethod
+    def config_docker_addr(*args):
+        dev = Devices.Devices()
+        dev.set_IP_DockerHost(args[0], args[1], args[2])
+
+    @staticmethod
     def config_lo_addr(*args):
         dev = Devices.Devices()
         dev.set_loopback(args[0], args[1])
@@ -100,6 +105,14 @@ class config_ip(object):
             elif re.search('PC.*', device[0]):
                 threads_device["new_thread{0}".format(device[0])] = \
                                 Thread(target=config_ip.config_host_addr,\
+                                args=[device[0], device[1], device[2]])
+                threads_device["new_thread{0}".format(device[0])].start()
+                threads_device["new_thread{0}".format(device[0])].name = \
+                                               "ConfigureRouter_" + str(device[0])
+                list_threads.append(threads_device["new_thread{0}".format(device[0])])
+            elif re.search('Ubuntu*', device[0]):
+                threads_device["new_thread{0}".format(device[0])] = \
+                                Thread(target=config_ip.config_docker_addr,\
                                 args=[device[0], device[1], device[2]])
                 threads_device["new_thread{0}".format(device[0])].start()
                 threads_device["new_thread{0}".format(device[0])].name = \

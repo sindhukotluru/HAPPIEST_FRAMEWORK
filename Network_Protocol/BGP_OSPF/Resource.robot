@@ -35,20 +35,47 @@ Teardown Actions
 
     Log To Console            Unconfiguring IP_Address
 
-    Run Keyword and Continue On Failure   set IP     R1    ${Links_of_R1}    unconfigure
-    Log To Console            IP_Address unconfigured in R1
-    Run Keyword and Continue On Failure    set IP     R2    ${Links_of_R2}    unconfigure
-    Log To Console            IP_Address unconfigured in R2
-    Run Keyword and Continue On Failure    set IP     R3    ${Links_of_R3}    unconfigure
-    Log To Console            IP_Address unconfigured in R3
-    Run Keyword and Continue On Failure    set IP     R4    ${Links_of_R4}    unconfigure
-    Log To Console            IP_Address unconfigured in R4
-    Run Keyword and Continue On Failure    set IP     R5    ${Links_of_R5}    unconfigure
-    Log To Console            IP_Address unconfigured in R5
+    ${ip_addr_R1}=    Create List    R1    ${Links_of_R1}    unconfigure
+    ${ip_addr_R2}=    Create List    R2    ${Links_of_R2}    unconfigure
+    ${ip_addr_R3}=    Create List    R3    ${Links_of_R3}    unconfigure
+    ${ip_addr_R4}=    Create List    R4    ${Links_of_R4}    unconfigure
+    ${ip_addr_R5}=    Create List    R5    ${Links_of_R5}    unconfigure
+    ${ip_addr_PC1}=    Create List    PC-1    unconfigure    ${mask}
+    ${ip_addr_PC2}=    Create List    Ubuntu    unconfigure    ${mask}
+    ${unconfig_ip}=    Create List    ${ip_addr_R1}    ${ip_addr_R2}    ${ip_addr_R3}    ${ip_addr_R4}    ${ip_addr_R5}   ${ip_addr_PC1}   ${ip_addr_PC2}
+    ${result}=    Run Keyword and Continue On Failure    start configure     ${unconfig_ip}
+    Run Keyword If    ${result}==False    FAIL    Unable to clear IP address on the routers
+    Log To Console            IP_Address cleared on all Routers
 
-    Log To Console            Disabling password and unsetting hostname
+    Log To Console            Unconfiguring Loopback interface
+    :FOR  ${var}  in  @{Devices}
+    \    ${clear_lo}=    Create List    ${var}    unset
+    \    Append To List    ${clear_lo_devices}    ${clear_lo}
 
-    Run Keyword and Continue On Failure    connect_all    disable
+    ${result}=    Run Keyword and Continue On Failure    start configure loopback     ${clear_lo_devices}
+    Run Keyword If    ${result}==False    FAIL    Unable to clear Loopback address on the interfaces
+    Log To Console            Loopback_Address cleared on all Routers
+
+    Log To Console            Clearing OSPF configuration
+    ${ospf_R1}=    Create List    R1    ${Process_id}    ${Networks_connected_to_R1}    ${Area1}    disable
+    ${ospf_R2}=    Create List    R2    ${Process_id}    ${Networks_connected_to_R2}    ${Area1}    disable
+    ${ospf_R3}=    Create List    R3    ${Process_id}    ${Networks_connected_to_R3}    ${Area1}    disable
+    ${clear_ospf}=    Create List    ${ospf_R1}    ${ospf_R2}    ${ospf_R3}
+    ${result}=    Run Keyword and Continue On Failure    start_configure_ospf   ${clear_ospf}
+    Run Keyword If    ${result}==False    FAIL    Clearing OSPF on Routers has failed
+    Log To Console            OSPF unconfigured in Routers
+
+    Log To Console            Clearing BGP configuration
+    ${clear_R2}=    Create List    R2    ${R2_AS_id}   ${R2_einterface}   ${R2_neighbor_AS_id}   disable  ${R4_R2_network}  ${mask}
+    ${clear_R3}=    Create List    R3    ${R3_AS_id}   ${R3_einterface}   ${R3_neighbor_AS_id}   disable  ${R3_R5_network}  ${mask}
+    ${clear_R4}=    Create List    R4    ${R4_AS_id}   ${R4_einterface}   ${R4_neighbor_AS_id}   disable  ${R4_R2_network}  ${mask}
+    ${clear_R5}=    Create List    R5    ${R5_AS_id}   ${R5_einterface}   ${R5_neighbor_AS_id}   disable  ${R3_R5_network}  ${mask}
+    ${clear_ebgp}=    Create List    ${clear_R2}    ${clear_R3}    ${clear_R4}    ${clear_R5}
+
+    ${result}=    Run Keyword and Continue On Failure    ebgp configure     ${clear_ebgp}
+    Run Keyword If    ${result}==False    FAIL    Clearing BGP on Routers has failed
+    Log To Console            BGP unconfigured on Routers R2,R3,R4 and R5
+
 
 Configure IP addresses as per the topology
 
@@ -61,7 +88,8 @@ Configure ip address
     ${load_device_R4}=    Create List    R4    ${Links_of_R4}    configure
     ${load_device_R5}=    Create List    R5    ${Links_of_R5}    configure
     ${load_device_PC1}=    Create List    PC-1    configure    ${mask}
-    ${load_devices}=    Create List    ${load_device_R1}    ${load_device_R2}    ${load_device_R3}    ${load_device_R4}    ${load_device_R5}    ${load_device_PC1}
+    ${load_device_PC2}=    Create List    Ubuntu    configure    ${mask}
+    ${load_devices}=    Create List  ${load_device_R1}  ${load_device_R2}  ${load_device_R3}  ${load_device_R4}  ${load_device_R5}  ${load_device_PC1}  ${load_device_PC2}
     ${result}=    Run Keyword and Continue On Failure    start configure     ${load_devices}
     Run Keyword If    ${result}==False    FAIL    IP address configuration failed
     Log To Console            IP_Address configured on all Routers
@@ -184,10 +212,12 @@ Redistribute connnected routes into BGP
 Check if ip address is set and interface is up
 
     Log To Console    Checking if IP address is set and interface is up
-    :FOR    ${ELEMENT}    IN    @{Devices}
-    \    ${ip_device}=    Create List    ${ELEMENT}    show interfaces description
-    \    Append To List    ${show_ip_interface}    ${ip_device}
-
+    ${ip_set_R1}=    Create List    R1    show interfaces description
+    ${ip_set_R2}=    Create List    R2    show interfaces description
+    ${ip_set_R3}=    Create List    R3    show interfaces description
+    ${ip_set_R4}=    Create List    R4    show interfaces description
+    ${ip_set_R5}=    Create List    R5    show interface description
+    ${show_ip_interface}=    Create List       ${ip_set_R1}    ${ip_set_R2}    ${ip_set_R3}    ${ip_set_R4}   ${ip_set_R4}
     ${result}=    Run Keyword and Continue On Failure    show ip interface     ${show_ip_interface}
     Run Keyword If    ${result}==False    FAIL    IP address not set or interface not up in  ${ELEMENT}
 
@@ -196,13 +226,13 @@ Ensure that different autonomous systems can communicate with each other
 
     Log    Autonomous system communication validated
 
-    Log To Console            Verify Ping operation from VPCS to ONL
-    ${result}=    Run Keyword and Continue On Failure   ping router    PC-1   ping    ${R3_einterface}
-    Run Keyword If    ${result}==False    FAIL    Unable to reach ONL from VPCS
+    Log To Console            Verify Ping operation from PC-1 to Ubuntu
+    ${result}=    Run Keyword and Continue On Failure   ping router    PC-1   ping    ${Host2_IP}
+    Run Keyword If    ${result}==False    FAIL    Unable to reach ONL from PC-1 to Ubuntu
 
-    Log To Console            Verify Ping operation from ONL to VPCS
-    ${result}=    Run Keyword and Continue On Failure   ping host   ${R3_einterface}  ${user_name}  ${password}  ${Host1_IP}
-    Run Keyword If    ${result}==False    FAIL    Unable to reach VPCS from ONL
+    Log To Console            Verify Ping operation from Ubuntu to PC-1
+    ${result}=    Run Keyword and Continue On Failure   ping router    Ubuntu   ping    ${Host1_IP}
+    Run Keyword If    ${result}==False    FAIL    Unable to reach VPCS from Ubuntu to PC-1
 
 Check if OSPF neighbors are established
     Log To Console    Checking if OSPF neighbors are established

@@ -8,7 +8,7 @@ Links_of_R1 = ["Link_R1_R2_1", "Link_R1_R3_1"]
 Links_of_R2 = ["Link_R1_R2_1", "Link_R2_R4_1"]
 Links_of_R3 = ["Link_R1_R3_1", "Link_R3_R5_1"]
 Links_of_R4 = ["Link_R2_R4_1", "Link_R4_PC-1_1"]
-Links_of_R5 = ["Link_R3_R5_1"]
+Links_of_R5 = ["Link_R3_R5_1", "Link_R5_PC-2_1"]
 
 
 
@@ -75,6 +75,7 @@ user_name = "root"
 password = "onl"
 
 Host1_IP = "192.168.70.20"
+Host2_IP = "192.168.80.20"
 
 
 

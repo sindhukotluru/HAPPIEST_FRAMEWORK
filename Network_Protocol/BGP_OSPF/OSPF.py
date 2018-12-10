@@ -61,7 +61,7 @@ class OSPF:
 					configure terminal
 					no router ospf %s
 					end
-					""" % (process_id,NID,Area)
+					""" % (process_id)
 					commands = configs.split('\n')
 					execute.execute(child,commands)
 					child.sendcontrol('m')
@@ -102,7 +102,7 @@ class OSPF:
 					configure terminal
 					no router ospf %s
 					end
-					""" % (process_id,NID,Area)
+					""" % (process_id)
 					commands = configs.split('\n')
 					execute.execute(child,commands)
 					child.sendcontrol('m')
