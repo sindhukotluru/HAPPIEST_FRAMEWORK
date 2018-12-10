@@ -38,7 +38,7 @@ Resource          Resource.robot
 Library         DebugLibrary
 #Suite Setup       Setup Actions
 
-#Suite Teardown    Teardown Actions
+Suite Teardown    Teardown Actions
 
 *** Test Cases ***
 
