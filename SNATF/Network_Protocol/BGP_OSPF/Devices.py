@@ -225,7 +225,7 @@ class Devices:
         unconfig = """
           configure terminal
           interface %s
-          ip address 127.0.0.1 255.255.255.255
+          no ip address
           end
           exit
           """ % ('loopback0')
@@ -275,35 +275,6 @@ class Devices:
 
       return False
 
-'''
-  def ping_router(self,Device,Action,Peer_IP,Count="5"):
-    device_data = getdata.get_data()
-    IP_add = device_data['Device_Details'][Device]['ip_add']
-    Port_no = device_data['Device_Details'][Device]['port']
-    child = pexpect.spawn('telnet ' + IP_add + ' ' + Port_no)
-    clear_buffer.flushBuffer(5,child)
-    if (child):
-      child.sendcontrol('m')
-      child.sendcontrol('m')
-      flag = child.expect(['PC-1>*',pexpect.EOF,pexpect.TIMEOUT],timeout=50)
-
-      if (flag == 0):
-              configs = "ping %s -c %s " % (Peer_IP,Count)
-              commands = configs.split('\n')
-              execute.execute(child,commands)
-              resp = child.before.decode('utf-8')
-              child.sendcontrol('m')
-              child.sendcontrol('m')
-              regex = r'bytes from %s icmp_seq' %(Peer_IP)
-              if re.search(regex,resp):
-                return True
-              else:
-                return False
-
-    else:
-
-      return False
-'''
 dev =  Devices()
 
 
