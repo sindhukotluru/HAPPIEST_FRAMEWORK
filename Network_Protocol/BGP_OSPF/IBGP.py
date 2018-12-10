@@ -224,7 +224,7 @@ class IBGP:
                         exit
                         exit
                         """ % (AS_id)
-                        commands = configs.split('\n')
+                        commands = unconfig.split('\n')
                         execute.execute(child, commands)
                         child.sendcontrol('m')
 
@@ -268,7 +268,7 @@ class IBGP:
                         exit
                         exit
                         """ % (AS_id)
-                        commands = configs.split('\n')
+                        commands = unconfig.split('\n')
                         execute.execute(child, commands)
                         child.sendcontrol('m')
 
@@ -337,7 +337,7 @@ class IBGP:
                                            exit
                                            exit
                                            """ % (AS_id)
-                                           commands = configs.split('\n')
+                                           commands = unconfig.split('\n')
                                            execute.execute(child, commands)
                                            child.sendcontrol('m')
 

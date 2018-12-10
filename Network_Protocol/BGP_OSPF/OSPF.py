@@ -62,7 +62,7 @@ class OSPF:
 					no router ospf %s
 					end
 					""" % (process_id)
-					commands = configs.split('\n')
+					commands = unconfig.split('\n')
 					execute.execute(child,commands)
 					child.sendcontrol('m')
 
@@ -103,7 +103,7 @@ class OSPF:
 					no router ospf %s
 					end
 					""" % (process_id)
-					commands = configs.split('\n')
+					commands = unconfig.split('\n')
 					execute.execute(child,commands)
 					child.sendcontrol('m')
 
