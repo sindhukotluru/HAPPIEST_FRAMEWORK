@@ -103,7 +103,6 @@ class Devices:
       clear_buffer.flushBuffer(1, child)
       child.sendcontrol('m')
       flag = child.expect(['R*#', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
-      print('flag=%d' % flag)
 
 #      if (flag == 0 or flag == 3 or flag == 4):
 #        print("Expected prompt not present")

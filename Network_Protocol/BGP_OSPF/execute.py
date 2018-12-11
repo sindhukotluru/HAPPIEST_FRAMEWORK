@@ -16,5 +16,5 @@ def execute(child, commands):
   child.expect(['exit', pexpect.EOF, pexpect.TIMEOUT], timeout=5)
   child.sendcontrol('m')
   child.sendcontrol('m')
-  print(child.before)
+  print(child.before.decode("utf-8"))
   return
