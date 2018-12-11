@@ -59,7 +59,7 @@ class setup_actions:
                   no enable password %s
                   exit
                   exit
-                  """ % (hostname,devices[keys]['pwd'])
+                  """ % (hostname, devices[keys]['pwd'])
                   commands = unconfig.split('\n')
                   execute.execute(child, commands)
                   child.sendcontrol('m')
@@ -82,7 +82,8 @@ class setup_actions:
 
 
     def _enable_pwd(self, child, keys, devices):
-        if not devices[keys]['port']  == 'zebra':
+        pwd = None
+        if not devices[keys]['port'] == 'zebra':
             child.sendcontrol('m')
     #        time.sleep(10)
             child.sendcontrol('m')
@@ -93,9 +94,9 @@ class setup_actions:
             child.sendcontrol('m')
             flag = child.expect('R*#', 'Password*', pexpect.EOF, pexpect.TIMEOUT, timeout=80)
           #  print flag
-            if (flag == 0):
+            if flag == 0:
           #    print 'Hostname set'
-              flag=2
+              flag = 2
 
           #  if flag == 1:
           #    print 'Hostname set'
@@ -115,7 +116,7 @@ class setup_actions:
                 enable password %s
                 exit
                 exit
-                """ % (hostname,devices[keys]['pwd'])
+                """ % (hostname, devices[keys]['pwd'])
                 commands = configs.split('\n')
                 execute.execute(child, commands)
                 child.sendcontrol('m')
