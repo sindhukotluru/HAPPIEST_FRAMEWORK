@@ -119,7 +119,7 @@ class config_ip(object):
                                                "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -143,7 +143,7 @@ class config_ip(object):
                                                "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -168,7 +168,7 @@ class config_ip(object):
                 sleep(2)
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -192,7 +192,7 @@ class config_ip(object):
                                "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -215,7 +215,7 @@ class config_ip(object):
                 "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -238,7 +238,7 @@ class config_ip(object):
                 threads_device["new_thread{0}".format(device[0])].name = "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -262,7 +262,7 @@ class config_ip(object):
                                "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -286,7 +286,7 @@ class config_ip(object):
                 threads_device["new_thread{0}".format(device[0])].name = "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -307,7 +307,7 @@ class config_ip(object):
                 threads_device["new_thread{0}".format(device[0])].name = "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -328,7 +328,7 @@ class config_ip(object):
                 threads_device["new_thread{0}".format(device[0])].name = "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -349,7 +349,7 @@ class config_ip(object):
                 threads_device["new_thread{0}".format(device[0])].name = "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -372,7 +372,7 @@ class config_ip(object):
                                        "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
@@ -395,7 +395,7 @@ class config_ip(object):
                                "ConfigureRouter_" + str(device[0])
                 list_threads.append(threads_device["new_thread{0}".format(device[0])])
         for _thread in list_threads:
-            print("Waiting thread #%s" % str(_thread.name))
+            print("Waiting thread #%s" % _thread.name.decode("utf-8"))
             _thread.join()
 
         #make list empty if thread not running
