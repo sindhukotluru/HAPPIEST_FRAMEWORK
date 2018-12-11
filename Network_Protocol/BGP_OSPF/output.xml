@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.0.4 (Python 3.5.2 on linux)" generated="20181210 17:59:54.633">
-<suite source="/opt/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/BGP_OSPF_Test_with_GNS3_EC.robot" id="s1" name="BGP OSPF Test with GNS3 EC">
-<test id="s1-t1" name="Configure IP addresses as per the topology">
-<kw name="Configure ip address" library="Resource">
-<kw name="Create List" library="BuiltIn">
+<robot generated="20181211 09:51:48.786" generator="Robot 3.0.4 (Python 3.5.2 on linux)">
+<suite name="BGP OSPF Test with GNS3 EC" id="s1" source="/opt/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/BGP_OSPF_Test_with_GNS3_EC.robot">
+<test name="Configure IP addresses as per the topology" id="s1-t1">
+<kw library="Resource" name="Configure ip address">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>R1</arg>
@@ -13,10 +13,10 @@
 <assign>
 <var>${load_device_R1}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 17:59:54.840">${load_device_R1} = ['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'configure']</msg>
-<status endtime="20181210 17:59:54.840" status="PASS" starttime="20181210 17:59:54.840"></status>
+<msg level="INFO" timestamp="20181211 09:51:49.120">${load_device_R1} = ['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'configure']</msg>
+<status status="PASS" starttime="20181211 09:51:49.120" endtime="20181211 09:51:49.120"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>R2</arg>
@@ -26,10 +26,10 @@
 <assign>
 <var>${load_device_R2}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 17:59:54.841">${load_device_R2} = ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1'], 'configure']</msg>
-<status endtime="20181210 17:59:54.841" status="PASS" starttime="20181210 17:59:54.840"></status>
+<msg level="INFO" timestamp="20181211 09:51:49.121">${load_device_R2} = ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1'], 'configure']</msg>
+<status status="PASS" starttime="20181211 09:51:49.121" endtime="20181211 09:51:49.121"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>R3</arg>
@@ -39,10 +39,10 @@
 <assign>
 <var>${load_device_R3}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 17:59:54.841">${load_device_R3} = ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1'], 'configure']</msg>
-<status endtime="20181210 17:59:54.841" status="PASS" starttime="20181210 17:59:54.841"></status>
+<msg level="INFO" timestamp="20181211 09:51:49.122">${load_device_R3} = ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1'], 'configure']</msg>
+<status status="PASS" starttime="20181211 09:51:49.122" endtime="20181211 09:51:49.122"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>R4</arg>
@@ -52,10 +52,10 @@
 <assign>
 <var>${load_device_R4}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 17:59:54.842">${load_device_R4} = ['R4', ['Link_R2_R4_1', 'Link_R4_PC-1_1'], 'configure']</msg>
-<status endtime="20181210 17:59:54.842" status="PASS" starttime="20181210 17:59:54.841"></status>
+<msg level="INFO" timestamp="20181211 09:51:49.123">${load_device_R4} = ['R4', ['Link_R2_R4_1', 'Link_R4_PC-1_1'], 'configure']</msg>
+<status status="PASS" starttime="20181211 09:51:49.122" endtime="20181211 09:51:49.123"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>R5</arg>
@@ -65,10 +65,10 @@
 <assign>
 <var>${load_device_R5}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 17:59:54.842">${load_device_R5} = ['R5', ['Link_R3_R5_1', 'Link_R5_PC-2_1'], 'configure']</msg>
-<status endtime="20181210 17:59:54.842" status="PASS" starttime="20181210 17:59:54.842"></status>
+<msg level="INFO" timestamp="20181211 09:51:49.124">${load_device_R5} = ['R5', ['Link_R3_R5_1', 'Link_R5_PC-2_1'], 'configure']</msg>
+<status status="PASS" starttime="20181211 09:51:49.123" endtime="20181211 09:51:49.124"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>PC-1</arg>
@@ -78,10 +78,10 @@
 <assign>
 <var>${load_device_PC1}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 17:59:54.843">${load_device_PC1} = ['PC-1', 'configure', '255.255.255.0']</msg>
-<status endtime="20181210 17:59:54.843" status="PASS" starttime="20181210 17:59:54.842"></status>
+<msg level="INFO" timestamp="20181211 09:51:49.124">${load_device_PC1} = ['PC-1', 'configure', '255.255.255.0']</msg>
+<status status="PASS" starttime="20181211 09:51:49.124" endtime="20181211 09:51:49.125"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>Ubuntu</arg>
@@ -91,10 +91,10 @@
 <assign>
 <var>${load_device_PC2}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 17:59:54.843">${load_device_PC2} = ['Ubuntu', 'configure', '255.255.255.0']</msg>
-<status endtime="20181210 17:59:54.843" status="PASS" starttime="20181210 17:59:54.843"></status>
+<msg level="INFO" timestamp="20181211 09:51:49.125">${load_device_PC2} = ['Ubuntu', 'configure', '255.255.255.0']</msg>
+<status status="PASS" starttime="20181211 09:51:49.125" endtime="20181211 09:51:49.125"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>${load_device_R1}</arg>
@@ -108,10 +108,10 @@
 <assign>
 <var>${load_devices}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 17:59:54.844">${load_devices} = [['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'configure'], ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1'], 'configure'], ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1'], 'configure'], ['R4', ['Link_R2_R4_1', 'Link_R4_P...</msg>
-<status endtime="20181210 17:59:54.844" status="PASS" starttime="20181210 17:59:54.843"></status>
+<msg level="INFO" timestamp="20181211 09:51:49.126">${load_devices} = [['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'configure'], ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1'], 'configure'], ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1'], 'configure'], ['R4', ['Link_R2_R4_1', 'Link_R4_P...</msg>
+<status status="PASS" starttime="20181211 09:51:49.126" endtime="20181211 09:51:49.127"></status>
 </kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
 <arguments>
 <arg>start configure</arg>
@@ -120,72 +120,72 @@
 <assign>
 <var>${result}</var>
 </assign>
-<kw name="Start Configure" library="config_ip">
+<kw library="config_ip" name="Start Configure">
 <arguments>
 <arg>${load_devices}</arg>
 </arguments>
-<msg level="INFO" timestamp="20181210 18:00:16.626">Configuring IP address for R1Configuring IP address for R2Configuring IP address for R3Configuring IP address for R4Configuring IP address for R5Waiting thread #ConfigureRouter_R1
+<msg level="INFO" timestamp="20181211 09:52:58.179">Configuring IP address for R1Configuring IP address for R2Configuring IP address for R3Configuring IP address for R4Configuring IP address for R5Waiting thread #ConfigureRouter_R1
 flag=0
 flag=0
 flag=0
 flag=0
-flag=0
-b'\r\nR1#\r\nR1#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#              interface Ethernet 1/0\r\nR1(config-if)#\r\nR1(config-if)#              ip address 192.168.23.3  255.255.255.0\r\nR1(config-if)#\r\nR1(config-if)#              no shutdown\r\nR1(config-if)#\r\nR1(config-if)#              '
-b'\r\nR4#\r\nR4#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#              interface Ethernet 1/0\r\nR4(config-if)#\r\nR4(config-if)#              ip address 192.168.12.1  255.255.255.0\r\nR4(config-if)#\r\nR4(config-if)#              no shutdown\r\nR4(config-if)#\r\nR4(config-if)#              '
-b'\r\nR5#\r\nR5#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#              interface Ethernet 1/0\r\nR5(config-if)#\r\nR5(config-if)#              ip address 192.168.45.6  255.255.255.0\r\nR5(config-if)#\r\nR5(config-if)#              no shutdown\r\nR5(config-if)#\r\nR5(config-if)#              '
 b'\r\nR2#\r\nR2#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#              interface Ethernet 1/0\r\nR2(config-if)#\r\nR2(config-if)#              ip address 192.168.23.2  255.255.255.0\r\nR2(config-if)#\r\nR2(config-if)#              no shutdown\r\nR2(config-if)#\r\nR2(config-if)#              '
 b'\r\nR3#\r\nR3#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#              interface Ethernet 1/1\r\nR3(config-if)#\r\nR3(config-if)#              ip address 192.168.34.4  255.255.255.0\r\nR3(config-if)#\r\nR3(config-if)#              no shutdown\r\nR3(config-if)#\r\nR3(config-if)#              '
-b'ip 192.168.70.20 255.255.255.0 192.168.70.10\r\nChecking for duplicate address...\r\nPC1 : 192.168.70.20 255.255.255.0 gateway 192.168.70.10\r\n\r\n\rPC-1&gt; '
+b'\r\nR5#\r\nR5#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#              interface Ethernet 1/0\r\nR5(config-if)#\r\nR5(config-if)#              ip address 192.168.45.6  255.255.255.0\r\nR5(config-if)#\r\nR5(config-if)#              no shutdown\r\nR5(config-if)#\r\nR5(config-if)#              '
+b'\r\nR4#\r\nR4#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#              interface Ethernet 1/0\r\nR4(config-if)#\r\nR4(config-if)#              ip address 192.168.12.1  255.255.255.0\r\nR4(config-if)#\r\nR4(config-if)#              no shutdown\r\nR4(config-if)#\r\nR4(config-if)#              '
 b'ifconfig eth0 192.168.80.20\r\n\x1b]0;root@UbuntuDockerGuest-1: ~\x07root@UbuntuDockerGuest-1:~# \r\n\x1b]0;root@UbuntuDockerGuest-1: ~\x07root@UbuntuDockerGuest-1:~# '
+b'ip 192.168.70.20 255.255.255.0 192.168.70.10\r\nChecking for duplicate address...\r\nPC1 : 192.168.70.20 255.255.255.0 gateway 192.168.70.10\r\n\r\n\rPC-1&gt; '
+b'\r\nR2#\r\nR2#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#              interface Ethernet 1/1\r\nR2(config-if)#\r\nR2(config-if)#              ip address 192.168.12.2  255.255.255.0\r\nR2(config-if)#\r\nR2(config-if)#              no shutdown\r\nR2(config-if)#\r\nR2(config-if)#              '
 b'\r\nR5#\r\nR5#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#              interface Ethernet 1/1\r\nR5(config-if)#\r\nR5(config-if)#              ip address 192.168.80.10  255.255.255.0\r\nR5(config-if)#\r\nR5(config-if)#              no shutdown\r\nR5(config-if)#\r\nR5(config-if)#              '
-Configured  IP Address for R5b'\r\nR1#\r\nR1#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#              interface Ethernet 1/1\r\nR1(config-if)#\r\nR1(config-if)#              ip address 192.168.34.3  255.255.255.0\r\nR1(config-if)#\r\nR1(config-if)#              no shutdown\r\nR1(config-if)#\r\nR1(config-if)#              '
-b'\r\nR4#\r\nR4#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#              interface Ethernet 1/1\r\nR4(config-if)#\r\nR4(config-if)#              ip address 192.168.70.10  255.255.255.0\r\nR4(config-if)#\r\nR4(config-if)#              no shutdown\r\nR4(config-if)#\r\nR4(config-if)#              '
-Configured  IP Address for R1Waiting thread #ConfigureRouter_R2
+Configured  IP Address for R2Configured  IP Address for R5b'\r\nR4#\r\nR4#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#              interface Ethernet 1/1\r\nR4(config-if)#\r\nR4(config-if)#              ip address 192.168.70.10  255.255.255.0\r\nR4(config-if)#\r\nR4(config-if)#              no shutdown\r\nR4(config-if)#\r\nR4(config-if)#              '
 Configured  IP Address for R4b'\r\nR3#\r\nR3#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#              interface Ethernet 1/0\r\nR3(config-if)#\r\nR3(config-if)#              ip address 192.168.45.4  255.255.255.0\r\nR3(config-if)#\r\nR3(config-if)#              no shutdown\r\nR3(config-if)#\r\nR3(config-if)#              '
-Configured  IP Address for R3b'\r\nR2#\r\nR2#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#              interface Ethernet 1/1\r\nR2(config-if)#\r\nR2(config-if)#              ip address 192.168.12.2  255.255.255.0\r\nR2(config-if)#\r\nR2(config-if)#              no shutdown\r\nR2(config-if)#\r\nR2(config-if)#              '
-Configured  IP Address for R2Waiting thread #ConfigureRouter_R3
+Configured  IP Address for R3b'route add default gw 192.168.80.10\r\n\x1b]0;root@UbuntuDockerGuest-1: ~\x07root@UbuntuDockerGuest-1:~# \x1b[K\r\n\x1b]0;root@UbuntuDockerGuest-1: ~\x07root@UbuntuDockerGuest-1:~# '
+flag=0
+b'\r\nR1#\r\nR1#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#              interface Ethernet 1/0\r\nR1(config-if)#\r\nR1(config-if)#              ip address 192.168.23.3  255.255.255.0\r\nR1(config-if)#\r\nR1(config-if)#              no shutdown\r\nR1(config-if)#\r\nR1(config-if)#              '
+b'\r\nR1#\r\nR1#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#              interface Ethernet 1/1\r\nR1(config-if)#\r\nR1(config-if)#              ip address 192.168.34.3  255.255.255.0\r\nR1(config-if)#\r\nR1(config-if)#              no shutdown\r\nR1(config-if)#\r\nR1(config-if)#              '
+Configured  IP Address for R1Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
 Waiting thread #ConfigureRouter_R4
 Waiting thread #ConfigureRouter_R5
 Waiting thread #ConfigureRouter_PC-1
-Waiting thread #ConfigureRouter_Ubuntu
-b'route add default gw 192.168.80.10\r\nSIOCADDRT: File exists\r\n\x1b]0;root@UbuntuDockerGuest-1: ~\x07root@UbuntuDockerGuest-1:~# \x1b[K\r\n\x1b]0;root@UbuntuDockerGuest-1: ~\x07root@UbuntuDockerGuest-1:~# '</msg>
-<status endtime="20181210 18:00:16.626" status="PASS" starttime="20181210 17:59:54.845"></status>
+Waiting thread #ConfigureRouter_Ubuntu</msg>
+<status status="PASS" starttime="20181211 09:51:49.127" endtime="20181211 09:52:58.180"></status>
 </kw>
-<msg level="INFO" timestamp="20181210 18:00:16.627">${result} = True</msg>
-<status endtime="20181210 18:00:16.627" status="PASS" starttime="20181210 17:59:54.844"></status>
+<msg level="INFO" timestamp="20181211 09:52:58.180">${result} = True</msg>
+<status status="PASS" starttime="20181211 09:51:49.127" endtime="20181211 09:52:58.180"></status>
 </kw>
-<kw name="Run Keyword If" library="BuiltIn">
+<kw library="BuiltIn" name="Run Keyword If">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
 <arg>${result}==False</arg>
 <arg>FAIL</arg>
 <arg>IP address configuration failed</arg>
 </arguments>
-<status endtime="20181210 18:00:16.628" status="PASS" starttime="20181210 18:00:16.627"></status>
+<status status="PASS" starttime="20181211 09:52:58.180" endtime="20181211 09:52:58.181"></status>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
+<kw library="BuiltIn" name="Log To Console">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>IP_Address configured on all Routers</arg>
 </arguments>
-<status endtime="20181210 18:00:16.629" status="PASS" starttime="20181210 18:00:16.629"></status>
+<status status="PASS" starttime="20181211 09:52:58.181" endtime="20181211 09:52:58.181"></status>
 </kw>
-<status endtime="20181210 18:00:16.629" status="PASS" starttime="20181210 17:59:54.839"></status>
+<status status="PASS" starttime="20181211 09:51:49.119" endtime="20181211 09:52:58.182"></status>
 </kw>
-<status critical="yes" endtime="20181210 18:00:16.630" status="PASS" starttime="20181210 17:59:54.838"></status>
+<status status="PASS" critical="yes" starttime="20181211 09:51:49.117" endtime="20181211 09:52:58.182"></status>
 </test>
-<test id="s1-t2" name="Configure loopback interface as per the topology">
-<kw name="Set loopback interface" library="Resource">
-<kw name="Log To Console" library="BuiltIn">
+<test name="Configure loopback interface as per the topology" id="s1-t2">
+<kw library="Resource" name="Set loopback interface">
+<kw library="BuiltIn" name="Log To Console">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>Setting Loopback interface</arg>
 </arguments>
-<status endtime="20181210 18:00:16.632" status="PASS" starttime="20181210 18:00:16.632"></status>
+<status status="PASS" starttime="20181211 09:52:58.183" endtime="20181211 09:52:58.184"></status>
 </kw>
-<kw type="for" name="${var} IN [ @{Devices} ]">
-<kw type="foritem" name="${var} = R1">
-<kw name="Create List" library="BuiltIn">
+<kw name="${var} IN [ @{Devices} ]" type="for">
+<kw name="${var} = R1" type="foritem">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>${var}</arg>
@@ -194,21 +194,21 @@ b'route add default gw 192.168.80.10\r\nSIOCADDRT: File exists\r\n\x1b]0;root@Ub
 <assign>
 <var>${load_device}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:16.634">${load_device} = ['R1', 'set']</msg>
-<status endtime="20181210 18:00:16.634" status="PASS" starttime="20181210 18:00:16.633"></status>
+<msg level="INFO" timestamp="20181211 09:52:58.185">${load_device} = ['R1', 'set']</msg>
+<status status="PASS" starttime="20181211 09:52:58.184" endtime="20181211 09:52:58.185"></status>
 </kw>
-<kw name="Append To List" library="Collections">
+<kw library="Collections" name="Append To List">
 <doc>Adds ``values`` to the end of ``list``.</doc>
 <arguments>
 <arg>${load_devices_lo}</arg>
 <arg>${load_device}</arg>
 </arguments>
-<status endtime="20181210 18:00:16.635" status="PASS" starttime="20181210 18:00:16.634"></status>
+<status status="PASS" starttime="20181211 09:52:58.185" endtime="20181211 09:52:58.185"></status>
 </kw>
-<status endtime="20181210 18:00:16.635" status="PASS" starttime="20181210 18:00:16.633"></status>
+<status status="PASS" starttime="20181211 09:52:58.184" endtime="20181211 09:52:58.185"></status>
 </kw>
-<kw type="foritem" name="${var} = R2">
-<kw name="Create List" library="BuiltIn">
+<kw name="${var} = R2" type="foritem">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>${var}</arg>
@@ -217,21 +217,21 @@ b'route add default gw 192.168.80.10\r\nSIOCADDRT: File exists\r\n\x1b]0;root@Ub
 <assign>
 <var>${load_device}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:16.636">${load_device} = ['R2', 'set']</msg>
-<status endtime="20181210 18:00:16.636" status="PASS" starttime="20181210 18:00:16.635"></status>
+<msg level="INFO" timestamp="20181211 09:52:58.186">${load_device} = ['R2', 'set']</msg>
+<status status="PASS" starttime="20181211 09:52:58.186" endtime="20181211 09:52:58.186"></status>
 </kw>
-<kw name="Append To List" library="Collections">
+<kw library="Collections" name="Append To List">
 <doc>Adds ``values`` to the end of ``list``.</doc>
 <arguments>
 <arg>${load_devices_lo}</arg>
 <arg>${load_device}</arg>
 </arguments>
-<status endtime="20181210 18:00:16.637" status="PASS" starttime="20181210 18:00:16.636"></status>
+<status status="PASS" starttime="20181211 09:52:58.186" endtime="20181211 09:52:58.186"></status>
 </kw>
-<status endtime="20181210 18:00:16.637" status="PASS" starttime="20181210 18:00:16.635"></status>
+<status status="PASS" starttime="20181211 09:52:58.185" endtime="20181211 09:52:58.187"></status>
 </kw>
-<kw type="foritem" name="${var} = R3">
-<kw name="Create List" library="BuiltIn">
+<kw name="${var} = R3" type="foritem">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>${var}</arg>
@@ -240,21 +240,21 @@ b'route add default gw 192.168.80.10\r\nSIOCADDRT: File exists\r\n\x1b]0;root@Ub
 <assign>
 <var>${load_device}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:16.638">${load_device} = ['R3', 'set']</msg>
-<status endtime="20181210 18:00:16.638" status="PASS" starttime="20181210 18:00:16.637"></status>
+<msg level="INFO" timestamp="20181211 09:52:58.187">${load_device} = ['R3', 'set']</msg>
+<status status="PASS" starttime="20181211 09:52:58.187" endtime="20181211 09:52:58.187"></status>
 </kw>
-<kw name="Append To List" library="Collections">
+<kw library="Collections" name="Append To List">
 <doc>Adds ``values`` to the end of ``list``.</doc>
 <arguments>
 <arg>${load_devices_lo}</arg>
 <arg>${load_device}</arg>
 </arguments>
-<status endtime="20181210 18:00:16.639" status="PASS" starttime="20181210 18:00:16.638"></status>
+<status status="PASS" starttime="20181211 09:52:58.187" endtime="20181211 09:52:58.188"></status>
 </kw>
-<status endtime="20181210 18:00:16.639" status="PASS" starttime="20181210 18:00:16.637"></status>
+<status status="PASS" starttime="20181211 09:52:58.187" endtime="20181211 09:52:58.188"></status>
 </kw>
-<kw type="foritem" name="${var} = R4">
-<kw name="Create List" library="BuiltIn">
+<kw name="${var} = R4" type="foritem">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>${var}</arg>
@@ -263,21 +263,21 @@ b'route add default gw 192.168.80.10\r\nSIOCADDRT: File exists\r\n\x1b]0;root@Ub
 <assign>
 <var>${load_device}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:16.640">${load_device} = ['R4', 'set']</msg>
-<status endtime="20181210 18:00:16.640" status="PASS" starttime="20181210 18:00:16.639"></status>
+<msg level="INFO" timestamp="20181211 09:52:58.188">${load_device} = ['R4', 'set']</msg>
+<status status="PASS" starttime="20181211 09:52:58.188" endtime="20181211 09:52:58.188"></status>
 </kw>
-<kw name="Append To List" library="Collections">
+<kw library="Collections" name="Append To List">
 <doc>Adds ``values`` to the end of ``list``.</doc>
 <arguments>
 <arg>${load_devices_lo}</arg>
 <arg>${load_device}</arg>
 </arguments>
-<status endtime="20181210 18:00:16.641" status="PASS" starttime="20181210 18:00:16.640"></status>
+<status status="PASS" starttime="20181211 09:52:58.189" endtime="20181211 09:52:58.189"></status>
 </kw>
-<status endtime="20181210 18:00:16.641" status="PASS" starttime="20181210 18:00:16.639"></status>
+<status status="PASS" starttime="20181211 09:52:58.188" endtime="20181211 09:52:58.189"></status>
 </kw>
-<kw type="foritem" name="${var} = R5">
-<kw name="Create List" library="BuiltIn">
+<kw name="${var} = R5" type="foritem">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>${var}</arg>
@@ -286,22 +286,22 @@ b'route add default gw 192.168.80.10\r\nSIOCADDRT: File exists\r\n\x1b]0;root@Ub
 <assign>
 <var>${load_device}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:16.642">${load_device} = ['R5', 'set']</msg>
-<status endtime="20181210 18:00:16.642" status="PASS" starttime="20181210 18:00:16.641"></status>
+<msg level="INFO" timestamp="20181211 09:52:58.190">${load_device} = ['R5', 'set']</msg>
+<status status="PASS" starttime="20181211 09:52:58.189" endtime="20181211 09:52:58.190"></status>
 </kw>
-<kw name="Append To List" library="Collections">
+<kw library="Collections" name="Append To List">
 <doc>Adds ``values`` to the end of ``list``.</doc>
 <arguments>
 <arg>${load_devices_lo}</arg>
 <arg>${load_device}</arg>
 </arguments>
-<status endtime="20181210 18:00:16.643" status="PASS" starttime="20181210 18:00:16.642"></status>
+<status status="PASS" starttime="20181211 09:52:58.190" endtime="20181211 09:52:58.190"></status>
 </kw>
-<status endtime="20181210 18:00:16.643" status="PASS" starttime="20181210 18:00:16.641"></status>
+<status status="PASS" starttime="20181211 09:52:58.189" endtime="20181211 09:52:58.190"></status>
 </kw>
-<status endtime="20181210 18:00:16.643" status="PASS" starttime="20181210 18:00:16.633"></status>
+<status status="PASS" starttime="20181211 09:52:58.184" endtime="20181211 09:52:58.190"></status>
 </kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
 <arguments>
 <arg>start configure loopback</arg>
@@ -310,48 +310,48 @@ b'route add default gw 192.168.80.10\r\nSIOCADDRT: File exists\r\n\x1b]0;root@Ub
 <assign>
 <var>${result}</var>
 </assign>
-<kw name="Start Configure Loopback" library="config_ip">
+<kw library="config_ip" name="Start Configure Loopback">
 <arguments>
 <arg>${load_devices_lo}</arg>
 </arguments>
-<msg level="INFO" timestamp="20181210 18:00:25.575">Waiting thread #ConfigureRouter_R1
-b'\r\nR2#\r\nR2#          configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#          interface loopback0\r\nR2(config-if)#\r\nR2(config-if)#          ip address 2.2.2.2  255.255.255.255\r\nR2(config-if)#\r\nR2(config-if)#          end\r\nR2#\r\nR2#          '
+<msg level="INFO" timestamp="20181211 09:53:07.179">Waiting thread #ConfigureRouter_R1
+b'\r\nR4#\r\nR4#          configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#          interface loopback0\r\nR4(config-if)#\r\nR4(config-if)#          ip address 4.4.4.4  255.255.255.255\r\nR4(config-if)#\r\nR4(config-if)#          end\r\nR4#\r\nR4#          '
 b'\r\nR3#\r\nR3#          configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#          interface loopback0\r\nR3(config-if)#\r\nR3(config-if)#          ip address 3.3.3.3  255.255.255.255\r\nR3(config-if)#\r\nR3(config-if)#          end\r\nR3#\r\nR3#          '
+b'\r\nR5#\r\nR5#          configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#          interface loopback0\r\nR5(config-if)#\r\nR5(config-if)#          ip address 5.5.5.5  255.255.255.255\r\nR5(config-if)#\r\nR5(config-if)#          end\r\nR5#\r\nR5#          '
 b'\r\nR1#\r\nR1#          configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#          interface loopback0\r\nR1(config-if)#\r\nR1(config-if)#          ip address 1.1.1.1  255.255.255.255\r\nR1(config-if)#\r\nR1(config-if)#          end\r\nR1#\r\nR1#          '
+b'\r\nR2#\r\nR2#          configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#          interface loopback0\r\nR2(config-if)#\r\nR2(config-if)#          ip address 2.2.2.2  255.255.255.255\r\nR2(config-if)#\r\nR2(config-if)#          end\r\nR2#\r\nR2#          '
 Waiting thread #ConfigureRouter_R2
 Waiting thread #ConfigureRouter_R3
 Waiting thread #ConfigureRouter_R4
-b'\r\nR5#\r\nR5#          configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#          interface loopback0\r\nR5(config-if)#\r\nR5(config-if)#          ip address 5.5.5.5  255.255.255.255\r\nR5(config-if)#\r\nR5(config-if)#          end\r\nR5#\r\nR5#          '
-b'\r\nR4#\r\nR4#          configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#          interface loopback0\r\nR4(config-if)#\r\nR4(config-if)#          ip address 4.4.4.4  255.255.255.255\r\nR4(config-if)#\r\nR4(config-if)#          end\r\nR4#\r\nR4#          '
 Waiting thread #ConfigureRouter_R5</msg>
-<status endtime="20181210 18:00:25.575" status="PASS" starttime="20181210 18:00:16.644"></status>
+<status status="PASS" starttime="20181211 09:52:58.191" endtime="20181211 09:53:07.180"></status>
 </kw>
-<msg level="INFO" timestamp="20181210 18:00:25.576">${result} = True</msg>
-<status endtime="20181210 18:00:25.576" status="PASS" starttime="20181210 18:00:16.643"></status>
+<msg level="INFO" timestamp="20181211 09:53:07.180">${result} = True</msg>
+<status status="PASS" starttime="20181211 09:52:58.191" endtime="20181211 09:53:07.180"></status>
 </kw>
-<kw name="Run Keyword If" library="BuiltIn">
+<kw library="BuiltIn" name="Run Keyword If">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
 <arg>${result}==False</arg>
 <arg>FAIL</arg>
 <arg>Configuring Loopback IP failed</arg>
 </arguments>
-<status endtime="20181210 18:00:25.577" status="PASS" starttime="20181210 18:00:25.576"></status>
+<status status="PASS" starttime="20181211 09:53:07.181" endtime="20181211 09:53:07.181"></status>
 </kw>
-<kw name="Log To Console" library="BuiltIn">
+<kw library="BuiltIn" name="Log To Console">
 <doc>Logs the given message to the console.</doc>
 <arguments>
 <arg>Loopback_Address configured on all Routers</arg>
 </arguments>
-<status endtime="20181210 18:00:25.577" status="PASS" starttime="20181210 18:00:25.577"></status>
+<status status="PASS" starttime="20181211 09:53:07.182" endtime="20181211 09:53:07.182"></status>
 </kw>
-<status endtime="20181210 18:00:25.577" status="PASS" starttime="20181210 18:00:16.631"></status>
+<status status="PASS" starttime="20181211 09:52:58.183" endtime="20181211 09:53:07.182"></status>
 </kw>
-<status critical="yes" endtime="20181210 18:00:25.578" status="PASS" starttime="20181210 18:00:16.630"></status>
+<status status="PASS" critical="yes" starttime="20181211 09:52:58.182" endtime="20181211 09:53:07.183"></status>
 </test>
-<test id="s1-t3" name="Configure OSPF within AS2 to advertise the connected networks">
-<kw name="Enable OSPF in devices present in AS2 and set the ospf neighbors" library="Resource">
-<kw name="Create List" library="BuiltIn">
+<test name="Configure OSPF within AS2 to advertise the connected networks" id="s1-t3">
+<kw library="Resource" name="Enable OSPF in devices present in AS2 and set the ospf neighbors">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>R1</arg>
@@ -363,10 +363,10 @@ Waiting thread #ConfigureRouter_R5</msg>
 <assign>
 <var>${load_device_R1}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:25.579">${load_device_R1} = ['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'enable']</msg>
-<status endtime="20181210 18:00:25.579" status="PASS" starttime="20181210 18:00:25.579"></status>
+<msg level="INFO" timestamp="20181211 09:53:07.186">${load_device_R1} = ['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'enable']</msg>
+<status status="PASS" starttime="20181211 09:53:07.185" endtime="20181211 09:53:07.186"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>R2</arg>
@@ -378,10 +378,10 @@ Waiting thread #ConfigureRouter_R5</msg>
 <assign>
 <var>${load_device_R2}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:25.580">${load_device_R2} = ['R2', 1, ['192.168.23.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'enable']</msg>
-<status endtime="20181210 18:00:25.580" status="PASS" starttime="20181210 18:00:25.580"></status>
+<msg level="INFO" timestamp="20181211 09:53:07.187">${load_device_R2} = ['R2', 1, ['192.168.23.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'enable']</msg>
+<status status="PASS" starttime="20181211 09:53:07.186" endtime="20181211 09:53:07.187"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>R3</arg>
@@ -393,10 +393,10 @@ Waiting thread #ConfigureRouter_R5</msg>
 <assign>
 <var>${load_device_R3}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:25.581">${load_device_R3} = ['R3', 1, ['192.168.34.0  0.0.0.255', '3.3.3.0  0.0.0.255'], 0, 'enable']</msg>
-<status endtime="20181210 18:00:25.581" status="PASS" starttime="20181210 18:00:25.580"></status>
+<msg level="INFO" timestamp="20181211 09:53:07.188">${load_device_R3} = ['R3', 1, ['192.168.34.0  0.0.0.255', '3.3.3.0  0.0.0.255'], 0, 'enable']</msg>
+<status status="PASS" starttime="20181211 09:53:07.187" endtime="20181211 09:53:07.188"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
+<kw library="BuiltIn" name="Create List">
 <doc>Returns a list containing given items.</doc>
 <arguments>
 <arg>${load_device_R1}</arg>
@@ -406,10 +406,10 @@ Waiting thread #ConfigureRouter_R5</msg>
 <assign>
 <var>${load_devices}</var>
 </assign>
-<msg level="INFO" timestamp="20181210 18:00:25.581">${load_devices} = [['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'enable'], ['R2', 1, ['192.168.23.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'enable'], ['R3', 1, ['192.168.34...</msg>
-<status endtime="20181210 18:00:25.581" status="PASS" starttime="20181210 18:00:25.581"></status>
+<msg level="INFO" timestamp="20181211 09:53:07.189">${load_devices} = [['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'enable'], ['R2', 1, ['192.168.23.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'enable'], ['R3', 1, ['192.168.34...</msg>
+<status status="PASS" starttime="20181211 09:53:07.188" endtime="20181211 09:53:07.189"></status>
 </kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
 <arguments>
 <arg>start_configure_ospf</arg>
@@ -418,1725 +418,17 @@ Waiting thread #ConfigureRouter_R5</msg>
 <assign>
 <var>${result}</var>
 </assign>
-<kw name="Start Configure Ospf" library="config_ip">
+<kw library="config_ip" name="Start Configure Ospf">
 <arguments>
 <arg>${load_devices}</arg>
 </arguments>
-<msg level="INFO" timestamp="20181210 18:00:57.842">Waiting thread #ConfigureRouter_R1
-b'\r\nR1#\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#router ospf 1\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#network 192.168.23.0  0.0.0.255 area 0\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#'
+<msg level="INFO" timestamp="20181211 09:53:42.880">Waiting thread #ConfigureRouter_R1
 b'\r\nR2#\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#router ospf 1\r\nR2(config-router)#\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#network 192.168.23.0  0.0.0.255 area 0\r\nR2(config-router)#\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#'
+b'\r\nR1#\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#router ospf 1\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#network 192.168.23.0  0.0.0.255 area 0\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#'
 b'\r\nR3#\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#router ospf 1\r\nR3(config-router)#\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#network 192.168.34.0  0.0.0.255 area 0\r\nR3(config-router)#\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#'
-b'\r\nR1#\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#router ospf 1\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#network 192.168.34.0  0.0.0.255 area 0\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#'
 b'\r\nR2#\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#\x07\r\nR2#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#\x07\r\nR2(config)#router ospf 1\r\nR2(config-router)#\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#network 2.2.2.0  0.0.0.255 area 0\r\nR2(config-router)#\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#\x07\r\nR2(config-router)#'
 b'\r\nR3#\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#\x07\r\nR3#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#\x07\r\nR3(config)#router ospf 1\r\nR3(config-router)#\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#network 3.3.3.0  0.0.0.255 area 0\r\nR3(config-router)#\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#\x07\r\nR3(config-router)#'
+b'\r\nR1#\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#router ospf 1\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#network 192.168.34.0  0.0.0.255 area 0\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#'
 b'\r\nR1#\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#\x07\r\nR1#configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#\x07\r\nR1(config)#router ospf 1\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#network 1.1.1.0  0.0.0.255 area 0\r\nR1(config-router)#\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#\x07\r\nR1(config-router)#'
 Waiting thread #ConfigureRouter_R2
-Waiting thread #ConfigureRouter_R3</msg>
-<status endtime="20181210 18:00:57.842" status="PASS" starttime="20181210 18:00:25.582"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:00:57.842">${result} = True</msg>
-<status endtime="20181210 18:00:57.842" status="PASS" starttime="20181210 18:00:25.581"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Configuring ospf on Routers has failed</arg>
-</arguments>
-<status endtime="20181210 18:00:57.843" status="PASS" starttime="20181210 18:00:57.843"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>OSPF configured in Routers</arg>
-</arguments>
-<status endtime="20181210 18:00:57.844" status="PASS" starttime="20181210 18:00:57.844"></status>
-</kw>
-<status endtime="20181210 18:00:57.844" status="PASS" starttime="20181210 18:00:25.578"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:00:57.844" status="PASS" starttime="20181210 18:00:25.578"></status>
-</test>
-<test id="s1-t4" name="Configure IBGP and source the BGP updates from the loopback0 interfaces">
-<kw name="Enable IBGP and advertise the updates from the loopback interface" library="Resource">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${AS_id}</arg>
-<arg>${R3_interface}</arg>
-<arg>enable</arg>
-</arguments>
-<assign>
-<var>${ibgp_device_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:00:57.846">${ibgp_device_R2} = ['R2', 2, '3.3.3.3', 'enable']</msg>
-<status endtime="20181210 18:00:57.846" status="PASS" starttime="20181210 18:00:57.846"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${AS_id}</arg>
-<arg>${R2_interface}</arg>
-<arg>enable</arg>
-</arguments>
-<assign>
-<var>${ibgp_device_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:00:57.846">${ibgp_device_R3} = ['R3', 2, '2.2.2.2', 'enable']</msg>
-<status endtime="20181210 18:00:57.847" status="PASS" starttime="20181210 18:00:57.846"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${ibgp_device_R2}</arg>
-<arg>${ibgp_device_R3}</arg>
-</arguments>
-<assign>
-<var>${ibgp_devices}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:00:57.847">${ibgp_devices} = [['R2', 2, '3.3.3.3', 'enable'], ['R3', 2, '2.2.2.2', 'enable']]</msg>
-<status endtime="20181210 18:00:57.847" status="PASS" starttime="20181210 18:00:57.847"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>start ibgp</arg>
-<arg>${ibgp_devices}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Start Ibgp" library="config_ip">
-<arguments>
-<arg>${ibgp_devices}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:01:16.191">Waiting thread #ConfigureRouter_R2
-b'\r\nR2#\r\nR2#                        configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#                        router bgp 2\r\nR2(config-router)#\r\nR2(config-router)#                        neighbor 3.3.3.3 remote-as 2\r\nR2(config-router)#\r\nR2(config-router)#                        neighbor 3.3.3.3 update-source loop\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$             neighbor 3.3.3.3 update-source loopb         \x08\x08\x08\x08\x08\x08\x08\x08\x08ack 0\r\nR2(config-router)#\r\nR2(config-router)#                        '
 Waiting thread #ConfigureRouter_R3
-b'\r\nR3#\r\nR3#                        configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#                        router bgp 2\r\nR3(config-router)#\r\nR3(config-router)#                        neighbor 2.2.2.2 remote-as 2\r\nR3(config-router)#\r\nR3(config-router)#                        neighbor 2.2.2.2 update-source loop\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$             neighbor 2.2.2.2 update-source loopb         \x08\x08\x08\x08\x08\x08\x08\x08\x08ack 0\r\nR3(config-router)#\r\nR3(config-router)#                        '</msg>
-<status endtime="20181210 18:01:16.192" status="PASS" starttime="20181210 18:00:57.848"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:01:16.192">${result} = True</msg>
-<status endtime="20181210 18:01:16.192" status="PASS" starttime="20181210 18:00:57.847"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>IBGP configuration failed</arg>
-</arguments>
-<status endtime="20181210 18:01:16.194" status="PASS" starttime="20181210 18:01:16.193"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>IBGP configured on R2 and R3 routers</arg>
-</arguments>
-<status endtime="20181210 18:01:16.195" status="PASS" starttime="20181210 18:01:16.194"></status>
-</kw>
-<status endtime="20181210 18:01:16.195" status="PASS" starttime="20181210 18:00:57.845"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:01:16.195" status="PASS" starttime="20181210 18:00:57.845"></status>
-</test>
-<test id="s1-t5" name="Enable BGP Synchronisation">
-<kw name="Enable synchronisation between border routers" library="Resource">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${AS_id}</arg>
-</arguments>
-<assign>
-<var>${ibgp_sync_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:16.200">${ibgp_sync_R2} = ['R2', 2]</msg>
-<status endtime="20181210 18:01:16.200" status="PASS" starttime="20181210 18:01:16.200"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${AS_id}</arg>
-</arguments>
-<assign>
-<var>${ibgp_sync_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:16.201">${ibgp_sync_R3} = ['R3', 2]</msg>
-<status endtime="20181210 18:01:16.201" status="PASS" starttime="20181210 18:01:16.201"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${ibgp_sync_R2}</arg>
-<arg>${ibgp_sync_R3}</arg>
-</arguments>
-<assign>
-<var>${sync_enable}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:16.202">${sync_enable} = [['R2', 2], ['R3', 2]]</msg>
-<status endtime="20181210 18:01:16.202" status="PASS" starttime="20181210 18:01:16.202"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>enable sync</arg>
-<arg>${sync_enable}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Enable Sync" library="config_ip">
-<arguments>
-<arg>${sync_enable}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:01:38.987">Waiting thread #ConfigureRouter_R2
-b'\r\nR2#\r\nR2#                configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#                router bgp 2\r\nR2(config-router)#\r\nR2(config-router)#                synchronization\r\nR2(config-router)#\r\nR2(config-router)#                end\r\nR2#\r\nR2#                \r\nR2#\r\nR2#\r\n*Dec 10 17:54:12.575: %SYS-5-CONFIG_I: Configured from console by console\r\nR2#'
-Waiting thread #ConfigureRouter_R3
-b'\r\nR3#\r\nR3#                configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#                router bgp 2\r\nR3(config-router)#\r\nR3(config-router)#                synchronization\r\nR3(config-router)#\r\nR3(config-router)#                end\r\nR3#\r\nR3#                \r\nR3#\r\nR3#\r\n*Dec 10 17:54:12.843: %SYS-5-CONFIG_I: Configured from console by console\r\n*Dec 10 17:54:13.307: %OSPF-5-ADJCHG: Process 1, Nbr 1.1.1.1 on Ethernet1/1 from LOADING to FULL, Loading Done\r\nR3#'</msg>
-<status endtime="20181210 18:01:38.987" status="PASS" starttime="20181210 18:01:16.203"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:01:38.987">${result} = True</msg>
-<status endtime="20181210 18:01:38.987" status="PASS" starttime="20181210 18:01:16.203"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>BGP synchronization failed</arg>
-</arguments>
-<status endtime="20181210 18:01:38.988" status="PASS" starttime="20181210 18:01:38.988"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Enabled BGP synchronization on R2 and R3 routers</arg>
-</arguments>
-<status endtime="20181210 18:01:38.989" status="PASS" starttime="20181210 18:01:38.989"></status>
-</kw>
-<status endtime="20181210 18:01:38.989" status="PASS" starttime="20181210 18:01:16.197"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:01:38.989" status="PASS" starttime="20181210 18:01:16.196"></status>
-</test>
-<test id="s1-t6" name="Configure EBGP and source the BGP updates from the loopback0 interfaces">
-<kw name="Enable BGP and advertise networks connected outside the autonomous system" library="Resource">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${R2_AS_id}</arg>
-<arg>${R2_einterface}</arg>
-<arg>${R2_neighbor_AS_id}</arg>
-<arg>enable</arg>
-<arg>${R4_R2_network}</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${ebgp_device_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:38.991">${ebgp_device_R2} = ['R2', 2, '192.168.12.1', 1, 'enable', '192.168.12.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:01:38.991" status="PASS" starttime="20181210 18:01:38.991"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${R3_AS_id}</arg>
-<arg>${R3_einterface}</arg>
-<arg>${R3_neighbor_AS_id}</arg>
-<arg>enable</arg>
-<arg>${R3_R5_network}</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${ebgp_device_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:38.992">${ebgp_device_R3} = ['R3', 2, '192.168.45.6', 3, 'enable', '192.168.45.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:01:38.992" status="PASS" starttime="20181210 18:01:38.991"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R4</arg>
-<arg>${R4_AS_id}</arg>
-<arg>${R4_einterface}</arg>
-<arg>${R4_neighbor_AS_id}</arg>
-<arg>enable</arg>
-<arg>${R4_R2_network}</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${ebgp_device_R4}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:38.992">${ebgp_device_R4} = ['R4', 1, '192.168.12.2', 2, 'enable', '192.168.12.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:01:38.993" status="PASS" starttime="20181210 18:01:38.992"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R5</arg>
-<arg>${R5_AS_id}</arg>
-<arg>${R5_einterface}</arg>
-<arg>${R5_neighbor_AS_id}</arg>
-<arg>enable</arg>
-<arg>${R3_R5_network}</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${ebgp_device_R5}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:38.993">${ebgp_device_R5} = ['R5', 3, '192.168.45.4', 2, 'enable', '192.168.45.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:01:38.993" status="PASS" starttime="20181210 18:01:38.993"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${ebgp_device_R2}</arg>
-<arg>${ebgp_device_R3}</arg>
-<arg>${ebgp_device_R4}</arg>
-<arg>${ebgp_device_R5}</arg>
-</arguments>
-<assign>
-<var>${ebgp_devices}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:38.994">${ebgp_devices} = [['R2', 2, '192.168.12.1', 1, 'enable', '192.168.12.0', '255.255.255.0'], ['R3', 2, '192.168.45.6', 3, 'enable', '192.168.45.0', '255.255.255.0'], ['R4', 1, '192.168.12.2', 2, 'enable', '192.168.12.0'...</msg>
-<status endtime="20181210 18:01:38.994" status="PASS" starttime="20181210 18:01:38.993"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>ebgp configure</arg>
-<arg>${ebgp_devices}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Ebgp Configure" library="config_ip">
-<arguments>
-<arg>${ebgp_devices}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:01:57.571">Waiting thread #ConfigureRouter_R2
-b'\r\nR5#\r\nR5#                            configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#                            router bgp 3\r\nR5(config-router)#\r\nR5(config-router)#                            neighbor 192.168.45.4 remote-as\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$                 neighbor 192.168.45.4 remote-as          \x08\x08\x08\x08\x08\x08\x08\x08\x082\r\nR5(config-router)#\r\nR5(config-router)#                            network 192.168.45.0 mask 255.2\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$                 network 192.168.45.0 mask 255.25         \x08\x08\x08\x08\x08\x08\x08\x08\x085.255.0\r\nR5(config-router)#\r\nR5(config-router)#                            '
-b'\r\nR4#\r\nR4#                            configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#                            router bgp 1\r\nR4(config-router)#\r\nR4(config-router)#                            neighbor 192.168.12.2 remote-as\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$                 neighbor 192.168.12.2 remote-as          \x08\x08\x08\x08\x08\x08\x08\x08\x082\r\nR4(config-router)#\r\nR4(config-router)#                            network 192.168.12.0 mask 255.2\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$                 network 192.168.12.0 mask 255.25         \x08\x08\x08\x08\x08\x08\x08\x08\x085.255.0\r\nR4(config-router)#\r\nR4(config-router)#                            '
-b'\r\nR3#\r\nR3#                            configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#                            router bgp 2\r\nR3(config-router)#\r\nR3(config-router)#                            neighbor 192.168.45.6 remote-as\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$                 neighbor 192.168.45.6 remote-as          \x08\x08\x08\x08\x08\x08\x08\x08\x083\r\nR3(config-router)#\r\nR3(config-router)#                            network 192.168.45.0 mask 255.2\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$                 network 192.168.45.0 mask 255.25         \x08\x08\x08\x08\x08\x08\x08\x08\x085.255.0\r\nR3(config-router)#\r\nR3(config-router)#                            '
-b'\r\nR2#\r\nR2#                            configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#                            router bgp 2\r\nR2(config-router)#\r\nR2(config-router)#                            neighbor 192.168.12.1 remote-as\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$                 neighbor 192.168.12.1 remote-as          \x08\x08\x08\x08\x08\x08\x08\x08\x081\r\nR2(config-router)#\r\nR2(config-router)#                            network 192.168.12.0 mask 255.2\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08$                 network 192.168.12.0 mask 255.25         \x08\x08\x08\x08\x08\x08\x08\x08\x085.255.0\r\nR2(config-router)#\r\nR2(config-router)#                            '
-Waiting thread #ConfigureRouter_R3
-Waiting thread #ConfigureRouter_R4
-Waiting thread #ConfigureRouter_R5</msg>
-<status endtime="20181210 18:01:57.571" status="PASS" starttime="20181210 18:01:38.994"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:01:57.571">${result} = True</msg>
-<status endtime="20181210 18:01:57.571" status="PASS" starttime="20181210 18:01:38.994"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>EBGP configuration failed</arg>
-</arguments>
-<status endtime="20181210 18:01:57.572" status="PASS" starttime="20181210 18:01:57.572"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>EBGP configured on Routers R2,R3,R4 and R5</arg>
-</arguments>
-<status endtime="20181210 18:01:57.573" status="PASS" starttime="20181210 18:01:57.572"></status>
-</kw>
-<status endtime="20181210 18:01:57.573" status="PASS" starttime="20181210 18:01:38.990"></status>
-</kw>
-<kw name="Advertise loopback interface on AS1 and AS3" library="Resource">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R4</arg>
-<arg>${R4_AS_id}</arg>
-<arg>${R4_interface}</arg>
-<arg>${R4_mask}</arg>
-</arguments>
-<assign>
-<var>${adv_R4}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:57.574">${adv_R4} = ['R4', 1, '4.4.4.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:01:57.574" status="PASS" starttime="20181210 18:01:57.574"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R5</arg>
-<arg>${R5_AS_id}</arg>
-<arg>${R5_interface}</arg>
-<arg>${R5_mask}</arg>
-</arguments>
-<assign>
-<var>${adv_R5}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:57.575">${adv_R5} = ['R5', 3, '5.5.5.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:01:57.575" status="PASS" starttime="20181210 18:01:57.574"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${adv_R4}</arg>
-<arg>${adv_R5}</arg>
-</arguments>
-<assign>
-<var>${adv_devices}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:01:57.575">${adv_devices} = [['R4', 1, '4.4.4.0', '255.255.255.0'], ['R5', 3, '5.5.5.0', '255.255.255.0']]</msg>
-<status endtime="20181210 18:01:57.575" status="PASS" starttime="20181210 18:01:57.575"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>advertise loopback</arg>
-<arg>${adv_devices}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Advertise Loopback" library="config_ip">
-<arguments>
-<arg>${adv_devices}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:02:20.244">Waiting thread #ConfigureRouter_R4
-b'\r\nR4#\r\nR4#                configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#                router bgp 1\r\nR4(config-router)#\r\nR4(config-router)#                network 4.4.4.0 mask 255.255.255.0\r\nR4(config-router)#\r\nR4(config-router)#                end\r\nR4#\r\nR4#                \r\nR4#\r\nR4#\r\n*Dec 10 17:52:54.623: %SYS-5-CONFIG_I: Configured from console by console\r\nR4#'
-Waiting thread #ConfigureRouter_R5
-b'\r\nR5#\r\nR5#                configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#                router bgp 3\r\nR5(config-router)#\r\nR5(config-router)#                network 5.5.5.0 mask 255.255.255.0\r\nR5(config-router)#\r\nR5(config-router)#                end\r\nR5#\r\nR5#                \r\nR5#\r\nR5#\r\n*Dec 10 18:01:54.487: %SYS-5-CONFIG_I: Configured from console by console\r\nR5#'</msg>
-<status endtime="20181210 18:02:20.244" status="PASS" starttime="20181210 18:01:57.576"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:02:20.244">${result} = True</msg>
-<status endtime="20181210 18:02:20.244" status="PASS" starttime="20181210 18:01:57.575"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Advertising Loopback configuration failed</arg>
-</arguments>
-<status endtime="20181210 18:02:20.245" status="PASS" starttime="20181210 18:02:20.245"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Loopback interface is advertised to AS1 and AS3</arg>
-</arguments>
-<status endtime="20181210 18:02:20.246" status="PASS" starttime="20181210 18:02:20.245"></status>
-</kw>
-<status endtime="20181210 18:02:20.246" status="PASS" starttime="20181210 18:01:57.573"></status>
-</kw>
-<kw name="Establish route between R2 and R3" library="Resource">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${R2_AS_id}</arg>
-<arg>${R3_lointerface}</arg>
-</arguments>
-<assign>
-<var>${route_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:02:20.247">${route_R2} = ['R2', 2, '3.3.3.3']</msg>
-<status endtime="20181210 18:02:20.247" status="PASS" starttime="20181210 18:02:20.247"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${R3_AS_id}</arg>
-<arg>${R2_lointerface}</arg>
-</arguments>
-<assign>
-<var>${route_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:02:20.247">${route_R3} = ['R3', 2, '2.2.2.2']</msg>
-<status endtime="20181210 18:02:20.247" status="PASS" starttime="20181210 18:02:20.247"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${route_R2}</arg>
-<arg>${route_R3}</arg>
-</arguments>
-<assign>
-<var>${routes}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:02:20.248">${routes} = [['R2', 2, '3.3.3.3'], ['R3', 2, '2.2.2.2']]</msg>
-<status endtime="20181210 18:02:20.248" status="PASS" starttime="20181210 18:02:20.248"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>establish route</arg>
-<arg>${routes}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Establish Route" library="config_ip">
-<arguments>
-<arg>${routes}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:02:42.821">Waiting thread #ConfigureRouter_R2
-b'\r\nR3#\r\nR3#                configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#                router bgp 2\r\nR3(config-router)#\r\nR3(config-router)#                neighbor 2.2.2.2 next-hop-self\r\nR3(config-router)#\r\nR3(config-router)#                end\r\nR3#\r\nR3#                \r\nR3#\r\nR3#\r\n*Dec 10 17:55:16.639: %SYS-5-CONFIG_I: Configured from console by console\r\nR3#'
-b'\r\nR2#\r\nR2#                configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#                router bgp 2\r\nR2(config-router)#\r\nR2(config-router)#                neighbor 3.3.3.3 next-hop-self\r\nR2(config-router)#\r\nR2(config-router)#                end\r\nR2#\r\nR2#                \r\nR2#\r\nR2#\r\n*Dec 10 17:55:16.611: %SYS-5-CONFIG_I: Configured from console by console\r\nR2#'
-Waiting thread #ConfigureRouter_R3</msg>
-<status endtime="20181210 18:02:42.822" status="PASS" starttime="20181210 18:02:20.249"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:02:42.822">${result} = True</msg>
-<status endtime="20181210 18:02:42.822" status="PASS" starttime="20181210 18:02:20.248"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Establishment of route between R2 and R3 failed</arg>
-</arguments>
-<status endtime="20181210 18:02:42.823" status="PASS" starttime="20181210 18:02:42.822"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Established route between R2 and R3</arg>
-</arguments>
-<status endtime="20181210 18:02:42.824" status="PASS" starttime="20181210 18:02:42.823"></status>
-</kw>
-<status endtime="20181210 18:02:42.824" status="PASS" starttime="20181210 18:02:20.246"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:02:42.824" status="PASS" starttime="20181210 18:01:38.990"></status>
-</test>
-<test id="s1-t7" name="Redistribute routes from OSPF into BGP">
-<kw name="Redistribute routes from OSPF into BGP" library="Resource">
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Redistributing routes from OSPF into BGP</arg>
-</arguments>
-<status endtime="20181210 18:02:42.826" status="PASS" starttime="20181210 18:02:42.825"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${R2_AS_id}</arg>
-<arg>${Process_id}</arg>
-</arguments>
-<assign>
-<var>${redistribution_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:02:42.826">${redistribution_R2} = ['R2', 2, 1]</msg>
-<status endtime="20181210 18:02:42.826" status="PASS" starttime="20181210 18:02:42.826"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${R3_AS_id}</arg>
-<arg>${Process_id}</arg>
-</arguments>
-<assign>
-<var>${redistribution_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:02:42.827">${redistribution_R3} = ['R3', 2, 1]</msg>
-<status endtime="20181210 18:02:42.827" status="PASS" starttime="20181210 18:02:42.826"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${redistribution_R2}</arg>
-<arg>${redistribution_R3}</arg>
-</arguments>
-<assign>
-<var>${redistribute_ospf}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:02:42.827">${redistribute_ospf} = [['R2', 2, 1], ['R3', 2, 1]]</msg>
-<status endtime="20181210 18:02:42.827" status="PASS" starttime="20181210 18:02:42.827"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>redistribute ospf</arg>
-<arg>${redistribute_ospf}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Redistribute Ospf" library="config_ip">
-<arguments>
-<arg>${redistribute_ospf}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:03:00.585">Waiting thread #ConfigureRouter_R2
-b'\r\nR2#\r\nR2#                configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#                router bgp 2\r\nR2(config-router)#\r\nR2(config-router)#                redistribute ospf 1\r\nR2(config-router)#\r\nR2(config-router)#                '
-b'\r\nR3#\r\nR3#                configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#                router bgp 2\r\nR3(config-router)#\r\nR3(config-router)#                redistribute ospf 1\r\nR3(config-router)#\r\nR3(config-router)#                '
-Waiting thread #ConfigureRouter_R3</msg>
-<status endtime="20181210 18:03:00.585" status="PASS" starttime="20181210 18:02:42.828"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:03:00.585">${result} = True</msg>
-<status endtime="20181210 18:03:00.585" status="PASS" starttime="20181210 18:02:42.827"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Redistribution of routes from OSPF into BGP failed</arg>
-</arguments>
-<status endtime="20181210 18:03:00.586" status="PASS" starttime="20181210 18:03:00.586"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Redistributed routes from OSPF into BGP</arg>
-</arguments>
-<status endtime="20181210 18:03:00.587" status="PASS" starttime="20181210 18:03:00.586"></status>
-</kw>
-<status endtime="20181210 18:03:00.587" status="PASS" starttime="20181210 18:02:42.825"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:03:00.587" status="PASS" starttime="20181210 18:02:42.824"></status>
-</test>
-<test id="s1-t8" name="Redistribute connnected routes into BGP">
-<kw name="Redistribute connnected routes into BGP" library="Resource">
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Redistributing connected routes into BGP</arg>
-</arguments>
-<status endtime="20181210 18:03:00.588" status="PASS" starttime="20181210 18:03:00.588"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R4</arg>
-<arg>${R4_AS_id}</arg>
-</arguments>
-<assign>
-<var>${redistribution_R4}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:00.589">${redistribution_R4} = ['R4', 1]</msg>
-<status endtime="20181210 18:03:00.589" status="PASS" starttime="20181210 18:03:00.589"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R5</arg>
-<arg>${R5_AS_id}</arg>
-</arguments>
-<assign>
-<var>${redistribution_R5}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:00.589">${redistribution_R5} = ['R5', 3]</msg>
-<status endtime="20181210 18:03:00.589" status="PASS" starttime="20181210 18:03:00.589"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${redistribution_R4}</arg>
-<arg>${redistribution_R5}</arg>
-</arguments>
-<assign>
-<var>${connected}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:00.590">${connected} = [['R4', 1], ['R5', 3]]</msg>
-<status endtime="20181210 18:03:00.590" status="PASS" starttime="20181210 18:03:00.590"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>redistribute connected</arg>
-<arg>${connected}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Redistribute Connected" library="config_ip">
-<arguments>
-<arg>${connected}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:03:23.274">Waiting thread #ConfigureRouter_R4
-b'\r\nR5#\r\nR5#                                  configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#                                  router bgp 3\r\nR5(config-router)#\r\nR5(config-router)#                                  redistribute connected\r\nR5(config-router)#\r\nR5(config-router)#                                  end\r\nR5#\r\nR5#                                  \r\nR5#\r\nR5#\r\n*Dec 10 18:02:57.387: %SYS-5-CONFIG_I: Configured from console by console\r\nR5#'
-b'\r\nR4#\r\nR4#                                  configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#                                  router bgp 1\r\nR4(config-router)#\r\nR4(config-router)#                                  redistribute connected\r\nR4(config-router)#\r\nR4(config-router)#                                  end\r\nR4#\r\nR4#                                  \r\nR4#\r\nR4#\r\n*Dec 10 17:53:57.763: %SYS-5-CONFIG_I: Configured from console by console\r\nR4#'
-Waiting thread #ConfigureRouter_R5</msg>
-<status endtime="20181210 18:03:23.275" status="PASS" starttime="20181210 18:03:00.591"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:03:23.275">${result} = True</msg>
-<status endtime="20181210 18:03:23.275" status="PASS" starttime="20181210 18:03:00.590"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Redistribution of connected routes failed</arg>
-</arguments>
-<status endtime="20181210 18:03:23.276" status="PASS" starttime="20181210 18:03:23.275"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Redistributed connnected routes into BGP</arg>
-</arguments>
-<status endtime="20181210 18:03:23.276" status="PASS" starttime="20181210 18:03:23.276"></status>
-</kw>
-<status endtime="20181210 18:03:23.277" status="PASS" starttime="20181210 18:03:00.588"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:03:23.277" status="PASS" starttime="20181210 18:03:00.587"></status>
-</test>
-<test id="s1-t9" name="Check if ip address is set and interface is up">
-<kw name="Check if ip address is set and interface is up" library="Resource">
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Checking if IP address is set and interface is up</arg>
-</arguments>
-<status endtime="20181210 18:03:23.278" status="PASS" starttime="20181210 18:03:23.278"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R1</arg>
-<arg>show interfaces description</arg>
-</arguments>
-<assign>
-<var>${ip_set_R1}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:23.279">${ip_set_R1} = ['R1', 'show interfaces description']</msg>
-<status endtime="20181210 18:03:23.279" status="PASS" starttime="20181210 18:03:23.278"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>show interfaces description</arg>
-</arguments>
-<assign>
-<var>${ip_set_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:23.279">${ip_set_R2} = ['R2', 'show interfaces description']</msg>
-<status endtime="20181210 18:03:23.279" status="PASS" starttime="20181210 18:03:23.279"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>show interfaces description</arg>
-</arguments>
-<assign>
-<var>${ip_set_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:23.280">${ip_set_R3} = ['R3', 'show interfaces description']</msg>
-<status endtime="20181210 18:03:23.280" status="PASS" starttime="20181210 18:03:23.279"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R4</arg>
-<arg>show interfaces description</arg>
-</arguments>
-<assign>
-<var>${ip_set_R4}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:23.280">${ip_set_R4} = ['R4', 'show interfaces description']</msg>
-<status endtime="20181210 18:03:23.280" status="PASS" starttime="20181210 18:03:23.280"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R5</arg>
-<arg>show interface description</arg>
-</arguments>
-<assign>
-<var>${ip_set_R5}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:23.281">${ip_set_R5} = ['R5', 'show interface description']</msg>
-<status endtime="20181210 18:03:23.281" status="PASS" starttime="20181210 18:03:23.280"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${ip_set_R1}</arg>
-<arg>${ip_set_R2}</arg>
-<arg>${ip_set_R3}</arg>
-<arg>${ip_set_R4}</arg>
-<arg>${ip_set_R4}</arg>
-</arguments>
-<assign>
-<var>${show_ip_interface}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:23.281">${show_ip_interface} = [['R1', 'show interfaces description'], ['R2', 'show interfaces description'], ['R3', 'show interfaces description'], ['R4', 'show interfaces description'], ['R4', 'show interfaces description']]</msg>
-<status endtime="20181210 18:03:23.281" status="PASS" starttime="20181210 18:03:23.281"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>show ip interface</arg>
-<arg>${show_ip_interface}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Show Ip Interface" library="config_ip">
-<arguments>
-<arg>${show_ip_interface}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:03:46.029">Waiting thread #ConfigureRouter_R1
-b'\r\nR3#\r\nR3#        show interfaces description\r\nInterface                      Status         Protocol Description\r\nFa0/0                          admin down     down     \r\nEt1/0                          up             up       \r\nEt1/1                          up             up       \r\nEt1/2                          admin down     down     \r\nEt1/3                          admin down     down     \r\nEt2/0                          admin down     down     \r\nEt2/1                          admin down     down     \r\nEt2/2                          admin down     down     \r\nEt2/3                          admin down     down     \r\nEt3/0                          admin down     down     \r\nEt3/1                          admin down     down     \r\nEt3/2                          admin down     down     \r\nEt3/3                          admin down     down     \r\nEt4/0                          admin down     down     \r\nEt4/1                          admin down     down     \r\nEt4/2                          admin down     down     \r\nEt4/3                          admin down     down     \r\nEt5/0                          admin down     down     \r\nEt5/1                          admin down     down     \r\nEt5/2                          admin down     down     \r\nEt5/3                          admin down     down     \r\nEt6/0                          admin down     down     \r\n --More-- \x08\x08\x08\x08\x08\x08\x08\x08\x08        \x08\x08\x08\x08\x08\x08\x08\x08\x08Et6/1                          admin down     down     \r\n --More-- \x08\x08\x08\x08\x08\x08\x08\x08\x08        \x08\x08\x08\x08\x08\x08\x08\x08\x08Et6/2                          admin down     down     \r\nEt6/3                          admin down     down     \r\nLo0                            up             up       \r\nR3#       \r\nR3#\r\nR3#'
-b"\r\nR4#\r\nR4#\r\nR4#\r\nR4#        show interfaces description        show interfaces description\r\n                                              ^\r\n% Invalid input detected at '^' marker.\r\n\r\nR4#\r\nR4#\r\nR4#\r\nR4#                \r\nR4#\r\nR4#\r\nR4#\r\nR4#"
-b"\r\nR4#\r\nR4#\r\nR4#\r\nR4#        show interfaces description        show interfaces description\r\n                                              ^\r\n% Invalid input detected at '^' marker.\r\n\r\nR4#\r\nR4#\r\nR4#\r\nR4#                \r\nR4#\r\nR4#\r\nR4#\r\nR4#"
-b'\r\nR2#\r\nR2#        show interfaces description\r\nInterface                      Status         Protocol Description\r\nFa0/0                          admin down     down     \r\nEt1/0                          up             up       \r\nEt1/1                          up             up       \r\nEt1/2                          admin down     down     \r\nEt1/3                          admin down     down     \r\nEt2/0                          admin down     down     \r\nEt2/1                          admin down     down     \r\nEt2/2                          admin down     down     \r\nEt2/3                          admin down     down     \r\nEt3/0                          admin down     down     \r\nEt3/1                          admin down     down     \r\nEt3/2                          admin down     down     \r\nEt3/3                          admin down     down     \r\nEt4/0                          admin down     down     \r\nEt4/1                          admin down     down     \r\nEt4/2                          admin down     down     \r\nEt4/3                          admin down     down     \r\nEt5/0                          admin down     down     \r\nEt5/1                          admin down     down     \r\nEt5/2                          admin down     down     \r\nEt5/3                          admin down     down     \r\nEt6/0                          admin down     down     \r\n --More-- \x08\x08\x08\x08\x08\x08\x08\x08\x08        \x08\x08\x08\x08\x08\x08\x08\x08\x08Et6/1                          admin down     down     \r\n --More-- \x08\x08\x08\x08\x08\x08\x08\x08\x08        \x08\x08\x08\x08\x08\x08\x08\x08\x08Et6/2                          admin down     down     \r\nEt6/3                          admin down     down     \r\nLo0                            up             up       \r\nR2#       \r\nR2#\r\nR2#'
-b'\r\nR1#\r\nR1#        show interfaces description\r\nInterface                      Status         Protocol Description\r\nFa0/0                          admin down     down     \r\nEt1/0                          up             up       \r\nEt1/1                          up             up       \r\nEt1/2                          admin down     down     \r\nEt1/3                          admin down     down     \r\nEt2/0                          admin down     down     \r\nEt2/1                          admin down     down     \r\nEt2/2                          admin down     down     \r\nEt2/3                          admin down     down     \r\nEt3/0                          admin down     down     \r\nEt3/1                          admin down     down     \r\nEt3/2                          admin down     down     \r\nEt3/3                          admin down     down     \r\nEt4/0                          admin down     down     \r\nEt4/1                          admin down     down     \r\nEt4/2                          admin down     down     \r\nEt4/3                          admin down     down     \r\nEt5/0                          admin down     down     \r\nEt5/1                          admin down     down     \r\nEt5/2                          admin down     down     \r\nEt5/3                          admin down     down     \r\nEt6/0                          admin down     down     \r\n --More-- \x08\x08\x08\x08\x08\x08\x08\x08\x08        \x08\x08\x08\x08\x08\x08\x08\x08\x08Et6/1                          admin down     down     \r\n --More-- \x08\x08\x08\x08\x08\x08\x08\x08\x08        \x08\x08\x08\x08\x08\x08\x08\x08\x08Et6/2                          admin down     down     \r\nEt6/3                          admin down     down     \r\nLo0                            up             up       \r\nR1#       \r\nR1#\r\nR1#'
-Waiting thread #ConfigureRouter_R2
-Waiting thread #ConfigureRouter_R3
-Waiting thread #ConfigureRouter_R4
-Waiting thread #ConfigureRouter_R4</msg>
-<status endtime="20181210 18:03:46.030" status="PASS" starttime="20181210 18:03:23.282"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:03:46.030">${result} = True</msg>
-<status endtime="20181210 18:03:46.031" status="PASS" starttime="20181210 18:03:23.282"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>IP address not set or interface not up in</arg>
-<arg>${ELEMENT}</arg>
-</arguments>
-<status endtime="20181210 18:03:46.032" status="PASS" starttime="20181210 18:03:46.031"></status>
-</kw>
-<status endtime="20181210 18:03:46.032" status="PASS" starttime="20181210 18:03:23.278"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:03:46.033" status="PASS" starttime="20181210 18:03:23.277"></status>
-</test>
-<test id="s1-t10" name="Check if OSPF neighbors are established">
-<kw name="Check if OSPF neighbors are established" library="Resource">
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Checking if OSPF neighbors are established</arg>
-</arguments>
-<status endtime="20181210 18:03:46.036" status="PASS" starttime="20181210 18:03:46.035"></status>
-</kw>
-<kw type="for" name="${ELEMENT} IN RANGE [ 0 | 3 ]">
-<kw type="foritem" name="${ELEMENT} = 0">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>@{Devices}[${ELEMENT}]</arg>
-<arg>show ip ospf neighbor</arg>
-</arguments>
-<assign>
-<var>${neighbor}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:46.037">${neighbor} = ['R1', 'show ip ospf neighbor']</msg>
-<status endtime="20181210 18:03:46.037" status="PASS" starttime="20181210 18:03:46.036"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${ospf_neighbor}</arg>
-<arg>${neighbor}</arg>
-</arguments>
-<status endtime="20181210 18:03:46.038" status="PASS" starttime="20181210 18:03:46.038"></status>
-</kw>
-<status endtime="20181210 18:03:46.038" status="PASS" starttime="20181210 18:03:46.036"></status>
-</kw>
-<kw type="foritem" name="${ELEMENT} = 1">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>@{Devices}[${ELEMENT}]</arg>
-<arg>show ip ospf neighbor</arg>
-</arguments>
-<assign>
-<var>${neighbor}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:46.039">${neighbor} = ['R2', 'show ip ospf neighbor']</msg>
-<status endtime="20181210 18:03:46.039" status="PASS" starttime="20181210 18:03:46.039"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${ospf_neighbor}</arg>
-<arg>${neighbor}</arg>
-</arguments>
-<status endtime="20181210 18:03:46.040" status="PASS" starttime="20181210 18:03:46.040"></status>
-</kw>
-<status endtime="20181210 18:03:46.040" status="PASS" starttime="20181210 18:03:46.038"></status>
-</kw>
-<kw type="foritem" name="${ELEMENT} = 2">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>@{Devices}[${ELEMENT}]</arg>
-<arg>show ip ospf neighbor</arg>
-</arguments>
-<assign>
-<var>${neighbor}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:03:46.041">${neighbor} = ['R3', 'show ip ospf neighbor']</msg>
-<status endtime="20181210 18:03:46.041" status="PASS" starttime="20181210 18:03:46.041"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${ospf_neighbor}</arg>
-<arg>${neighbor}</arg>
-</arguments>
-<status endtime="20181210 18:03:46.042" status="PASS" starttime="20181210 18:03:46.042"></status>
-</kw>
-<status endtime="20181210 18:03:46.042" status="PASS" starttime="20181210 18:03:46.040"></status>
-</kw>
-<status endtime="20181210 18:03:46.042" status="PASS" starttime="20181210 18:03:46.036"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>show ospf neighbor</arg>
-<arg>${ospf_neighbor}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Show Ospf Neighbor" library="config_ip">
-<arguments>
-<arg>${ospf_neighbor}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:04:08.613">Waiting thread #ConfigureRouter_R1
-b'\r\nR3#\r\nR3#        show ip ospf neighbor\r\n\r\nNeighbor ID     Pri   State           Dead Time   Address         Interface\r\n1.1.1.1           1   FULL/BDR        00:00:37    192.168.34.3    Ethernet1/1\r\nR3#\r\nR3#        \r\nR3#\r\nR3#'
-b'\r\nR1#\r\nR1#        show ip ospf neighbor\r\n\r\nNeighbor ID     Pri   State           Dead Time   Address         Interface\r\n3.3.3.3           1   FULL/DR         00:00:30    192.168.34.4    Ethernet1/1\r\n2.2.2.2           1   FULL/DR         00:00:35    192.168.23.2    Ethernet1/0\r\nR1#\r\nR1#        \r\nR1#\r\nR1#'
-b'\r\nR2#\r\nR2#        show ip ospf neighbor\r\n\r\nNeighbor ID     Pri   State           Dead Time   Address         Interface\r\n1.1.1.1           1   FULL/BDR        00:00:38    192.168.23.3    Ethernet1/0\r\nR2#\r\nR2#        \r\nR2#\r\nR2#'
-Waiting thread #ConfigureRouter_R2
-Waiting thread #ConfigureRouter_R3</msg>
-<status endtime="20181210 18:04:08.613" status="PASS" starttime="20181210 18:03:46.043"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:04:08.613">${result} = True</msg>
-<status endtime="20181210 18:04:08.613" status="PASS" starttime="20181210 18:03:46.043"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>OSPF neighbors are not established in the routers</arg>
-</arguments>
-<status endtime="20181210 18:04:08.614" status="PASS" starttime="20181210 18:04:08.614"></status>
-</kw>
-<status endtime="20181210 18:04:08.614" status="PASS" starttime="20181210 18:03:46.034"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:04:08.615" status="PASS" starttime="20181210 18:03:46.033"></status>
-</test>
-<test id="s1-t11" name="Check if BGP sessions are established">
-<kw name="Check if BGP sessions are established" library="Resource">
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Checking if all BGP sessions are established</arg>
-</arguments>
-<status endtime="20181210 18:04:08.616" status="PASS" starttime="20181210 18:04:08.616"></status>
-</kw>
-<kw type="for" name="${ELEMENT} IN RANGE [ 1 | 5 ]">
-<kw type="foritem" name="${ELEMENT} = 1">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>@{Devices}[${ELEMENT}]</arg>
-<arg>show ip bgp summary</arg>
-</arguments>
-<assign>
-<var>${bgp}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:04:08.617">${bgp} = ['R2', 'show ip bgp summary']</msg>
-<status endtime="20181210 18:04:08.617" status="PASS" starttime="20181210 18:04:08.617"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${bgp_summary}</arg>
-<arg>${bgp}</arg>
-</arguments>
-<status endtime="20181210 18:04:08.618" status="PASS" starttime="20181210 18:04:08.618"></status>
-</kw>
-<status endtime="20181210 18:04:08.618" status="PASS" starttime="20181210 18:04:08.617"></status>
-</kw>
-<kw type="foritem" name="${ELEMENT} = 2">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>@{Devices}[${ELEMENT}]</arg>
-<arg>show ip bgp summary</arg>
-</arguments>
-<assign>
-<var>${bgp}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:04:08.618">${bgp} = ['R3', 'show ip bgp summary']</msg>
-<status endtime="20181210 18:04:08.618" status="PASS" starttime="20181210 18:04:08.618"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${bgp_summary}</arg>
-<arg>${bgp}</arg>
-</arguments>
-<status endtime="20181210 18:04:08.619" status="PASS" starttime="20181210 18:04:08.619"></status>
-</kw>
-<status endtime="20181210 18:04:08.619" status="PASS" starttime="20181210 18:04:08.618"></status>
-</kw>
-<kw type="foritem" name="${ELEMENT} = 3">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>@{Devices}[${ELEMENT}]</arg>
-<arg>show ip bgp summary</arg>
-</arguments>
-<assign>
-<var>${bgp}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:04:08.620">${bgp} = ['R4', 'show ip bgp summary']</msg>
-<status endtime="20181210 18:04:08.620" status="PASS" starttime="20181210 18:04:08.619"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${bgp_summary}</arg>
-<arg>${bgp}</arg>
-</arguments>
-<status endtime="20181210 18:04:08.620" status="PASS" starttime="20181210 18:04:08.620"></status>
-</kw>
-<status endtime="20181210 18:04:08.620" status="PASS" starttime="20181210 18:04:08.619"></status>
-</kw>
-<kw type="foritem" name="${ELEMENT} = 4">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>@{Devices}[${ELEMENT}]</arg>
-<arg>show ip bgp summary</arg>
-</arguments>
-<assign>
-<var>${bgp}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:04:08.621">${bgp} = ['R5', 'show ip bgp summary']</msg>
-<status endtime="20181210 18:04:08.621" status="PASS" starttime="20181210 18:04:08.621"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${bgp_summary}</arg>
-<arg>${bgp}</arg>
-</arguments>
-<status endtime="20181210 18:04:08.621" status="PASS" starttime="20181210 18:04:08.621"></status>
-</kw>
-<status endtime="20181210 18:04:08.622" status="PASS" starttime="20181210 18:04:08.620"></status>
-</kw>
-<status endtime="20181210 18:04:08.622" status="PASS" starttime="20181210 18:04:08.616"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>show bgp summary</arg>
-<arg>${bgp_summary}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Show Bgp Summary" library="config_ip">
-<arguments>
-<arg>${bgp_summary}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:04:31.279">Waiting thread #ConfigureRouter_R2
-b'\r\nR3#\r\nR3#              show ip bgp summary\r\nBGP router identifier 3.3.3.3, local AS number 2\r\nBGP table version is 17, main routing table version 17\r\n11 network entries using 1287 bytes of memory\r\n17 path entries using 884 bytes of memory\r\n14/8 BGP path/bestpath attribute entries using 1736 bytes of memory\r\n2 BGP AS-PATH entries using 48 bytes of memory\r\n0 BGP route-map cache entries using 0 bytes of memory\r\n0 BGP filter-list cache entries using 0 bytes of memory\r\nBGP using 3955 total bytes of memory\r\nBGP activity 11/0 prefixes, 17/0 paths, scan interval 60 secs\r\n\r\nNeighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\r\n2.2.2.2         4     2      12      11       17    0    0 00:02:35        8\r\n192.168.45.6    4     3       7      12       17    0    0 00:02:05        3\r\nR3#\r\nR3#              \r\nR3#\r\nR3#'
-b'\r\nR2#\r\nR2#              show ip bgp summary\r\nBGP router identifier 2.2.2.2, local AS number 2\r\nBGP table version is 15, main routing table version 15\r\n11 network entries using 1287 bytes of memory\r\n17 path entries using 884 bytes of memory\r\n14/8 BGP path/bestpath attribute entries using 1736 bytes of memory\r\n2 BGP AS-PATH entries using 48 bytes of memory\r\n0 BGP route-map cache entries using 0 bytes of memory\r\n0 BGP filter-list cache entries using 0 bytes of memory\r\nBGP using 3955 total bytes of memory\r\nBGP activity 11/0 prefixes, 17/0 paths, scan interval 60 secs\r\n\r\nNeighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\r\n3.3.3.3         4     2      11      12       15    0    0 00:02:35        8\r\n192.168.12.1    4     1       8      13       15    0    0 00:02:00        3\r\nR2#\r\nR2#              \r\nR2#\r\nR2#'
-b'\r\nR4#\r\nR4#              show ip bgp summary\r\nBGP router identifier 4.4.4.4, local AS number 1\r\nBGP table version is 12, main routing table version 12\r\n11 network entries using 1287 bytes of memory\r\n12 path entries using 624 bytes of memory\r\n10/8 BGP path/bestpath attribute entries using 1240 bytes of memory\r\n2 BGP AS-PATH entries using 48 bytes of memory\r\n0 BGP route-map cache entries using 0 bytes of memory\r\n0 BGP filter-list cache entries using 0 bytes of memory\r\nBGP using 3199 total bytes of memory\r\nBGP activity 11/0 prefixes, 12/0 paths, scan interval 60 secs\r\n\r\nNeighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\r\n192.168.12.2    4     2      13       8       12    0    0 00:02:00        9\r\nR4#\r\nR4#              \r\nR4#\r\nR4#'
-Waiting thread #ConfigureRouter_R3
-Waiting thread #ConfigureRouter_R4
-Waiting thread #ConfigureRouter_R5
-b'\r\nR5#\r\nR5#              show ip bgp summary\r\nBGP router identifier 5.5.5.5, local AS number 3\r\nBGP table version is 12, main routing table version 12\r\n11 network entries using 1287 bytes of memory\r\n12 path entries using 624 bytes of memory\r\n10/8 BGP path/bestpath attribute entries using 1240 bytes of memory\r\n2 BGP AS-PATH entries using 48 bytes of memory\r\n0 BGP route-map cache entries using 0 bytes of memory\r\n0 BGP filter-list cache entries using 0 bytes of memory\r\nBGP using 3199 total bytes of memory\r\nBGP activity 11/0 prefixes, 12/0 paths, scan interval 60 secs\r\n\r\nNeighbor        V    AS MsgRcvd MsgSent   TblVer  InQ OutQ Up/Down  State/PfxRcd\r\n192.168.45.4    4     2      12       7       12    0    0 00:02:05        9\r\nR5#\r\nR5#              \r\nR5#\r\nR5#'</msg>
-<status endtime="20181210 18:04:31.279" status="PASS" starttime="20181210 18:04:08.622"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:04:31.279">${result} = True</msg>
-<status endtime="20181210 18:04:31.279" status="PASS" starttime="20181210 18:04:08.622"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>BGP sessions are not established in the routers</arg>
-</arguments>
-<status endtime="20181210 18:04:31.280" status="PASS" starttime="20181210 18:04:31.280"></status>
-</kw>
-<status endtime="20181210 18:04:31.280" status="PASS" starttime="20181210 18:04:08.616"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:04:31.281" status="PASS" starttime="20181210 18:04:08.615"></status>
-</test>
-<test id="s1-t12" name="Ensure that different autonomous systems can communicate with each other">
-<kw name="Ensure that different autonomous systems can communicate with each other" library="Resource">
-<kw name="Log" library="BuiltIn">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>Autonomous system communication validated</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:04:31.282">Autonomous system communication validated</msg>
-<status endtime="20181210 18:04:31.282" status="PASS" starttime="20181210 18:04:31.282"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Verify Ping operation from PC-1 to Ubuntu</arg>
-</arguments>
-<status endtime="20181210 18:04:31.283" status="PASS" starttime="20181210 18:04:31.282"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>ping router</arg>
-<arg>PC-1</arg>
-<arg>ping</arg>
-<arg>${Host2_IP}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Ping Router" library="operational_ph">
-<arguments>
-<arg>PC-1</arg>
-<arg>ping</arg>
-<arg>${Host2_IP}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:04:46.544">ping
-b'ping 192.168.80.20 -c 5 \r\n84 bytes from 192.168.80.20 icmp_seq=1 ttl=59 time=59.330 ms\r\n84 bytes from 192.168.80.20 icmp_seq=2 ttl=59 time=55.543 ms\r\n84 bytes from 192.168.80.20 icmp_seq=3 ttl=59 time=56.066 ms\r\n84 bytes from 192.168.80.20 icmp_seq=4 ttl=59 time=55.585 ms\r\n84 bytes from 192.168.80.20 icmp_seq=5 ttl=59 time=66.457 ms\r\n'</msg>
-<status endtime="20181210 18:04:46.545" status="PASS" starttime="20181210 18:04:31.283"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:04:46.545">${result} = True</msg>
-<status endtime="20181210 18:04:46.545" status="PASS" starttime="20181210 18:04:31.283"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Unable to reach ONL from PC-1 to Ubuntu</arg>
-</arguments>
-<status endtime="20181210 18:04:46.547" status="PASS" starttime="20181210 18:04:46.546"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Verify Ping operation from Ubuntu to PC-1</arg>
-</arguments>
-<status endtime="20181210 18:04:46.548" status="PASS" starttime="20181210 18:04:46.547"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>ping router</arg>
-<arg>Ubuntu</arg>
-<arg>ping</arg>
-<arg>${Host1_IP}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Ping Router" library="operational_ph">
-<arguments>
-<arg>Ubuntu</arg>
-<arg>ping</arg>
-<arg>${Host1_IP}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:05:41.705">ping</msg>
-<status endtime="20181210 18:05:41.705" status="PASS" starttime="20181210 18:04:46.549"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:05:41.706">${result} = None</msg>
-<status endtime="20181210 18:05:41.706" status="PASS" starttime="20181210 18:04:46.548"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Unable to reach VPCS from Ubuntu to PC-1</arg>
-</arguments>
-<status endtime="20181210 18:05:41.707" status="PASS" starttime="20181210 18:05:41.706"></status>
-</kw>
-<status endtime="20181210 18:05:41.707" status="PASS" starttime="20181210 18:04:31.282"></status>
-</kw>
-<status critical="yes" endtime="20181210 18:05:41.707" status="PASS" starttime="20181210 18:04:31.281"></status>
-</test>
-<kw type="teardown" name="Teardown Actions" library="Resource">
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Teardown Actions done here</arg>
-</arguments>
-<status endtime="20181210 18:05:41.710" status="PASS" starttime="20181210 18:05:41.710"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Unconfiguring IP_Address</arg>
-</arguments>
-<status endtime="20181210 18:05:41.710" status="PASS" starttime="20181210 18:05:41.710"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R1</arg>
-<arg>${Links_of_R1}</arg>
-<arg>unconfigure</arg>
-</arguments>
-<assign>
-<var>${ip_addr_R1}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:05:41.711">${ip_addr_R1} = ['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'unconfigure']</msg>
-<status endtime="20181210 18:05:41.711" status="PASS" starttime="20181210 18:05:41.711"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${Links_of_R2}</arg>
-<arg>unconfigure</arg>
-</arguments>
-<assign>
-<var>${ip_addr_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:05:41.711">${ip_addr_R2} = ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1'], 'unconfigure']</msg>
-<status endtime="20181210 18:05:41.711" status="PASS" starttime="20181210 18:05:41.711"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${Links_of_R3}</arg>
-<arg>unconfigure</arg>
-</arguments>
-<assign>
-<var>${ip_addr_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:05:41.712">${ip_addr_R3} = ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1'], 'unconfigure']</msg>
-<status endtime="20181210 18:05:41.712" status="PASS" starttime="20181210 18:05:41.712"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R4</arg>
-<arg>${Links_of_R4}</arg>
-<arg>unconfigure</arg>
-</arguments>
-<assign>
-<var>${ip_addr_R4}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:05:41.712">${ip_addr_R4} = ['R4', ['Link_R2_R4_1', 'Link_R4_PC-1_1'], 'unconfigure']</msg>
-<status endtime="20181210 18:05:41.713" status="PASS" starttime="20181210 18:05:41.712"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R5</arg>
-<arg>${Links_of_R5}</arg>
-<arg>unconfigure</arg>
-</arguments>
-<assign>
-<var>${ip_addr_R5}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:05:41.713">${ip_addr_R5} = ['R5', ['Link_R3_R5_1', 'Link_R5_PC-2_1'], 'unconfigure']</msg>
-<status endtime="20181210 18:05:41.713" status="PASS" starttime="20181210 18:05:41.713"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>PC-1</arg>
-<arg>unconfigure</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${ip_addr_PC1}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:05:41.713">${ip_addr_PC1} = ['PC-1', 'unconfigure', '255.255.255.0']</msg>
-<status endtime="20181210 18:05:41.714" status="PASS" starttime="20181210 18:05:41.713"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>Ubuntu</arg>
-<arg>unconfigure</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${ip_addr_PC2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:05:41.714">${ip_addr_PC2} = ['Ubuntu', 'unconfigure', '255.255.255.0']</msg>
-<status endtime="20181210 18:05:41.714" status="PASS" starttime="20181210 18:05:41.714"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${ip_addr_R1}</arg>
-<arg>${ip_addr_R2}</arg>
-<arg>${ip_addr_R3}</arg>
-<arg>${ip_addr_R4}</arg>
-<arg>${ip_addr_R5}</arg>
-<arg>${ip_addr_PC1}</arg>
-<arg>${ip_addr_PC2}</arg>
-</arguments>
-<assign>
-<var>${unconfig_ip}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:05:41.715">${unconfig_ip} = [['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'unconfigure'], ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1'], 'unconfigure'], ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1'], 'unconfigure'], ['R4', ['Link_R2_R4_1', 'Lin...</msg>
-<status endtime="20181210 18:05:41.715" status="PASS" starttime="20181210 18:05:41.714"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>start configure</arg>
-<arg>${unconfig_ip}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Start Configure" library="config_ip">
-<arguments>
-<arg>${unconfig_ip}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:06:00.351">Configuring IP address for R1Configuring IP address for R2Configuring IP address for R3Configuring IP address for R4Configuring IP address for R5Waiting thread #ConfigureRouter_R1
-flag=0
-flag=0
-flag=0
-flag=0
-flag=0
-b'\r\nR5#\r\nR5#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#              interface Ethernet 1/0\r\nR5(config-if)#\r\nR5(config-if)#              no ip address 192.168.45.6  255.255.255.0\r\nR5(config-if)#\r\nR5(config-if)#              shutdown\r\nR5(config-if)#\r\nR5(config-if)#              '
-b'\r\nR1#\r\nR1#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#              interface Ethernet 1/0\r\nR1(config-if)#\r\nR1(config-if)#              no ip address 192.168.23.3  255.255.255.0\r\nR1(config-if)#\r\nR1(config-if)#              shutdown\r\nR1(config-if)#\r\nR1(config-if)#              '
-b'\r\nR3#\r\nR3#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#              interface Ethernet 1/1\r\nR3(config-if)#\r\nR3(config-if)#              no ip address 192.168.34.4  255.255.255.0\r\nR3(config-if)#\r\nR3(config-if)#              shutdown\r\nR3(config-if)#\r\nR3(config-if)#              '
-b'\r\nR2#\r\nR2#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#              interface Ethernet 1/0\r\nR2(config-if)#\r\nR2(config-if)#              no ip address 192.168.23.2  255.255.255.0\r\nR2(config-if)#\r\nR2(config-if)#              shutdown\r\nR2(config-if)#\r\nR2(config-if)#              '
-b'\r\nR4#\r\nR4#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#              interface Ethernet 1/0\r\nR4(config-if)#\r\nR4(config-if)#              no ip address 192.168.12.1  255.255.255.0\r\nR4(config-if)#\r\nR4(config-if)#              shutdown\r\nR4(config-if)#\r\nR4(config-if)#              '
-b'clear ip\r\nIPv4 address/mask, gateway, DNS, and DHCP cleared\r\n\r\n\rPC-1&gt; '
-b'ifconfig eth0 0\r\n\x1b]0;root@UbuntuDockerGuest-1: ~\x07root@UbuntuDockerGuest-1:~# \r\n\x1b]0;root@UbuntuDockerGuest-1: ~\x07root@UbuntuDockerGuest-1:~# '
-b'\r\nR1#\r\nR1#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR1(config)#\r\nR1(config)#              interface Ethernet 1/1\r\nR1(config-if)#\r\nR1(config-if)#              no ip address 192.168.34.3  255.255.255.0\r\nR1(config-if)#\r\nR1(config-if)#              shutdown\r\nR1(config-if)#\r\nR1(config-if)#              '
-b'\r\nR3#\r\nR3#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR3(config)#\r\nR3(config)#              interface Ethernet 1/0\r\nR3(config-if)#\r\nR3(config-if)#              no ip address 192.168.45.4  255.255.255.0\r\nR3(config-if)#\r\nR3(config-if)#              shutdown\r\nR3(config-if)#\r\nR3(config-if)#              '
-b'\r\nR5#\r\nR5#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR5(config)#\r\nR5(config)#              interface Ethernet 1/1\r\nR5(config-if)#\r\nR5(config-if)#              no ip address 192.168.80.10  255.255.255.0\r\nR5(config-if)#\r\nR5(config-if)#              shutdown\r\nR5(config-if)#\r\nR5(config-if)#              '
-b'\r\nR4#\r\nR4#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR4(config)#\r\nR4(config)#              interface Ethernet 1/1\r\nR4(config-if)#\r\nR4(config-if)#              no ip address 192.168.70.10  255.255.255.0\r\nR4(config-if)#\r\nR4(config-if)#              shutdown\r\nR4(config-if)#\r\nR4(config-if)#              '
-Configured  IP Address for R1Waiting thread #ConfigureRouter_R2
-Configured  IP Address for R3Configured  IP Address for R5Configured  IP Address for R4b'\r\nR2#\r\nR2#              configure terminal\r\nEnter configuration commands, one per line.  End with CNTL/Z.\r\nR2(config)#\r\nR2(config)#              interface Ethernet 1/1\r\nR2(config-if)#\r\nR2(config-if)#              no ip address 192.168.12.2  255.255.255.0\r\nR2(config-if)#\r\nR2(config-if)#              shutdown\r\nR2(config-if)#\r\nR2(config-if)#              '
-Configured  IP Address for R2Waiting thread #ConfigureRouter_R3
-Waiting thread #ConfigureRouter_R4
-Waiting thread #ConfigureRouter_R5
-Waiting thread #ConfigureRouter_PC-1
-Waiting thread #ConfigureRouter_Ubuntu</msg>
-<status endtime="20181210 18:06:00.351" status="PASS" starttime="20181210 18:05:41.715"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:06:00.352">${result} = True</msg>
-<status endtime="20181210 18:06:00.352" status="PASS" starttime="20181210 18:05:41.715"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Unable to clear IP address on the routers</arg>
-</arguments>
-<status endtime="20181210 18:06:00.353" status="PASS" starttime="20181210 18:06:00.353"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>IP_Address cleared on all Routers</arg>
-</arguments>
-<status endtime="20181210 18:06:00.354" status="PASS" starttime="20181210 18:06:00.354"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Unconfiguring Loopback interface</arg>
-</arguments>
-<status endtime="20181210 18:06:00.355" status="PASS" starttime="20181210 18:06:00.355"></status>
-</kw>
-<kw type="for" name="${var} IN [ @{Devices} ]">
-<kw type="foritem" name="${var} = R1">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${var}</arg>
-<arg>unset</arg>
-</arguments>
-<assign>
-<var>${clear_lo}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.356">${clear_lo} = ['R1', 'unset']</msg>
-<status endtime="20181210 18:06:00.356" status="PASS" starttime="20181210 18:06:00.356"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${clear_lo_devices}</arg>
-<arg>${clear_lo}</arg>
-</arguments>
-<msg level="FAIL" timestamp="20181210 18:06:00.361">Variable '${clear_lo_devices}' not found.</msg>
-<status endtime="20181210 18:06:00.361" status="FAIL" starttime="20181210 18:06:00.357"></status>
-</kw>
-<status endtime="20181210 18:06:00.361" status="FAIL" starttime="20181210 18:06:00.355"></status>
-</kw>
-<kw type="foritem" name="${var} = R2">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${var}</arg>
-<arg>unset</arg>
-</arguments>
-<assign>
-<var>${clear_lo}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.362">${clear_lo} = ['R2', 'unset']</msg>
-<status endtime="20181210 18:06:00.362" status="PASS" starttime="20181210 18:06:00.361"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${clear_lo_devices}</arg>
-<arg>${clear_lo}</arg>
-</arguments>
-<msg level="FAIL" timestamp="20181210 18:06:00.366">Variable '${clear_lo_devices}' not found.</msg>
-<status endtime="20181210 18:06:00.366" status="FAIL" starttime="20181210 18:06:00.362"></status>
-</kw>
-<status endtime="20181210 18:06:00.366" status="FAIL" starttime="20181210 18:06:00.361"></status>
-</kw>
-<kw type="foritem" name="${var} = R3">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${var}</arg>
-<arg>unset</arg>
-</arguments>
-<assign>
-<var>${clear_lo}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.367">${clear_lo} = ['R3', 'unset']</msg>
-<status endtime="20181210 18:06:00.367" status="PASS" starttime="20181210 18:06:00.366"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${clear_lo_devices}</arg>
-<arg>${clear_lo}</arg>
-</arguments>
-<msg level="FAIL" timestamp="20181210 18:06:00.371">Variable '${clear_lo_devices}' not found.</msg>
-<status endtime="20181210 18:06:00.371" status="FAIL" starttime="20181210 18:06:00.367"></status>
-</kw>
-<status endtime="20181210 18:06:00.371" status="FAIL" starttime="20181210 18:06:00.366"></status>
-</kw>
-<kw type="foritem" name="${var} = R4">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${var}</arg>
-<arg>unset</arg>
-</arguments>
-<assign>
-<var>${clear_lo}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.372">${clear_lo} = ['R4', 'unset']</msg>
-<status endtime="20181210 18:06:00.372" status="PASS" starttime="20181210 18:06:00.371"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${clear_lo_devices}</arg>
-<arg>${clear_lo}</arg>
-</arguments>
-<msg level="FAIL" timestamp="20181210 18:06:00.376">Variable '${clear_lo_devices}' not found.</msg>
-<status endtime="20181210 18:06:00.376" status="FAIL" starttime="20181210 18:06:00.372"></status>
-</kw>
-<status endtime="20181210 18:06:00.376" status="FAIL" starttime="20181210 18:06:00.371"></status>
-</kw>
-<kw type="foritem" name="${var} = R5">
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${var}</arg>
-<arg>unset</arg>
-</arguments>
-<assign>
-<var>${clear_lo}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.377">${clear_lo} = ['R5', 'unset']</msg>
-<status endtime="20181210 18:06:00.377" status="PASS" starttime="20181210 18:06:00.377"></status>
-</kw>
-<kw name="Append To List" library="Collections">
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<arguments>
-<arg>${clear_lo_devices}</arg>
-<arg>${clear_lo}</arg>
-</arguments>
-<msg level="FAIL" timestamp="20181210 18:06:00.381">Variable '${clear_lo_devices}' not found.</msg>
-<status endtime="20181210 18:06:00.381" status="FAIL" starttime="20181210 18:06:00.377"></status>
-</kw>
-<status endtime="20181210 18:06:00.381" status="FAIL" starttime="20181210 18:06:00.376"></status>
-</kw>
-<status endtime="20181210 18:06:00.381" status="FAIL" starttime="20181210 18:06:00.355"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>start configure loopback</arg>
-<arg>${clear_lo_devices}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Start Configure Loopback" library="config_ip">
-<arguments>
-<arg>${clear_lo_devices}</arg>
-</arguments>
-<msg level="FAIL" timestamp="20181210 18:06:00.386">Variable '${clear_lo_devices}' not found.</msg>
-<status endtime="20181210 18:06:00.386" status="FAIL" starttime="20181210 18:06:00.382"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:06:00.386">${result} = None</msg>
-<status endtime="20181210 18:06:00.386" status="FAIL" starttime="20181210 18:06:00.382"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Unable to clear Loopback address on the interfaces</arg>
-</arguments>
-<status endtime="20181210 18:06:00.387" status="PASS" starttime="20181210 18:06:00.386"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Loopback_Address cleared on all Routers</arg>
-</arguments>
-<status endtime="20181210 18:06:00.388" status="PASS" starttime="20181210 18:06:00.387"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Clearing OSPF configuration</arg>
-</arguments>
-<status endtime="20181210 18:06:00.388" status="PASS" starttime="20181210 18:06:00.388"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R1</arg>
-<arg>${Process_id}</arg>
-<arg>${Networks_connected_to_R1}</arg>
-<arg>${Area1}</arg>
-<arg>disable</arg>
-</arguments>
-<assign>
-<var>${ospf_R1}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.390">${ospf_R1} = ['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'disable']</msg>
-<status endtime="20181210 18:06:00.390" status="PASS" starttime="20181210 18:06:00.389"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${Process_id}</arg>
-<arg>${Networks_connected_to_R2}</arg>
-<arg>${Area1}</arg>
-<arg>disable</arg>
-</arguments>
-<assign>
-<var>${ospf_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.391">${ospf_R2} = ['R2', 1, ['192.168.23.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'disable']</msg>
-<status endtime="20181210 18:06:00.391" status="PASS" starttime="20181210 18:06:00.390"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${Process_id}</arg>
-<arg>${Networks_connected_to_R3}</arg>
-<arg>${Area1}</arg>
-<arg>disable</arg>
-</arguments>
-<assign>
-<var>${ospf_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.392">${ospf_R3} = ['R3', 1, ['192.168.34.0  0.0.0.255', '3.3.3.0  0.0.0.255'], 0, 'disable']</msg>
-<status endtime="20181210 18:06:00.392" status="PASS" starttime="20181210 18:06:00.391"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${ospf_R1}</arg>
-<arg>${ospf_R2}</arg>
-<arg>${ospf_R3}</arg>
-</arguments>
-<assign>
-<var>${clear_ospf}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:00.393">${clear_ospf} = [['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'disable'], ['R2', 1, ['192.168.23.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'disable'], ['R3', 1, ['192.168....</msg>
-<status endtime="20181210 18:06:00.393" status="PASS" starttime="20181210 18:06:00.392"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
-<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
-<arguments>
-<arg>start_configure_ospf</arg>
-<arg>${clear_ospf}</arg>
-</arguments>
-<assign>
-<var>${result}</var>
-</assign>
-<kw name="Start Configure Ospf" library="config_ip">
-<arguments>
-<arg>${clear_ospf}</arg>
-</arguments>
-<msg level="INFO" timestamp="20181210 18:06:16.599">Waiting thread #ConfigureRouter_R1
-Waiting thread #ConfigureRouter_R2
-Waiting thread #ConfigureRouter_R3</msg>
-<msg level="INFO" timestamp="20181210 18:06:16.599">Exception in thread ConfigureRouter_R1:
-Traceback (most recent call last):
-  File "/usr/lib/python3.5/threading.py", line 914, in _bootstrap_inner
-    self.run()
-  File "/usr/lib/python3.5/threading.py", line 862, in run
-    self._target(*self._args, **self._kwargs)
-  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/config_ip.py", line 44, in config_ospf
-    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
-  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/OSPF.py", line 105, in Configure_ospf
-    """ % (process_id,NID,Area)
-UnboundLocalError: local variable 'NID' referenced before assignment
-
-Exception in thread ConfigureRouter_R2:
-Traceback (most recent call last):
-  File "/usr/lib/python3.5/threading.py", line 914, in _bootstrap_inner
-    self.run()
-  File "/usr/lib/python3.5/threading.py", line 862, in run
-    self._target(*self._args, **self._kwargs)
-  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/config_ip.py", line 44, in config_ospf
-    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
-  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/OSPF.py", line 105, in Configure_ospf
-    """ % (process_id,NID,Area)
-UnboundLocalError: local variable 'NID' referenced before assignment
-
-Exception in thread ConfigureRouter_R3:
-Traceback (most recent call last):
-  File "/usr/lib/python3.5/threading.py", line 914, in _bootstrap_inner
-    self.run()
-  File "/usr/lib/python3.5/threading.py", line 862, in run
-    self._target(*self._args, **self._kwargs)
-  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/config_ip.py", line 44, in config_ospf
-    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
-  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/OSPF.py", line 105, in Configure_ospf
-    """ % (process_id,NID,Area)
-UnboundLocalError: local variable 'NID' referenced before assignment</msg>
-<status endtime="20181210 18:06:16.600" status="PASS" starttime="20181210 18:06:00.394"></status>
-</kw>
-<msg level="INFO" timestamp="20181210 18:06:16.600">${result} = True</msg>
-<status endtime="20181210 18:06:16.600" status="PASS" starttime="20181210 18:06:00.393"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>${result}==False</arg>
-<arg>FAIL</arg>
-<arg>Clearing OSPF on Routers has failed</arg>
-</arguments>
-<status endtime="20181210 18:06:16.602" status="PASS" starttime="20181210 18:06:16.601"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>OSPF unconfigured in Routers</arg>
-</arguments>
-<status endtime="20181210 18:06:16.602" status="PASS" starttime="20181210 18:06:16.602"></status>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<doc>Logs the given message to the console.</doc>
-<arguments>
-<arg>Clearing BGP configuration</arg>
-</arguments>
-<status endtime="20181210 18:06:16.603" status="PASS" starttime="20181210 18:06:16.603"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${R2_AS_id}</arg>
-<arg>${R2_einterface}</arg>
-<arg>${R2_neighbor_AS_id}</arg>
-<arg>disable</arg>
-<arg>${R4_R2_network}</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${clear_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:16.604">${clear_R2} = ['R2', 2, '192.168.12.1', 1, 'disable', '192.168.12.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:06:16.604" status="PASS" starttime="20181210 18:06:16.603"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${R3_AS_id}</arg>
-<arg>${R3_einterface}</arg>
-<arg>${R3_neighbor_AS_id}</arg>
-<arg>disable</arg>
-<arg>${R3_R5_network}</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${clear_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:16.606">${clear_R3} = ['R3', 2, '192.168.45.6', 3, 'disable', '192.168.45.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:06:16.606" status="PASS" starttime="20181210 18:06:16.605"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R4</arg>
-<arg>${R4_AS_id}</arg>
-<arg>${R4_einterface}</arg>
-<arg>${R4_neighbor_AS_id}</arg>
-<arg>disable</arg>
-<arg>${R4_R2_network}</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${clear_R4}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:16.607">${clear_R4} = ['R4', 1, '192.168.12.2', 2, 'disable', '192.168.12.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:06:16.607" status="PASS" starttime="20181210 18:06:16.606"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R5</arg>
-<arg>${R5_AS_id}</arg>
-<arg>${R5_einterface}</arg>
-<arg>${R5_neighbor_AS_id}</arg>
-<arg>disable</arg>
-<arg>${R3_R5_network}</arg>
-<arg>${mask}</arg>
-</arguments>
-<assign>
-<var>${clear_R5}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:16.608">${clear_R5} = ['R5', 3, '192.168.45.4', 2, 'disable', '192.168.45.0', '255.255.255.0']</msg>
-<status endtime="20181210 18:06:16.608" status="PASS" starttime="20181210 18:06:16.607"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${clear_R2}</arg>
-<arg>${clear_R3}</arg>
-<arg>${clear_R4}</arg>
-<arg>${clear_R5}</arg>
-</arguments>
-<assign>
-<var>${clear_ebgp}</var>
-</assign>
-<msg level="INFO" timestamp="20181210 18:06:16.609">${clear_ebgp} = [['R2', 2, '192.168.12.1', 1, 'disable', '192.168.12.0', '255.255.255.0'], ['R3', 2, '192.168.45.6', 3, 'disable', '192.168.45.0', '255.255.255.0'], ['R4', 1, '192.168.12.2', 2, 'disable', '192.168.12...</msg>
-<status endtime="20181210 18:06:16.610" status="PASS" starttime="20181210 18:06:16.609"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">

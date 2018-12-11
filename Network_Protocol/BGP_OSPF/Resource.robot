@@ -19,6 +19,7 @@ ${ELEMENT}
 @{show_ip_interface}
 @{ospf_neighbor}
 @{bgp_summary}
+@{clear_lo_devices}
 
 *** Keywords ***
 
@@ -216,7 +217,7 @@ Check if ip address is set and interface is up
     ${ip_set_R2}=    Create List    R2    show interfaces description
     ${ip_set_R3}=    Create List    R3    show interfaces description
     ${ip_set_R4}=    Create List    R4    show interfaces description
-    ${ip_set_R5}=    Create List    R5    show interface description
+    ${ip_set_R5}=    Create List    R5    show interfaces description
     ${show_ip_interface}=    Create List       ${ip_set_R1}    ${ip_set_R2}    ${ip_set_R3}    ${ip_set_R4}   ${ip_set_R4}
     ${result}=    Run Keyword and Continue On Failure    show ip interface     ${show_ip_interface}
     Run Keyword If    ${result}==False    FAIL    IP address not set or interface not up in  ${ELEMENT}
