@@ -24,7 +24,7 @@ class OSPF:
             flag = child.expect([hostname+'>', hostname+'#', 'Router\>', \
                    'Router\#', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
             if flag in (0, 2):
-                Dev.Login(self, Device, child)
+                Dev.Login(Device, child)
                 if Action == 'enable':
                     if (isinstance(Networks_connected, list)):
                         for NID in Networks_connected:
