@@ -234,15 +234,6 @@ Check if ip address is set and interface is up
     Run Keyword If    ${result}==False    FAIL    IP address not set or interface not up in  ${ELEMENT}
 
 
-Ensure the VRF reachability between PE routers
-
-    Log To Console            Verify VRF ping from PE router R2 to Host
-    ${result}=    Run Keyword and Continue On Failure   ping vrf    R2    vrf1   ${Host2_IP}
-    Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
-    Log To Console            Verify VRF ping from PE router R3 to Host
-    ${result}=    Run Keyword and Continue On Failure   ping vrf    R3    vrf1   ${Host2_IP}
-    Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
-
 Ensure that different autonomous systems can communicate with each other
 
     Log    Autonomous system communication validated
@@ -273,3 +264,20 @@ Check if BGP sessions are established
     ${result}=    Run Keyword and Continue On Failure    show bgp summary     ${bgp_summary}
     Run Keyword If    ${result}==False    FAIL    BGP sessions are not established in the routers
 
+Ensure the VRF reachability between PE routers
+
+    Log To Console            Verify VRF ping from PE router R2 to Host
+    ${result}=    Run Keyword and Continue On Failure   ping vrf    R2    vrf1   ${Host2_IP}
+    Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
+    Log To Console            Verify VRF ping from PE router R3 to Host
+    ${result}=    Run Keyword and Continue On Failure   ping vrf    R3    vrf1   ${Host2_IP}
+    Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
+
+Enable MPLS on PE and P routers
+    Log To Console            Configure MPLS on PE router
+    Log To Console            Configure MPLS on P router
+    ${result}=    Run Keyword and Continue On Failure   ping vrf    R2    vrf1   ${Host2_IP}
+    Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
+    Log To Console            Verify VRF ping from PE router R3 to Host
+    ${result}=    Run Keyword and Continue On Failure   ping vrf    R3    vrf1   ${Host2_IP}
+    Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
