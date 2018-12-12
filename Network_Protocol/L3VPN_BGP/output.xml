@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181212 15:13:42.151" generator="Robot 3.0.4 (Python 3.5.2 on linux)">
+<suite source="/opt/HAPPIEST_FRAMEWORK/Network_Protocol/L3VPN_BGP/BGP_L3VPN.robot" id="s1" name="BGP L3VPN">
+<test id="s1-t1" name="Configure VRFs to PE routers">
+<kw library="Resource" name="Create and Assign VRFs to PE routers">
+<kw library="BuiltIn" name="Log To Console">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Configuring VRFs on PE routers</arg>
+</arguments>
+<status status="PASS" starttime="20181212 15:13:42.500" endtime="20181212 15:13:42.500"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${VRF_NAME}</arg>
+<arg>${RD}</arg>
+<arg>${RT}</arg>
+<arg>${VRF_R2_Interface}</arg>
+<arg>${R2_einterface}</arg>
+<arg>${mask}</arg>
+<arg>enable</arg>
+</arguments>
+<assign>
+<var>${vrf_R2}</var>
+</assign>
+<msg level="INFO" timestamp="20181212 15:13:42.501">${vrf_R2} = ['R2', 'VRF1', '1:1', '10:10', ['Link_R2_MPLS'], '192.168.12.1', '255.255.255.0', 'enable']</msg>
+<status status="PASS" starttime="20181212 15:13:42.501" endtime="20181212 15:13:42.502"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${VRF_NAME}</arg>
+<arg>${RD}</arg>
+<arg>${RT}</arg>
+<arg>${VRF_R3_Interface}</arg>
+<arg>${R5_einterface}</arg>
+<arg>${mask}</arg>
+<arg>enable</arg>
+</arguments>
+<assign>
+<var>${vrf_R3}</var>
+</assign>
+<msg level="INFO" timestamp="20181212 15:13:42.503">${vrf_R3} = ['R3', 'VRF1', '1:1', '10:10', ['Link_R3_MPLS'], '192.168.45.4', '255.255.255.0', 'enable']</msg>
+<status status="PASS" starttime="20181212 15:13:42.502" endtime="20181212 15:13:42.503"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${vrf_R2}</arg>
+<arg>${vrf_R3}</arg>
+</arguments>
+<assign>
+<var>${vrf_config}</var>
+</assign>
+<msg level="INFO" timestamp="20181212 15:13:42.504">${vrf_config} = [['R2', 'VRF1', '1:1', '10:10', ['Link_R2_MPLS'], '192.168.12.1', '255.255.255.0', 'enable'], ['R3', 'VRF1', '1:1', '10:10', ['Link_R3_MPLS'], '192.168.45.4', '255.255.255.0', 'enable']]</msg>
+<status status="PASS" starttime="20181212 15:13:42.503" endtime="20181212 15:13:42.504"></status>
+</kw>
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start_configure_vrf</arg>
+<arg>${vrf_config}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw library="config_ip" name="Start Configure Vrf">
+<arguments>
+<arg>${vrf_config}</arg>
+</arguments>
+<msg level="INFO" timestamp="20181212 15:13:46.508">Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3</msg>
+<msg level="INFO" timestamp="20181212 15:13:46.509">Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/L3VPN_BGP/config_ip.py", line 412, in config_vrf
+    ibgp.Configure_VRFs(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/L3VPN_BGP/IBGP.py", line 13, in Configure_VRFs
+    hostname = device_data['Device_Details'][Device]['Hostname']
+NameError: name 'Device' is not defined
+
+Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/L3VPN_BGP/config_ip.py", line 412, in config_vrf
+    ibgp.Configure_VRFs(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/opt/HAPPIEST_FRAMEWORK/Network_Protocol/L3VPN_BGP/IBGP.py", line 13, in Configure_VRFs
+    hostname = device_data['Device_Details'][Device]['Hostname']
+NameError: name 'Device' is not defined</msg>
+<status status="PASS" starttime="20181212 15:13:42.505" endtime="20181212 15:13:46.509"></status>
+</kw>
+<msg level="INFO" timestamp="20181212 15:13:46.509">${result} = True</msg>
+<status status="PASS" starttime="20181212 15:13:42.504" endtime="20181212 15:13:46.509"></status>
+</kw>
+<kw library="BuiltIn" name="Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Configuring VRFs on Routers has failed</arg>
+</arguments>
+<status status="PASS" starttime="20181212 15:13:46.510" endtime="20181212 15:13:46.510"></status>
+</kw>
+<kw library="BuiltIn" name="Log To Console">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>VRFs configured in Routers</arg>
+</arguments>
+<status status="PASS" starttime="20181212 15:13:46.511" endtime="20181212 15:13:46.511"></status>
+</kw>
+<status status="PASS" starttime="20181212 15:13:42.499" endtime="20181212 15:13:46.511"></status>
+</kw>
+<status status="PASS" starttime="20181212 15:13:42.485" endtime="20181212 15:13:46.511" critical="yes"></status>
+</test>
+<doc>A test suite with tests for configuring BGP.
+Topology:-
+____________________________
+| R1 AS2 |
+| /  |
+| /  |
+| R2------ R3 |
+|_________|________|_________|
+| |
+______|__ ___|______
+| AS1| | AS3|
+| R4 | | R5 |
+|_________| |__________|</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Payal Jain
+Date 19 Dec 2016
+Executed At ${HOST}
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="PASS" starttime="20181212 15:13:42.153" endtime="20181212 15:13:46.513"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" name="BGP L3VPN" id="s1" fail="0">BGP L3VPN</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
