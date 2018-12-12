@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.4 (Python 3.5.2 on linux)" generated="20181212 14:13:39.030">
+<suite source="/home/HAPPIEST_FRAMEWORK/Network_Protocol/L3VPN_BGP/BGP_L3VPN.robot" name="BGP L3VPN" id="s1">
+<test name="Ensure the VRF reachability between PE routers" id="s1-t1">
+<kw library="Resource" name="Ensure the VRF reachability between PE routers">
+<kw library="BuiltIn" name="Log To Console">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Verify VRF ping from PE router R2 to Host</arg>
+</arguments>
+<status status="PASS" starttime="20181212 14:13:39.351" endtime="20181212 14:13:39.365"></status>
+</kw>
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>ping vrf</arg>
+<arg>R2</arg>
+<arg>vrf1</arg>
+<arg>${Host2_IP}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw library="operational_ph" name="Ping Vrf">
+<arguments>
+<arg>R2</arg>
+<arg>vrf1</arg>
+<arg>${Host2_IP}</arg>
+</arguments>
+<msg timestamp="20181212 14:13:50.622" level="INFO">ping vrf vrf1 192.168.80.20
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.80.20, timeout is 2 seconds:
+.!!!!
+Success rate is 80 percent (4/5), round-trip min/avg/max = 20/285/1060 ms
+R7#</msg>
+<status status="PASS" starttime="20181212 14:13:39.366" endtime="20181212 14:13:50.622"></status>
+</kw>
+<msg timestamp="20181212 14:13:50.622" level="INFO">${result} = True</msg>
+<status status="PASS" starttime="20181212 14:13:39.366" endtime="20181212 14:13:50.622"></status>
+</kw>
+<kw library="BuiltIn" name="Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Unable to reach Host from VRF1</arg>
+</arguments>
+<status status="PASS" starttime="20181212 14:13:50.623" endtime="20181212 14:13:50.624"></status>
+</kw>
+<kw library="BuiltIn" name="Log To Console">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Verify VRF ping from PE router R3 to Host</arg>
+</arguments>
+<status status="PASS" starttime="20181212 14:13:50.624" endtime="20181212 14:13:50.624"></status>
+</kw>
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>ping vrf</arg>
+<arg>R3</arg>
+<arg>vrf1</arg>
+<arg>${Host2_IP}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw library="operational_ph" name="Ping Vrf">
+<arguments>
+<arg>R3</arg>
+<arg>vrf1</arg>
+<arg>${Host2_IP}</arg>
+</arguments>
+<msg timestamp="20181212 14:14:01.847" level="INFO">ping vrf vrf1 192.168.80.20
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.80.20, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 16/25/40 ms
+R8#</msg>
+<status status="PASS" starttime="20181212 14:13:50.625" endtime="20181212 14:14:01.848"></status>
+</kw>
+<msg timestamp="20181212 14:14:01.848" level="INFO">${result} = True</msg>
+<status status="PASS" starttime="20181212 14:13:50.625" endtime="20181212 14:14:01.848"></status>
+</kw>
+<kw library="BuiltIn" name="Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Unable to reach Host from VRF1</arg>
+</arguments>
+<status status="PASS" starttime="20181212 14:14:01.849" endtime="20181212 14:14:01.850"></status>
+</kw>
+<status status="PASS" starttime="20181212 14:13:39.350" endtime="20181212 14:14:01.850"></status>
+</kw>
+<status status="PASS" starttime="20181212 14:13:39.349" endtime="20181212 14:14:01.850" critical="yes"></status>
+</test>
+<doc>A test suite with tests for configuring BGP.
+Topology:-
+____________________________
+| R1 AS2 |
+| /  |
+| /  |
+| R2------ R3 |
+|_________|________|_________|
+| |
+______|__ ___|______
+| AS1| | AS3|
+| R4 | | R5 |
+|_________| |__________|</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Payal Jain
+Date 19 Dec 2016
+Executed At ${HOST}
+Test Framework Robot Framework Python</item>
+</metadata>
+<status status="PASS" starttime="20181212 14:13:39.031" endtime="20181212 14:14:01.852"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="0" id="s1" name="BGP L3VPN" pass="1">BGP L3VPN</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
