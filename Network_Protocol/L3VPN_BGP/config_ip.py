@@ -405,6 +405,7 @@ class config_ip(object):
             return True
         else:
             return False
+<<<<<<< HEAD
 
     @staticmethod
     def config_vrf(*args):
@@ -436,3 +437,5 @@ class config_ip(object):
         else:
             return False
 
+=======
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9

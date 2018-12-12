@@ -14,7 +14,7 @@ def checking_operabilty(Device, command):
     child = Dev.connect(Device)
     if child:
 
-      clear_buffer.flushBuffer(10, child)
+      clear_buffer.flushBuffer(5, child)
       child.sendcontrol('m')
       child.sendcontrol('m')
       child.sendcontrol('m')
@@ -63,7 +63,7 @@ def checking_operabilty_ospf(Device, command):
     child = Dev.connect(Device)
     if child:
 
-      clear_buffer.flushBuffer(10, child)
+      clear_buffer.flushBuffer(5, child)
       child.sendcontrol('m')
       child.sendcontrol('m')
       child.sendcontrol('m')
@@ -162,7 +162,7 @@ def checking_operabilty_bgp(Device, command):
     if port != "zebra":
         if child:
 
-          clear_buffer.flushBuffer(10, child)
+          clear_buffer.flushBuffer(5, child)
           child.sendcontrol('m')
           child.sendcontrol('m')
           child.sendcontrol('m')
@@ -206,7 +206,7 @@ def checking_operabilty_bgp(Device, command):
         IP_add = device_data['Device_Details'][Device]['ip_add']
         child = pexpect.spawn('telnet ' + IP_add + ' ' + port)
         hostname = device_data['Device_Details'][Device]['Hostname']
-        clear_buffer.flushBuffer(10, child)
+        clear_buffer.flushBuffer(5, child)
 
         child.sendcontrol('m')
         flag = (child.expect(['bgpd*', 'Password*', pexpect.EOF, pexpect.TIMEOUT], timeout=100))

@@ -77,6 +77,7 @@ password = "onl"
 Host1_IP = "192.168.70.20"
 Host2_IP = "192.168.80.20"
 
+<<<<<<< HEAD
 VRF_NAME = "VRF1"
 RD = "1:1"
 RT = "10:10"
@@ -85,6 +86,11 @@ VRF_R3_Interface = ["Link_R3_VRF"]
 
 VRF_R2_Interface = ["Link_R2_MPLS"] 
 VRF_R3_Interface = ["Link_R3_MPLS"] 
+=======
+
+
+
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
 
 
 

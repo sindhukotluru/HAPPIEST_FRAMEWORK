@@ -16,7 +16,7 @@ class IBGP:
 
         if child:
 
-            clear_buffer.flushBuffer(10, child)
+            clear_buffer.flushBuffer(1, child)
             child.sendcontrol('m')
             child.sendcontrol('m')
             child.sendcontrol('m')
@@ -130,7 +130,7 @@ class IBGP:
         child = Dev.connect(Device)
         if child:
 
-            clear_buffer.flushBuffer(10, child)
+            clear_buffer.flushBuffer(1, child)
             child.sendcontrol('m')
             child.sendcontrol('m')
             child.sendcontrol('m')
@@ -177,7 +177,7 @@ class IBGP:
 
         if port != "zebra":
             if child:
-                clear_buffer.flushBuffer(10, child)
+                clear_buffer.flushBuffer(1, child)
                 child.sendcontrol('m')
                 child.sendcontrol('m')
                 child.sendcontrol('m')
@@ -279,7 +279,7 @@ class IBGP:
                     IP_add = device_data['Device_Details'][Device]['ip_add']
                     child = pexpect.spawn('telnet ' + IP_add + ' ' + port)
                     hostname = device_data['Device_Details'][Device]['Hostname']
-                    clear_buffer.flushBuffer(10, child)
+                    clear_buffer.flushBuffer(1, child)
 
                     child.sendcontrol('m')
                     flag = (child.expect(['bgpd*', 'Password*', \
@@ -355,7 +355,7 @@ class IBGP:
         child = Dev.connect(Device)
         if child:
 
-            clear_buffer.flushBuffer(10, child)
+            clear_buffer.flushBuffer(1, child)
             child.sendcontrol('m')
             child.sendcontrol('m')
             child.sendcontrol('m')
@@ -400,7 +400,7 @@ class IBGP:
         child = Dev.connect(Device)
         if child:
 
-            clear_buffer.flushBuffer(10, child)
+            clear_buffer.flushBuffer(1, child)
             child.sendcontrol('m')
             child.sendcontrol('m')
             child.sendcontrol('m')
@@ -449,7 +449,7 @@ class IBGP:
         child = Dev.connect(Device)
         if child:
 
-            clear_buffer.flushBuffer(10, child)
+            clear_buffer.flushBuffer(1, child)
             child.sendcontrol('m')
             child.sendcontrol('m')
             child.sendcontrol('m')
@@ -496,7 +496,7 @@ class IBGP:
                 if port != "zebra":
                     if child:
 
-                        clear_buffer.flushBuffer(10, child)
+                        clear_buffer.flushBuffer(1, child)
                         child.sendcontrol('m')
                         child.sendcontrol('m')
                         child.sendcontrol('m')
@@ -533,7 +533,7 @@ class IBGP:
                     IP_add = device_data['Device_Details'][Device]['ip_add']
                     child = pexpect.spawn('telnet ' + IP_add + ' ' + port)
                     hostname = device_data['Device_Details'][Device]['Hostname']
-                    clear_buffer.flushBuffer(10, child)
+                    clear_buffer.flushBuffer(1, child)
 
                     child.sendcontrol('m')
                     flag = (child.expect(['bgpd*', 'Password*', pexpect.EOF,\
@@ -549,7 +549,7 @@ class IBGP:
 
                         if child:
 
-                            clear_buffer.flushBuffer(10, child)
+                            clear_buffer.flushBuffer(1, child)
                             child.sendcontrol('m')
                             child.sendcontrol('m')
                             child.sendcontrol('m')

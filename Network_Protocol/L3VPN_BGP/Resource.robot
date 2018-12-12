@@ -108,6 +108,20 @@ Set loopback interface
 
 
 
+<<<<<<< HEAD
+=======
+Create and Assign VRFs to PE routers
+    Log To Console             Configuring VRFs on PE routers
+
+    ${load_device_R1}=    Create List    R1    ${Process_id}    ${Networks_connected_to_R1}    ${Area1}    enable
+    ${load_device_R2}=    Create List    R2    ${Process_id}    ${Networks_connected_to_R2}    ${Area1}    enable
+    ${load_device_R3}=    Create List    R3    ${Process_id}    ${Networks_connected_to_R3}    ${Area1}    enable
+    ${load_devices}=    Create List    ${load_device_R1}    ${load_device_R2}    ${load_device_R3}
+    ${result}=    Run Keyword and Continue On Failure    start_configure_ospf   ${load_devices}
+    Run Keyword If    ${result}==False    FAIL    Configuring ospf on Routers has failed
+    Log To Console            OSPF configured in Routers
+
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
 Configure OSPF within AS2 to advertise the connected networks
 
     Log To Console             Configuring OSPF
@@ -270,6 +284,7 @@ Enable MPLS on PE and P routers
     Log To Console            Verify VRF ping from PE router R3 to Host
     ${result}=    Run Keyword and Continue On Failure   ping vrf    R3    vrf1   ${Host2_IP}
     Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
+<<<<<<< HEAD
 
 Create and Assign VRFs to PE routers
     Log To Console             Configuring VRFs on PE routers
@@ -280,3 +295,5 @@ Create and Assign VRFs to PE routers
     ${result}=    Run Keyword and Continue On Failure    start_configure_vrf   ${vrf_config}
     Run Keyword If    ${result}==False    FAIL    Configuring VRFs on Routers has failed
     Log To Console            VRFs configured in Routers
+=======
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9

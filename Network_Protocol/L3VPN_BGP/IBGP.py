@@ -7,7 +7,11 @@ import getdata
 
 class IBGP:
 
+<<<<<<< HEAD
     def Configure_VRFs(self, vrf_name, rd, rt , Interface, ip_addr, mask, Action):
+=======
+    def Configure_VRFs(self, vrf_name, rd, rt):
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
 
         device_data = getdata.get_data()
         hostname = device_data['Device_Details'][Device]['Hostname']
@@ -16,7 +20,11 @@ class IBGP:
 
         if child:
 
+<<<<<<< HEAD
             clear_buffer.flushBuffer(1, child)
+=======
+            clear_buffer.flushBuffer(10, child)
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
             child.sendcontrol('m')
             child.sendcontrol('m')
             child.sendcontrol('m')
@@ -88,12 +96,18 @@ class IBGP:
                                 router bgp %d
                                 neighbor %s remote-as %d
                                 neighbor %s update-source loopback 0
+<<<<<<< HEAD
                                 address family vpnv4
                                 neighbor %s activate
                                 exit-address-family
                                 exit
                                 exit
                                 """ % (AS_id, interface, AS_id, interface, interface)
+=======
+                                exit
+                                exit
+                                """ % (AS_id, interface, AS_id, interface)
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                                 commands = configs.split('\n')
                                 execute.execute(child, commands)
                                 time.sleep(6)
@@ -108,12 +122,18 @@ class IBGP:
                         router bgp %d
                         neighbor %s remote-as %d
                         neighbor %s update-source loopback 0
+<<<<<<< HEAD
                         address family vpnv4
                         neighbor %s activate
                         exit-address-family
                         exit
                         exit
                         """ % (AS_id, interface, AS_id, interface, interface)
+=======
+                        exit
+                        exit
+                        """ % (AS_id, interface, AS_id, interface)
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                         commands = configs.split('\n')
                         execute.execute(child, commands)
                         child.sendcontrol('m')
@@ -141,12 +161,18 @@ class IBGP:
                                 router bgp %d
                                 neighbor %s remote-as %d
                                 neighbor %s update-source loopback 0
+<<<<<<< HEAD
                                 address family vpnv4
                                 neighbor %s activate
                                 exit-address-family
                                 exit
                                 exit
                                 """ % (AS_id, interface, AS_id, interface, interface)
+=======
+                                exit
+                                exit
+                                """ % (AS_id, interface, AS_id, interface)
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                                 commands = configs.split('\n')
                                 execute.execute(child, commands)
                                 time.sleep(6)
@@ -161,12 +187,19 @@ class IBGP:
                         router bgp %d
                         neighbor %s remote-as %d
                         neighbor %s update-source loopback 0
+<<<<<<< HEAD
                         address family vpnv4
                         neighbor %s activate
                         exit-address-family
                         exit
                         exit
                         """ % (AS_id, interface, AS_id, interface, interface)
+=======
+                        exit
+                        exit
+                        exit
+                        """ % (AS_id, interface, AS_id, interface)
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                         commands = configs.split('\n')
                         execute.execute(child, commands)
                         child.sendcontrol('m')
@@ -259,6 +292,10 @@ class IBGP:
                                     configure terminal
                                     router bgp %d
                                     neighbor %s remote-as %d
+<<<<<<< HEAD
+=======
+                                    network %s mask %s
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                                     exit
                                     exit
                                     """ % (AS_id, interface, neighbor_AS_id, NW_id, Mask)
@@ -275,6 +312,10 @@ class IBGP:
                             configure terminal
                             router bgp %d
                             neighbor %s remote-as %d
+<<<<<<< HEAD
+=======
+                            network %s mask %s
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                             exit
                             exit
                             """ % (AS_id, interface, neighbor_AS_id, NW_id, Mask)
@@ -302,6 +343,10 @@ class IBGP:
                                     configure terminal
                                     router bgp %d
                                     neighbor %s remote-as %d
+<<<<<<< HEAD
+=======
+                                    network %s mask %s
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                                     exit
                                     exit
                                     """ % (AS_id, interface, neighbor_AS_id, NW_id, Mask)
@@ -317,6 +362,10 @@ class IBGP:
                             configure terminal
                             router bgp %d
                             neighbor %s remote-as %d
+<<<<<<< HEAD
+=======
+                            network %s mask %s
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                             exit
                             exit
                             """ % (AS_id, interface, neighbor_AS_id, NW_id, Mask)
@@ -368,6 +417,10 @@ class IBGP:
                                                configure terminal
                                                router bgp %d
                                                neighbor %s remote-as %d
+<<<<<<< HEAD
+=======
+                                               network %s
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                                                exit
                                                exit
                                                """ % (AS_id, interface, neighbor_AS_id, NW_id)
@@ -384,6 +437,10 @@ class IBGP:
                                            configure terminal
                                            router bgp %d
                                            neighbor %s remote-as %d
+<<<<<<< HEAD
+=======
+                                           network %s
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9
                                            exit
                                            exit
                                            """ % (AS_id, interface, neighbor_AS_id, NW_id)
@@ -642,6 +699,7 @@ class IBGP:
                             return True
                 else:
                   return False
+<<<<<<< HEAD
 
     def Configure_EBGP(self, Device, AS_id, Interface, neighbor_AS_id, Action, NW_id, Mask):
 
@@ -1001,3 +1059,5 @@ class IBGP:
 
         else:
             return False
+=======
+>>>>>>> 942ffe0c3e437b1d5f576ad194937b80eaf152e9

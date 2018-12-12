@@ -15,7 +15,7 @@ class setup_actions:
                 child.sendline('\n')
                 child.sendcontrol('m')
             hostname = devices[keys]['Hostname']
-            clear_buffer.flushBuffer(10, child)
+            clear_buffer.flushBuffer(5, child)
   #          child.send('configure terminal')
             child.sendcontrol('m')
             flag = (child.expect(['R*#', 'Password*', pexpect.EOF, pexpect.TIMEOUT], timeout=100))
@@ -88,7 +88,7 @@ class setup_actions:
     #        time.sleep(10)
             child.sendcontrol('m')
             hostname = devices[keys]['Hostname']
-            clear_buffer.flushBuffer(10, child)
+            clear_buffer.flushBuffer(5, child)
             child.sendcontrol('m')
             child.sendcontrol('m')
             child.sendcontrol('m')
