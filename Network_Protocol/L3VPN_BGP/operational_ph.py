@@ -123,33 +123,6 @@ def ping_host(server, user_name, password, destination_ip, echo_count=5):
     else:
       return False
 
-def ping_vrf(Device, vrf_name, host_ip):
-    device_data = getdata.get_data()
-    IP_add = device_data['Device_Details'][Device]['ip_add']
-    Port_no = device_data['Device_Details'][Device]['port']
-    child = pexpect.spawn('telnet ' + IP_add + ' ' + Port_no)
-    clear_buffer.flushBuffer(1, child)
-    if child:
-      child.sendcontrol('m')
-      child.sendcontrol('m')
-      flag = child.expect(['R*#', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
-
-      if flag == 0:
-              configs = "ping vrf %s %s" % (vrf_name, host_ip)
-              commands = configs.split('\n')
-              execute.execute(child, commands)
-              resp = child.before.decode('utf-8')
-              child.sendcontrol('m')
-              child.sendcontrol('m')
-              regex = r'Success rate is \d+ percent \(\d\/\d\)*'
-              if re.search(regex, resp):
-                return True
-              else:
-                return False
-
-    else:
-      return False
-
 
 def ping_router(Device, Action, Peer_IP, Count="5"):
     print(Action)
@@ -266,3 +239,30 @@ def checking_operabilty_bgp(Device, command):
 
     else:
           return False
+
+def ping_vrf(Device, vrf_name, host_ip):
+    device_data = getdata.get_data()
+    IP_add = device_data['Device_Details'][Device]['ip_add']
+    Port_no = device_data['Device_Details'][Device]['port']
+    child = pexpect.spawn('telnet ' + IP_add + ' ' + Port_no)
+    clear_buffer.flushBuffer(1, child)
+    if child:
+      child.sendcontrol('m')
+      child.sendcontrol('m')
+      flag = child.expect(['R*#', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
+
+      if flag == 0:
+              configs = "ping vrf %s %s" % (vrf_name, host_ip)
+              commands = configs.split('\n')
+              execute.execute(child, commands)
+              resp = child.before.decode('utf-8')
+              child.sendcontrol('m')
+              child.sendcontrol('m')
+              regex = r'Success rate is \d+ percent \(\d\/\d\)*'
+              if re.search(regex, resp):
+                return True
+              else:
+                return False
+
+    else:
+      return False
