@@ -77,19 +77,12 @@ password = "onl"
 Host1_IP = "192.168.70.20"
 Host2_IP = "192.168.80.20"
 
+VRF_NAME = "VRF1"
+RD = "1:1"
+RT = "10:10"
+VRF_R2_Interface = ["Link_R2_VRF"]
+VRF_R3_Interface = ["Link_R3_VRF"]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+MPLS_LABEL_PROTO = "ldp"
+MPLS_R2_Interface = ["Link_R2_MPLS"]
+MPLS_R3_Interface = ["Link_R3_MPLS"]
