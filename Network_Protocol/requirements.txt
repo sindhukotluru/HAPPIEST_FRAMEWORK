@@ -1,6 +1,0 @@
-robotframework
-robotframework-sshlibrary
-robotframework-debuglibrary
-robotframework-httplibrary
-pexpect
-paramiko
