@@ -1,0 +1,2994 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20181212 13:01:22.132" rpa="false" generator="Robot 3.1 (Python 3.5.2 on linux)">
+<suite name="BGP OSPF Test with GNS3" source="/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/suites/bgp/BGP_OSPF_Test_with_GNS3.robot" id="s1">
+<test name="Configure IP addresses as per the topology" id="s1-t1">
+<kw name="Configure ip address" library="Resource">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R1</arg>
+<arg>${Links_of_R1}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R1}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.805" level="INFO">${load_device_R1} = ['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'configure']</msg>
+<status endtime="20181212 13:01:22.805" starttime="20181212 13:01:22.801" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${Links_of_R2}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.809" level="INFO">${load_device_R2} = ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1', 'Link_R2_R3_1'], 'configure']</msg>
+<status endtime="20181212 13:01:22.810" starttime="20181212 13:01:22.808" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${Links_of_R3}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.812" level="INFO">${load_device_R3} = ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1', 'Link_R2_R3_1'], 'configure']</msg>
+<status endtime="20181212 13:01:22.812" starttime="20181212 13:01:22.811" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R4</arg>
+<arg>${Links_of_R4}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R4}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.813" level="INFO">${load_device_R4} = ['R4', ['Link_R2_R4_1', 'Link_R4_PC-1_1'], 'configure']</msg>
+<status endtime="20181212 13:01:22.813" starttime="20181212 13:01:22.813" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R5</arg>
+<arg>${Links_of_R5}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R5}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.815" level="INFO">${load_device_R5} = ['R5', ['Link_R3_R5_1', 'Link_R5_PC-2_1'], 'configure']</msg>
+<status endtime="20181212 13:01:22.815" starttime="20181212 13:01:22.814" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>PC-1</arg>
+<arg>configure</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${load_device_PC1}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.817" level="INFO">${load_device_PC1} = ['PC-1', 'configure', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:22.818" starttime="20181212 13:01:22.816" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>Ubuntu</arg>
+<arg>configure</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${load_device_PC2}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.819" level="INFO">${load_device_PC2} = ['Ubuntu', 'configure', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:22.819" starttime="20181212 13:01:22.818" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${load_device_R1}</arg>
+<arg>${load_device_R2}</arg>
+<arg>${load_device_R3}</arg>
+<arg>${load_device_R4}</arg>
+<arg>${load_device_R5}</arg>
+<arg>${load_device_PC1}</arg>
+<arg>${load_device_PC2}</arg>
+</arguments>
+<assign>
+<var>${load_devices}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.825" level="INFO">${load_devices} = [['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'configure'], ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1', 'Link_R2_R3_1'], 'configure'], ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1', 'Link_R2_R3_1'], 'configure'], ['...</msg>
+<status endtime="20181212 13:01:22.826" starttime="20181212 13:01:22.820" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start configure</arg>
+<arg>${load_devices}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Start Configure" library="config_ip">
+<arguments>
+<arg>${load_devices}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:22.835" level="INFO">Configuring IP address for R1Configuring IP address for R2Configuring IP address for R3Configuring IP address for R4Configuring IP address for R5Waiting thread #ConfigureRouter_R1
+Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
+Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5
+Waiting thread #ConfigureRouter_PC-1
+Waiting thread #ConfigureRouter_Ubuntu</msg>
+<msg timestamp="20181212 13:01:22.836" level="INFO">Exception in thread ConfigureRouter_R1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_PC-1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 29, in config_host_addr
+    dev.set_IP_Host(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 240, in set_IP_Host
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_Ubuntu:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 34, in config_docker_addr
+    dev.set_IP_DockerHost(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 304, in set_IP_DockerHost
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:22.840" starttime="20181212 13:01:22.827" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:22.840" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:22.840" starttime="20181212 13:01:22.826" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>IP address configuration failed</arg>
+</arguments>
+<status endtime="20181212 13:01:22.843" starttime="20181212 13:01:22.841" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>IP_Address configured on all Routers</arg>
+</arguments>
+<status endtime="20181212 13:01:22.844" starttime="20181212 13:01:22.843" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.845" starttime="20181212 13:01:22.799" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.845" starttime="20181212 13:01:22.780" status="PASS" critical="yes"></status>
+</test>
+<test name="Configure loopback interface as per the topology" id="s1-t2">
+<kw name="Set loopback interface" library="Resource">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Setting Loopback interface</arg>
+</arguments>
+<status endtime="20181212 13:01:22.851" starttime="20181212 13:01:22.851" status="PASS"></status>
+</kw>
+<kw name="${var} IN [ @{Devices} ]" type="for">
+<kw name="${var} = R1" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>set</arg>
+</arguments>
+<assign>
+<var>${load_device}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.854" level="INFO">${load_device} = ['R1', 'set']</msg>
+<status endtime="20181212 13:01:22.854" starttime="20181212 13:01:22.853" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${load_devices_lo}</arg>
+<arg>${load_device}</arg>
+</arguments>
+<status endtime="20181212 13:01:22.855" starttime="20181212 13:01:22.855" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.855" starttime="20181212 13:01:22.853" status="PASS"></status>
+</kw>
+<kw name="${var} = R2" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>set</arg>
+</arguments>
+<assign>
+<var>${load_device}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.857" level="INFO">${load_device} = ['R2', 'set']</msg>
+<status endtime="20181212 13:01:22.857" starttime="20181212 13:01:22.856" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${load_devices_lo}</arg>
+<arg>${load_device}</arg>
+</arguments>
+<status endtime="20181212 13:01:22.857" starttime="20181212 13:01:22.857" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.857" starttime="20181212 13:01:22.856" status="PASS"></status>
+</kw>
+<kw name="${var} = R3" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>set</arg>
+</arguments>
+<assign>
+<var>${load_device}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.858" level="INFO">${load_device} = ['R3', 'set']</msg>
+<status endtime="20181212 13:01:22.858" starttime="20181212 13:01:22.858" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${load_devices_lo}</arg>
+<arg>${load_device}</arg>
+</arguments>
+<status endtime="20181212 13:01:22.859" starttime="20181212 13:01:22.858" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.859" starttime="20181212 13:01:22.858" status="PASS"></status>
+</kw>
+<kw name="${var} = R4" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>set</arg>
+</arguments>
+<assign>
+<var>${load_device}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.860" level="INFO">${load_device} = ['R4', 'set']</msg>
+<status endtime="20181212 13:01:22.861" starttime="20181212 13:01:22.860" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${load_devices_lo}</arg>
+<arg>${load_device}</arg>
+</arguments>
+<status endtime="20181212 13:01:22.862" starttime="20181212 13:01:22.861" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.862" starttime="20181212 13:01:22.859" status="PASS"></status>
+</kw>
+<kw name="${var} = R5" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>set</arg>
+</arguments>
+<assign>
+<var>${load_device}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.864" level="INFO">${load_device} = ['R5', 'set']</msg>
+<status endtime="20181212 13:01:22.864" starttime="20181212 13:01:22.863" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${load_devices_lo}</arg>
+<arg>${load_device}</arg>
+</arguments>
+<status endtime="20181212 13:01:22.865" starttime="20181212 13:01:22.864" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.865" starttime="20181212 13:01:22.862" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.865" starttime="20181212 13:01:22.852" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start configure loopback</arg>
+<arg>${load_devices_lo}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Start Configure Loopback" library="config_ip">
+<arguments>
+<arg>${load_devices_lo}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:22.868" level="INFO">Waiting thread #ConfigureRouter_R1
+Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
+Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5</msg>
+<msg timestamp="20181212 13:01:22.869" level="INFO">Exception in thread ConfigureRouter_R1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:22.871" starttime="20181212 13:01:22.866" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:22.871" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:22.871" starttime="20181212 13:01:22.866" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Configuring Loopback IP failed</arg>
+</arguments>
+<status endtime="20181212 13:01:22.874" starttime="20181212 13:01:22.872" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Loopback_Address configured on all Routers</arg>
+</arguments>
+<status endtime="20181212 13:01:22.876" starttime="20181212 13:01:22.874" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.876" starttime="20181212 13:01:22.849" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:22.876" starttime="20181212 13:01:22.848" status="PASS" critical="yes"></status>
+</test>
+<test name="Configure OSPF within AS2 to advertise the connected networks" id="s1-t3">
+<kw name="Enable OSPF in devices present in AS2 and set the ospf neighbors" library="Resource">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R1</arg>
+<arg>${Process_id}</arg>
+<arg>${Networks_connected_to_R1}</arg>
+<arg>${Area1}</arg>
+<arg>enable</arg>
+</arguments>
+<assign>
+<var>${load_device_R1}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.881" level="INFO">${load_device_R1} = ['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'enable']</msg>
+<status endtime="20181212 13:01:22.881" starttime="20181212 13:01:22.880" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${Process_id}</arg>
+<arg>${Networks_connected_to_R2}</arg>
+<arg>${Area1}</arg>
+<arg>enable</arg>
+</arguments>
+<assign>
+<var>${load_device_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.882" level="INFO">${load_device_R2} = ['R2', 1, ['192.168.23.0  0.0.0.255', '192.168.50.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'enable']</msg>
+<status endtime="20181212 13:01:22.882" starttime="20181212 13:01:22.881" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${Process_id}</arg>
+<arg>${Networks_connected_to_R3}</arg>
+<arg>${Area1}</arg>
+<arg>enable</arg>
+</arguments>
+<assign>
+<var>${load_device_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.882" level="INFO">${load_device_R3} = ['R3', 1, ['192.168.34.0  0.0.0.255', '192.168.50.0  0.0.0.255', '3.3.3.0  0.0.0.255'], 0, 'enable']</msg>
+<status endtime="20181212 13:01:22.883" starttime="20181212 13:01:22.882" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${load_device_R1}</arg>
+<arg>${load_device_R2}</arg>
+<arg>${load_device_R3}</arg>
+</arguments>
+<assign>
+<var>${load_devices}</var>
+</assign>
+<msg timestamp="20181212 13:01:22.884" level="INFO">${load_devices} = [['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'enable'], ['R2', 1, ['192.168.23.0  0.0.0.255', '192.168.50.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'enabl...</msg>
+<status endtime="20181212 13:01:22.884" starttime="20181212 13:01:22.883" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start_configure_ospf</arg>
+<arg>${load_devices}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Start Configure Ospf" library="config_ip">
+<arguments>
+<arg>${load_devices}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:28.891" level="INFO">Waiting thread #ConfigureRouter_R1
+Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3</msg>
+<msg timestamp="20181212 13:01:28.892" level="INFO">Exception in thread ConfigureRouter_R1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 44, in config_ospf
+    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/OSPF.py", line 13, in Configure_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 44, in config_ospf
+    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/OSPF.py", line 13, in Configure_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 44, in config_ospf
+    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/OSPF.py", line 13, in Configure_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:28.896" starttime="20181212 13:01:22.885" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:28.897" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:28.897" starttime="20181212 13:01:22.885" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Configuring ospf on Routers has failed</arg>
+</arguments>
+<status endtime="20181212 13:01:28.902" starttime="20181212 13:01:28.900" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>OSPF configured in Routers</arg>
+</arguments>
+<status endtime="20181212 13:01:28.905" starttime="20181212 13:01:28.903" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.906" starttime="20181212 13:01:22.879" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.907" starttime="20181212 13:01:22.878" status="PASS" critical="yes"></status>
+</test>
+<test name="Configure IBGP and source the BGP updates from the loopback0 interfaces" id="s1-t4">
+<kw name="Enable IBGP and advertise the updates from the loopback interface" library="Resource">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${AS_id}</arg>
+<arg>${R3_interface}</arg>
+<arg>enable</arg>
+</arguments>
+<assign>
+<var>${ibgp_device_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.921" level="INFO">${ibgp_device_R2} = ['R2', 2, '3.3.3.3', 'enable']</msg>
+<status endtime="20181212 13:01:28.922" starttime="20181212 13:01:28.918" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${AS_id}</arg>
+<arg>${R2_interface}</arg>
+<arg>enable</arg>
+</arguments>
+<assign>
+<var>${ibgp_device_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.925" level="INFO">${ibgp_device_R3} = ['R3', 2, '2.2.2.2', 'enable']</msg>
+<status endtime="20181212 13:01:28.926" starttime="20181212 13:01:28.923" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${ibgp_device_R2}</arg>
+<arg>${ibgp_device_R3}</arg>
+</arguments>
+<assign>
+<var>${ibgp_devices}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.928" level="INFO">${ibgp_devices} = [['R2', 2, '3.3.3.3', 'enable'], ['R3', 2, '2.2.2.2', 'enable']]</msg>
+<status endtime="20181212 13:01:28.928" starttime="20181212 13:01:28.927" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start ibgp</arg>
+<arg>${ibgp_devices}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Start Ibgp" library="config_ip">
+<arguments>
+<arg>${ibgp_devices}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:28.930" level="INFO">Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3</msg>
+<msg timestamp="20181212 13:01:28.930" level="INFO">Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 49, in config_ibgp
+    ibgp.Configure_IBGP(args[0], args[1], args[2], args[3])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 12, in Configure_IBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 49, in config_ibgp
+    ibgp.Configure_IBGP(args[0], args[1], args[2], args[3])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 12, in Configure_IBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:28.932" starttime="20181212 13:01:28.929" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:28.933" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:28.933" starttime="20181212 13:01:28.928" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>IBGP configuration failed</arg>
+</arguments>
+<status endtime="20181212 13:01:28.934" starttime="20181212 13:01:28.933" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>IBGP configured on R2 and R3 routers</arg>
+</arguments>
+<status endtime="20181212 13:01:28.935" starttime="20181212 13:01:28.934" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.935" starttime="20181212 13:01:28.917" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.936" starttime="20181212 13:01:28.913" status="PASS" critical="yes"></status>
+</test>
+<test name="Enable BGP Synchronisation" id="s1-t5">
+<kw name="Enable synchronisation between border routers" library="Resource">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${AS_id}</arg>
+</arguments>
+<assign>
+<var>${ibgp_sync_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.941" level="INFO">${ibgp_sync_R2} = ['R2', 2]</msg>
+<status endtime="20181212 13:01:28.941" starttime="20181212 13:01:28.940" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${AS_id}</arg>
+</arguments>
+<assign>
+<var>${ibgp_sync_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.942" level="INFO">${ibgp_sync_R3} = ['R3', 2]</msg>
+<status endtime="20181212 13:01:28.942" starttime="20181212 13:01:28.941" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${ibgp_sync_R2}</arg>
+<arg>${ibgp_sync_R3}</arg>
+</arguments>
+<assign>
+<var>${sync_enable}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.942" level="INFO">${sync_enable} = [['R2', 2], ['R3', 2]]</msg>
+<status endtime="20181212 13:01:28.942" starttime="20181212 13:01:28.942" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>enable sync</arg>
+<arg>${sync_enable}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Enable Sync" library="config_ip">
+<arguments>
+<arg>${sync_enable}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:28.945" level="INFO">Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3</msg>
+<msg timestamp="20181212 13:01:28.945" level="INFO">Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 54, in ibgp_sync
+    ibgp.enable_syn(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 127, in enable_syn
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 54, in ibgp_sync
+    ibgp.enable_syn(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 127, in enable_syn
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:28.947" starttime="20181212 13:01:28.944" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:28.947" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:28.947" starttime="20181212 13:01:28.943" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>BGP synchronization failed</arg>
+</arguments>
+<status endtime="20181212 13:01:28.949" starttime="20181212 13:01:28.948" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Enabled BGP synchronization on R2 and R3 routers</arg>
+</arguments>
+<status endtime="20181212 13:01:28.950" starttime="20181212 13:01:28.949" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.950" starttime="20181212 13:01:28.939" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.951" starttime="20181212 13:01:28.937" status="PASS" critical="yes"></status>
+</test>
+<test name="Configure EBGP and source the BGP updates from the loopback0 interfaces" id="s1-t6">
+<kw name="Enable BGP and advertise networks connected outside the autonomous system" library="Resource">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${R2_AS_id}</arg>
+<arg>${R2_einterface}</arg>
+<arg>${R2_neighbor_AS_id}</arg>
+<arg>enable</arg>
+<arg>${R4_R2_network}</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${ebgp_device_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.955" level="INFO">${ebgp_device_R2} = ['R2', 2, '192.168.12.1', 1, 'enable', '192.168.12.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:28.956" starttime="20181212 13:01:28.954" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${R3_AS_id}</arg>
+<arg>${R3_einterface}</arg>
+<arg>${R3_neighbor_AS_id}</arg>
+<arg>enable</arg>
+<arg>${R3_R5_network}</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${ebgp_device_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.957" level="INFO">${ebgp_device_R3} = ['R3', 2, '192.168.45.6', 3, 'enable', '192.168.45.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:28.957" starttime="20181212 13:01:28.956" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R4</arg>
+<arg>${R4_AS_id}</arg>
+<arg>${R4_einterface}</arg>
+<arg>${R4_neighbor_AS_id}</arg>
+<arg>enable</arg>
+<arg>${R4_R2_network}</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${ebgp_device_R4}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.958" level="INFO">${ebgp_device_R4} = ['R4', 1, '192.168.12.2', 2, 'enable', '192.168.12.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:28.958" starttime="20181212 13:01:28.957" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R5</arg>
+<arg>${R5_AS_id}</arg>
+<arg>${R5_einterface}</arg>
+<arg>${R5_neighbor_AS_id}</arg>
+<arg>enable</arg>
+<arg>${R3_R5_network}</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${ebgp_device_R5}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.959" level="INFO">${ebgp_device_R5} = ['R5', 3, '192.168.45.4', 2, 'enable', '192.168.45.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:28.959" starttime="20181212 13:01:28.958" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${ebgp_device_R2}</arg>
+<arg>${ebgp_device_R3}</arg>
+<arg>${ebgp_device_R4}</arg>
+<arg>${ebgp_device_R5}</arg>
+</arguments>
+<assign>
+<var>${ebgp_devices}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.960" level="INFO">${ebgp_devices} = [['R2', 2, '192.168.12.1', 1, 'enable', '192.168.12.0', '255.255.255.0'], ['R3', 2, '192.168.45.6', 3, 'enable', '192.168.45.0', '255.255.255.0'], ['R4', 1, '192.168.12.2', 2, 'enable', '192.168.12.0'...</msg>
+<status endtime="20181212 13:01:28.960" starttime="20181212 13:01:28.959" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>ebgp configure</arg>
+<arg>${ebgp_devices}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Ebgp Configure" library="config_ip">
+<arguments>
+<arg>${ebgp_devices}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:28.963" level="INFO">Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
+Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5</msg>
+<msg timestamp="20181212 13:01:28.963" level="INFO">Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 59, in enable_ebgp
+    ibgp.Configure_EBGP(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 172, in Configure_EBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 59, in enable_ebgp
+    ibgp.Configure_EBGP(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 172, in Configure_EBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 59, in enable_ebgp
+    ibgp.Configure_EBGP(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 172, in Configure_EBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 59, in enable_ebgp
+    ibgp.Configure_EBGP(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 172, in Configure_EBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:28.965" starttime="20181212 13:01:28.961" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:28.966" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:28.966" starttime="20181212 13:01:28.960" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>EBGP configuration failed</arg>
+</arguments>
+<status endtime="20181212 13:01:28.967" starttime="20181212 13:01:28.966" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>EBGP configured on Routers R2,R3,R4 and R5</arg>
+</arguments>
+<status endtime="20181212 13:01:28.968" starttime="20181212 13:01:28.967" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.968" starttime="20181212 13:01:28.954" status="PASS"></status>
+</kw>
+<kw name="Advertise loopback interface on AS1 and AS3" library="Resource">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R4</arg>
+<arg>${R4_AS_id}</arg>
+<arg>${R4_interface}</arg>
+<arg>${R4_mask}</arg>
+</arguments>
+<assign>
+<var>${adv_R4}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.970" level="INFO">${adv_R4} = ['R4', 1, '4.4.4.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:28.970" starttime="20181212 13:01:28.970" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R5</arg>
+<arg>${R5_AS_id}</arg>
+<arg>${R5_interface}</arg>
+<arg>${R5_mask}</arg>
+</arguments>
+<assign>
+<var>${adv_R5}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.972" level="INFO">${adv_R5} = ['R5', 3, '5.5.5.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:28.972" starttime="20181212 13:01:28.971" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${adv_R4}</arg>
+<arg>${adv_R5}</arg>
+</arguments>
+<assign>
+<var>${adv_devices}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.973" level="INFO">${adv_devices} = [['R4', 1, '4.4.4.0', '255.255.255.0'], ['R5', 3, '5.5.5.0', '255.255.255.0']]</msg>
+<status endtime="20181212 13:01:28.973" starttime="20181212 13:01:28.972" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>advertise loopback</arg>
+<arg>${adv_devices}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Advertise Loopback" library="config_ip">
+<arguments>
+<arg>${adv_devices}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:28.976" level="INFO">Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5</msg>
+<msg timestamp="20181212 13:01:28.976" level="INFO">Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 64, in loopback_advertise
+    ibgp.advertising_loopback(args[0], args[1], args[2], args[3])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 352, in advertising_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 64, in loopback_advertise
+    ibgp.advertising_loopback(args[0], args[1], args[2], args[3])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 352, in advertising_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:28.977" starttime="20181212 13:01:28.975" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:28.977" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:28.978" starttime="20181212 13:01:28.974" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Advertising Loopback configuration failed</arg>
+</arguments>
+<status endtime="20181212 13:01:28.979" starttime="20181212 13:01:28.978" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Loopback interface is advertised to AS1 and AS3</arg>
+</arguments>
+<status endtime="20181212 13:01:28.980" starttime="20181212 13:01:28.979" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.980" starttime="20181212 13:01:28.969" status="PASS"></status>
+</kw>
+<kw name="Establish route between R2 and R3" library="Resource">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${R2_AS_id}</arg>
+<arg>${R3_lointerface}</arg>
+</arguments>
+<assign>
+<var>${route_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.982" level="INFO">${route_R2} = ['R2', 2, '3.3.3.3']</msg>
+<status endtime="20181212 13:01:28.982" starttime="20181212 13:01:28.981" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${R3_AS_id}</arg>
+<arg>${R2_lointerface}</arg>
+</arguments>
+<assign>
+<var>${route_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.983" level="INFO">${route_R3} = ['R3', 2, '2.2.2.2']</msg>
+<status endtime="20181212 13:01:28.983" starttime="20181212 13:01:28.982" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${route_R2}</arg>
+<arg>${route_R3}</arg>
+</arguments>
+<assign>
+<var>${routes}</var>
+</assign>
+<msg timestamp="20181212 13:01:28.983" level="INFO">${routes} = [['R2', 2, '3.3.3.3'], ['R3', 2, '2.2.2.2']]</msg>
+<status endtime="20181212 13:01:28.984" starttime="20181212 13:01:28.983" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>establish route</arg>
+<arg>${routes}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Establish Route" library="config_ip">
+<arguments>
+<arg>${routes}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:28.985" level="INFO">Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3</msg>
+<msg timestamp="20181212 13:01:28.986" level="INFO">Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 69, in route_establish
+    ibgp.route(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 446, in route
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 69, in route_establish
+    ibgp.route(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 446, in route
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:28.987" starttime="20181212 13:01:28.984" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:28.987" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:28.987" starttime="20181212 13:01:28.984" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Establishment of route between R2 and R3 failed</arg>
+</arguments>
+<status endtime="20181212 13:01:28.989" starttime="20181212 13:01:28.988" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Established route between R2 and R3</arg>
+</arguments>
+<status endtime="20181212 13:01:28.991" starttime="20181212 13:01:28.990" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.991" starttime="20181212 13:01:28.981" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:28.991" starttime="20181212 13:01:28.952" status="PASS" critical="yes"></status>
+</test>
+<test name="Redistribute routes from OSPF into BGP" id="s1-t7">
+<kw name="Redistribute routes from OSPF into BGP" library="Resource">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Redistributing routes from OSPF into BGP</arg>
+</arguments>
+<status endtime="20181212 13:01:29.000" starttime="20181212 13:01:28.999" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${R2_AS_id}</arg>
+<arg>${Process_id}</arg>
+</arguments>
+<assign>
+<var>${redistribution_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.000" level="INFO">${redistribution_R2} = ['R2', 2, 1]</msg>
+<status endtime="20181212 13:01:29.001" starttime="20181212 13:01:29.000" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${R3_AS_id}</arg>
+<arg>${Process_id}</arg>
+</arguments>
+<assign>
+<var>${redistribution_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.001" level="INFO">${redistribution_R3} = ['R3', 2, 1]</msg>
+<status endtime="20181212 13:01:29.001" starttime="20181212 13:01:29.001" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${redistribution_R2}</arg>
+<arg>${redistribution_R3}</arg>
+</arguments>
+<assign>
+<var>${redistribute_ospf}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.002" level="INFO">${redistribute_ospf} = [['R2', 2, 1], ['R3', 2, 1]]</msg>
+<status endtime="20181212 13:01:29.002" starttime="20181212 13:01:29.002" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>redistribute ospf</arg>
+<arg>${redistribute_ospf}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Redistribute Ospf" library="config_ip">
+<arguments>
+<arg>${redistribute_ospf}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.004" level="INFO">Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3</msg>
+<msg timestamp="20181212 13:01:29.004" level="INFO">Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 74, in ospf_redistribute
+    ibgp.redistribution(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 397, in redistribution
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 74, in ospf_redistribute
+    ibgp.redistribution(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 397, in redistribution
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.005" starttime="20181212 13:01:29.003" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.005" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:29.005" starttime="20181212 13:01:29.002" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Redistribution of routes from OSPF into BGP failed</arg>
+</arguments>
+<status endtime="20181212 13:01:29.007" starttime="20181212 13:01:29.006" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Redistributed routes from OSPF into BGP</arg>
+</arguments>
+<status endtime="20181212 13:01:29.008" starttime="20181212 13:01:29.007" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.009" starttime="20181212 13:01:28.998" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.009" starttime="20181212 13:01:28.997" status="PASS" critical="yes"></status>
+</test>
+<test name="Redistribute connnected routes into BGP" id="s1-t8">
+<kw name="Redistribute connnected routes into BGP" library="Resource">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Redistributing connected routes into BGP</arg>
+</arguments>
+<status endtime="20181212 13:01:29.013" starttime="20181212 13:01:29.012" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R4</arg>
+<arg>${R4_AS_id}</arg>
+</arguments>
+<assign>
+<var>${redistribution_R4}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.015" level="INFO">${redistribution_R4} = ['R4', 1]</msg>
+<status endtime="20181212 13:01:29.015" starttime="20181212 13:01:29.014" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R5</arg>
+<arg>${R5_AS_id}</arg>
+</arguments>
+<assign>
+<var>${redistribution_R5}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.015" level="INFO">${redistribution_R5} = ['R5', 3]</msg>
+<status endtime="20181212 13:01:29.015" starttime="20181212 13:01:29.015" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${redistribution_R4}</arg>
+<arg>${redistribution_R5}</arg>
+</arguments>
+<assign>
+<var>${connected}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.016" level="INFO">${connected} = [['R4', 1], ['R5', 3]]</msg>
+<status endtime="20181212 13:01:29.016" starttime="20181212 13:01:29.016" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>redistribute connected</arg>
+<arg>${connected}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Redistribute Connected" library="config_ip">
+<arguments>
+<arg>${connected}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.019" level="INFO">Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5</msg>
+<msg timestamp="20181212 13:01:29.019" level="INFO">Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 79, in connected_redistribute
+    ibgp.redistribution_connected(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 490, in redistribution_connected
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 79, in connected_redistribute
+    ibgp.redistribution_connected(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 490, in redistribution_connected
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.020" starttime="20181212 13:01:29.017" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.020" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:29.021" starttime="20181212 13:01:29.016" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Redistribution of connected routes failed</arg>
+</arguments>
+<status endtime="20181212 13:01:29.022" starttime="20181212 13:01:29.021" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Redistributed connnected routes into BGP</arg>
+</arguments>
+<status endtime="20181212 13:01:29.024" starttime="20181212 13:01:29.023" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.025" starttime="20181212 13:01:29.012" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.025" starttime="20181212 13:01:29.011" status="PASS" critical="yes"></status>
+</test>
+<test name="Check if ip address is set and interface is up" id="s1-t9">
+<kw name="Check if ip address is set and interface is up" library="Resource">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Checking if IP address is set and interface is up</arg>
+</arguments>
+<status endtime="20181212 13:01:29.029" starttime="20181212 13:01:29.029" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R1</arg>
+<arg>show interfaces description</arg>
+</arguments>
+<assign>
+<var>${ip_set_R1}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.030" level="INFO">${ip_set_R1} = ['R1', 'show interfaces description']</msg>
+<status endtime="20181212 13:01:29.030" starttime="20181212 13:01:29.030" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>show interfaces description</arg>
+</arguments>
+<assign>
+<var>${ip_set_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.031" level="INFO">${ip_set_R2} = ['R2', 'show interfaces description']</msg>
+<status endtime="20181212 13:01:29.031" starttime="20181212 13:01:29.030" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>show interfaces description</arg>
+</arguments>
+<assign>
+<var>${ip_set_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.031" level="INFO">${ip_set_R3} = ['R3', 'show interfaces description']</msg>
+<status endtime="20181212 13:01:29.031" starttime="20181212 13:01:29.031" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R4</arg>
+<arg>show interfaces description</arg>
+</arguments>
+<assign>
+<var>${ip_set_R4}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.032" level="INFO">${ip_set_R4} = ['R4', 'show interfaces description']</msg>
+<status endtime="20181212 13:01:29.032" starttime="20181212 13:01:29.032" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R5</arg>
+<arg>show interfaces description</arg>
+</arguments>
+<assign>
+<var>${ip_set_R5}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.033" level="INFO">${ip_set_R5} = ['R5', 'show interfaces description']</msg>
+<status endtime="20181212 13:01:29.033" starttime="20181212 13:01:29.032" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${ip_set_R1}</arg>
+<arg>${ip_set_R2}</arg>
+<arg>${ip_set_R3}</arg>
+<arg>${ip_set_R4}</arg>
+<arg>${ip_set_R4}</arg>
+</arguments>
+<assign>
+<var>${show_ip_interface}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.034" level="INFO">${show_ip_interface} = [['R1', 'show interfaces description'], ['R2', 'show interfaces description'], ['R3', 'show interfaces description'], ['R4', 'show interfaces description'], ['R4', 'show interfaces description']]</msg>
+<status endtime="20181212 13:01:29.034" starttime="20181212 13:01:29.033" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>show ip interface</arg>
+<arg>${show_ip_interface}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Show Ip Interface" library="config_ip">
+<arguments>
+<arg>${show_ip_interface}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.037" level="INFO">Waiting thread #ConfigureRouter_R1
+Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
+Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R4</msg>
+<msg timestamp="20181212 13:01:29.037" level="INFO">Exception in thread ConfigureRouter_R1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 83, in show_ip
+    operational_ph.checking_operabilty(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 11, in checking_operabilty
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 83, in show_ip
+    operational_ph.checking_operabilty(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 11, in checking_operabilty
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 83, in show_ip
+    operational_ph.checking_operabilty(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 11, in checking_operabilty
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 83, in show_ip
+    operational_ph.checking_operabilty(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 11, in checking_operabilty
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 83, in show_ip
+    operational_ph.checking_operabilty(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 11, in checking_operabilty
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.040" starttime="20181212 13:01:29.035" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.040" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:29.041" starttime="20181212 13:01:29.034" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>IP address not set or interface not up in</arg>
+<arg>${ELEMENT}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.042" starttime="20181212 13:01:29.041" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.042" starttime="20181212 13:01:29.028" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.043" starttime="20181212 13:01:29.027" status="PASS" critical="yes"></status>
+</test>
+<test name="Check if OSPF neighbors are established" id="s1-t10">
+<kw name="Check if OSPF neighbors are established" library="Resource">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Checking if OSPF neighbors are established</arg>
+</arguments>
+<status endtime="20181212 13:01:29.048" starttime="20181212 13:01:29.047" status="PASS"></status>
+</kw>
+<kw name="${ELEMENT} IN RANGE [ 0 | 3 ]" type="for">
+<kw name="${ELEMENT} = 0" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>@{Devices}[${ELEMENT}]</arg>
+<arg>show ip ospf neighbor</arg>
+</arguments>
+<assign>
+<var>${neighbor}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.049" level="INFO">${neighbor} = ['R1', 'show ip ospf neighbor']</msg>
+<status endtime="20181212 13:01:29.050" starttime="20181212 13:01:29.049" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${ospf_neighbor}</arg>
+<arg>${neighbor}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.050" starttime="20181212 13:01:29.050" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.050" starttime="20181212 13:01:29.048" status="PASS"></status>
+</kw>
+<kw name="${ELEMENT} = 1" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>@{Devices}[${ELEMENT}]</arg>
+<arg>show ip ospf neighbor</arg>
+</arguments>
+<assign>
+<var>${neighbor}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.051" level="INFO">${neighbor} = ['R2', 'show ip ospf neighbor']</msg>
+<status endtime="20181212 13:01:29.051" starttime="20181212 13:01:29.051" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${ospf_neighbor}</arg>
+<arg>${neighbor}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.052" starttime="20181212 13:01:29.051" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.052" starttime="20181212 13:01:29.050" status="PASS"></status>
+</kw>
+<kw name="${ELEMENT} = 2" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>@{Devices}[${ELEMENT}]</arg>
+<arg>show ip ospf neighbor</arg>
+</arguments>
+<assign>
+<var>${neighbor}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.053" level="INFO">${neighbor} = ['R3', 'show ip ospf neighbor']</msg>
+<status endtime="20181212 13:01:29.053" starttime="20181212 13:01:29.052" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${ospf_neighbor}</arg>
+<arg>${neighbor}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.054" starttime="20181212 13:01:29.053" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.054" starttime="20181212 13:01:29.052" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.054" starttime="20181212 13:01:29.048" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>show ospf neighbor</arg>
+<arg>${ospf_neighbor}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Show Ospf Neighbor" library="config_ip">
+<arguments>
+<arg>${ospf_neighbor}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.057" level="INFO">Waiting thread #ConfigureRouter_R1
+Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3</msg>
+<msg timestamp="20181212 13:01:29.058" level="INFO">Exception in thread ConfigureRouter_R1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 87, in show_ip_ospf
+    operational_ph.checking_operabilty_ospf(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 60, in checking_operabilty_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 87, in show_ip_ospf
+    operational_ph.checking_operabilty_ospf(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 60, in checking_operabilty_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 87, in show_ip_ospf
+    operational_ph.checking_operabilty_ospf(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 60, in checking_operabilty_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.060" starttime="20181212 13:01:29.055" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.060" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:29.060" starttime="20181212 13:01:29.054" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>OSPF neighbors are not established in the routers</arg>
+</arguments>
+<status endtime="20181212 13:01:29.061" starttime="20181212 13:01:29.061" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.061" starttime="20181212 13:01:29.046" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.062" starttime="20181212 13:01:29.045" status="PASS" critical="yes"></status>
+</test>
+<test name="Check if BGP sessions are established" id="s1-t11">
+<kw name="Check if BGP sessions are established" library="Resource">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Checking if all BGP sessions are established</arg>
+</arguments>
+<status endtime="20181212 13:01:29.066" starttime="20181212 13:01:29.065" status="PASS"></status>
+</kw>
+<kw name="${ELEMENT} IN RANGE [ 1 | 5 ]" type="for">
+<kw name="${ELEMENT} = 1" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>@{Devices}[${ELEMENT}]</arg>
+<arg>show ip bgp summary</arg>
+</arguments>
+<assign>
+<var>${bgp}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.067" level="INFO">${bgp} = ['R2', 'show ip bgp summary']</msg>
+<status endtime="20181212 13:01:29.068" starttime="20181212 13:01:29.067" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${bgp_summary}</arg>
+<arg>${bgp}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.068" starttime="20181212 13:01:29.068" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.068" starttime="20181212 13:01:29.067" status="PASS"></status>
+</kw>
+<kw name="${ELEMENT} = 2" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>@{Devices}[${ELEMENT}]</arg>
+<arg>show ip bgp summary</arg>
+</arguments>
+<assign>
+<var>${bgp}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.069" level="INFO">${bgp} = ['R3', 'show ip bgp summary']</msg>
+<status endtime="20181212 13:01:29.069" starttime="20181212 13:01:29.069" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${bgp_summary}</arg>
+<arg>${bgp}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.070" starttime="20181212 13:01:29.069" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.070" starttime="20181212 13:01:29.068" status="PASS"></status>
+</kw>
+<kw name="${ELEMENT} = 3" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>@{Devices}[${ELEMENT}]</arg>
+<arg>show ip bgp summary</arg>
+</arguments>
+<assign>
+<var>${bgp}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.071" level="INFO">${bgp} = ['R4', 'show ip bgp summary']</msg>
+<status endtime="20181212 13:01:29.071" starttime="20181212 13:01:29.070" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${bgp_summary}</arg>
+<arg>${bgp}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.072" starttime="20181212 13:01:29.071" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.072" starttime="20181212 13:01:29.070" status="PASS"></status>
+</kw>
+<kw name="${ELEMENT} = 4" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>@{Devices}[${ELEMENT}]</arg>
+<arg>show ip bgp summary</arg>
+</arguments>
+<assign>
+<var>${bgp}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.074" level="INFO">${bgp} = ['R5', 'show ip bgp summary']</msg>
+<status endtime="20181212 13:01:29.074" starttime="20181212 13:01:29.073" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${bgp_summary}</arg>
+<arg>${bgp}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.074" starttime="20181212 13:01:29.074" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.074" starttime="20181212 13:01:29.072" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.075" starttime="20181212 13:01:29.066" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>show bgp summary</arg>
+<arg>${bgp_summary}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Show Bgp Summary" library="config_ip">
+<arguments>
+<arg>${bgp_summary}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.077" level="INFO">Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
+Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5</msg>
+<msg timestamp="20181212 13:01:29.077" level="INFO">Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 91, in show_bgp
+    operational_ph.checking_operabilty_bgp(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 156, in checking_operabilty_bgp
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 91, in show_bgp
+    operational_ph.checking_operabilty_bgp(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 156, in checking_operabilty_bgp
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 91, in show_bgp
+    operational_ph.checking_operabilty_bgp(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 156, in checking_operabilty_bgp
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 91, in show_bgp
+    operational_ph.checking_operabilty_bgp(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/operational_ph.py", line 156, in checking_operabilty_bgp
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.078" starttime="20181212 13:01:29.075" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.079" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:29.079" starttime="20181212 13:01:29.075" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>BGP sessions are not established in the routers</arg>
+</arguments>
+<status endtime="20181212 13:01:29.080" starttime="20181212 13:01:29.079" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.080" starttime="20181212 13:01:29.065" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.081" starttime="20181212 13:01:29.063" status="PASS" critical="yes"></status>
+</test>
+<test name="Ensure that different autonomous systems can communicate with each other" id="s1-t12">
+<kw name="Ensure that different autonomous systems can communicate with each other" library="Resource">
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Autonomous system communication validated</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.085" level="INFO">Autonomous system communication validated</msg>
+<status endtime="20181212 13:01:29.085" starttime="20181212 13:01:29.085" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Verify Ping operation from PC-1 to Ubuntu</arg>
+</arguments>
+<status endtime="20181212 13:01:29.086" starttime="20181212 13:01:29.086" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>ping router</arg>
+<arg>PC-1</arg>
+<arg>ping</arg>
+<arg>${Host2_IP}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Ping Router" library="operational_ph">
+<arguments>
+<arg>PC-1</arg>
+<arg>ping</arg>
+<arg>${Host2_IP}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.088" level="INFO">ping</msg>
+<msg timestamp="20181212 13:01:29.089" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.089" starttime="20181212 13:01:29.087" status="FAIL"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.089" level="INFO">${result} = None</msg>
+<status endtime="20181212 13:01:29.089" starttime="20181212 13:01:29.087" status="FAIL"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Unable to reach ONL from PC-1 to Ubuntu</arg>
+</arguments>
+<status endtime="20181212 13:01:29.090" starttime="20181212 13:01:29.090" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Verify Ping operation from Ubuntu to PC-1</arg>
+</arguments>
+<status endtime="20181212 13:01:29.092" starttime="20181212 13:01:29.091" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>ping router</arg>
+<arg>Ubuntu</arg>
+<arg>ping</arg>
+<arg>${Host1_IP}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Ping Router" library="operational_ph">
+<arguments>
+<arg>Ubuntu</arg>
+<arg>ping</arg>
+<arg>${Host1_IP}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.093" level="INFO">ping</msg>
+<msg timestamp="20181212 13:01:29.094" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.094" starttime="20181212 13:01:29.093" status="FAIL"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.094" level="INFO">${result} = None</msg>
+<status endtime="20181212 13:01:29.094" starttime="20181212 13:01:29.092" status="FAIL"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Unable to reach VPCS from Ubuntu to PC-1</arg>
+</arguments>
+<status endtime="20181212 13:01:29.095" starttime="20181212 13:01:29.095" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.095" starttime="20181212 13:01:29.084" status="FAIL"></status>
+</kw>
+<status endtime="20181212 13:01:29.096" starttime="20181212 13:01:29.083" status="FAIL" critical="yes">Several failures occurred:
+
+1) FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+2) FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</status>
+</test>
+<kw name="Teardown Actions" type="teardown" library="Resource">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Teardown Actions done here</arg>
+</arguments>
+<status endtime="20181212 13:01:29.101" starttime="20181212 13:01:29.100" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Unconfiguring IP_Address</arg>
+</arguments>
+<status endtime="20181212 13:01:29.102" starttime="20181212 13:01:29.101" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R1</arg>
+<arg>${Links_of_R1}</arg>
+<arg>unconfigure</arg>
+</arguments>
+<assign>
+<var>${ip_addr_R1}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.103" level="INFO">${ip_addr_R1} = ['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'unconfigure']</msg>
+<status endtime="20181212 13:01:29.103" starttime="20181212 13:01:29.102" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${Links_of_R2}</arg>
+<arg>unconfigure</arg>
+</arguments>
+<assign>
+<var>${ip_addr_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.104" level="INFO">${ip_addr_R2} = ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1', 'Link_R2_R3_1'], 'unconfigure']</msg>
+<status endtime="20181212 13:01:29.104" starttime="20181212 13:01:29.103" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${Links_of_R3}</arg>
+<arg>unconfigure</arg>
+</arguments>
+<assign>
+<var>${ip_addr_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.104" level="INFO">${ip_addr_R3} = ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1', 'Link_R2_R3_1'], 'unconfigure']</msg>
+<status endtime="20181212 13:01:29.104" starttime="20181212 13:01:29.104" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R4</arg>
+<arg>${Links_of_R4}</arg>
+<arg>unconfigure</arg>
+</arguments>
+<assign>
+<var>${ip_addr_R4}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.105" level="INFO">${ip_addr_R4} = ['R4', ['Link_R2_R4_1', 'Link_R4_PC-1_1'], 'unconfigure']</msg>
+<status endtime="20181212 13:01:29.105" starttime="20181212 13:01:29.105" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R5</arg>
+<arg>${Links_of_R5}</arg>
+<arg>unconfigure</arg>
+</arguments>
+<assign>
+<var>${ip_addr_R5}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.106" level="INFO">${ip_addr_R5} = ['R5', ['Link_R3_R5_1', 'Link_R5_PC-2_1'], 'unconfigure']</msg>
+<status endtime="20181212 13:01:29.107" starttime="20181212 13:01:29.106" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>PC-1</arg>
+<arg>unconfigure</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${ip_addr_PC1}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.108" level="INFO">${ip_addr_PC1} = ['PC-1', 'unconfigure', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:29.108" starttime="20181212 13:01:29.107" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>Ubuntu</arg>
+<arg>unconfigure</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${ip_addr_PC2}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.110" level="INFO">${ip_addr_PC2} = ['Ubuntu', 'unconfigure', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:29.110" starttime="20181212 13:01:29.109" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${ip_addr_R1}</arg>
+<arg>${ip_addr_R2}</arg>
+<arg>${ip_addr_R3}</arg>
+<arg>${ip_addr_R4}</arg>
+<arg>${ip_addr_R5}</arg>
+<arg>${ip_addr_PC1}</arg>
+<arg>${ip_addr_PC2}</arg>
+</arguments>
+<assign>
+<var>${unconfig_ip}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.112" level="INFO">${unconfig_ip} = [['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'unconfigure'], ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1', 'Link_R2_R3_1'], 'unconfigure'], ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1', 'Link_R2_R3_1'], 'unconfigure...</msg>
+<status endtime="20181212 13:01:29.112" starttime="20181212 13:01:29.111" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start configure</arg>
+<arg>${unconfig_ip}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Start Configure" library="config_ip">
+<arguments>
+<arg>${unconfig_ip}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.115" level="INFO">Configuring IP address for R1Configuring IP address for R2Configuring IP address for R3Configuring IP address for R4Configuring IP address for R5Waiting thread #ConfigureRouter_R1
+Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
+Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5
+Waiting thread #ConfigureRouter_PC-1
+Waiting thread #ConfigureRouter_Ubuntu</msg>
+<msg timestamp="20181212 13:01:29.116" level="INFO">Exception in thread ConfigureRouter_R1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 20, in config_ip_addr
+    status = dev.set_IP(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 99, in set_IP
+    child = self.connect(Device)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 15, in connect
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_PC-1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 29, in config_host_addr
+    dev.set_IP_Host(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 240, in set_IP_Host
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_Ubuntu:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 34, in config_docker_addr
+    dev.set_IP_DockerHost(args[0], args[1], args[2])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 304, in set_IP_DockerHost
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.122" starttime="20181212 13:01:29.113" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.123" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:29.123" starttime="20181212 13:01:29.112" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Unable to clear IP address on the routers</arg>
+</arguments>
+<status endtime="20181212 13:01:29.124" starttime="20181212 13:01:29.123" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>IP_Address cleared on all Routers</arg>
+</arguments>
+<status endtime="20181212 13:01:29.126" starttime="20181212 13:01:29.125" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Unconfiguring Loopback interface</arg>
+</arguments>
+<status endtime="20181212 13:01:29.127" starttime="20181212 13:01:29.126" status="PASS"></status>
+</kw>
+<kw name="${var} IN [ @{Devices} ]" type="for">
+<kw name="${var} = R1" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>unset</arg>
+</arguments>
+<assign>
+<var>${clear_lo}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.128" level="INFO">${clear_lo} = ['R1', 'unset']</msg>
+<status endtime="20181212 13:01:29.128" starttime="20181212 13:01:29.127" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${clear_lo_devices}</arg>
+<arg>${clear_lo}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.129" starttime="20181212 13:01:29.128" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.129" starttime="20181212 13:01:29.127" status="PASS"></status>
+</kw>
+<kw name="${var} = R2" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>unset</arg>
+</arguments>
+<assign>
+<var>${clear_lo}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.129" level="INFO">${clear_lo} = ['R2', 'unset']</msg>
+<status endtime="20181212 13:01:29.130" starttime="20181212 13:01:29.129" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${clear_lo_devices}</arg>
+<arg>${clear_lo}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.130" starttime="20181212 13:01:29.130" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.130" starttime="20181212 13:01:29.129" status="PASS"></status>
+</kw>
+<kw name="${var} = R3" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>unset</arg>
+</arguments>
+<assign>
+<var>${clear_lo}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.131" level="INFO">${clear_lo} = ['R3', 'unset']</msg>
+<status endtime="20181212 13:01:29.131" starttime="20181212 13:01:29.131" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${clear_lo_devices}</arg>
+<arg>${clear_lo}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.132" starttime="20181212 13:01:29.131" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.132" starttime="20181212 13:01:29.130" status="PASS"></status>
+</kw>
+<kw name="${var} = R4" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>unset</arg>
+</arguments>
+<assign>
+<var>${clear_lo}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.134" level="INFO">${clear_lo} = ['R4', 'unset']</msg>
+<status endtime="20181212 13:01:29.134" starttime="20181212 13:01:29.132" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${clear_lo_devices}</arg>
+<arg>${clear_lo}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.135" starttime="20181212 13:01:29.134" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.135" starttime="20181212 13:01:29.132" status="PASS"></status>
+</kw>
+<kw name="${var} = R5" type="foritem">
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${var}</arg>
+<arg>unset</arg>
+</arguments>
+<assign>
+<var>${clear_lo}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.135" level="INFO">${clear_lo} = ['R5', 'unset']</msg>
+<status endtime="20181212 13:01:29.135" starttime="20181212 13:01:29.135" status="PASS"></status>
+</kw>
+<kw name="Append To List" library="Collections">
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<arguments>
+<arg>${clear_lo_devices}</arg>
+<arg>${clear_lo}</arg>
+</arguments>
+<status endtime="20181212 13:01:29.136" starttime="20181212 13:01:29.136" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.136" starttime="20181212 13:01:29.135" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:29.136" starttime="20181212 13:01:29.127" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start configure loopback</arg>
+<arg>${clear_lo_devices}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Start Configure Loopback" library="config_ip">
+<arguments>
+<arg>${clear_lo_devices}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:29.139" level="INFO">Waiting thread #ConfigureRouter_R1
+Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
+Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5</msg>
+<msg timestamp="20181212 13:01:29.140" level="INFO">Exception in thread ConfigureRouter_R1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 39, in config_lo_addr
+    dev.set_loopback(args[0], args[1])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/Devices.py", line 195, in set_loopback
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:29.142" starttime="20181212 13:01:29.137" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:29.143" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:29.143" starttime="20181212 13:01:29.136" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Unable to clear Loopback address on the interfaces</arg>
+</arguments>
+<status endtime="20181212 13:01:29.145" starttime="20181212 13:01:29.143" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Loopback_Address cleared on all Routers</arg>
+</arguments>
+<status endtime="20181212 13:01:29.146" starttime="20181212 13:01:29.146" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Clearing OSPF configuration</arg>
+</arguments>
+<status endtime="20181212 13:01:29.148" starttime="20181212 13:01:29.147" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R1</arg>
+<arg>${Process_id}</arg>
+<arg>${Networks_connected_to_R1}</arg>
+<arg>${Area1}</arg>
+<arg>disable</arg>
+</arguments>
+<assign>
+<var>${ospf_R1}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.149" level="INFO">${ospf_R1} = ['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'disable']</msg>
+<status endtime="20181212 13:01:29.149" starttime="20181212 13:01:29.148" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${Process_id}</arg>
+<arg>${Networks_connected_to_R2}</arg>
+<arg>${Area1}</arg>
+<arg>disable</arg>
+</arguments>
+<assign>
+<var>${ospf_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.150" level="INFO">${ospf_R2} = ['R2', 1, ['192.168.23.0  0.0.0.255', '192.168.50.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'disable']</msg>
+<status endtime="20181212 13:01:29.150" starttime="20181212 13:01:29.149" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${Process_id}</arg>
+<arg>${Networks_connected_to_R3}</arg>
+<arg>${Area1}</arg>
+<arg>disable</arg>
+</arguments>
+<assign>
+<var>${ospf_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.151" level="INFO">${ospf_R3} = ['R3', 1, ['192.168.34.0  0.0.0.255', '192.168.50.0  0.0.0.255', '3.3.3.0  0.0.0.255'], 0, 'disable']</msg>
+<status endtime="20181212 13:01:29.151" starttime="20181212 13:01:29.150" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${ospf_R1}</arg>
+<arg>${ospf_R2}</arg>
+<arg>${ospf_R3}</arg>
+</arguments>
+<assign>
+<var>${clear_ospf}</var>
+</assign>
+<msg timestamp="20181212 13:01:29.152" level="INFO">${clear_ospf} = [['R1', 1, ['192.168.23.0  0.0.0.255', '192.168.34.0  0.0.0.255', '1.1.1.0  0.0.0.255'], 0, 'disable'], ['R2', 1, ['192.168.23.0  0.0.0.255', '192.168.50.0  0.0.0.255', '2.2.2.0  0.0.0.255'], 0, 'disa...</msg>
+<status endtime="20181212 13:01:29.152" starttime="20181212 13:01:29.151" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start_configure_ospf</arg>
+<arg>${clear_ospf}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Start Configure Ospf" library="config_ip">
+<arguments>
+<arg>${clear_ospf}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:35.158" level="INFO">Waiting thread #ConfigureRouter_R1
+Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3</msg>
+<msg timestamp="20181212 13:01:35.158" level="INFO">Exception in thread ConfigureRouter_R1:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 44, in config_ospf
+    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/OSPF.py", line 13, in Configure_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 44, in config_ospf
+    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/OSPF.py", line 13, in Configure_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 44, in config_ospf
+    ospf.Configure_ospf(args[0], args[1], args[2], args[3], args[4])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/OSPF.py", line 13, in Configure_ospf
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:35.158" starttime="20181212 13:01:29.152" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:35.159" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:35.159" starttime="20181212 13:01:29.152" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Clearing OSPF on Routers has failed</arg>
+</arguments>
+<status endtime="20181212 13:01:35.160" starttime="20181212 13:01:35.159" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>OSPF unconfigured in Routers</arg>
+</arguments>
+<status endtime="20181212 13:01:35.160" starttime="20181212 13:01:35.160" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Clearing BGP configuration</arg>
+</arguments>
+<status endtime="20181212 13:01:35.163" starttime="20181212 13:01:35.161" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${R2_AS_id}</arg>
+<arg>${R2_einterface}</arg>
+<arg>${R2_neighbor_AS_id}</arg>
+<arg>disable</arg>
+<arg>${R4_R2_network}</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${clear_R2}</var>
+</assign>
+<msg timestamp="20181212 13:01:35.164" level="INFO">${clear_R2} = ['R2', 2, '192.168.12.1', 1, 'disable', '192.168.12.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:35.164" starttime="20181212 13:01:35.163" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${R3_AS_id}</arg>
+<arg>${R3_einterface}</arg>
+<arg>${R3_neighbor_AS_id}</arg>
+<arg>disable</arg>
+<arg>${R3_R5_network}</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${clear_R3}</var>
+</assign>
+<msg timestamp="20181212 13:01:35.165" level="INFO">${clear_R3} = ['R3', 2, '192.168.45.6', 3, 'disable', '192.168.45.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:35.165" starttime="20181212 13:01:35.164" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R4</arg>
+<arg>${R4_AS_id}</arg>
+<arg>${R4_einterface}</arg>
+<arg>${R4_neighbor_AS_id}</arg>
+<arg>disable</arg>
+<arg>${R4_R2_network}</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${clear_R4}</var>
+</assign>
+<msg timestamp="20181212 13:01:35.167" level="INFO">${clear_R4} = ['R4', 1, '192.168.12.2', 2, 'disable', '192.168.12.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:35.167" starttime="20181212 13:01:35.166" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R5</arg>
+<arg>${R5_AS_id}</arg>
+<arg>${R5_einterface}</arg>
+<arg>${R5_neighbor_AS_id}</arg>
+<arg>disable</arg>
+<arg>${R3_R5_network}</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${clear_R5}</var>
+</assign>
+<msg timestamp="20181212 13:01:35.168" level="INFO">${clear_R5} = ['R5', 3, '192.168.45.4', 2, 'disable', '192.168.45.0', '255.255.255.0']</msg>
+<status endtime="20181212 13:01:35.168" starttime="20181212 13:01:35.167" status="PASS"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${clear_R2}</arg>
+<arg>${clear_R3}</arg>
+<arg>${clear_R4}</arg>
+<arg>${clear_R5}</arg>
+</arguments>
+<assign>
+<var>${clear_ebgp}</var>
+</assign>
+<msg timestamp="20181212 13:01:35.169" level="INFO">${clear_ebgp} = [['R2', 2, '192.168.12.1', 1, 'disable', '192.168.12.0', '255.255.255.0'], ['R3', 2, '192.168.45.6', 3, 'disable', '192.168.45.0', '255.255.255.0'], ['R4', 1, '192.168.12.2', 2, 'disable', '192.168.12...</msg>
+<status endtime="20181212 13:01:35.169" starttime="20181212 13:01:35.168" status="PASS"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>ebgp configure</arg>
+<arg>${clear_ebgp}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Ebgp Configure" library="config_ip">
+<arguments>
+<arg>${clear_ebgp}</arg>
+</arguments>
+<msg timestamp="20181212 13:01:35.172" level="INFO">Waiting thread #ConfigureRouter_R2
+Waiting thread #ConfigureRouter_R3
+Waiting thread #ConfigureRouter_R4
+Waiting thread #ConfigureRouter_R5</msg>
+<msg timestamp="20181212 13:01:35.173" level="INFO">Exception in thread ConfigureRouter_R2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 59, in enable_ebgp
+    ibgp.Configure_EBGP(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 172, in Configure_EBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R3:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 59, in enable_ebgp
+    ibgp.Configure_EBGP(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 172, in Configure_EBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R4:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 59, in enable_ebgp
+    ibgp.Configure_EBGP(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 172, in Configure_EBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'
+
+Exception in thread ConfigureRouter_R5:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/threading.py", line 914, in _bootstrap_inner
+    self.run()
+  File "/usr/local/lib/python3.5/threading.py", line 862, in run
+    self._target(*self._args, **self._kwargs)
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/config_ip.py", line 59, in enable_ebgp
+    ibgp.Configure_EBGP(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/IBGP.py", line 172, in Configure_EBGP
+    device_data = getdata.get_data()
+  File "/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/getdata.py", line 4, in get_data
+    with open('../config/Topology_file.json') as data_file:
+FileNotFoundError: [Errno 2] No such file or directory: '../config/Topology_file.json'</msg>
+<status endtime="20181212 13:01:35.175" starttime="20181212 13:01:35.170" status="PASS"></status>
+</kw>
+<msg timestamp="20181212 13:01:35.175" level="INFO">${result} = True</msg>
+<status endtime="20181212 13:01:35.176" starttime="20181212 13:01:35.169" status="PASS"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Clearing BGP on Routers has failed</arg>
+</arguments>
+<status endtime="20181212 13:01:35.176" starttime="20181212 13:01:35.176" status="PASS"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>BGP unconfigured on Routers R2,R3,R4 and R5</arg>
+</arguments>
+<status endtime="20181212 13:01:35.178" starttime="20181212 13:01:35.177" status="PASS"></status>
+</kw>
+<status endtime="20181212 13:01:35.179" starttime="20181212 13:01:29.100" status="PASS"></status>
+</kw>
+<doc>A test suite with tests for configuring BGP.
+Topology:-
+____________________________
+| R1 AS2 |
+| /  |
+| /  |
+| R2 R3 |
+|_________|________|_________|
+| |
+______|__ ___|______
+| AS1| | AS3|
+| R4 | | R5 |
+|_________| |__________|
+Testplan Goals:-
+1. Configure IP addresses as per the topology.
+2. Each Router should have a loopback0 interface.
+3. Configure OSPF within AS2 to advertise the loopback0 interfaces.
+Don't advertise or run OSPF on the links interconnecting AS1 and AS3.
+4. Configure IBGP between R2 and R3. Source the BGP updates from the loopback0 interfaces.
+5. Enable BGP synchronisation.
+6. Configure EBGP between R2 and R4.
+7. Configure EBGP between R3 and R5.
+8. Advertise the loopback0 interfaces on R4 and R5.
+9. Ensure AS1 and AS3 can communicate with each other without removing the BGP synchronisation command.</doc>
+<metadata>
+<item name="Version">1.0
+More Info For more information about Robot Framework see http://robotframework.org
+Author Payal Jain
+Date 19 Dec 2016
+Executed At ${HOST}
+Test Framework Robot Framework Python</item>
+</metadata>
+<status endtime="20181212 13:01:35.179" starttime="20181212 13:01:22.133" status="FAIL"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="11">Critical Tests</stat>
+<stat fail="1" pass="11">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" name="BGP OSPF Test with GNS3" id="s1" pass="11">BGP OSPF Test with GNS3</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

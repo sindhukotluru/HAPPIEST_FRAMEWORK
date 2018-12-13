@@ -1,0 +1,78 @@
+node('TEE') {
+  timestamps {
+  try {
+      stage ('Checkout') {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: true], [$class: 'RelativeTargetDirectory', relativeTargetDir: 'HAPPIEST_FRAMEWORK']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/dineshbhattahm/HAPPIEST_FRAMEWORK.git']]])
+      }
+      stage ('Setup Topology') {
+          echo "Setup ready"
+      }
+      stage ('Static Code Analysis') {
+             sh 'mkdir -p ${WORKSPACE}/logs'
+             sh 'pylint --disable=${pylint_disable_checkers} --output-format=parseable --reports=no ${WORKSPACE}/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/*.py > ${WORKSPACE}/logs/pylint.log || echo "pylint exited with $?"'
+             sh 'cat ${WORKSPACE}/logs/pylint.log'
+             step([
+                 $class                     : 'WarningsPublisher',
+                 parserConfigurations       : [[
+                                               parserName: 'PYLint',
+                 pattern   : 'logs/pylint.log'
+                                      ]],
+                 unstableTotalAll: '0',
+                 usePreviousBuildAsReference: true
+                 ])
+      }
+//      stage ('Test') {
+//             sh 'cd ${WORKSPACE}/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/;pybot BGP_OSPF_Test_with_GNS3_EC.robot;'
+//      }
+    } catch(e) {
+        // fail the build if an exception is thrown
+        currentBuild.result = "FAILED"
+        throw e
+    } finally {
+        // Post build steps here
+        /* Success or failure, always run post build steps */
+        // send email
+        // publish test results etc etc
+
+        def currentResult = currentBuild.result ?: 'SUCCESS'
+
+        if (currentResult == 'UNSTABLE') {
+            echo "Runs when unstable"
+        }
+
+        def previousResult = currentBuild.previousBuild?.result
+        if (previousResult != null && previousResult != currentResult) {
+            echo 'This will run only if the state of the Pipeline has changed'
+            echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
+        echo 'This will always run'
+        res = sh(script: "test -f  ${WORKSPACE}/intdpc02/SNATF/Network_Protocol/log.html && echo '1' || echo '0' ", returnStdout: true).trim()
+        if(res=='1'){
+            echo 'Logs found'
+            step([$class: 'RobotPublisher',
+              outputPath: '',
+              outputFileName: 'HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/output.xml',
+              reportFileName: 'HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/report.html',
+              logFileName: 'HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/log.html',
+              otherFiles: '',
+              disableArchiveOutput: false,
+              enableCache: true,
+              unstableThreshold: 90,
+              passThreshold: 95,
+              onlyCritical: true
+              ])
+        } else {
+            echo 'No logs found'
+        }
+        emailext (
+            to: 'chandralekha.v@happiestminds.com;priya.muthusamy@happiestminds.com',
+            subject: """${currentResult}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'""",
+            body: """<p>${currentResult}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+            recipientProviders: [[$class: 'CulpritsRecipientProvider'],[$class: 'RequesterRecipientProvider']],
+        )
+        echo 'Clean Workspace'
+        //cleanWs()
+    }
+    }
+}
