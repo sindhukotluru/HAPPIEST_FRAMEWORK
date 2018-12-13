@@ -405,3 +405,33 @@ class config_ip(object):
             return True
         else:
             return False
+
+    @staticmethod
+    def config_vrf(*args):
+        ibgp = IBGP.IBGP()
+        ibgp.Configure_VRFs(args[0], args[1], args[2], args[3], args[4], args[5], args[6])
+
+    def start_configure_vrf(self, devices):
+        threads_device = {}
+        list_threads = []
+        for device in devices:
+            if re.search('R.*', device[0]):
+                threads_device["new_thread{0}".format(device[0])] = \
+                               Thread(target=config_ip.config_vrf,\
+                               args=[device[0], device[1], device[2], device[3], device[4], device[5], device[6]])
+                threads_device["new_thread{0}".format(device[0])].start()
+                threads_device["new_thread{0}".format(device[0])].name = \
+                                      "ConfigureRouter_" + str(device[0])
+                sleep(2)
+                list_threads.append(threads_device["new_thread{0}".format(device[0])])
+        for _thread in list_threads:
+            print("Waiting thread #%s" % str(_thread.name))
+            _thread.join()
+
+        #make list empty if thread not running
+        _list_threads = [t for t in list_threads if t.isAlive()]
+        #check list empty
+        if not _list_threads:
+            return True
+        else:
+            return False
