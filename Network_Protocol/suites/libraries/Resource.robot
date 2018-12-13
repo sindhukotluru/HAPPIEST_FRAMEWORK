@@ -1,14 +1,14 @@
 *** Settings ***
 Documentation     Resource file containing all the PYTHON API implementations.
 Library           Collections
-Library           setup_actions.py
-Library           config_ip.py
-Library           Devices.py
-Library           OSPF.py
-Library           IBGP.py
-Library           operational_ph.py
+Library           ../../libraries/setup_actions.py
+Library           ../../libraries/config_ip.py
+Library           ../../libraries/Devices.py
+Library           ../../libraries/OSPF.py
+Library           ../../libraries/IBGP.py
+Library           ../../libraries/operational_ph.py
 Library           String
-Variables         variable.py
+Variables         ../../config/variable.py
 
 *** Variables ***
 
@@ -49,7 +49,7 @@ Teardown Actions
     Log To Console            IP_Address cleared on all Routers
 
     Log To Console            Unconfiguring Loopback interface
-    :FOR  ${var}  in  @{Devices}
+    :FOR  ${var}  IN  @{Devices}
     \    ${clear_lo}=    Create List    ${var}    unset
     \    Append To List    ${clear_lo_devices}    ${clear_lo}
 
@@ -98,7 +98,7 @@ Configure ip address
 Set loopback interface
 
     Log To Console            Setting Loopback interface
-    :FOR  ${var}  in  @{Devices}
+    :FOR  ${var}  IN  @{Devices}
     \    ${load_device}=    Create List    ${var}    set
     \    Append To List    ${load_devices_lo}    ${load_device}
 

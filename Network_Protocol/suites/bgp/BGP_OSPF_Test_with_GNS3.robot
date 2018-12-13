@@ -34,10 +34,9 @@ Documentation   A test suite with tests for configuring BGP.
 ...               8. Advertise the loopback0 interfaces on R4 and R5.
 ...               9. Ensure AS1 and AS3 can communicate with each other without removing the BGP synchronisation command.
 
-Resource          Resource.robot
-Library         DebugLibrary
-#Suite Setup       Setup Actions
-
+Resource         ../libraries/Resource.robot
+Library          DebugLibrary
+#Suite Setup     Setup Actions
 Suite Teardown    Teardown Actions
 
 *** Test Cases ***
