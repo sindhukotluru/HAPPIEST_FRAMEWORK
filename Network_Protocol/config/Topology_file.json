@@ -92,6 +92,18 @@
                   },
        "Link_R5_PC-2_1" : {
 			"R5" : "Ethernet 1/1"
+                  },
+       "Link_R2_VRF" : {
+                        "R2" : "Ethernet 1/1"
+                  },
+       "Link_R3_VRF" : {
+                        "R3" : "Ethernet 1/0"
+                  },
+       "Link_R2_MPLS": {
+                        "R2" : "Ethernet 1/0"
+                  },
+       "Link_R3_MPLS" : {
+                        "R3" : "Ethernet 1/1"
                   }
-		}
+         }
 }

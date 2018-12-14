@@ -253,3 +253,32 @@ Check if BGP sessions are established
     ${result}=    Run Keyword and Continue On Failure    show bgp summary     ${bgp_summary}
     Run Keyword If    ${result}==False    FAIL    BGP sessions are not established in the routers
 
+Ensure the VRF reachability between PE routers
+
+    Log To Console            Verify VRF ping from PE router (R2,R3) to Host
+    ${ping_vrf_R2}=    Create List    ping vrf    R2    vrf1   ${Host2_IP}
+    ${ping_vrf_R3}=    Create List    ping vrf    R3    vrf1   ${Host2_IP}
+    ${load_ping_vrf}=    Create List    ${ping_vrf_R2}    ${ping_vrf_R3}
+    ${result}=    Run Keyword and Continue On Failure   ping vrf    ${load_ping_vrf}
+    Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
+
+Enable MP-BGP on PE routers
+    Log To Console            Configure MPLS on PE router R2 and R3
+    ${mpls_R2}=    Create List    R2    ${MPLS_R2_Interface}   ${MPLS_LABEL_PROTO}    enable
+    ${mpls_R3}=    Create List    R3    ${MPLS_R3_Interface}   ${MPLS_LABEL_PROTO}    enable
+    ${load_mpls}=    Create List    ${mpls_R3}    ${mpls_R2}
+    ${result}=    Run Keyword and Continue On Failure   start_mpls_bgp    ${load_mpls}
+    Run Keyword If    ${result}==False    FAIL    Unable to configure MP-BGP on PE routers
+
+Create and Assign VRFs to PE routers
+    Log To Console             Configuring VRFs on PE routers
+
+    ${vrf_R2}=    Create List    R2    ${VRF_NAME}    ${RD}   ${RT}  ${VRF_R2_Interface}   ${R2_einterface}    ${mask}     enable
+    ${vrf_R3}=    Create List    R3    ${VRF_NAME}    ${RD}   ${RT}  ${VRF_R3_Interface}   ${R5_einterface}    ${mask}     enable
+    ${vrf_config}=    Create List    ${vrf_R2}    ${vrf_R3}
+    ${result}=    Run Keyword and Continue On Failure    start_configure_vrf   ${vrf_config}
+    Run Keyword If    ${result}==False    FAIL    Configuring VRFs on Routers has failed
+    Log To Console            VRFs configured in Routers
+
+Configure MPLS on P and PE routers
+    Log To Console        Enable MPLS on PE and P routers
