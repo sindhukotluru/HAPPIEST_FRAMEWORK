@@ -5,7 +5,7 @@ node('TEE') {
             checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CloneOption', depth: 0, noTags: false, reference: '', shallow: true], [$class: 'RelativeTargetDirectory', relativeTargetDir: 'HAPPIEST_FRAMEWORK']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/dineshbhattahm/HAPPIEST_FRAMEWORK.git']]])
       }
       stage ('Setup Topology') {
-          echo "Setup ready"
+          sh "cd ${WORKSPACE}/HAPPIEST_FRAMEWORK/Network_Protocol/libraries/;python misc.py -ip $DUT --porttype TCP"
       }
       stage ('Static Code Analysis') {
              sh 'mkdir -p ${WORKSPACE}/logs'
@@ -17,13 +17,13 @@ node('TEE') {
                                                parserName: 'PYLint',
                  pattern   : 'logs/pylint.log'
                                       ]],
-                 unstableTotalAll: '0',
+                 unstableTotalAll: '600',
                  usePreviousBuildAsReference: true
                  ])
       }
-//      stage ('Test') {
-//             sh 'cd ${WORKSPACE}/HAPPIEST_FRAMEWORK/Network_Protocol/BGP_OSPF/;pybot BGP_OSPF_Test_with_GNS3_EC.robot;'
-//      }
+      stage ('Test') {
+             sh 'cd ${WORKSPACE}/HAPPIEST_FRAMEWORK/Network_Protocol/suites/bgp/;pybot BGP_OSPF_Test_with_GNS3.robot;'
+      }
     } catch(e) {
         // fail the build if an exception is thrown
         currentBuild.result = "FAILED"
@@ -65,10 +65,10 @@ node('TEE') {
             echo 'No logs found'
         }
         emailext (
-            to: 'chandralekha.v@happiestminds.com;priya.muthusamy@happiestminds.com',
+            to: 'chandralekha.v@happiestminds.com;priya.muthusamy@happiestminds.com;dinesh.bhatta@happiestminds.com;jason.chandralal@happiestminds.com',
             subject: """${currentResult}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'""",
-            body: """<p>${currentResult}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+            body: """<p>Build Status - ${currentResult}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>" to view the results</p>""",
             recipientProviders: [[$class: 'CulpritsRecipientProvider'],[$class: 'RequesterRecipientProvider']],
         )
         echo 'Clean Workspace'
