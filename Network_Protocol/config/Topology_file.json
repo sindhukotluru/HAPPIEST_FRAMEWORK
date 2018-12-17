@@ -100,10 +100,12 @@
                         "R3" : "Ethernet 1/0"
                   },
        "Link_R2_MPLS": {
-                        "R2" : "Ethernet 1/0"
+                        "R2" : "Ethernet 1/0",
+                        "R2" : "Ethernet 1/2"
                   },
        "Link_R3_MPLS" : {
-                        "R3" : "Ethernet 1/1"
+                        "R3" : "Ethernet 1/1",
+                        "R3" : "Ethernet 1/2"
                   }
          }
 }

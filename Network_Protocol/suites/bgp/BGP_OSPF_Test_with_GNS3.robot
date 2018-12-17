@@ -57,17 +57,17 @@ Enable BGP Synchronisation
        Enable synchronisation between border routers
 
 Configure EBGP and source the BGP updates from the loopback0 interfaces
-	    Enable BGP and advertise networks connected outside the autonomous system
+       Enable BGP and advertise networks connected outside the autonomous system
 
-            Advertise loopback interface on AS1 and AS3
+       Advertise loopback interface on AS1 and AS3
 
-            Establish route between R2 and R3
+       Establish route between R2 and R3
 
 Redistribute routes from OSPF into BGP
-            Redistribute routes from OSPF into BGP
+       Redistribute routes from OSPF into BGP
 
 Redistribute connnected routes into BGP
-            Redistribute connnected routes into BGP
+       Redistribute connnected routes into BGP
 
 
 Check if ip address is set and interface is up

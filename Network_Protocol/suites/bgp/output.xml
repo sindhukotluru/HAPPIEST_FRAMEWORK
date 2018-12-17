@@ -1,158 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1 (Python 3.5.2 on linux)" rpa="false" generated="20181213 14:50:08.726">
-<suite source="/root/L3VPN/HAPPIEST_FRAMEWORK/Network_Protocol/suites/bgp/BGP_L3VPN.robot" name="BGP L3VPN" id="s1">
-<test name="Configure MP-BGP on PE routers" id="s1-t1">
-<kw name="Enable MP-BGP on PE routers" library="Resource">
-<kw name="Log To Console" library="BuiltIn">
+<robot generator="Robot 3.0.4 (Python 3.5.2 on linux)" generated="20181217 11:02:39.228">
+<suite id="s1" name="BGP L3VPN" source="/opt/HAPPIEST_FRAMEWORK/Network_Protocol/suites/bgp/BGP_L3VPN.robot">
+<test id="s1-t1" name="Configure IP addresses as per the topology">
+<kw library="Resource" name="Ensure that different autonomous systems can communicate with each other">
+<kw library="BuiltIn" name="Log">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Autonomous system communication validated</arg>
+</arguments>
+<msg timestamp="20181217 11:02:39.434" level="INFO">Autonomous system communication validated</msg>
+<status endtime="20181217 11:02:39.434" status="PASS" starttime="20181217 11:02:39.434"></status>
+</kw>
+<kw library="BuiltIn" name="Log To Console">
 <doc>Logs the given message to the console.</doc>
 <arguments>
-<arg>Configure MPLS on PE router R2 and R3</arg>
+<arg>Verify Ping operation from PC-1 to Ubuntu</arg>
 </arguments>
-<status status="PASS" endtime="20181213 14:50:09.340" starttime="20181213 14:50:09.339"></status>
+<status endtime="20181217 11:02:39.435" status="PASS" starttime="20181217 11:02:39.434"></status>
 </kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R2</arg>
-<arg>${MPLS_R2_Interface}</arg>
-<arg>${MPLS_LABEL_PROTO}</arg>
-<arg>enable</arg>
-</arguments>
-<assign>
-<var>${mpls_R2}</var>
-</assign>
-<msg level="INFO" timestamp="20181213 14:50:09.341">${mpls_R2} = ['R2', ['Link_R2_MPLS'], 'ldp', 'enable']</msg>
-<status status="PASS" endtime="20181213 14:50:09.341" starttime="20181213 14:50:09.340"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>R3</arg>
-<arg>${MPLS_R3_Interface}</arg>
-<arg>${MPLS_LABEL_PROTO}</arg>
-<arg>enable</arg>
-</arguments>
-<assign>
-<var>${mpls_R3}</var>
-</assign>
-<msg level="INFO" timestamp="20181213 14:50:09.342">${mpls_R3} = ['R3', ['Link_R3_MPLS'], 'ldp', 'enable']</msg>
-<status status="PASS" endtime="20181213 14:50:09.342" starttime="20181213 14:50:09.342"></status>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<doc>Returns a list containing given items.</doc>
-<arguments>
-<arg>${mpls_R3}</arg>
-<arg>${mpls_R2}</arg>
-</arguments>
-<assign>
-<var>${load_mpls}</var>
-</assign>
-<msg level="INFO" timestamp="20181213 14:50:09.344">${load_mpls} = [['R3', ['Link_R3_MPLS'], 'ldp', 'enable'], ['R2', ['Link_R2_MPLS'], 'ldp', 'enable']]</msg>
-<status status="PASS" endtime="20181213 14:50:09.344" starttime="20181213 14:50:09.343"></status>
-</kw>
-<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
 <doc>Runs the keyword and continues execution even if a failure occurs.</doc>
 <arguments>
-<arg>start_mpls_bgp</arg>
-<arg>${load_mpls}</arg>
+<arg>ping router</arg>
+<arg>PC-1</arg>
+<arg>ping</arg>
+<arg>${Host2_IP}</arg>
 </arguments>
 <assign>
 <var>${result}</var>
 </assign>
-<kw name="Start Mpls Bgp" library="config_ip">
+<kw library="operational_ph" name="Ping Router">
 <arguments>
-<arg>${load_mpls}</arg>
+<arg>PC-1</arg>
+<arg>ping</arg>
+<arg>${Host2_IP}</arg>
 </arguments>
-<msg level="INFO" timestamp="20181213 14:50:27.277">Waiting thread #ConfigureRouter_R3
-
-R3#
-R3#                                          configure terminal
-Enter configuration commands, one per line.  End with CNTL/Z.
-R3(config)#
-R3(config)#                                          ip cef
-R3(config)#
-R3(config)#                                          mpls label protocol ldp
-R3(config)#
-R3(config)#                                          mpls ldp router-id Loopb$                               mpls ldp router-id Loopba         ck0 force
-R3(config)#
-R3(config)#                                          interface Ethernet 1/1
-R3(config-if)#
-R3(config-if)#                                          mpls ip
-R3(config-if)#
-R3(config-if)#                                          mpls label protocol l$                               mpls label protocol ld         p
-R3(config-if)#
-R3(config-if)#                                          
-
-R2#
-R2#                                          configure terminal
-Enter configuration commands, one per line.  End with CNTL/Z.
-R2(config)#
-R2(config)#                                          ip cef
-R2(config)#
-R2(config)#                                          mpls label protocol ldp
-R2(config)#
-R2(config)#                                          mpls ldp router-id Loopb$                               mpls ldp router-id Loopba         ck0 force
-R2(config)#
-R2(config)#                                          interface Ethernet 1/0
-R2(config-if)#
-R2(config-if)#                                          mpls ip
-R2(config-if)#
-R2(config-if)#                                          mpls label protocol l$                               mpls label protocol ld         p
-R2(config-if)#
-R2(config-if)#                                          
-Waiting thread #ConfigureRouter_R2</msg>
-<status status="PASS" endtime="20181213 14:50:27.278" starttime="20181213 14:50:09.345"></status>
+<msg timestamp="20181217 11:02:54.702" level="INFO">ping
+ping 192.168.80.20 -c 5 
+84 bytes from 192.168.80.20 icmp_seq=1 ttl=60 time=50.100 ms
+84 bytes from 192.168.80.20 icmp_seq=2 ttl=60 time=45.450 ms
+84 bytes from 192.168.80.20 icmp_seq=3 ttl=60 time=45.086 ms
+84 bytes from 192.168.80.20 icmp_seq=4 ttl=60 time=45.887 ms
+84 bytes from 192.168.80.20 icmp_seq=5 ttl=60 time=45.592 ms</msg>
+<status endtime="20181217 11:02:54.703" status="PASS" starttime="20181217 11:02:39.435"></status>
 </kw>
-<msg level="INFO" timestamp="20181213 14:50:27.278">${result} = True</msg>
-<status status="PASS" endtime="20181213 14:50:27.278" starttime="20181213 14:50:09.344"></status>
+<msg timestamp="20181217 11:02:54.703" level="INFO">${result} = True</msg>
+<status endtime="20181217 11:02:54.703" status="PASS" starttime="20181217 11:02:39.435"></status>
 </kw>
-<kw name="Run Keyword If" library="BuiltIn">
+<kw library="BuiltIn" name="Run Keyword If">
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
 <arguments>
 <arg>${result}==False</arg>
 <arg>FAIL</arg>
-<arg>Unable to configure MP-BGP on PE routers</arg>
+<arg>Unable to reach ONL from PC-1 to Ubuntu</arg>
 </arguments>
-<status status="PASS" endtime="20181213 14:50:27.279" starttime="20181213 14:50:27.279"></status>
+<status endtime="20181217 11:02:54.704" status="PASS" starttime="20181217 11:02:54.704"></status>
 </kw>
-<status status="PASS" endtime="20181213 14:50:27.280" starttime="20181213 14:50:09.339"></status>
+<kw library="BuiltIn" name="Log To Console">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Verify Ping operation from Ubuntu to PC-1</arg>
+</arguments>
+<status endtime="20181217 11:02:54.705" status="PASS" starttime="20181217 11:02:54.704"></status>
 </kw>
-<status status="PASS" critical="yes" endtime="20181213 14:50:27.281" starttime="20181213 14:50:09.337"></status>
-</test>
-<doc>A test suite with tests for configuring BGP.
-Topology:-
-____________________________
-| R1 AS2 |
-| /  |
-| /  |
-| R2------ R3 |
-|_________|________|_________|
-| |
-______|__ ___|______
-| AS1| | AS3|
-| R4 | | R5 |
-|_________| |__________|</doc>
-<metadata>
-<item name="Version">1.0
-More Info For more information about Robot Framework see http://robotframework.org
-Author Payal Jain
-Date 19 Dec 2016
-Executed At ${HOST}
-Test Framework Robot Framework Python</item>
-</metadata>
-<status status="PASS" endtime="20181213 14:50:27.289" starttime="20181213 14:50:08.729"></status>
-</suite>
-<statistics>
-<total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
-</total>
-<tag>
-</tag>
-<suite>
-<stat pass="1" name="BGP L3VPN" id="s1" fail="0">BGP L3VPN</stat>
-</suite>
-</statistics>
-<errors>
-</errors>
-</robot>
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>ping router</arg>
+<arg>Ubuntu</arg>
+<arg>ping</arg>
+<arg>${Host1_IP}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw library="operational_ph" name="Ping Router">
+<arguments>
+<arg>Ubuntu</arg>
+<arg>ping</arg>
+<arg>${Host1_IP}</arg>
+</arguments>
+<msg timestamp="20181217 11:03:49.865" level="INFO">ping</msg>
+<status endtime="20181217 11:03:49.865" status="PASS" starttime="20181217 11:02:54.705"></status>
+</kw>
+<msg timestamp="20181217 11:03:49.865" level="INFO">${result} = None</msg>
+<status endtime="20181217 11:03:49.866" status="PASS" starttime="20181217 11:02:54.705"></status>
+</kw>
+<kw library="BuiltIn" name="Run Keyword If">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>Unable to reach VPCS from Ubuntu to PC-1</arg>
+</arguments>
+<status endtime="20181217 11:03:49.866" status="PASS" starttime="20181217 11:03:49.866"></status>
+</kw>
+<status endtime="20181217 11:03:49.867" status="PASS" starttime="20181217 11:02:39.433"></status>
+</kw>
+<kw library="Resource" name="Configure ip address">
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R1</arg>
+<arg>${Links_of_R1}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R1}</var>
+</assign>
+<msg timestamp="20181217 11:03:49.868" level="INFO">${load_device_R1} = ['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'configure']</msg>
+<status endtime="20181217 11:03:49.868" status="PASS" starttime="20181217 11:03:49.867"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R2</arg>
+<arg>${Links_of_R2}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R2}</var>
+</assign>
+<msg timestamp="20181217 11:03:49.869" level="INFO">${load_device_R2} = ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1', 'Link_R2_R3_1'], 'configure']</msg>
+<status endtime="20181217 11:03:49.869" status="PASS" starttime="20181217 11:03:49.868"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R3</arg>
+<arg>${Links_of_R3}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R3}</var>
+</assign>
+<msg timestamp="20181217 11:03:49.869" level="INFO">${load_device_R3} = ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1', 'Link_R2_R3_1'], 'configure']</msg>
+<status endtime="20181217 11:03:49.869" status="PASS" starttime="20181217 11:03:49.869"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R4</arg>
+<arg>${Links_of_R4}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R4}</var>
+</assign>
+<msg timestamp="20181217 11:03:49.870" level="INFO">${load_device_R4} = ['R4', ['Link_R2_R4_1', 'Link_R4_PC-1_1'], 'configure']</msg>
+<status endtime="20181217 11:03:49.870" status="PASS" starttime="20181217 11:03:49.870"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R5</arg>
+<arg>${Links_of_R5}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R5}</var>
+</assign>
+<msg timestamp="20181217 11:03:49.871" level="INFO">${load_device_R5} = ['R5', ['Link_R3_R5_1', 'Link_R5_PC-2_1'], 'configure']</msg>
+<status endtime="20181217 11:03:49.871" status="PASS" starttime="20181217 11:03:49.870"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>PC-1</arg>
+<arg>configure</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${load_device_PC1}</var>
+</assign>
+<msg timestamp="20181217 11:03:49.871" level="INFO">${load_device_PC1} = ['PC-1', 'configure', '255.255.255.0']</msg>
+<status endtime="20181217 11:03:49.872" status="PASS" starttime="20181217 11:03:49.871"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>Ubuntu</arg>
+<arg>configure</arg>
+<arg>${mask}</arg>
+</arguments>
+<assign>
+<var>${load_device_PC2}</var>
+</assign>
+<msg timestamp="20181217 11:03:49.872" level="INFO">${load_device_PC2} = ['Ubuntu', 'configure', '255.255.255.0']</msg>
+<status endtime="20181217 11:03:49.872" status="PASS" starttime="20181217 11:03:49.872"></status>
+</kw>
+<kw library="BuiltIn" name="Create List">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${load_device_R1}</arg>
+<arg>${load_device_R2}</arg>
+<arg>${load_device_R3}</arg>
+<arg>${load_device_R4}</arg>
+<arg>${load_device_R5}</arg>
+<arg>${load_device_PC1}</arg>
+<arg>${load_device_PC2}</arg>
+</arguments>
+<assign>
+<var>${load_devices}</var>
+</assign>
+<msg timestamp="20181217 11:03:49.873" level="INFO">${load_devices} = [['R1', ['Link_R1_R2_1', 'Link_R1_R3_1'], 'configure'], ['R2', ['Link_R1_R2_1', 'Link_R2_R4_1', 'Link_R2_R3_1'], 'configure'], ['R3', ['Link_R1_R3_1', 'Link_R3_R5_1', 'Link_R2_R3_1'], 'configure'], ['...</msg>
+<status endtime="20181217 11:03:49.873" status="PASS" starttime="20181217 11:03:49.872"></status>
+</kw>
+<kw library="BuiltIn" name="Run Keyword And Continue On Failure">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
