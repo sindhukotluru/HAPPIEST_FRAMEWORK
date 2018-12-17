@@ -47,15 +47,21 @@ class VRF:
                         child.sendline('exit')
                         child.sendcontrol('m')
                 else:
-                    unconfig = """
-                        configure terminal
-                        no ip vrf %s
-                        exit
-                        exit
-                        """ % (vrf_name)
-                    commands = unconfig.split('\n')
-                    execute.execute(child, commands)
-                    child.sendcontrol('m')
+                    if isinstance(Links, list):
+                        for Lnk in Links:
+                            interface = device_data['Link_Details'][Lnk][Device]
+                            unconfig = """
+                            configure terminal
+                            no ip vrf %s
+                            interface  %s
+                            no ip vrf forwarding  %s
+                            no ip address %s %s
+                            exit
+                            exit
+                            """ % (vrf_name, interface, vrf_name, ip_addr, mask)
+                            commands = unconfig.split('\n')
+                            execute.execute(child, commands)
+                            child.sendcontrol('m')
 
                 return True
 

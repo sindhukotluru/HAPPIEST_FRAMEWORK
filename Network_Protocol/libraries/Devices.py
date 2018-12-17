@@ -221,10 +221,10 @@ class Devices:
         unconfig = """
           configure terminal
           interface %s
-          ip address 127.0.0.1 255.255.255.255
+          no ip address %s
           end
           exit
-          """ % ('loopback0')
+          """ % ('loopback0', LO_interface_add)
         commands = unconfig.split('\n')
         execute.execute(child, commands)
         child.sendcontrol('m')

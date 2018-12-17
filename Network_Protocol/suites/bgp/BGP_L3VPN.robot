@@ -27,13 +27,12 @@ Resource         ../libraries/Resource.robot
 Library         DebugLibrary
 #Suite Setup       Setup Actions
 
-#Suite Teardown    Teardown Actions
+Suite Teardown    Teardown Actions
 
 *** Test Cases ***
 
 Configure IP addresses as per the topology
-       Ensure that different autonomous systems can communicate with each other
-        Configure ip address
+      Configure ip address
 
 Configure loopback interface as per the topology
         Set loopback interface

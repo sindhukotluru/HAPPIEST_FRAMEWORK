@@ -57,6 +57,23 @@ Teardown Actions
     Run Keyword If    ${result}==False    FAIL    Unable to clear Loopback address on the interfaces
     Log To Console            Loopback_Address cleared on all Routers
 
+    Log To Console             Clearing VRFs on PE routers
+
+    ${vrf_R2_clear}=    Create List    R2    ${VRF_NAME}    ${RD}   ${RT}  ${VRF_R2_Interface}   ${R4_einterface}    ${mask}     disable
+    ${vrf_R3_clear}=    Create List    R3    ${VRF_NAME}    ${RD}   ${RT}  ${VRF_R3_Interface}   ${R5_einterface}    ${mask}     disable
+    ${vrf_config_clear}=    Create List    ${vrf_R2_clear}    ${vrf_R3_clear}
+    ${result}=    Run Keyword and Continue On Failure    start_configure_vrf   ${vrf_config_clear}
+    Run Keyword If    ${result}==False    FAIL    Removing VRFs on Routers has failed
+    Log To Console            Cleared VRFs configuration in Routers
+
+    Log To Console            Disable MPLS on PE router R2 and R3
+    ${mpls_R1_clear}=    Create List    R1   ${Links_of_R1}         ${MPLS_LABEL_PROTO}      disable
+    ${mpls_R2_clear}=    Create List    R2   ${MPLS_R2_Interface}   ${MPLS_LABEL_PROTO}      disable
+    ${mpls_R3_clear}=    Create List    R3   ${MPLS_R3_Interface}   ${MPLS_LABEL_PROTO}      disable
+    ${mpls_config_clear}=    Create List   ${mpls_R1_clear}   ${mpls_R2_clear}    ${mpls_R3_clear}
+    ${result}=    Run Keyword and Continue On Failure    start_mpls_bgp   ${mpls_config_clear}
+    Run Keyword If    ${result}==False    FAIL    Unable to clear MP-BGP on PE routers
+
     Log To Console            Clearing OSPF configuration
     ${ospf_R1}=    Create List    R1    ${Process_id}    ${Networks_connected_to_R1}    ${Area1}    disable
     ${ospf_R2}=    Create List    R2    ${Process_id}    ${Networks_connected_to_R2}    ${Area1}    disable
@@ -229,11 +246,11 @@ Ensure that different autonomous systems can communicate with each other
 
     Log To Console            Verify Ping operation from PC-1 to Ubuntu
     ${result}=    Run Keyword and Continue On Failure   ping router    PC-1   ping    ${Host2_IP}
-    Run Keyword If    ${result}==False    FAIL    Unable to reach ONL from PC-1 to Ubuntu
+    Run Keyword If    ${result}==False    FAIL    Unable to reach from PC-1 to Ubuntu
 
     Log To Console            Verify Ping operation from Ubuntu to PC-1
     ${result}=    Run Keyword and Continue On Failure   ping router    Ubuntu   ping    ${Host1_IP}
-    Run Keyword If    ${result}==False    FAIL    Unable to reach VPCS from Ubuntu to PC-1
+    Run Keyword If    ${result}==False    FAIL    Unable to reach from Ubuntu to PC-1
 
 Check if OSPF neighbors are established
     Log To Console    Checking if OSPF neighbors are established
@@ -256,8 +273,8 @@ Check if BGP sessions are established
 Ensure the VRF reachability between PE routers
 
     Log To Console            Verify VRF ping from PE router (R2,R3) to Host
-    ${ping_vrf_R2}=    Create List    ping vrf    R2    vrf1   ${Host2_IP}
-    ${ping_vrf_R3}=    Create List    ping vrf    R3    vrf1   ${Host1_IP}
+    ${ping_vrf_R2}=    Create List     R2    ${VRF_NAME}    ${Host2_IP}
+    ${ping_vrf_R3}=    Create List     R3    ${VRF_NAME}    ${Host1_IP}
     ${load_ping_vrf}=    Create List    ${ping_vrf_R2}    ${ping_vrf_R3}
     ${result}=    Run Keyword and Continue On Failure   ping vrf    ${load_ping_vrf}
     Run Keyword If    ${result}==False    FAIL    Unable to reach Host from VRF1
@@ -298,14 +315,14 @@ Enable BGP on customer routers
 
     ${result}=    Run Keyword and Continue On Failure    ebgp configure     ${ebgp_enable}
     Run Keyword If    ${result}==False    FAIL    EBGP configuration on customer routers failed
-    Log To Console            EBGP configured on customer routers 
+    Log To Console            EBGP configured on customer routers
 
 
 Enable EBGP towards customers on the PE routers
 
     Log To Console    Enable EBGP towards customers on the PE routers
-    ${ebgp_vrf_R2}=    Create List    R2    ${R2_AS_id}   ${VRF_NAME}   ${R2_einterface}   ${R2_neighbor_AS_id}   enable  
-    ${ebgp_vrf_R3}=    Create List    R3    ${R3_AS_id}   ${VRF_NAME}   ${R3_einterface}   ${R3_neighbor_AS_id}   enable  
+    ${ebgp_vrf_R2}=    Create List    R2    ${R2_AS_id}   ${VRF_NAME}   ${R2_einterface}   ${R2_neighbor_AS_id}   enable
+    ${ebgp_vrf_R3}=    Create List    R3    ${R3_AS_id}   ${VRF_NAME}   ${R3_einterface}   ${R3_neighbor_AS_id}   enable
     ${ebgp_vrf}=    Create List       ${ebgp_vrf_R2}    ${ebgp_vrf_R3}
 
     ${result}=    Run Keyword and Continue On Failure    ebgp vrf configure   ${ebgp_vrf}

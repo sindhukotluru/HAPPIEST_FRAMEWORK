@@ -133,16 +133,16 @@ def ping_router(Device, Action, Peer_IP, Count="5"):
     if child:
       child.sendcontrol('m')
       child.sendcontrol('m')
-      flag = child.expect(['PC-1>*', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
+      flag = child.expect(['PC-1>*', 'root*', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
 
-      if flag == 0:
+      if flag in (0, 1):
               configs = "ping %s -c %s " % (Peer_IP, Count)
               commands = configs.split('\n')
               execute.execute(child, commands)
               resp = child.before.decode('utf-8')
               child.sendcontrol('m')
               child.sendcontrol('m')
-              regex = r'bytes from %s icmp_seq' %(Peer_IP)
+              regex = r'bytes from %s' %(Peer_IP)
               if re.search(regex, resp):
                 return True
               else:
@@ -240,7 +240,7 @@ def checking_operabilty_bgp(Device, command):
           return False
 
 
-def ping_vrf(Device, vrf_name, host_ip):
+def pingvrf_PE(Device, vrf_name, host_ip):
     device_data = getdata.get_data()
     IP_add = device_data['Device_Details'][Device]['ip_add']
     Port_no = device_data['Device_Details'][Device]['port']
@@ -250,7 +250,7 @@ def ping_vrf(Device, vrf_name, host_ip):
       child.sendcontrol('m')
       child.sendcontrol('m')
       flag = child.expect(['R*#', pexpect.EOF, pexpect.TIMEOUT], timeout=50)
-       if flag == 0:
+      if flag == 0:
               configs = "ping vrf %s %s" % (vrf_name, host_ip)
               commands = configs.split('\n')
               execute.execute(child, commands)
@@ -262,5 +262,5 @@ def ping_vrf(Device, vrf_name, host_ip):
                 return True
               else:
                 return False
-     else:
-      return False
+      else:
+        return False

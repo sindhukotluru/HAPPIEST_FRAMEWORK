@@ -45,21 +45,23 @@ class MPLS:
                         child.sendcontrol('m')
 
                 else:
-                    for Lnk in Links:
-                        interface = device_data['Link_Details'][Lnk][Device]
-                        unconfig = """
-                        configure terminal
-                        no mpls label protocol %s
-                        no mpls ldp router-id Loopback0 force
-                        interface %s
-                        no mpls ip
-                        no mpls label protocol %s
-                        exit
-                        exit
-                        """ % (mpls_label_proto, interface, mpls_label_proto)
-                        commands = unconfig.split('\n')
-                        execute.execute(child, commands)
-                        child.sendcontrol('m')
+                    if isinstance(Links, list):
+                       for Lnk in Links:
+                           interface = device_data['Link_Details'][Lnk][Device]
+                           unconfig = """
+                           configure terminal
+                           no mpls label protocol %s
+                           no mpls ldp router-id Loopback0 force
+                           interface %s
+                           no mpls ip
+                           no mpls label protocol %s
+                           exit
+                           exit
+                           """ % (mpls_label_proto, interface, mpls_label_proto)
+                           commands = unconfig.split('\n')
+                           execute.execute(child, commands)
+                           time.sleep(6)
+                           child.sendcontrol('m')
 
                 return True
 
