@@ -221,10 +221,10 @@ class Devices:
         unconfig = """
           configure terminal
           interface %s
-          ip address 127.0.0.1 255.255.255.255
+          no ip address %s
           end
           exit
-          """ % ('loopback0')
+          """ % ('loopback0', LO_interface_add)
         commands = unconfig.split('\n')
         execute.execute(child, commands)
         child.sendcontrol('m')
@@ -307,7 +307,10 @@ class Devices:
     Port_no = device_data['Device_Details'][Device]['port']
     Gateway = device_data['Device_Details'][Device]['gateway']
     child = pexpect.spawn('telnet ' + IP_add + ' ' + Port_no)
-    clear_buffer.flushBuffer(1, child)
+    try:
+        clear_buffer.flushBuffer(1, child)
+    except pexpect.exceptions.EOF as exe:
+        print("Unable to reach router prompt")
     if child:
       child.sendcontrol('m')
       child.sendcontrol('m')
