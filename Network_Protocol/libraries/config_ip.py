@@ -441,7 +441,7 @@ class config_ip(object):
     @staticmethod
     def config_mpls(*args):
         mpls = MPLS.MPLS()
-        mpls.Configure_mpls(args[0], args[1],  args[2], args[3])
+        mpls.Configure_mpls(args[0], args[1], args[2], args[3])
 
     def start_mpls_bgp(self, devices):
         threads_device = {}
@@ -471,7 +471,7 @@ class config_ip(object):
     @staticmethod
     def config_mpbgp(*args):
         mpls = MPLS.MPLS()
-        mpls.Configure_mpbgp(args[0], args[1],  args[2], args[3])
+        mpls.Configure_mpbgp(args[0], args[1], args[2], args[3])
 
 
     def start_mpbgp(self, devices):
