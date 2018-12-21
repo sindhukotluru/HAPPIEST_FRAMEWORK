@@ -11,9 +11,9 @@ class config_ip(object):
         """args[0] is Router name ex., R1
            args[1] is Router link ex., Link_R1_R2"""
 
-        dev = Netconf_Device.Device()
+        dev = Netconf_Device.Netconf_Device()
         sys.stdout.write("Configuring IP address for %s" % args[0])
-        status = dev.set_IP(R6, Link_R6_cloud)
+        status = dev.set_IP(R6, Link_R6)
         if status is False:
             sys.stdout.write("Configuration of IP Address for %s Failed" % args[0])
         else:
