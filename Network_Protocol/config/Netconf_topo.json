@@ -1,0 +1,19 @@
+{
+
+        "Device_Details": {
+        "R6" :   {
+                        "Hostname" : "Device",
+                        "ip_add" : "10.16.105.105",
+                        "port" : "5009",
+                        "pwd" : "user1",
+                        "fastEthernet 0/0" : "10.16.82.173 255.255.255.0"
+                 }
+                          },
+        "Link_Details": {
+        "Link_R6_cloud_l" : {
+                        "R6" : "fastEthernet 0/0",
+                        "Cloud" : "eno2"
+                            }
+                        }
+         
+}

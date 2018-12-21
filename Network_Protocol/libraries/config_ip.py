@@ -563,4 +563,11 @@ class config_ip(object):
             return True
         else:
             return False
+     
+    @staticmethod
+    def config_netconf(*args):
+        dev = Netconf_Device.Netconf_Device.()
+        dev.configure_netconf(args[0], args[1], args[2])
 
+
+ 

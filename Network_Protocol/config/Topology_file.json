@@ -51,6 +51,13 @@
 			"Ethernet 1/0" : "192.168.45.6  255.255.255.0",
 			"Ethernet 1/1" : "192.168.80.10  255.255.255.0"
 		 },
+        "R6" :   {
+                        "Hostname" : "Device",
+                        "ip_add" : "10.16.105.105",
+                        "port" : "5009",
+                        "pwd" : "user1",
+                        "fastEthernet 0/0" : "10.16.82.173 255.255.255.0"
+                 },
 	"PC-1" :   {
 			"Hostname" : "PC-1",
 			"ip_add" : "10.16.105.105",
@@ -106,6 +113,10 @@
        "Link_R3_MPLS" : {
                         "R3" : "Ethernet 1/1",
                         "R3" : "Ethernet 1/2"
+                  },
+       "Link_R6": {
+                        "R6" : "fastEthernet 0/0"
                   }
+
          }
 }

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot rpa="false" generated="20181220 22:26:09.421" generator="Robot 3.1 (Python 2.7.12 on linux2)">
+<suite source="/home/test/sindhu/HAPPIEST_FRAMEWORK/Network_Protocol/suites/netconf/NETCONF.robot" id="s1" name="NETCONF">
+<test id="s1-t1" name="Configure ip addresses as per the topology">
+<kw name="Configure ip addresses as per topology" library="Netconf_resource">
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>Configuring IP_Address</arg>
+</arguments>
+<status status="PASS" endtime="20181220 22:26:09.447" starttime="20181220 22:26:09.447"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>R6</arg>
+<arg>${Links_of_R6}</arg>
+<arg>configure</arg>
+</arguments>
+<assign>
+<var>${load_device_R6}</var>
+</assign>
+<msg timestamp="20181220 22:26:09.447" level="INFO">${load_device_R6} = [u'R6', ['Link_R6_cloud'], u'configure']</msg>
+<status status="PASS" endtime="20181220 22:26:09.447" starttime="20181220 22:26:09.447"></status>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<arguments>
+<arg>start configure</arg>
+<arg>${load_device_R6}</arg>
+</arguments>
+<assign>
+<var>${result}</var>
+</assign>
+<kw name="Start Configure" library="netconf_config">
+<arguments>
+<arg>${load_device_R6}</arg>
+</arguments>
+<msg timestamp="20181220 22:26:09.448" level="FAIL">AttributeError: 'module' object has no attribute 'Device'</msg>
+<status status="FAIL" endtime="20181220 22:26:09.448" starttime="20181220 22:26:09.448"></status>
+</kw>
+<msg timestamp="20181220 22:26:09.448" level="INFO">${result} = None</msg>
+<status status="FAIL" endtime="20181220 22:26:09.448" starttime="20181220 22:26:09.448"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>${result}==False</arg>
+<arg>FAIL</arg>
+<arg>IP address configuration failed</arg>
+</arguments>
+<status status="PASS" endtime="20181220 22:26:09.449" starttime="20181220 22:26:09.448"></status>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<doc>Logs the given message to the console.</doc>
+<arguments>
+<arg>IP_Address configured on Routers</arg>
+</arguments>
+<status status="PASS" endtime="20181220 22:26:09.449" starttime="20181220 22:26:09.449"></status>
+</kw>
+<status status="FAIL" endtime="20181220 22:26:09.449" starttime="20181220 22:26:09.447"></status>
+</kw>
+<status status="FAIL" endtime="20181220 22:26:09.449" critical="yes" starttime="20181220 22:26:09.446">AttributeError: 'module' object has no attribute 'Device'</status>
+</test>
+<doc>A test suite with tests for configuring NETCONF.</doc>
+<status status="FAIL" endtime="20181220 22:26:09.450" starttime="20181220 22:26:09.422"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="NETCONF" pass="0">NETCONF</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
