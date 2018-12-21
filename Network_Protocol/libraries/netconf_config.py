@@ -4,7 +4,7 @@ import Netconf_Device
 from threading import Thread
 from time import sleep
 
-class config_ip(object):
+class netconf_config(object):
 
     @staticmethod
     def config_ip_addr(*args):
@@ -20,5 +20,5 @@ class config_ip(object):
             sys.stdout.write("Configured  IP Address for %s" % args[0])
 
 def start_configure(device):
-    config_ip.config_ip_addr(device[0], device[1], device[2])
+    netconf_config.config_ip_addr(device[0], device[1], device[2])
     
